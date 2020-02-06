@@ -9,12 +9,12 @@ export class BpaService {
   constructor(private httpClient: HttpClient) { }
 
   //
-  fnValidateLogin() {
+  fnValidateLogin(base64Credential) {
 
     const httpHeaders = {
       headers : new HttpHeaders({
         Accept : 'application/json',
-        Authorization: 'Basic YWRtaW46YWRtaW4='
+        Authorization: 'Basic ' + base64Credential
       })
     };
 
