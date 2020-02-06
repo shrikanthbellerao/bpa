@@ -8,9 +8,7 @@ export class BpaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  //
   fnValidateLogin() {
-
     const httpHeaders = {
       headers : new HttpHeaders({
         Accept : 'application/json',

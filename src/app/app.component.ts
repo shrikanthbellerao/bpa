@@ -7,7 +7,6 @@ import { BpaService } from './service/bpa.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'bpa app';
 
   constructor(private bpaService: BpaService) { }
 
