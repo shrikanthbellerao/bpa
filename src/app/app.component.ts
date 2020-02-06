@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BpaService } from './service/bpa.service';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +9,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AppComponent {
   title = 'bpa app';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private bpaService: BpaService) { }
 
   ngOnInit() {
     console.log('Inside ngOnInit');
+  }
 
-    const httpOptions = {
-      headers : new HttpHeaders({
-        Accept : 'application/json',
-        Authorization: 'Basic YWRtaW46YWRtaW4='
-      })
-    };
+  // Method to invoke a function in Service to validate whether the user is a valid user or not
+  fnFetchAccessToken() {
 
-    this.httpClient.post('https://10.83.34.65/bpa/api/v1.0/login', {}, httpOptions).subscribe((responseObj) => {
-      console.log('Response: ', responseObj);
+    this.bpaService.fnValidateLogin().subscribe((response) => {
+      console.log('Fetched data from Service: ', response);
     });
   }
 }
