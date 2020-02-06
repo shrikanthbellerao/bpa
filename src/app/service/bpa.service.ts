@@ -8,7 +8,6 @@ export class BpaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  //
   fnValidateLogin(base64Credential) {
 
     const httpHeaders = {
