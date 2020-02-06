@@ -8,6 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  userName: string = '';
+  password: string = '';
+  accessToken: string;
+  apiError = false;
+  startSpinner = false;
   constructor(private bpaService: BpaService,private router: Router) { }
 
   ngOnInit() {
@@ -15,10 +21,23 @@ export class LoginComponent implements OnInit {
   }
 
   // Method to invoke a function in Service to validate whether the user is a valid user or not
-  fnFetchAccessToken() {
-    this.bpaService.fnValidateLogin().subscribe((response) => {
+  fnValidateCredential(formData) {
+  this.startSpinner = true;
+    console.log('Inside fnValidateCredential', formData.value);
+
+    const base64Credential: string = btoa(formData.value.userName + ":" + formData.value.password);
+    console.log(base64Credential);
+
+    this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
       console.log('Fetched data from Service: ', response);
+      this.accessToken = response['access_token'];
+      this.apiError = false;
+      this.startSpinner = false;
       this.router.navigate(['/dashboard']);
-    }, err =>   alert('api fail'));
+    }, err =>  { this.apiError = true; this.startSpinner = false;} );
+  }
+
+  forGetPassword() {
+    console.log('forget password....')
   }
 }

@@ -1,0 +1,12 @@
+.centered {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    width:400px;
+    height:300px;
+    border: 2px solid skyblue;
+    padding: 10px 30px;
+    transform: translate(-50%, -50%);
+  }
+
+  

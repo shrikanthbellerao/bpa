@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
