@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  progressBarWidth: string = '20%';
+
+  ngOnInit() {
+
+    setTimeout(() => {
+      this.progressBarWidth = '80%';
+    }, 3000);
+  }
 }

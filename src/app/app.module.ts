@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { TimelineComponent } from './components/utils/timeline/timeline.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,

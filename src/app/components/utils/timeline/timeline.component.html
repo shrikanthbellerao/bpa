@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+
+
+    <div class="main-card mb-3 card">
+      <div class="card-body">
+        <h5 class="card-title">Basic</h5>
+        <div class="vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
+
+          <div class="vertical-timeline-item vertical-timeline-element" *ngFor="let timelineEle of timelineElements">
+            <div>
+              <div class="vertical-timeline-element-icon bounce-in">
+                <div class="timeline-icon border-primary bg-primary">
+                  <i class="fa fa-{{ timelineEle.faName }} text-white"></i>
+                </div>
+              </div>
+              <div class="vertical-timeline-element-content bounce-in">
+                <h4 class="timeline-title">
+                  {{ timelineEle.heading }}
+                </h4>
+                <p>
+                  {{ timelineEle.body }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
