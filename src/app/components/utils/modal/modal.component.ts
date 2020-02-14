@@ -6,8 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
   @Input()
-  sendData:any;
+  modalConfig:any;
     constructor() { }
   ngOnInit() {
   }
+  /* Modal app.component.ts code
+  modalConfig = {
+    title:"Login" ,
+    body:"Login Content",
+    buttonLst:[
+      {btnLabel1: "Ok",
+      btnLabel2: "Submit"},
+   ]
+  };*/
 }
