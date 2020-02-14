@@ -31,13 +31,17 @@ export class LoginComponent implements OnInit {
     this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
       console.log('Fetched data from Service: ', response);
       this.accessToken = response['access_token'];
+      this.bpaService.showSuccess('Login Successful!')
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
-    }, err =>  { this.apiError = true; this.startSpinner = false;} );
+    }, err =>  {  this.bpaService.showError('Invalid Credentials')
+    this.bpaService.showWarning('Maximum Attempts Allowed is 5')
+    this.apiError = true; this.startSpinner = false;} );
   }
 
   forGetPassword() {
     console.log('forget password....')
+    this.bpaService.showInfo('Remember Next time')
   }
 }

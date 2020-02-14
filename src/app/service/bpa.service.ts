@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BpaService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,private toastr: ToastrService) { }
 
   fnValidateLogin(base64Credential) {
 
@@ -22,4 +23,16 @@ export class BpaService {
 
     return this.httpClient.post(url, requestBody, httpHeaders);
   }
+  showSuccess(msg) {
+    this.toastr.success(msg, 'Success!');
+    }
+  showError(msg) {
+    this.toastr.error(msg, 'Error!');
+    }
+  showWarning(msg) {
+    this.toastr.warning(msg, 'Alert!');
+    }
+  showInfo(msg) {
+    this.toastr.info(msg, 'Info');
+    }
 }

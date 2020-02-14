@@ -15,4 +15,12 @@ export class AppComponent {
       this.progressBarWidth = '80%';
     }, 3000);
   }
+  configs = {
+    title:"Login" ,
+    body:"Login Content",
+    btn:[
+      {bText1: "Ok",
+      bText2: "Submit"},
+   ]
+  };
 }
