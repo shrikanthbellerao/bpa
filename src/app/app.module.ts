@@ -10,14 +10,18 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
+import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
+import { TabComponent } from './components/utils/tab/tab.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    CollapsibleComponent,
     SpinnerComponent,
-    TimelineComponent
+    TimelineComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,

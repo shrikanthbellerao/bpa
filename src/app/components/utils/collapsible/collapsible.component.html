@@ -1,0 +1,18 @@
+<div id="accordion">
+  <div class="card" *ngFor='let item of fq;let i=index'>
+    <div class="card-header color" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn whitecolor hoverbg" data-toggle="collapse" [attr.data-target]="'#target' + i" aria-expanded="true" aria-controls="collapseOne">
+          {{item.title}}
+        </button>
+      </h5>
+    </div>
+
+    <div id="target{{i}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+{{
+  item.body
+}}      </div>
+    </div>
+  </div>
+  </div>
