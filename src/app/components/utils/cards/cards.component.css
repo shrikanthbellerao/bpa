@@ -1,0 +1,19 @@
+#outerblock
+{
+    text-align:left; 
+    
+    
+}
+#block1
+{
+    margin:auto;
+}
+#outer
+{
+    text-align:right;
+}
+#inner
+{   margin-left:20px;
+    display:inline;
+    
+}
