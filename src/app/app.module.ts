@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -12,7 +11,6 @@ import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
-import { ToasterComponent } from './components/utils/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +19,7 @@ import { ToasterComponent } from './components/utils/toaster/toaster.component';
     DashboardComponent,
     SpinnerComponent,
     TimelineComponent,
-    ModalComponent,
-    ToasterComponent
+    ModalComponent
   ],
   imports: [
     BrowserModule,

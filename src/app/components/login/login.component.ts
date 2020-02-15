@@ -35,9 +35,10 @@ export class LoginComponent implements OnInit {
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
-    }, err =>  {  /* Toaster code this.bpaService.showError('Invalid Credentials')
-    this.bpaService.showWarning('Maximum Attempts Allowed is 5')
-  this.apiError = true; this.startSpinner = false;*/} );
+    }, err =>  {  this.apiError = true; this.startSpinner = false;
+      /* Toaster code this.bpaService.showError('Invalid Credentials')
+    this.bpaService.showWarning('Maximum Attempts Allowed is 5')*/
+  } );
   }
 
   forGetPassword() {

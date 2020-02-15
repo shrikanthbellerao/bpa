@@ -23,7 +23,7 @@ export class BpaService {
 
     return this.httpClient.post(url, requestBody, httpHeaders);
   }
-  showSuccess(msg) {
+  /* Toaster code showSuccess(msg) {
     this.toastr.success(msg, 'Success!');
     }
   showError(msg) {
@@ -34,5 +34,5 @@ export class BpaService {
     }
   showInfo(msg) {
     this.toastr.info(msg, 'Info');
-    }
+    }*/
 }

@@ -10,12 +10,6 @@
 # dependencies
 /node_modules
 package-lock.json
-/src/app/components/utils/modal/modal.component.css
-/src/app/components/utils/toaster/toaster.component.html
-/src/app/components/utils/toaster/toaster.component.css
-/src/app/components/utils/toaster/toaster.component.ts
-
-
 
 # profiling files
 chrome-profiler-events.json
