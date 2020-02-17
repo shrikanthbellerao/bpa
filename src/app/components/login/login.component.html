@@ -1,31 +1,34 @@
 <app-spinner *ngIf="startSpinner"></app-spinner>
-  <form class='centered' (ngSubmit)="fnValidateCredential(loginForm)" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="userName">
-        CEC ID
-      </label>
-      <input required type="text" name="userName" [value]="userName" ngModel class="form-control">
-    </div>
-    <div *ngIf="loginForm.control.get('userName') && loginForm.control.get('userName').touched && loginForm.control.get('userName').invalid">
-     <span class="text-danger" *ngIf="loginForm.control.get('userName').errors.required">User name Required</span>
-    </div>
-     <div class="form-group">
-      <label for="password">
-        Password
-      </label>
-      <input required type="password" name="password" [value]="password" ngModel class="form-control">
-    </div>
-    <div *ngIf="loginForm.control.get('password') && loginForm.control.get('password').touched && loginForm.control.get('password').invalid">
-      <span class="text-danger" *ngIf="loginForm.control.get('password').errors.required">Password Required</span>
-     </div>
-    <button [disabled]='!loginForm.valid' class="btn btn-primary m-2" type="submit">
-      Login
-    </button>
-    <button (click)='forGetPassword()' class="btn btn-warning" type="button">
-      Forget Password
-    </button>
-    <div *ngIf="apiError">
-      <hr>
-      <h5 class="text-danger">Api Failed</h5>
-    </div>
-  </form>
+
+<form class='centered' (ngSubmit)="fnValidateCredential(loginForm)" #loginForm="ngForm">
+  <div class="form-group">
+    <label for="userName">
+      CEC ID
+    </label>
+    <input required type="text" name="userName" [value]="userName" ngModel class="form-control">
+  </div>
+  <div
+    *ngIf="loginForm.control.get('userName') && loginForm.control.get('userName').touched && loginForm.control.get('userName').invalid">
+    <span class="text-danger" *ngIf="loginForm.control.get('userName').errors.required">User name Required</span>
+  </div>
+  <div class="form-group">
+    <label for="password">
+      Password
+    </label>
+    <input required type="password" name="password" [value]="password" ngModel class="form-control">
+  </div>
+  <div
+    *ngIf="loginForm.control.get('password') && loginForm.control.get('password').touched && loginForm.control.get('password').invalid">
+    <span class="text-danger" *ngIf="loginForm.control.get('password').errors.required">Password Required</span>
+  </div>
+  <button [disabled]='!loginForm.valid' class="btn btn-primary m-2" type="submit">
+    Login
+  </button>
+  <button (click)='forGetPassword()' class="btn btn-warning" type="button">
+    Forget Password
+  </button>
+  <div *ngIf="apiError">
+    <hr>
+    <h5 class="text-danger">Api Failed</h5>
+  </div>
+</form>

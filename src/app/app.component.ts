@@ -15,5 +15,4 @@ export class AppComponent {
       this.progressBarWidth = '80%';
     }, 3000);
   }
-  
 }

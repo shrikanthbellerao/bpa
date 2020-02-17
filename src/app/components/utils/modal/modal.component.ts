@@ -3,19 +3,29 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'app-modal',
   templateUrl: './modal.component.html'
 })
+
+/* Sample modalConfig Object:
+
+  modalConfig = {
+    title:"Login",
+    body:"Login Content",
+    buttonLst:[{
+      btnLabel: "Ok"
+    },{
+      btnLabel: "Submit"
+    },{
+      ....
+    }]
+  };
+
+*/
+
 export class ModalComponent implements OnInit {
+
   @Input()
   modalConfig:any;
-    constructor() { }
-  ngOnInit() {
-  }
-  /* Modal app.component.ts code
-  modalConfig = {
-    title:"Login" ,
-    body:"Login Content",
-    buttonLst:[
-      {btnLabel1: "Ok",
-      btnLabel2: "Submit"},
-   ]
-  };*/
+
+  constructor() { }
+
+  ngOnInit() { }
 }

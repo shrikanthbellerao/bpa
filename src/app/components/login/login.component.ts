@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   accessToken: string;
   apiError = false;
   startSpinner = false;
+
   constructor(private bpaService: BpaService,private router: Router) { }
 
   ngOnInit() {
@@ -31,18 +32,13 @@ export class LoginComponent implements OnInit {
     this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
       console.log('Fetched data from Service: ', response);
       this.accessToken = response['access_token'];
-      /* Toaster code this.bpaService.showSuccess('Login Successful!')*/
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
-    }, err =>  {  this.apiError = true; this.startSpinner = false;
-      /* Toaster code this.bpaService.showError('Invalid Credentials')
-    this.bpaService.showWarning('Maximum Attempts Allowed is 5')*/
-  } );
+    }, err =>  {  this.apiError = true; this.startSpinner = false;} );
   }
 
   forGetPassword() {
     console.log('forget password....')
-    /* Toaster code this.bpaService.showInfo('Remember Next time')*/
   }
 }

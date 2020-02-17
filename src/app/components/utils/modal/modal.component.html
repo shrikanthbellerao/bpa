@@ -1,30 +1,36 @@
+<!-- Instructions to use Modal in other components:
+
+<div class="container"> 
+  <div class="container">
+    <app-modal [modalConfig]="modalConfig"></app-modal>
+  </div>
+</div>
+
+-->
+
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDialog">
   Launch demo modal
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalDialog" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{modalConfig.title}}</h5>
+        <h5 class="modal-title" id="modalDialogLabel">{{modalConfig.title}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body"><p>{{modalConfig.body}}</p>
       </div>
-      <div class="modal-footer" *ngFor ='let btn of modalConfig.buttonLst'>
-        <button type="button" class="btn btn-secondary"  >{{btn.btnLabel1}}</button>
-        <button type="button" class="btn btn-primary">{{btn.btnLabel2}}</button>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" *ngFor ='let btn of modalConfig.buttonLst'>
+          {{btn.btnLabel}}
+        </button>
       </div> 
     </div>
   </div>
 </div>
 
-<!-- Modal app.component.html code
-  <div class="container"> 
-    <div class="container">
-      <app-modal [modalConfig]="modalConfig"></app-modal></div>
-  </div>-->
