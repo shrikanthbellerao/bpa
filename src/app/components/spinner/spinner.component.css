@@ -1,5 +1,5 @@
 .loading-icon {
-    background: url(../../../assets/loader.gif) center no-repeat rgba(255, 255, 255, .4);
+    /*background: url(../../../assets/loader.gif) center no-repeat rgba(255, 255, 255, .4);*/
     display: inline-block;
     font-size: 0;
     height: 100%;

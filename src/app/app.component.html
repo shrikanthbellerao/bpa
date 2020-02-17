@@ -1,17 +1,10 @@
-<div class="container">
+<!-- <button class="btn btn-primary">
+  Fetch data from API
+</button>
+<!-->
+
+
+  <router-outlet></router-outlet>
+  <app-tooltip [toolTipResponse]='toolResponse'></app-tooltip>
   
-  <!-- <div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" 
-    [ngStyle]="{'width': progressBarWidth }">
-      {{progressBarWidth}}
-    </div>
-  </div> -->
-
-  
-
-  <!-- <app-timeline [timelineElements]="shrikanthLst"></app-timeline> -->
-
-  <app-dashboard></app-dashboard>
-
-  <!-- <router-outlet></router-outlet> -->
-</div>
+  <app-progressbar [progressBarResponse]='progressResponse'></app-progressbar>

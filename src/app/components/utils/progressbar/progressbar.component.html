@@ -1,0 +1,12 @@
+<!-- <hr>
+{{name}} <br>
+{{subPleas}}
+
+<div class="first">
+  <div  class="progress-bar" role="progressbar" aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'           
+  [ngStyle]="{'width':progressBarWidth}" > </div>
+</div>
+{{progressBarWidth}} -->
+<div class="progress">
+  <div class="progress-bar" role="progressbar" [style.width]=progressBarResponse.value  >{{progressBarResponse.value}}</div>
+</div>

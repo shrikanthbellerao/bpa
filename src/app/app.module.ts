@@ -10,6 +10,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
+import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
+import { ProgressbarComponent } from './components/utils/progressbar/progressbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TimelineComponent } from './components/utils/timeline/timeline.componen
     LoginComponent,
     DashboardComponent,
     SpinnerComponent,
-    TimelineComponent
+    TimelineComponent,
+    TooltipComponent,
+    ProgressbarComponent
   ],
   imports: [
     BrowserModule,
