@@ -14,7 +14,7 @@ export class ChartComponent implements OnInit {
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{}] },
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = ['06', '07', '08', '09', '10', '11', '12'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 

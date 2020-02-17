@@ -1,6 +1,6 @@
 .container {
-    max-width:1000px;
-    max-height: 640px;
+    max-width: 400px;
+    max-height: 300px;
     overflow: hidden;
     margin: 20px auto 0;
     box-shadow: 0 0 40px #a0a0a0;
