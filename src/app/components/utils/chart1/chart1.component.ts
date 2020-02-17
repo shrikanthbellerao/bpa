@@ -13,7 +13,7 @@ export class Chart1Component implements OnInit {
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
-      position: 'bottom',
+      position: 'left',
     },
     /*plugins: {
       datalabels: {
@@ -24,7 +24,7 @@ export class Chart1Component implements OnInit {
       },
     }*/
   };
-  public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], ['Mail Sales']];
+  public pieChartLabels: Label[] = [['Download Sales'], ['In Store Sales'], ['Mail Sales']];
   public pieChartData: number[] = [300, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
@@ -49,7 +49,7 @@ export class Chart1Component implements OnInit {
     console.log(event, active);
   }
 
-  addSlice() {
+  /*addSlice() {
     this.pieChartLabels.push(['Line 1', 'Line 2', 'Line 3']);
     this.pieChartData.push(400);
     this.pieChartColors[0].backgroundColor.push('rgba(196,79,244,0.3)');
@@ -63,6 +63,6 @@ export class Chart1Component implements OnInit {
 
   changeLegendPosition() {
     this.pieChartOptions.legend.position = this.pieChartOptions.legend.position === 'left' ? 'top' : 'left';
-  }
+  }*/
 
 }
