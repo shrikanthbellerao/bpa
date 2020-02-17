@@ -1,46 +1,23 @@
-<div class="row">
-  <div class="col-5" id="block1">
-    <div class="card" id="outerblock">
-      <div class="card-header" [ngStyle]="{'background-color': InputToCard.headercolor}">
-        {{InputToCard.header}}
-      </div>
-      <div class="card-body">
-        <p class="card-text">{{InputToCard.body}}</p>
-
-      </div>
-
-      <div class="card-footer text-muted" id="outer">
-        <ng-container *ngFor='let btn of InputToCard.btnarray'>
-          <button (click)="btn.fnName()" id="inner" class="btn btn-{{btn.color}} ml-6">{{btn.btext}}</button>
-        </ng-container>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- parent component html file 
-  <app-cards [InputToCard]="Config"></app-cards>
+<!-- Instructions to use card component in other components:
   
-  parent component ts file
-    Config = {
+  parent component html file 
+  <app-cards [inputToCard]="cardConfig"></app-cards>
+  
+  Sample cardConfig Object:
+    cardConfig = {
     header: "Warning",
-    headercolor: "lightblue",
+    headerColor: "lightblue",
     body: "Password is Incorrect",
-    btnarray: [{
+    btnArray:[{
       color: "success",
       btext: "ok",
       fnName: this.okFun
-    },
-    {
+    },{
       color: "danger",
       btext: "cancel",
       fnName: this.cancelfn
-     
-    }
-
-    ]
-
-  };
+     }]
+    };
 
   okFun() {
     alert("ok")
@@ -48,3 +25,22 @@
   cancelfn() {
     alert("cancel")
   }-->
+
+<div class="row">
+  <div class="col-5" id="block1">
+    <div class="card" id="outerBlock">
+      <div class="card-header" [ngStyle]="{'background-color': inputToCard.headerColor}">
+        {{inputToCard.header}}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{inputToCard.body}}</p>
+      </div>
+
+      <div class="card-footer text-muted" id="outer">
+        <ng-container *ngFor='let btn of inputToCard.btnArray'>
+          <button (click)="btn.fnName()" id="inner" class="btn btn-{{btn.color}} ml-6">{{btn.btext}}</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
