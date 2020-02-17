@@ -1,0 +1,13 @@
+<app-cstepper [formLength]="formLength">
+  <cdk-step *ngFor ='let step of formSteps'>
+   
+  <form [formGroup]=getForm(step.formName)>
+    <div class="row" *ngFor = 'let inp of step.inputItems'>
+    <div class="form-group">
+       <label for="{{inp.fcname}}">{{inp.placeholder}}</label>
+       <input type="{{inp.type}}" placeholder="Enter {{inp.placeholder}}" formControlName = {{inp.fcname}} id="{{inp.fcname}}" class="form-control col-md-12">
+      </div>
+    </div>
+    </form>
+  </cdk-step>
+</app-cstepper>

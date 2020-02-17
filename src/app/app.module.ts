@@ -10,20 +10,27 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
-
+import { CdkStepperModule } from '@angular/cdk/stepper'; // this is the relevant important
+import { CstepperComponent } from './components/utils/cstepper/cstepper.component';
+import { WizardComponent } from './components/utils/wizard/wizard.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
     SpinnerComponent,
-    TimelineComponent
+    TimelineComponent,
+    CstepperComponent,
+    WizardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CdkStepperModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

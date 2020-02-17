@@ -1,0 +1,29 @@
+<div class="container-fluid centered">
+  <div class="row">
+      <ul class="progressbar">
+        <div class="conlines"></div>
+       <li *ngFor="let step of _steps; let i = index;" (click)="onClick(i)" class="col" >{{i+1}}</li>
+      </ul>
+    
+  </div>
+<div class="row">
+  <div class="container-fluid">
+  <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+</div>
+
+</div>
+
+<!-- This is the navigation bar of the stepper -->
+<div class="row">
+  <footer>
+    <div *ngIf="needPrev; then prevButton else noPrev"></div>
+    <ng-template #prevButton><button cdkStepperPrevious class="btn btn-danger mr-1"  (click)="prevClick()"><i class="fa fa-arrow-left"></i></button></ng-template>
+    <ng-template #noPrev></ng-template>
+    
+    <div *ngIf="needNext; then nextButton else submitButton" ></div>
+    <ng-template #nextButton><button cdkStepperNext class="btn btn-success mr-1"(click)="nextClick()"><i class="fa fa-arrow-right"></i></button></ng-template>
+    <ng-template #submitButton><button cdkStepperNext class="btn btn-success mr-1">Submit</button></ng-template>
+  
+  </footer>
+</div>
+</div>
