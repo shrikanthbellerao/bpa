@@ -8,8 +8,8 @@
 /bazel-out
 
 # dependencies
-/node_modules
 package-lock.json
+/node_modules
 
 # profiling files
 chrome-profiler-events.json
