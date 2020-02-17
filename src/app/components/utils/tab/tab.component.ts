@@ -6,12 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tab.component.css']
 })
 export class TabComponent implements OnInit {
-@Input() nav;
-showContent;
+  @Input() nav;
+
+  showContent;
+
   constructor() { }
-show(res) {
-this.showContent = res;
-}
+
+  show(res) {
+    this.showContent = res;
+  }
   ngOnInit() {
     this.show(this.nav[0].content)
   }
