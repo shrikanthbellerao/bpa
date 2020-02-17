@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 
