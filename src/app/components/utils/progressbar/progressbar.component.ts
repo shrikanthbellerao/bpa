@@ -10,18 +10,7 @@ export class ProgressbarComponent implements OnInit {
   @Input() progressBarResponse;
   title = 'progressbar';
   constructor() { }
-
-
-  // export class AppComponent {
-  //  constructor(){}
-  //progressResponse={
-  //  value: '90%'
-  // }
-  //ngOnInit(){}
-
   ngOnInit() {
 
   }
-
-
 }

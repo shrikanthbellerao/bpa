@@ -1,38 +1,9 @@
-<button type="button" class="btn btn-secondary m-5" data-toggle="tooltip" data-placement="toolTipResponse.position"
-  [title]=toolTipResponse.content>
-  {{toolTipResponse.name}}
-</button>
-
-<!-- import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders}  from '@angular/common/http';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-})
+<!--
 export class AppComponent {
-  title = 'bpa app';
-  
   toolResponse = {
     content: 'i am coming for app component...',
     position: 'right',
     name: 'show'
-  }
-  toolResponse1 = {
-    content: 'onee............',
-    position: 'left',
-    name: 'one'
-  }
-  toolResponse2 = {
-    content: 'two',
-    position: 'top',
-    name: 'two'
-  }
-  toolResponse3 = {
-    content: 'three',
-    position: 'right',
-    name: 'three'
   }
   progressResponse={
     value: '90%'
@@ -55,3 +26,9 @@ export class AppComponent {
   }
 }
 -->
+<!--Calling my component
+<app-tooltip [toolTipResponse]='toolResponse'></app-tooltip>-->
+<button type="button" class="btn btn-secondary m-5" data-toggle="tooltip" data-placement="toolTipResponse.position"
+  [title]=toolTipResponse.content>
+  {{toolTipResponse.name}}
+</button>
