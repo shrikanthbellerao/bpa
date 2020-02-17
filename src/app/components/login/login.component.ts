@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   accessToken: string;
   apiError = false;
   startSpinner = false;
+
   constructor(private bpaService: BpaService,private router: Router) { }
 
   ngOnInit() {
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
-    }, err =>  { this.apiError = true; this.startSpinner = false;} );
+    }, err =>  {  this.apiError = true; this.startSpinner = false;} );
   }
 
   forGetPassword() {
