@@ -13,6 +13,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ChartComponent } from './components/utils/chart/chart.component';
 import { Chart1Component } from './components/utils/chart1/chart1.component';
+import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
+import { TabComponent } from './components/utils/tab/tab.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 
 @NgModule({
@@ -20,10 +22,12 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    CollapsibleComponent,
     SpinnerComponent,
     TimelineComponent,
     ChartComponent,
     Chart1Component,
+    TabComponent,
     ModalComponent
   ],
   imports: [
