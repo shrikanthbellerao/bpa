@@ -13,8 +13,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
+<<<<<<< HEAD
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
+=======
+import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
+import { TabComponent } from './components/utils/tab/tab.component';
+>>>>>>> 8a97af6868fa941323db00cdbf2006c79381297d
 import { ModalComponent } from './components/utils/modal/modal.component';
 
 @NgModule({
@@ -22,10 +27,15 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    CollapsibleComponent,
     SpinnerComponent,
     TimelineComponent,
+<<<<<<< HEAD
     ButtonComponent,
     DropdownComponent,
+=======
+    TabComponent,
+>>>>>>> 8a97af6868fa941323db00cdbf2006c79381297d
     ModalComponent
   ],
   imports: [
