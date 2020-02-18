@@ -10,6 +10,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
+import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
+import { ProgressbarComponent } from './components/utils/progressbar/progressbar.component';
 import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
 import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
@@ -25,6 +27,8 @@ import { TopnavComponent } from './topnav/topnav.component';
     CollapsibleComponent,
     SpinnerComponent,
     TimelineComponent,
+    TooltipComponent,
+    ProgressbarComponent,
     TabComponent,
     LineScalePulseOutComponent,
     CardsComponent,
