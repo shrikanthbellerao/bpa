@@ -15,6 +15,8 @@ import { ChartComponent } from './components/utils/chart/chart.component';
 import { Chart1Component } from './components/utils/chart1/chart1.component';
 import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
 import { TabComponent } from './components/utils/tab/tab.component';
+import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
+import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 
 @NgModule({
@@ -28,6 +30,8 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     ChartComponent,
     Chart1Component,
     TabComponent,
+    LineScalePulseOutComponent,
+    CardsComponent,
     ModalComponent
   ],
   imports: [
