@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  
+
   divyaLst: any;
 
   constructor() { }
@@ -30,5 +30,5 @@ export class DashboardComponent implements OnInit {
       body: 'Lorem Ipsum @ 12:00 PM'
     }];
   }
-  
+
 }
