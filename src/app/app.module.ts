@@ -10,7 +10,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
-
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
 import { ProgressbarComponent } from './components/utils/progressbar/progressbar.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
