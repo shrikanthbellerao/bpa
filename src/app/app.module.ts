@@ -13,18 +13,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
-=======
+import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
+import { ProgressbarComponent } from './components/utils/progressbar/progressbar.component';
 import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
 import { TabComponent } from './components/utils/tab/tab.component';
->>>>>>> 8a97af6868fa941323db00cdbf2006c79381297d
-=======
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
->>>>>>> 14e86d51d877dffb9c2deaac1e1632351f6612e4
 import { ModalComponent } from './components/utils/modal/modal.component';
 
 @NgModule({
@@ -35,17 +31,13 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     CollapsibleComponent,
     SpinnerComponent,
     TimelineComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
     ButtonComponent,
     DropdownComponent,
-=======
     TabComponent,
->>>>>>> 8a97af6868fa941323db00cdbf2006c79381297d
-=======
     LineScalePulseOutComponent,
     CardsComponent,
->>>>>>> 14e86d51d877dffb9c2deaac1e1632351f6612e4
+    TooltipComponent,
+    ProgressbarComponent,
     ModalComponent
   ],
   imports: [
