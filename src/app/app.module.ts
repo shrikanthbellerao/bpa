@@ -6,6 +6,9 @@ import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgxPopper } from 'angular-popper';
+
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,6 +16,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ChartComponent } from './components/utils/chart/chart.component';
 import { Chart1Component } from './components/utils/chart1/chart1.component';
+import { ButtonComponent } from './components/utils/button/button.component';
+import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
 import { ProgressbarComponent } from './components/utils/progressbar/progressbar.component';
 import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
@@ -33,9 +38,13 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     Chart1Component,
     TooltipComponent,
     ProgressbarComponent,
+    ButtonComponent,
+    DropdownComponent,
     TabComponent,
     LineScalePulseOutComponent,
     CardsComponent,
+    TooltipComponent,
+    ProgressbarComponent,
     ModalComponent
   ],
   imports: [
@@ -44,7 +53,12 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+<<<<<<< HEAD
     ChartsModule,
+=======
+    AngularFontAwesomeModule,
+    NgxPopper,
+>>>>>>> b8cb94be6a6b171cc9bdaf01fd9ee1073b22fc14
     ToastrModule.forRoot({
       progressBar:true,
       progressAnimation:'decreasing',
