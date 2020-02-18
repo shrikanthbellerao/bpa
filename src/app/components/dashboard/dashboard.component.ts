@@ -7,28 +7,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  divyaLst: any;
+  timelinedash:any = [{ 
+    icontype : "coffee",
+    header : "Coffee Break",
+    time: "11am",
+  },
+  {
+    icontype:"users",
+    header:"Presentation",
+    time: "2pm",
+  },
+  {
+    icontype:"cog fa-spin fa-fw",
+    header:"Framework",
+    time: "3pm",
+  },
+  {
+    icontype:"code",
+    header:"Code",
+    time: "4pm",
+  },
+  {
+    icontype:"bolt",
+    header:"Meetup",
+    time: "5pm",
+  } ];
+constructor() { 
 
-  constructor() { }
+}
 
-  ngOnInit() {
-    this.divyaLst = [{
-      faName: 'coffee',
-      heading: 'Lets have a Coffee',
-      body: 'Lorem Ipsum @ 12:00 PM'
-    },{
-      faName: 'imdb',
-      heading: 'Lets have a Tea',
-      body: 'Lorem Ipsum @ 12:00 PM'
-    },{
-      faName: 'user-o',
-      heading: 'Lets have a Dinner',
-      body: 'Lorem Ipsum @ 12:00 PM'
-    },{
-      faName: 'id-card',
-      heading: 'Lets have a Drink',
-      body: 'Lorem Ipsum @ 12:00 PM'
-    }];
-  }
+
+ngOnInit() {
+} 
+//  this.timelinedash = [{ 
+//     icontype : "coffee",
+//     header : "Let's have coffee",
+//   },
+//   {
+//     icontype:"users",
+//     header:"Presentation",
+//   } ]
 
 }

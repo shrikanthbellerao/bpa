@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
+import { ChartComponent } from './components/utils/chart/chart.component';
+import { Chart1Component } from './components/utils/chart1/chart1.component';
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
@@ -31,6 +34,10 @@ import { TopnavComponent } from './components/utils/topnav/topnav.component';
     CollapsibleComponent,
     SpinnerComponent,
     TimelineComponent,
+    ChartComponent,
+    Chart1Component,
+    TooltipComponent,
+    ProgressbarComponent,
     ButtonComponent,
     DropdownComponent,
     TabComponent,
@@ -47,8 +54,12 @@ import { TopnavComponent } from './components/utils/topnav/topnav.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+<<<<<<< HEAD
+    ChartsModule,
+=======
     AngularFontAwesomeModule,
     NgxPopper,
+>>>>>>> b8cb94be6a6b171cc9bdaf01fd9ee1073b22fc14
     ToastrModule.forRoot({
       progressBar:true,
       progressAnimation:'decreasing',

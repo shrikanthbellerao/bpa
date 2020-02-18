@@ -1,0 +1,6 @@
+.container {
+    width:400px;
+    height: 250px;
+    margin: 20px auto 0;
+    box-shadow: 0 0 40px #a0a0a0;
+  }
