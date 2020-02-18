@@ -1,0 +1,43 @@
+<!-- Instructions to use card component in other components:
+   parent component html file 
+   <app-cards [inputToCard]="cardConfig"></app-cards>
+   
+   Sample cardConfig Object:
+     cardConfig = {
+     header: "Warning",
+     headerColor: "lightblue",
+     body: "Password is Incorrect",
+     btnArray:[{
+       color: "success",
+       btext: "ok",
+       fnName: this.okFun
+     },{
+       color: "danger",
+       btext: "cancel",
+       fnName: this.cancelfn
+      }]
+     };
+   
+   okFun() {
+     alert("ok")
+   }
+   cancelfn() {
+     alert("cancel")
+   }-->
+   <div class="row">
+    <div class="col-5" id="block1">
+       <div class="card" id="outerBlock">
+          <div class="card-header" [ngStyle]="{'background-color': inputToCard.headerColor}">
+             {{inputToCard.header}}
+          </div>
+          <div class="card-body">
+             <p class="card-text">{{inputToCard.body}}</p>
+          </div>
+          <div class="card-footer text-muted" id="outer">
+             <ng-container *ngFor='let btn of inputToCard.btnArray'>
+                <button (click)="btn.fnName()" id="inner" class="btn btn-{{btn.color}} ml-6">{{btn.btext}}</button>
+             </ng-container>
+          </div>
+       </div>
+    </div>
+ </div>

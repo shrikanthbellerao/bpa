@@ -13,6 +13,8 @@ import { TimelineComponent } from './components/utils/timeline/timeline.componen
 
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
 import { ProgressbarComponent } from './components/utils/progressbar/progressbar.component';
+import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
+import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 
 @NgModule({
@@ -24,6 +26,8 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     TimelineComponent,
     TooltipComponent,
     ProgressbarComponent,
+    LineScalePulseOutComponent,
+    CardsComponent,
     ModalComponent
   ],
   imports: [
