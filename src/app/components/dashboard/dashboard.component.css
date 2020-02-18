@@ -2,3 +2,9 @@
     border: 2px solid grey;
     margin: 1px;
 }
+
+marquee {
+    direction:"right";
+    height:"50px";
+    margin-top: 80px;
+}
