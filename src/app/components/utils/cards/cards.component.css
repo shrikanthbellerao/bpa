@@ -1,19 +1,16 @@
-#outerBlock
-{
-    text-align:left; 
-    
-    
+#outerBlock {
+	text-align: left;
 }
-#block1
-{
-    margin:auto;
+
+#block1 {
+	margin: auto;
 }
-#outer
-{
-    text-align:right;
+
+#outer {
+	text-align: right;
 }
-#inner
-{   margin-left:20px;
-    display:inline;
-    
+
+#inner {
+	margin-left: 20px;
+	display: inline;
 }
