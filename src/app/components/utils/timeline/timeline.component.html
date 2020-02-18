@@ -1,31 +1,47 @@
-<div class="container">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+ <div class="container overflow-auto">
+  <h4>Timeline</h4>
+  <div *ngFor="let timelines of timelineElements">
   <div class="row">
+      <div class="col-md-12">
+          <div class="main-timeline7">
+                <div class="timeline">
+                  <ul>
+                   <div class="timeline-icon">
+                    <i class="fa fa-{{timelines.icontype}}"></i>
+                    
+                   </div>
+                   <div class="timeline-content">
 
-
-    <div class="main-card mb-3 card">
-      <div class="card-body">
-        <h5 class="card-title">Basic</h5>
-        <div class="vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
-
-          <div class="vertical-timeline-item vertical-timeline-element" *ngFor="let timelineEle of timelineElements">
-            <div>
-              <div class="vertical-timeline-element-icon bounce-in">
-                <div class="timeline-icon border-primary bg-primary">
-                  <i class="fa fa-{{ timelineEle.faName }} text-white"></i>
+                    <h5 class="col col-10 title">{{timelines.header}}</h5>
+                    <span class="col col-12 year">{{timelines.time}}</span>
+                   </div>
+                  </ul>
                 </div>
               </div>
-              <div class="vertical-timeline-element-content bounce-in">
-                <h4 class="timeline-title">
-                  {{ timelineEle.heading }}
-                </h4>
-                <p>
-                  {{ timelineEle.body }}
-                </p>
-              </div>
-            </div>
           </div>
-
-        </div>
       </div>
+  </div>
+</div>  
+
+<!-- <div class="container">
+  <h4>Timeline</h4>
+  <div *ngFor="let timelines of timelineElements">
+    <div class="row timeline">
+     <ul>
+      <li>
+      <div class="col-2 mt-3">
+        <i class="fa fa-{{timelines.icontype}}"></i>
+      </div>
+      <div class="col-8">
+        <span>{{timelines.header}}</span>
+       <p class="txt-mutated">{{timelines.time}}</p>
+      </div>
+      </li>
+     </ul>
     </div>
   </div>
+</div> -->
