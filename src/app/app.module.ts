@@ -5,11 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgxPopper } from 'angular-popper';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
+import { ButtonComponent } from './components/utils/button/button.component';
+import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
 import { ProgressbarComponent } from './components/utils/progressbar/progressbar.component';
 import { CollapsibleComponent } from './components/utils/collapsible/collapsible.component';
@@ -17,7 +21,7 @@ import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
-import { TopnavComponent } from './topnav/topnav.component';
+import { TopnavComponent } from './components/utils/topnav/topnav.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +31,15 @@ import { TopnavComponent } from './topnav/topnav.component';
     CollapsibleComponent,
     SpinnerComponent,
     TimelineComponent,
-    TooltipComponent,
-    ProgressbarComponent,
+    ButtonComponent,
+    DropdownComponent,
     TabComponent,
     LineScalePulseOutComponent,
     CardsComponent,
-    ModalComponent,
-    TopnavComponent
+    TopnavComponent,
+    TooltipComponent,
+    ProgressbarComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,8 @@ import { TopnavComponent } from './topnav/topnav.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AngularFontAwesomeModule,
+    NgxPopper,
     ToastrModule.forRoot({
       progressBar:true,
       progressAnimation:'decreasing',
