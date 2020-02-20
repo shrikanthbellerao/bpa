@@ -64,8 +64,8 @@ import { ArchwizardModule } from 'angular-archwizard';
     AngularFontAwesomeModule,
     NgxPopper,
     ToastrModule.forRoot({
-      progressBar: true,
-      progressAnimation: 'decreasing',
+      progressBar:true,
+      progressAnimation:'decreasing',
       timeOut: 10000,
       positionClass: 'toast-top-right',
     }),
