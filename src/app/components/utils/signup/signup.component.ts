@@ -1,3 +1,15 @@
+/*
+
+Sample Configuration to build a Form
+
+  this.userForm = this.formBuilder.group({
+      firstName: [''],
+      lastName: [''],
+      gender: [''],
+      phone: ['']
+    });
+    
+*/
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
@@ -10,7 +22,8 @@ export class SignupComponent implements OnInit {
 
   userForm: any;
   accountForm: any;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
@@ -28,6 +41,11 @@ export class SignupComponent implements OnInit {
       confirmPassword: [''],
       role: [''],
     });
+  }
+
+  onSubmit() {
+    console.log(this.userForm.value);
+    console.log(this.accountForm.value);
   }
 
 

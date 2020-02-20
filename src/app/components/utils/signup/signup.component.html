@@ -1,3 +1,17 @@
+<!--
+
+  Instruction to use Sign Up Component
+  <app-signup></app-signup>
+
+  Sample Code to access the Value of the Form Element
+
+  {{userForm.value.firstName}}
+
+-->
+
+
+
+
 <aw-wizard [navBarLayout]="'large-empty-symbols'">
   <aw-wizard-step [stepTitle]="'User Details'">
     <ng-template awWizardStepSymbol>
@@ -145,12 +159,13 @@
       <div class="centered-content">
         <div class="btn-group mt-2">
           <button type="button" class="btn btn-danger mr-1" awPreviousStep><i class="fa fa-arrow-left"></i></button>
-          <button type="button" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-success" (click)="onSubmit()">Submit</button>
         </div>
       </div>
 
     </div>
 
   </aw-wizard-step>
+
 </aw-wizard>
 
