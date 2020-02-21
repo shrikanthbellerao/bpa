@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -25,6 +26,10 @@ import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
+import { SwitchComponent } from './components/utils/switch/switch.component';
+import { SignupComponent } from './components/utils/signup/signup.component';
+import { ArchwizardModule } from 'angular-archwizard';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,9 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     CardsComponent,
     TooltipComponent,
     ProgressbarComponent,
-    ModalComponent
+    ModalComponent,
+    SwitchComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -53,20 +60,22 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-<<<<<<< HEAD
     ChartsModule,
-=======
     AngularFontAwesomeModule,
     NgxPopper,
->>>>>>> b8cb94be6a6b171cc9bdaf01fd9ee1073b22fc14
     ToastrModule.forRoot({
       progressBar:true,
       progressAnimation:'decreasing',
       timeOut: 10000,
       positionClass: 'toast-top-right',
-    })
+    }),
+    UiSwitchModule,
+    ArchwizardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
