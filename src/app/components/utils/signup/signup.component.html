@@ -1,0 +1,171 @@
+<!--
+
+  Instruction to use Sign Up Component
+  <app-signup></app-signup>
+
+  Sample Code to access the Value of the Form Element
+
+  {{userForm.value.firstName}}
+
+-->
+
+
+
+
+<aw-wizard [navBarLayout]="'large-empty-symbols'">
+  <aw-wizard-step [stepTitle]="'User Details'">
+    <ng-template awWizardStepSymbol>
+      <i class="fa fa-user"></i>
+    </ng-template>
+    <div class="centered-content">
+      <div>
+        <form [formGroup]="userForm" class="text-center border border-light p-4">
+
+          <div class="form-row mb-4">
+            <div class="col">
+              <input type="text" id="registerFormFirstName" class="form-control" placeholder="First name"
+                formControlName='firstName'>
+            </div>
+            <div class="col">
+              <input type="text" id="registerFormLastName" class="form-control" placeholder="Last name"
+                formControlName='lastName'>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                </div>
+                <select class="custom-select" formControlName='gender'>
+                  <option selected>Choose...</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <input type="phone" id="registerFormPhoneNumber" class="form-control" placeholder="Phone Number"
+                formControlName='phone'>
+
+            </div>
+          </div>
+
+
+        </form>
+
+      </div>
+
+      <div class="btn-group mt-2">
+        <button type="button" class="btn btn-success" awNextStep><i class="fa fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </aw-wizard-step>
+  <aw-wizard-step [stepTitle]="'Account Details'">
+    <ng-template awWizardStepSymbol>
+      <i class="fa fa-desktop"></i>
+    </ng-template>
+    <div class="centered-content">
+      <div>
+
+        <form [formGroup]="accountForm" class="text-center border border-light p-4">
+          <div class="form-row">
+            <input type="email" id="accountFormEmail" class="form-control mb-4" placeholder="E-mail"
+              formControlName='email'>
+          </div>
+
+
+          <div class="form-row">
+            <div class="col">
+              <input type="text" id="accountFormUsername" class="form-control mb-4" placeholder="Username"
+                formControlName='userName'>
+            </div>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Expected Role</label>
+                </div>
+                <select class="custom-select" formControlName='role'>
+                  <option selected>Choose...</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Non-Admin">Non-Admin</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <input type="password" id="accountFormPassword" class="form-control" placeholder="Password"
+                formControlName='password'>
+            </div>
+            <div class="col">
+              <input type="password" id="acountFormConfirmPassword" class="form-control" placeholder="Confirm Password"
+                formControlName='confirmPassword'>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="btn-group mt-2">
+        <button type="button" class="btn btn-danger mr-1" awPreviousStep><i class="fa fa-arrow-left"></i></button>
+        <button type="button" class="btn btn-success" awNextStep>Review</button>
+      </div>
+    </div>
+  </aw-wizard-step>
+  <aw-wizard-step [stepTitle]="'Review'">
+    <ng-template awWizardStepSymbol>
+      <i class="fa fa-file-text"></i>
+    </ng-template>
+    <div class="container">
+      <div class="border border-light centered-content p-4">
+        <h4>Review Details</h4>
+        <div class="row">
+          <div class="col">
+            <table>
+              <tr>
+                <td>First Name</td>
+                <td>{{userForm.value.firstName}}</td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>{{userForm.value.lastName}}</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>{{userForm.value.phone}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col">
+            <table>
+              <tr>
+                <td>User Name</td>
+                <td>{{accountForm.value.userName}}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{accountForm.value.email}}</td>
+              </tr>
+              <tr>
+                <td>Role</td>
+                <td>{{accountForm.value.role}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="centered-content">
+        <div class="btn-group mt-2">
+          <button type="button" class="btn btn-danger mr-1" awPreviousStep><i class="fa fa-arrow-left"></i></button>
+          <button type="button" class="btn btn-success" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+
+    </div>
+
+  </aw-wizard-step>
+
+</aw-wizard>
+
