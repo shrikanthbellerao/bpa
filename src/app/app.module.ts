@@ -53,15 +53,12 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-<<<<<<< HEAD
     ChartsModule,
-=======
     AngularFontAwesomeModule,
     NgxPopper,
->>>>>>> b8cb94be6a6b171cc9bdaf01fd9ee1073b22fc14
     ToastrModule.forRoot({
-      progressBar:true,
-      progressAnimation:'decreasing',
+      progressBar: true,
+      progressAnimation: 'decreasing',
       timeOut: 10000,
       positionClass: 'toast-top-right',
     })
