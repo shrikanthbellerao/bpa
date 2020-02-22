@@ -9,37 +9,71 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./chart1.component.css']
 })
 export class Chart1Component implements OnInit {
-
+  
+  public pieChartLabels: Label[] =[];
+  // public pieChartData: number[]= [];
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
       position: 'left',
     },
-    /*plugins: {
-      datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
-      },
-    }*/
+   
   };
-  public pieChartLabels: Label[] = [['Download Sales'], ['In Store Sales'], ['Mail Sales']];
+
+  // public pieChartLabels: Label[] = [["In-Process"],["Complete"],["Rollback-In-Process"]];
   public pieChartData: number[] = [300, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
-  //public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
       backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
     },
   ];
 
+  // public pieChartColors = [{
+  //   backgroundColor: []
+  // }];
+
+  // public colorList = [{
+  //   categoryName: ,
+  //   backgroundColor: 'rgba(255,0,0,0.3)'
+  // },{
+  //   categoryName: ,
+  //   backgroundColor: 'rgba(0,255,0,0.3)'
+  // },{
+  //   categoryName: ,
+  //   backgroundColor: 'rgba(0,0,255,0.3)'
+  // }];
+
   constructor() { }
 
   ngOnInit() {
-  }
+    const fakeApiResponse = [{
+      categoryName: "In-Process",
+      nbrOfServiceItems: 5
+      },{
+      categoryName: "Complete",
+      nbrOfServiceItems: 1
+      },{
+      categoryName: "Rollback-In-Process",
+      nbrOfServiceItems: 2
+      }]
 
+  fakeApiResponse.forEach(data => {
+    this.pieChartLabels.push([data.categoryName]);
+    this.pieChartData.push(data.nbrOfServiceItems);
+
+    // let colorObj = this.pieChartColors.find(ele => {
+    //   return ele['categoryName'] === data.categoryName;
+    // });
+
+    // console.log('colorObj: ', colorObj);
+
+    // this.pieChartColors[0].backgroundColor.push(colorObj.backgroundColor);
+    
+  });
+  
+}
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);

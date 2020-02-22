@@ -1,6 +1,9 @@
 .container {
-    width:400px;
-    height: 250px;
-    margin: 20px auto 0;
-    box-shadow: 0 0 40px #a0a0a0;
+    width:350px;
+    height: 165px;
+    /* margin: 20px auto 0; */
+    /* box-shadow: 0 0 40px #a0a0a0; */
+    margin-top: 30px;
+    float: left;
+    border: 2px solid grey;
   }

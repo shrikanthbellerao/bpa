@@ -4,7 +4,8 @@
 }
 
 marquee {
-    direction:"right";
     height:"50px";
     margin-top: 80px;
+    color: red;
+    /* border: 2px solid grey; */
 }
