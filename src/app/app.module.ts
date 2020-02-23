@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {ChartsModule} from 'ng2-charts';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 import { TopnavComponent } from './components/utils/topnav/topnav.component';
+import { FooterComponent } from './components/utils/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { TopnavComponent } from './components/utils/topnav/topnav.component';
     TopnavComponent,
     TooltipComponent,
     ProgressbarComponent,
-    ModalComponent
+    ModalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { TopnavComponent } from './components/utils/topnav/topnav.component';
     HttpClientModule,
     FormsModule,
     AngularFontAwesomeModule,
+    ChartsModule,
     NgxPopper,
     ToastrModule.forRoot({
       progressBar:true,

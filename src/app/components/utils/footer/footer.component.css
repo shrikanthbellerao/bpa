@@ -1,0 +1,26 @@
+
+footer {
+    position: fixed;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: black;
+    max-height: 26px;
+  }
+ .copyright, .support{
+    margin-top: 4px;
+    padding-left: 25px;
+ }
+.support{
+    text-align: right;
+}
+p{
+      font-family: 'Lato';
+      font-size:12px;
+      
+  }
+  a{
+    color:inherit;
+   
+  }
+
