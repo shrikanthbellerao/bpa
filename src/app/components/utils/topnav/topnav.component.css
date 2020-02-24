@@ -1,6 +1,9 @@
+.newClass {
+    left: -100px !important;
+    }
 .navbar{
     max-height:40px;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
 .navbar  a {
@@ -8,11 +11,26 @@
     color: black;
     font-family: 'Lato', serif;
 }
-
+.active{
+    background: #034e84;
+    color:#fff;
+}
+.profile{
+    padding-left: 5px;
+    padding-right:10px;
+    font-size:14px;
+    text-align: center;
+}
 .nav-item{
-    padding-left:25px;
+    padding-left:20px;
     padding-right:20px;
 }
 span{
-    font-size: 25px;
+    padding-right: 11px;
+    font-size: 28px;
 }
+.barsize{
+    font-size:25px;
+}
+
+    
