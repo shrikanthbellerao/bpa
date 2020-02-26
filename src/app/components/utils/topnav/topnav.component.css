@@ -34,6 +34,11 @@ span {
     font-family: 'Lato', serif;
     font-weight: 300;
     color: #034e84;
+    padding-top: 10px;
+    padding-bottom: 7px;
+    padding-left: 30px;
+    padding-right: 40px;
+    border-radius: .3rem;
 }
 
 .dropdown-menu a:hover {
@@ -44,4 +49,31 @@ span {
 .navbar a.dropdown-item.active {
     color: black;
     background: #56bee8;
+}
+
+.backgroundImage {
+    background-image: url("src\assets\admin.jpg");
+    border-radius: .3rem .3rem .1rem .1rem;
+
+}
+
+.dropdown-menu {
+    padding: 0px;
+    border-radius: 10px;
+}
+
+.dropdown-header {
+    padding: 3rem 6rem;
+
+}
+
+.heading {
+    font-family: 'Lato';
+    color: white;
+    font-weight: 400;
+}
+
+.settingsBckImg {
+    background-image: url("src\assets\settings.jpg");
+    opacity: 0.9;
 }
