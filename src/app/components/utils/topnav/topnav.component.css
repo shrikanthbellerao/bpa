@@ -75,5 +75,14 @@ span {
 
 .settingsBckImg {
     background-image: url("src\assets\settings.jpg");
+    border-radius: .3rem .3rem .1rem .1rem;
     opacity: 0.9;
+}
+
+.admin {
+    margin-top: 11px;
+}
+
+.settings {
+    margin-top: 1px;
 }
