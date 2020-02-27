@@ -1,49 +1,55 @@
-<nav class="navbar nav-fill w-100 navbar-expand-lg" style="background-color: #56bee8;">
-  <a class="navbar-brand py-0" href="#">
+<nav class="navbar nav-fill w-100 navbar-expand-md navbar-light bg-color">
+  <a class="navbar-brand" href="#">
     <img src="assets/cisco-crop.png" height="25" width="45" alt="logo">
   </a>
-  <ul class="nav mr-auto nav-fill">
-    <li class="nav-item">
-      <a class="nav-link py-0" href="#">Service Catalog</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link py-0" href="#">Device Manager</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle py-0" href="#" data-toggle="dropdown">
-        Admin</a>
-      <div class="dropdown-menu admin">
-        <h6 class="dropdown-header heading backgroundImage">Admin Settings</h6>
-        <a class="dropdown-item" href="#">Manage Roles</a>
-        <a class="dropdown-item" href="#">Broadcast Message</a>
-        <a class="dropdown-item" href="#">Review Request</a>
-        <a class="dropdown-item active" href="#">My Profile</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link py-0" href="#">Service Catalog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link py-0" href="#">Device Manager</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle py-0" href="#" data-toggle="dropdown">
+          Admin</a>
+        <div class="dropdown-menu admin">
+          <h6 class="dropdown-header heading backgroundImage">Admin Settings</h6>
+          <a class="dropdown-item" href="#">Manage Roles</a>
+          <a class="dropdown-item" href="#">Broadcast Message</a>
+          <a class="dropdown-item" href="#">Review Request</a>
+          <a class="dropdown-item active" href="#">My Profile</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav nav-fill">
+      <li class="nav-item icon">
+        <a class="py-0 nav-link" href="#">
+          <span>
+            <i class="fas fa-user-circle"></i>
+          </span>
+        </a>
+      </li>
+      <li class="account nav-item">
+        <span class="d-block profile">Katherine McGoulin</span>
+        <span class="d-block profile">Analyst</span>
+      </li>
+      <div class="dropdown">
+        <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <!--<i class="fas fa-bars iconSize"></i>-->More
+        </button>
+        <div class="dropdown-menu dropdown-menu-right settings" aria-labelledby="dropdownMenuButton">
+          <h6 class="dropdown-header heading settingsBckImg">Settings</h6>
+          <a class="dropdown-item" href="#">FAQ</a>
+          <a class="dropdown-item" href="#">Reset Password</a>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
       </div>
-    </li>
-  </ul>
-  <ul class="nav">
-    <li>
-      <a class="py-0" href="#">
-        <span>
-          <i class="fas fa-user-circle"></i>
-        </span>
-      </a>
-    </li>
-    <li class="account">
-      <span class="d-block profile">Katherine McGoulin</span>
-      <span class="d-block profile">Analyst</span>
-    </li>
-    <div class="dropdown">
-      <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        <i class="fas fa-bars iconSize"></i>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right settings" aria-labelledby="dropdownMenuButton">
-        <h6 class="dropdown-header heading settingsBckImg">Settings</h6>
-        <a class="dropdown-item" href="#">FAQ</a>
-        <a class="dropdown-item" href="#">Reset Password</a>
-        <a class="dropdown-item" href="#">Logout</a>
-      </div>
-    </div>
-  </ul>
+    </ul>
+  </div>
 </nav>
