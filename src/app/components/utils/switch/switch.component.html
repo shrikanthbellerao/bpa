@@ -1,0 +1,16 @@
+<!--
+
+     Instruction to use Switch Component
+
+     <app-switch [switchConfig]="switchInput"></app-switch>
+
+-->
+
+<div class="container">
+  <ui-switch uncheckedLabel="{{switchConfig.uncheckedLabel}}" checkedLabel="{{switchConfig.checkedLabel}}"
+    [checked]="switchConfig.isChecked" size="{{switchConfig.size}}" color="{{switchConfig.color}}"
+    switchColor="{{switchConfig.switchColor}}">
+    <i class="{{switchConfig.switchContent}}"></i>
+  </ui-switch>
+</div>
+

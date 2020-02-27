@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import {ChartComponent} from './components/utils/chart/chart.component';
 import {Chart1Component} from './components/utils/chart1/chart1.component';
@@ -26,6 +27,10 @@ import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 import { TopnavComponent } from './components/utils/topnav/topnav.component';
 import { FooterComponent } from './components/utils/footer/footer.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
+import { SwitchComponent } from './components/utils/switch/switch.component';
+import { SignupComponent } from './components/utils/signup/signup.component';
+import { ArchwizardModule } from 'angular-archwizard';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,9 @@ import { FooterComponent } from './components/utils/footer/footer.component';
     TooltipComponent,
     ProgressbarComponent,
     ModalComponent,
-    FooterComponent
+    FooterComponent,
+    SwitchComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +61,7 @@ import { FooterComponent } from './components/utils/footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
     AngularFontAwesomeModule,
     ChartsModule,
     NgxPopper,
@@ -62,9 +70,14 @@ import { FooterComponent } from './components/utils/footer/footer.component';
       progressAnimation:'decreasing',
       timeOut: 10000,
       positionClass: 'toast-top-right',
-    })
+    }),
+    UiSwitchModule,
+    ArchwizardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
