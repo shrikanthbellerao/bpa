@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -26,6 +27,11 @@ import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 import { ServiceCatalogComponent } from './components/service-catalog/service-catalog.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
+import { SwitchComponent } from './components/utils/switch/switch.component';
+import { SignupComponent } from './components/utils/signup/signup.component';
+import { ArchwizardModule } from 'angular-archwizard';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +54,8 @@ import { ServiceCatalogComponent } from './components/service-catalog/service-ca
     ProgressbarComponent,
     ModalComponent,
     ServiceCatalogComponent,
+    SwitchComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -63,9 +71,14 @@ import { ServiceCatalogComponent } from './components/service-catalog/service-ca
       progressAnimation:'decreasing',
       timeOut: 10000,
       positionClass: 'toast-top-right',
-    })
+    }),
+    UiSwitchModule,
+    ArchwizardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
