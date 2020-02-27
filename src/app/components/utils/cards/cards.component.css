@@ -1,16 +1,9 @@
-#outerBlock {
-	text-align: left;
-}
-
-#block1 {
-	margin: auto;
-}
-
 #outer {
 	text-align: right;
 }
 
-#inner {
-	margin-left: 20px;
-	display: inline;
+
+.my-flex-card > div > div.card {
+    height: calc(100% - 15px);
+    margin-bottom: 15px;
 }

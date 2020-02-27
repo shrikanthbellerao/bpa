@@ -25,6 +25,7 @@ import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
+import { ServiceCatalogComponent } from './components/service-catalog/service-catalog.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     CardsComponent,
     TooltipComponent,
     ProgressbarComponent,
-    ModalComponent
+    ModalComponent,
+    ServiceCatalogComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,12 +55,9 @@ import { ModalComponent } from './components/utils/modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-<<<<<<< HEAD
     ChartsModule,
-=======
     AngularFontAwesomeModule,
     NgxPopper,
->>>>>>> b8cb94be6a6b171cc9bdaf01fd9ee1073b22fc14
     ToastrModule.forRoot({
       progressBar:true,
       progressAnimation:'decreasing',
