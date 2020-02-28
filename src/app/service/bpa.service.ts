@@ -33,5 +33,4 @@ export class BpaService {
       /* Toaster code this.bpaService.showError('Invalid Credentials')
     this.bpaService.showWarning('Maximum Attempts Allowed is 5')*/
     /* Toaster code this.bpaService.showInfo('Remember Next time')*/
-    
 }
