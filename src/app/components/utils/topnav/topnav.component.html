@@ -1,5 +1,5 @@
 <nav class="navbar nav-fill w-100 navbar-expand-md navbar-light bg-color">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="https://www.cisco.com/">
     <img src="assets/cisco-crop.png" height="25" width="45" alt="logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -9,26 +9,26 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link py-0" href="#">Service Catalog</a>
+        <a routerLink="/ServiceCatalog" class="nav-link py-0">Service Catalog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link py-0" href="#">Device Manager</a>
+        <a routerLink="/DeviceManager" class="nav-link py-0">Device Manager</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle py-0" href="#" data-toggle="dropdown">
+        <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown">
           Admin</a>
         <div class="dropdown-menu admin">
           <h6 class="dropdown-header heading backgroundImage">Admin Settings</h6>
-          <a class="dropdown-item" href="#">Manage Roles</a>
-          <a class="dropdown-item" href="#">Broadcast Message</a>
-          <a class="dropdown-item" href="#">Review Request</a>
-          <a class="dropdown-item active" href="#">My Profile</a>
+          <a routerLink="/ManageRoles" class="dropdown-item">Manage Roles</a>
+          <a routerLink="/BroadcastMessage" class="dropdown-item">Broadcast Message</a>
+          <a routerLink="/ReviewRequest" class="dropdown-item">Review Request</a>
+          <a routerLink="/MyProfile" class="dropdown-item active">My Profile</a>
         </div>
       </li>
     </ul>
     <ul class="navbar-nav nav-fill">
       <li class="nav-item icon">
-        <a class="py-0 nav-link" href="#">
+        <a class="py-0 nav-link">
           <span>
             <i class="fas fa-user-circle"></i>
           </span>
@@ -45,9 +45,9 @@
         </button>
         <div class="dropdown-menu dropdown-menu-right settings" aria-labelledby="dropdownMenuButton">
           <h6 class="dropdown-header heading settingsBckImg">Settings</h6>
-          <a class="dropdown-item" href="#">FAQ</a>
-          <a class="dropdown-item" href="#">Reset Password</a>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a routerLink="/FAQ" class="dropdown-item">FAQ</a>
+          <a routerLink="/ResetPassword" class="dropdown-item">Reset Password</a>
+          <a routerLink="/Logout" class="dropdown-item">Logout</a>
         </div>
       </div>
     </ul>
