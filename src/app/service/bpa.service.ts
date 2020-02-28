@@ -34,4 +34,4 @@ export class BpaService {
     this.bpaService.showWarning('Maximum Attempts Allowed is 5')*/
     /* Toaster code this.bpaService.showInfo('Remember Next time')*/
 
-  }
+}
