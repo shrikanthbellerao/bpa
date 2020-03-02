@@ -4,7 +4,12 @@
       {{progressBarWidth}}
     </div>
   </div> -->
-
+<div [ngClass]="flag ? container : ''">
+<router-outlet></router-outlet> 
+<div class="container">
+   <!--<app-dashboard></app-dashboard> -->
+   <router-outlet></router-outlet>
+</div>
 <!-- <app-timeline [timelineElements]="shrikanthLst"></app-timeline> -->
 <!-- <app-dashboard></app-dashboard> -->
 <app-topnav *ngIf='!flag'></app-topnav>

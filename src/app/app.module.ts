@@ -27,6 +27,7 @@ import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
 import { TopnavComponent } from './components/utils/topnav/topnav.component';
 import { FooterComponent } from './components/utils/footer/footer.component';
+import { ServiceCatalogComponent } from './components/service-catalog/service-catalog.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
@@ -34,6 +35,7 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,11 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     TooltipComponent,
     ProgressbarComponent,
     ModalComponent,
+<<<<<<< HEAD
     FooterComponent,
+=======
+    ServiceCatalogComponent,
+>>>>>>> e0150fdc2e90a00665a305641d8079c396cf2c29
     SwitchComponent,
     SignupComponent,
     DeviceManagerComponent,

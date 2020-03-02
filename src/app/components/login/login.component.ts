@@ -14,6 +14,13 @@ export class LoginComponent implements OnInit {
   accessToken: string;
   apiError = false;
   startSpinner = false;
+  
+
+
+  modalConfig = { 
+  }
+   
+
 
   constructor(private bpaService: BpaService,private router: Router) { }
 
@@ -32,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
       console.log('Fetched data from Service: ', response);
       this.accessToken = response['access_token'];
-      localStorage.setItem('accessToken',this.accessToken);
+      localStorage.setItem('accessToken', this.accessToken);
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
@@ -42,4 +49,28 @@ export class LoginComponent implements OnInit {
   forGetPassword() {
     console.log('forget password....')
   }
+
+  newRegister()
+  {
+    this.router.navigate(['/signup']);
+  }
+  contactus()
+  {
+  this.modalConfig = {
+    title:"LoginComponent",
+    body:"Login Content",
+    show: true
+  }
+  }
+  questions()
+  {
+  this.modalConfig = {
+    title:"LoginComponent",
+    body:"Login Content"
+  }
+
+  }
+
+  
+  
 }
