@@ -1,0 +1,29 @@
+  <button class="btn btn-primary" [disabled]="buttonState()">Ping</button>
+  <div *ngIf="buttonState(); then hideButton  else showButton"></div>
+  <ng-template #showButton>  <button class="btn btn-danger ml-2" (click)="deselectRows()"> <i class = "fa fa-times"></i> Clear Selection</button>
+  </ng-template>
+  <ng-template #hideButton></ng-template>
+
+
+  
+  <ag-grid-angular
+      style="width:1100px; height:550px; padding:5px;"
+      class="ag-theme-balham container-fluid"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [floatingFilter]="true"
+      rowSelection="multiple"
+      [rowDeselection]="true"
+      [rowMultiSelectWithClick]="true"
+      [suppressRowClickSelection]="true"
+      (selectionChanged)="onSelectionChanged($event)"
+      [pagination]="true"
+      [paginationPageSize]="paginationPageSize"
+      (gridReady)="onGridReady($event)"
+      >
+  </ag-grid-angular>
+  >
+
+
+

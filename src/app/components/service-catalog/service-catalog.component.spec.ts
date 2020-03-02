@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LineScalePulseOutComponent } from './line-scale-pulse-out.component';
+import { ServiceCatalogComponent } from './service-catalog.component';
 
-describe('LineScalePulseOutComponent', () => {
-  let component: LineScalePulseOutComponent;
-  let fixture: ComponentFixture<LineScalePulseOutComponent>;
+describe('ServiceCatalogComponent', () => {
+  let component: ServiceCatalogComponent;
+  let fixture: ComponentFixture<ServiceCatalogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LineScalePulseOutComponent ]
+      declarations: [ ServiceCatalogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LineScalePulseOutComponent);
+    fixture = TestBed.createComponent(ServiceCatalogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
