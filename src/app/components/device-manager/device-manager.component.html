@@ -7,7 +7,7 @@
 
   
   <ag-grid-angular
-      style="width:1100px; height:550px; padding:5px;"
+      style="width:1100px; height:515px; padding:5px;"
       class="ag-theme-balham container-fluid"
       [rowData]="rowData"
       [columnDefs]="columnDefs"
@@ -27,3 +27,65 @@
 
 
 
+  <nav class="navbar nav-fill w-100 navbar-expand-md navbar-dark bg-dark ">
+    <a class="navbar-brand" href="https://www.cisco.com/">
+      <img src="assets/logo.png" height="54" width="83" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown">
+            Service Catalog</a><i class="fa fa-user-circle"></i>
+          <div class="dropdown-menu align">
+            <h6 class="dropdown-header heading serviceMenu backgroundImage">Service Catalog</h6>
+            <a routerLink="/Services" class="dropdown-item">Services</a>
+            <a routerLink="/Orders" class="dropdown-item">Orders</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/deviceManager" class="nav-link py-0">Device Manager</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown">
+            Admin</a>
+          <div class="dropdown-menu align">
+            <h6 class="dropdown-header heading backgroundImage">Admin Settings</h6>
+            <a routerLink="/ManageRoles" class="dropdown-item">Manage Roles</a>
+            <a routerLink="/BroadcastMessage" class="dropdown-item">Broadcast Message</a>
+            <a routerLink="/ReviewRequest" class="dropdown-item">Review Request</a>
+            <a routerLink="/MyProfile" class="dropdown-item active">My Profile</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-fill">
+        <li class="nav-item icon">
+          <a class="py-0 nav-link">
+            <span>
+              <i class="fa fa-user-circle"></i>
+            </span>
+          </a>
+        </li>
+        <li class="account nav-item">
+          <span class="d-block profile">Katherine McGoulin</span>
+          <span class="d-block profile">Analyst</span>
+        </li>
+        <div class="dropdown">
+          <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fa fa-ellipsis-v"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <h6 class="dropdown-header heading backgroundImage">Settings</h6>
+            <a routerLink="/FAQ" class="dropdown-item">FAQ</a>
+            <a routerLink="/ResetPassword" class="dropdown-item">Reset Password</a>
+            <a routerLink="/Logout" class="dropdown-item">Logout</a>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+  

@@ -2,8 +2,9 @@
     max-height: 40px;
     border-radius: 2px;
 }
-nav{
-    padding-left:4px;
+
+nav {
+    padding-left: 4px;
 }
 
 .navbar a {
@@ -17,7 +18,7 @@ nav{
     padding-right: 20px;
     font-size: 14px;
     text-align: center;
-    color:white;
+    color: white;
 }
 
 .nav-item {
@@ -25,9 +26,6 @@ nav{
     padding-right: 22px;
 }
 
-span {
-    font-size: 28px;
-}
 
 .navbar a.dropdown-item {
     font-family: 'Lato', serif;
@@ -37,7 +35,7 @@ span {
     padding-bottom: 7px;
     padding-left: 30px;
     padding-right: 40px;
-    border-radius: .3rem;
+    border-radius: .1rem;
 }
 
 .dropdown-menu a:hover {
@@ -52,17 +50,18 @@ span {
 
 .backgroundImage {
     background-image: url("src\assets\datacenter.jpg");
-    border-radius: .3rem .3rem .1rem .1rem;
+    margin-bottom: .05rem;
+    border-radius: .1rem .1rem .1rem .1rem;
 
 }
 
 .dropdown-menu {
     padding: 0px;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .dropdown-header {
-    padding: 3rem 6rem;
+    padding: 2rem 4.5rem;
     font-size: 13px;
     font-family: 'Lato';
     color: white;
@@ -83,9 +82,16 @@ span {
     padding-right: 1px;
 }
 
-i{
-    color:white;
+
+span {
+    font-size: 28px;
+
 }
-.serviceMenu{
-    padding: 3rem 5rem;
+
+i {
+    color: white;
+}
+
+.serviceMenu {
+    padding: 2rem 3.5rem;
 }
