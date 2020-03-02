@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -6,10 +7,16 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-    progressBarWidth: string = '20%';
+constructor(private router:Router) {}
+flag = false;
     ngOnInit() {
-        setTimeout(() => {
-        }, 3000);
+        this.router.events.subscribe(
+            (event: any) => {
+              if (event instanceof NavigationEnd) {
+                this.flag = (this.router.url === '/'); 
+              }
+            }
+          );
     }
 
 

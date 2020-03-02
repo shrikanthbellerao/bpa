@@ -9,11 +9,9 @@
 -->
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDialog">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
+
+<div *ngIf='modalConfig.show'>
 <div class="modal fade" id="modalDialog" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -32,5 +30,6 @@
       </div> 
     </div>
   </div>
+</div>
 </div>
 
