@@ -50,7 +50,8 @@ export class BpaService {
 
     return this.httpClient.get(url, httpHeaders)
   }  
-  /* Use below approach to display Toastr from any component:
+
+    /* Use below approach to display Toastr from any component:
 
   1. In case of Success message: this.toastr.success(msg, 'Success!');
   2. In case of Error message: this.toastr.error(msg, 'Error!');

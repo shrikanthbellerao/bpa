@@ -1,9 +1,30 @@
-#outer {
+.card-footer {
 	text-align: right;
 }
-
-
 .my-flex-card > div > div.card {
     height: calc(100% - 15px);
     margin-bottom: 15px;
+}
+.btn{
+    border-radius: 20px;
+}
+.bgcolor{
+    background: #ddd!important;
+    border-radius: 2px!important;
+    letter-spacing: .3px!important;
+    font-weight: bold;
+    color: #39393b;
+    margin: 0 10px 0 0;
+    padding: 6px;
+    font-size: 12px;
+    min-width: 10px;
+    display: inline-block;
+    line-height: 1;
+}
+.card-header{
+    font-weight: bold;
+    border-color: black;
+}
+.card-footer{
+    border-color: black;
 }

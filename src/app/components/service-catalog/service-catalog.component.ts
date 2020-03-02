@@ -26,9 +26,9 @@ export class ServiceCatalogComponent implements OnInit {
   ngOnInit() {
   }
 
-  getCheck(check) {
-    console.log('qqqq',this.storeResponse)
-    const ss = this.storeResponse.filter((res) => res.userGroup[0]['group'] === 'enterprise');
+  getCheck(res) {
+    console.log('response:',this.storeResponse)
+    const ss = this.storeResponse.filter((check) => check.categoryIds[0]['name'] === res.name);
     this.cardResponse = ss; 
   }
 
