@@ -1,7 +1,12 @@
 <app-spinner *ngIf="startSpinner"></app-spinner>
 <div class="bg-image">
+ <!--<div class ="cis-image">-->
+  <div class="center">
+ <h5 class="pt-3">Business Process Automation</h5>
+  </div>
   <form class='centered' (ngSubmit)="fnValidateCredential(loginForm)" #loginForm="ngForm">
-  <h4 class="text-center"> <i class=" fa fa-user fa-lg"></i></h4>  <!--usericon--> 
+    <h4 class="text-center"> <i class=" fa fa-user fa-lg"></i></h4>
+    <!--usericon-->
     <div class="form-group">
       <div class="row">
         <div class="col-3">
@@ -35,18 +40,37 @@
           <span class="text-danger" *ngIf="loginForm.control.get('password').errors.required">Password Required</span>
         </div>
       </div>
-      </div>
-      <button [disabled]='!loginForm.valid' class="btn btn-primary m-2" type="submit">
-        Login
-      </button>
-      <a href="#" class="">
-        Forget Password
-      </a>
-     <!--<div signup></div>--> 
-      <div *ngIf="apiError">
-        <hr>
-        <h5 class="text-danger">Api Failed</h5>
-      </div>
+    </div>
+    <div class="log">
+    <button [disabled]='!loginForm.valid' class="btn btn-primary m-2" type="submit">
+      Login
+    </button>
+    <a class="text-primary cusor">
+      Forget Password
+    </a>
+  </div>
+    <h6 class="text-center">New user?<a (click)="newRegister()"  class="text-primary cusor"> click here</a> to register</h6>
+    <div *ngIf="apiError">
+      <hr>
+      <h5 class="text-danger">Api Failed</h5>
+    </div>
   </form>
-  <!--< div  techsup icon </div>-->
-</div>
+
+
+   <div class="fixed-bottom icon m-5">
+  <a href="#" class="">
+    <i  class="fa fa-phone-square fa-3x m-1"></i>
+  </a>
+
+  <a href="#" class="">
+    <i (click)="questions()" class="fa fa-question fa-3x m-2"></i>
+  </a>
+
+  <!--<a href="#" class="">
+    <i class="fa fa-cog fa-2x m-1"></i>
+  </a>-->
+  </div>
+  </div>
+
+  
+  <app-modal [modalConfig]="modalConfig"></app-modal>
