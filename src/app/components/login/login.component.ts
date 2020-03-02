@@ -14,6 +14,13 @@ export class LoginComponent implements OnInit {
   accessToken: string;
   apiError = false;
   startSpinner = false;
+  
+
+
+  modalConfig = { 
+  }
+   
+
 
   constructor(private bpaService: BpaService,private router: Router) { }
 
@@ -35,10 +42,42 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('accessToken',this.accessToken);
       this.apiError = false;
       this.startSpinner = false;
-      this.router.navigate(['/activeServices']);
+      this.router.navigate(['/dashboard']);
       }, err => { this.apiError = true; this.startSpinner = false;} );
       }
       forGetPassword() {
       console.log('forget password....')
       }
-      }
+      
+      // localStorage.setItem('accessToken', this.accessToken);
+      // this.apiError = false;
+      // this.startSpinner = false;
+      // this.router.navigate(['/dashboard']);
+      // err =>  {  this.apiError = true; this.startSpinner = false;}
+
+
+  // forGetPassword() 
+  // {
+  //   console.log('forget password....')
+  // }
+
+  newRegister()
+  {
+    this.router.navigate(['/signup']);
+  }
+  contactus()
+  {
+  this.modalConfig = {
+    title:"LoginComponent",
+    body:"Login Content",
+    show: true
+  }
+  }
+  questions()
+  {
+  this.modalConfig = {
+    title:"LoginComponent",
+    body:"Login Content"
+  }
+
+}}

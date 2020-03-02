@@ -33,14 +33,14 @@ constructor(private bpaService: BpaService) {
     {headerName: 'Order Id', field: 'orderNumber' , sortable: true , filter:true ,  width:100 },
     {headerName: 'Order Instance Id', field: 'processInstanceId',  sortable: true , filter:true , width:100 },
     {headerName: 'Service', field: 'description' , sortable: true , filter:true  , width:100},
-    {headerName: 'Action', field: 'Action' , sortable: true , filter:true , width:100 },
-    {headerName: 'Order Form', field: 'connectionRow' , sortable: true , filter:true , width:100 },
+    {headerName: 'Action' , cellRenderer: (res => 'Create'),sortable: true , filter:true , width:100 },
+    {headerName: 'Order Form', field: 'formData.connectionRow' , sortable: true , filter:true , width:100 },
     {headerName: 'Start-Time', field: 'createdAt' , sortable: true , filter:true  , width:100},
     {headerName: 'Update-Time', field: 'updatedAt' , sortable: true , filter:true , width:100},
     {headerName: 'User', field: 'userName' , sortable: true , filter:true , width:100},
     {headerName: 'Status', field: 'status' , sortable: true , filter:true ,width:100 },
   ];
-
+ 
  
 
 }
