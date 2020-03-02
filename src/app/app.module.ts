@@ -26,6 +26,7 @@ import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
+import { ServiceCatalogComponent } from './components/service-catalog/service-catalog.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
@@ -33,6 +34,7 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     TooltipComponent,
     ProgressbarComponent,
     ModalComponent,
+    ServiceCatalogComponent,
     SwitchComponent,
     SignupComponent,
     DeviceManagerComponent,
