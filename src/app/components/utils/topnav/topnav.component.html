@@ -1,6 +1,6 @@
-<nav class="navbar nav-fill w-100 navbar-expand-md navbar-light bg-color">
+<nav class="navbar nav-fill w-100 navbar-expand-md navbar-dark bg-dark ">
   <a class="navbar-brand" href="https://www.cisco.com/">
-    <img src="assets/cisco-crop.png" height="25" width="45" alt="logo">
+    <img src="assets/logo.png" height="50" width="83" alt="logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,8 +8,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a routerLink="/ServiceCatalog" class="nav-link py-0">Service Catalog</a>
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown">
+          Service Catalog</a>
+        <div class="dropdown-menu align">
+          <h6 class="dropdown-header heading serviceMenu backgroundImage">Service Catalog</h6>
+          <a routerLink="/ManageRoles" class="dropdown-item">Services</a>
+          <a routerLink="/MyProfile" class="dropdown-item">Orders</a>
+        </div>
       </li>
       <li class="nav-item">
         <a routerLink="/DeviceManager" class="nav-link py-0">Device Manager</a>
@@ -17,7 +23,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown">
           Admin</a>
-        <div class="dropdown-menu admin">
+        <div class="dropdown-menu align">
           <h6 class="dropdown-header heading backgroundImage">Admin Settings</h6>
           <a routerLink="/ManageRoles" class="dropdown-item">Manage Roles</a>
           <a routerLink="/BroadcastMessage" class="dropdown-item">Broadcast Message</a>
@@ -41,10 +47,10 @@
       <div class="dropdown">
         <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          <!--<i class="fas fa-bars iconSize"></i>-->More
+          <i class="fas fa-ellipsis-v"></i>
         </button>
-        <div class="dropdown-menu dropdown-menu-right settings" aria-labelledby="dropdownMenuButton">
-          <h6 class="dropdown-header heading settingsBckImg">Settings</h6>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <h6 class="dropdown-header heading backgroundImage">Settings</h6>
           <a routerLink="/FAQ" class="dropdown-item">FAQ</a>
           <a routerLink="/ResetPassword" class="dropdown-item">Reset Password</a>
           <a routerLink="/Logout" class="dropdown-item">Logout</a>

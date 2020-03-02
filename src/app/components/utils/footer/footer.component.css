@@ -3,13 +3,13 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: black;
-    max-height: 26px;
+    background-color: #343a40;
+    max-height: 21px;
 }
 
 .copyright,
 .support {
-    margin-top: 4px;
+    margin-top: 3px;
     padding-left: 25px;
 }
 
@@ -19,7 +19,7 @@ footer {
 
 p {
     font-family: 'Lato';
-    font-size: 12px;
+    font-size: 10px;
 
 }
 
