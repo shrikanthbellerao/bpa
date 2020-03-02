@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('accessToken',this.accessToken);
       this.apiError = false;
       this.startSpinner = false;
-      this.router.navigate(['/deviceManager']);
+      this.router.navigate(['/dashboard']);
     }, err =>  {  this.apiError = true; this.startSpinner = false;} );
   }
 
