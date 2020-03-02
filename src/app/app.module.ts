@@ -35,6 +35,12 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
+import { RolesComponent } from './components/utils/roles/roles.component';
+import { BroadcastComponent } from './components/utils/broadcast/broadcast.component';
+import { RequestComponent } from './components/utils/request/request.component';
+import { ProfileComponent } from './components/utils/profile/profile.component';
+import { FAQComponent } from './components/utils/faq/faq.component';
+import { ResetPswdComponent } from './components/utils/reset-pswd/reset-pswd.component';
 
 
 @NgModule({
@@ -56,15 +62,18 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     TooltipComponent,
     ProgressbarComponent,
     ModalComponent,
-<<<<<<< HEAD
     FooterComponent,
-=======
     ServiceCatalogComponent,
->>>>>>> e0150fdc2e90a00665a305641d8079c396cf2c29
     SwitchComponent,
     SignupComponent,
     DeviceManagerComponent,
-    ButtonRendererComponent
+    ButtonRendererComponent,
+    RolesComponent,
+    BroadcastComponent,
+    RequestComponent,
+    ProfileComponent,
+    FAQComponent,
+    ResetPswdComponent
   ],
   imports: [
     BrowserModule,
