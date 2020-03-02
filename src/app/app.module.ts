@@ -31,6 +31,9 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
 
 
 @NgModule({
@@ -55,7 +58,9 @@ import { ArchwizardModule } from 'angular-archwizard';
     ModalComponent,
     ServiceCatalogComponent,
     SwitchComponent,
-    SignupComponent
+    SignupComponent,
+    DeviceManagerComponent,
+    ButtonRendererComponent
   ],
   imports: [
     BrowserModule,
@@ -74,9 +79,11 @@ import { ArchwizardModule } from 'angular-archwizard';
     }),
     UiSwitchModule,
     ArchwizardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
+  entryComponents : [ButtonRendererComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

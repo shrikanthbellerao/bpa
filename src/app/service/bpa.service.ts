@@ -50,6 +50,19 @@ export class BpaService {
 
     return this.httpClient.get(url, httpHeaders)
   }  
+  getDeviceList(){
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization : `Bearer ${getToken}`
+      })
+    };
+
+    const urlDevices : string ='https://10.81.59.209:9091/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=RTP-Core,nso5-lsa4-re'
+    
+    return this.httpClient.get(urlDevices, httpHeaders);
+  }
   /* Use below approach to display Toastr from any component:
 
   1. In case of Success message: this.toastr.success(msg, 'Success!');
