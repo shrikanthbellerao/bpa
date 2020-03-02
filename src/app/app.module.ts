@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -30,6 +31,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { ArchwizardModule } from 'angular-archwizard';
     ProgressbarComponent,
     ModalComponent,
     SwitchComponent,
-    SignupComponent
+    SignupComponent,
+    ActiveServicesComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,9 @@ import { ArchwizardModule } from 'angular-archwizard';
     }),
     UiSwitchModule,
     ArchwizardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
