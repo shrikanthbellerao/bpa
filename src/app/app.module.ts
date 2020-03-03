@@ -25,8 +25,8 @@ import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
-import { TopnavComponent } from './components/utils/topnav/topnav.component';
-import { FooterComponent } from './components/utils/footer/footer.component';
+import { TopnavComponent } from './components/topnav/topnav.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { ServiceCatalogComponent } from './components/service-catalog/service-catalog.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
@@ -35,12 +35,12 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
-import { RolesComponent } from './components/utils/roles/roles.component';
-import { BroadcastComponent } from './components/utils/broadcast/broadcast.component';
-import { RequestComponent } from './components/utils/request/request.component';
-import { ProfileComponent } from './components/utils/profile/profile.component';
-import { FAQComponent } from './components/utils/faq/faq.component';
-import { ResetPswdComponent } from './components/utils/reset-pswd/reset-pswd.component';
+import { RolesComponent } from './components/roles/roles.component';
+import { BroadcastComponent } from './components/broadcast/broadcast.component';
+import { RequestComponent } from './components/request/request.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { FAQComponent } from './components/faq/faq.component';
+import { ResetPswdComponent } from './components/reset-pswd/reset-pswd.component';
 
 
 @NgModule({
