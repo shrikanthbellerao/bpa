@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -31,8 +32,8 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
-import { AgGridModule } from 'ag-grid-angular';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
 
 
@@ -59,6 +60,7 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     ServiceCatalogComponent,
     SwitchComponent,
     SignupComponent,
+    ActiveServicesComponent,
     DeviceManagerComponent,
     ButtonRendererComponent
   ],
@@ -72,8 +74,8 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     AngularFontAwesomeModule,
     NgxPopper,
     ToastrModule.forRoot({
-      progressBar:true,
-      progressAnimation:'decreasing',
+      progressBar: true,
+      progressAnimation: 'decreasing',
       timeOut: 10000,
       positionClass: 'toast-top-right',
     }),
@@ -81,6 +83,7 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     ArchwizardModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([])
+  
   ],
   providers: [],
   entryComponents : [ButtonRendererComponent],
