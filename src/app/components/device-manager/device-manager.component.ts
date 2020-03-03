@@ -63,7 +63,7 @@ export class DeviceManagerComponent implements OnInit {
           'latitude':this.deviceList[i].latitude
         })
       }
-    }), err => console.log('Error')
+    }), err => console.log('Error');
 
 
   }

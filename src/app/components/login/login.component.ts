@@ -39,16 +39,27 @@ export class LoginComponent implements OnInit {
     this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
       console.log('Fetched data from Service: ', response);
       this.accessToken = response['access_token'];
-      localStorage.setItem('accessToken', this.accessToken);
+      localStorage.setItem('accessToken',this.accessToken);
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
-    }, err =>  {  this.apiError = true; this.startSpinner = false;} );
-  }
+      }, err => { this.apiError = true; this.startSpinner = false;} );
+      }
+      forGetPassword() {
+      console.log('forget password....')
+      }
+      
+      // localStorage.setItem('accessToken', this.accessToken);
+      // this.apiError = false;
+      // this.startSpinner = false;
+      // this.router.navigate(['/dashboard']);
+      // err =>  {  this.apiError = true; this.startSpinner = false;}
 
-  forGetPassword() {
-    console.log('forget password....')
-  }
+
+  // forGetPassword() 
+  // {
+  //   console.log('forget password....')
+  // }
 
   newRegister()
   {
@@ -69,8 +80,4 @@ export class LoginComponent implements OnInit {
     body:"Login Content"
   }
 
-  }
-
-  
-  
-}
+}}
