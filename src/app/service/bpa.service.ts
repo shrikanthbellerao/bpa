@@ -18,7 +18,7 @@ export class BpaService {
       })
     };
 
-    const url: string = 'https://10.81.59.209:9091//bpa/api/v1.0/login';
+    const url: string = 'https://10.81.59.209:9091/bpa/api/v1.0/login';
     const requestBody = {};
 
     return this.httpClient.post(url, requestBody, httpHeaders);
