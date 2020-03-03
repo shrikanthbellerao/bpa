@@ -1,8 +1,5 @@
-
-<div [ngClass]="flag ? container : ''">
-  <!-- <app-timeline [timelineElements]="shrikanthLst"></app-timeline> -->
-  <!-- <app-dashboard></app-dashboard> -->
-  <app-topnav *ngIf='!flag'></app-topnav>
+<div [ngClass]="loginPageFlg ? container : ''">
+  <app-topnav *ngIf='!loginPageFlg'></app-topnav>
   <router-outlet></router-outlet>
-  <app-footer *ngIf='!flag'></app-footer>
-  <!-- <app-device-manager></app-device-manager> -->
+  <app-footer *ngIf='!loginPageFlg'></app-footer>
+</div>

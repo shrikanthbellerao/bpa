@@ -38,8 +38,8 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RolesComponent } from './components/roles/roles.component';
-import { BroadcastComponent } from './components/broadcast/broadcast.component';
-import { RequestComponent } from './components/request/request.component';
+import { BroadcastMessageComponent } from './components/broadcast-message/broadcast-message.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
@@ -50,31 +50,31 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     DashboardComponent,
     CollapsibleComponent,
     SpinnerComponent,
-    TopnavComponent,
+    TimelineComponent,
     ChartComponent,
     Chart1Component,
-    ButtonComponent,
     TooltipComponent,
     ProgressbarComponent,
-    TimelineComponent,
+    ButtonComponent,
     DropdownComponent,
     TabComponent,
     LineScalePulseOutComponent,
     CardsComponent,
-    FooterComponent,
-    ButtonRendererComponent,
     ModalComponent,
     ServiceCatalogComponent,
     SwitchComponent,
     SignupComponent,
     ActiveServicesComponent,
     DeviceManagerComponent,
+    ButtonRendererComponent,
     RolesComponent,
-    BroadcastComponent,
-    RequestComponent,
+    BroadcastMessageComponent,
+    UserRegistrationComponent,
     ProfileComponent,
     FAQComponent,
-    ResetPswdComponent
+    ResetPswdComponent,
+    TopnavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

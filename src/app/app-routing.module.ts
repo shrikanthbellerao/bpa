@@ -7,8 +7,8 @@ import { SignupComponent } from "./components/utils/signup/signup.component";
 import { ServiceCatalogComponent } from "./components/service-catalog/service-catalog.component";
 import { DeviceManagerComponent } from "./components/device-manager/device-manager.component";
 import { RolesComponent } from "./components/roles/roles.component";
-import { BroadcastComponent } from "./components/broadcast/broadcast.component";
-import { RequestComponent } from "./components/request/request.component";
+import { BroadcastMessageComponent } from "./components/broadcast-message/broadcast-message.component";
+import { UserRegistrationComponent } from "./components/user-registration/user-registration.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
 import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: "Services", component: ServiceCatalogComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
   { path: "ManageRoles", component: RolesComponent },
-  { path: "BroadcastMessage", component: BroadcastComponent },
-  { path: "ReviewRequest", component: RequestComponent },
+  { path: "BroadcastMessage", component: BroadcastMessageComponent },
+  { path: "ReviewRequest", component: UserRegistrationComponent },
   { path: "MyProfile", component: ProfileComponent },
   { path: "FAQ", component: FAQComponent },
   { path: "ResetPassword", component: ResetPswdComponent },
