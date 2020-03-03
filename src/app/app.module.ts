@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {ChartsModule} from 'ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,12 +11,12 @@ import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { ToastrModule } from 'ngx-toastr';
-import {ChartComponent} from './components/utils/chart/chart.component';
-import {Chart1Component} from './components/utils/chart1/chart1.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
+import { Chart1Component } from './components/utils/chart1/chart1.component';
+import { ChartComponent } from './components/utils/chart/chart.component';
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
@@ -26,8 +26,6 @@ import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
-import { TopnavComponent } from './components/topnav/topnav.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { ServiceCatalogComponent } from './components/service-catalog/service-catalog.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
@@ -36,14 +34,14 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
+import { TopnavComponent } from './components/topnav/topnav.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { RequestComponent } from './components/request/request.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { ResetPswdComponent } from './components/reset-pswd/reset-pswd.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,25 +49,25 @@ import { ResetPswdComponent } from './components/reset-pswd/reset-pswd.component
     DashboardComponent,
     CollapsibleComponent,
     SpinnerComponent,
+    TimelineComponent,
+    TooltipComponent,
+    ProgressbarComponent,
     ChartComponent,
     Chart1Component,
-    TimelineComponent,
     ButtonComponent,
     DropdownComponent,
     TabComponent,
     LineScalePulseOutComponent,
     CardsComponent,
     TopnavComponent,
-    TooltipComponent,
-    ProgressbarComponent,
     ModalComponent,
     FooterComponent,
+    ButtonRendererComponent,
     ServiceCatalogComponent,
     SwitchComponent,
     SignupComponent,
     ActiveServicesComponent,
     DeviceManagerComponent,
-    ButtonRendererComponent,
     RolesComponent,
     BroadcastComponent,
     RequestComponent,
