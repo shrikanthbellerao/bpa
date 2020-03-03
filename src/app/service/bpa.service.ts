@@ -91,7 +91,7 @@ export class BpaService {
     const httpHeaders = {
       headers: new HttpHeaders({
         Accept: 'application/json',
-        Authorization : 'Bearer ${getToken}'
+        Authorization : `Bearer ${getToken}`
       })
     };
 
