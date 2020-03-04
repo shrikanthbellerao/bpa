@@ -14,7 +14,6 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ChartComponent } from './components/utils/chart/chart.component';
 import { Chart1Component } from './components/utils/chart1/chart1.component';
@@ -49,7 +48,6 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     LoginComponent,
     DashboardComponent,
     CollapsibleComponent,
-    SpinnerComponent,
     TimelineComponent,
     ChartComponent,
     Chart1Component,
