@@ -1,7 +1,5 @@
-<div [ngClass]="flag ? container : ''">
-<router-outlet></router-outlet> 
-<div class="container">
-   <!--<app-dashboard></app-dashboard> -->
-   <router-outlet></router-outlet>
+<div [ngClass]="loginPageFlg ? container : ''">
+  <app-topnav *ngIf='!loginPageFlg'></app-topnav>
+  <router-outlet></router-outlet>
+  <app-footer *ngIf='!loginPageFlg'></app-footer>
 </div>
-

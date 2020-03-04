@@ -14,7 +14,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ChartComponent } from './components/utils/chart/chart.component';
 import { Chart1Component } from './components/utils/chart1/chart1.component';
@@ -35,8 +35,14 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
-
-
+import { TopnavComponent } from './components/topnav/topnav.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { RolesComponent } from './components/roles/roles.component';
+import { BroadcastMessageComponent } from './components/broadcast-message/broadcast-message.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { FAQComponent } from './components/faq/faq.component';
+import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,15 +60,21 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     TabComponent,
     LineScalePulseOutComponent,
     CardsComponent,
-    TooltipComponent,
-    ProgressbarComponent,
     ModalComponent,
     ServiceCatalogComponent,
     SwitchComponent,
     SignupComponent,
     ActiveServicesComponent,
     DeviceManagerComponent,
-    ButtonRendererComponent
+    ButtonRendererComponent,
+    RolesComponent,
+    BroadcastMessageComponent,
+    UserRegistrationComponent,
+    ProfileComponent,
+    FAQComponent,
+    ResetPswdComponent,
+    TopnavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
