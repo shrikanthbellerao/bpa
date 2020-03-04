@@ -39,5 +39,7 @@ export class CardsComponent implements OnInit {
   order(item) {
     this.route.navigate(['/dashboard']);
   }
+
+
 }
 
