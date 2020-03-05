@@ -26,9 +26,9 @@ import { TabComponent } from './components/utils/tab/tab.component';
 import { LineScalePulseOutComponent } from './components/utils/line-scale-pulse-out/line-scale-pulse-out.component';
 import { CardsComponent } from './components/utils/cards/cards.component';
 import { ModalComponent } from './components/utils/modal/modal.component';
-import { UiSwitchModule } from 'ngx-ui-switch';
-import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
+import { SwitchComponent } from './components/utils/switch/switch.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 import { ArchwizardModule } from 'angular-archwizard';
 
 @NgModule({
@@ -51,9 +51,10 @@ import { ArchwizardModule } from 'angular-archwizard';
     TooltipComponent,
     ProgressbarComponent,
     ModalComponent,
-    SwitchComponent,
-    SignupComponent
+    SignupComponent,
+    SwitchComponent
   ],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

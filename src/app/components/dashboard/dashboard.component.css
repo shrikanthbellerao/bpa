@@ -6,6 +6,7 @@
 marquee {
     height:"50px";
     margin-top: 80px;
-    color: red;
+    color:black;
+    font-weight: bold;
     /* border: 2px solid grey; */
 }

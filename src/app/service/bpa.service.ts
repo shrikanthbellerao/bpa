@@ -18,11 +18,42 @@ export class BpaService {
       })
     };
 
-    const url: string = 'https://10.83.34.65/bpa/api/v1.0/login';
+    const url: string = 'https://10.81.59.209:9091/bpa/api/v1.0/login';
     const requestBody = {};
 
     return this.httpClient.post(url, requestBody, httpHeaders);
   }
+
+  getServiceorders() {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers : new HttpHeaders({
+        Accept : 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+
+    const url: string = 'https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-orders';
+    
+
+    return this.httpClient.get(url, httpHeaders);
+  }
+
+  getServiceitems() {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers : new HttpHeaders({
+        Accept : 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+
+    const url: string = 'https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc';
+    
+
+    return this.httpClient.get(url, httpHeaders);
+  }
+  
   /* Use below approach to display Toastr from any component:
 
   1. In case of Success message: this.toastr.success(msg, 'Success!');

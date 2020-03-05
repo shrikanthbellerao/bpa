@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BpaService } from 'src/app/service/bpa.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  chart1dash:any;
+  chartDash:any;
   timelinedash:any = [{ 
     icontype : "coffee",
     header : "Coffee Break",
@@ -32,10 +34,19 @@ export class DashboardComponent implements OnInit {
     header:"Meetup",
     time: "5pm",
   } ];
-constructor() { 
+
+constructor(private bpaservice : BpaService) { 
+  this.bpaservice.getServiceorders().subscribe(res => {
+    console.log('response:',res);
+    this.chart1dash = res['data'];
+  }, err => console.log('Error:',err))
+
+  this.bpaservice.getServiceitems().subscribe(res => {
+    console.log('response:',res);
+    this.chartDash = res['data'];
+  }, err => console.log('Error:',err))
 
 }
-
 
 ngOnInit() {
 } 
