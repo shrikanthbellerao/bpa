@@ -6,15 +6,15 @@ import { DeviceManagerComponent } from './components/device-manager/device-manag
 
 
 const routes: Routes = [
-  {path:"", component:LoginComponent},
-  {path:"dashboard", component:DashboardComponent},
-  {path:"deviceManager", component:DeviceManagerComponent}
+  {path: '', component: LoginComponent},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'deviceManager', component: DeviceManagerComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
 }

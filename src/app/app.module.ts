@@ -69,8 +69,8 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
     AngularFontAwesomeModule,
     NgxPopper,
     ToastrModule.forRoot({
-      progressBar:true,
-      progressAnimation:'decreasing',
+      progressBar: true,
+      progressAnimation: 'decreasing',
       timeOut: 10000,
       positionClass: 'toast-top-right',
     }),

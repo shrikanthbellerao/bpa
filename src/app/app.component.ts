@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-    progressBarWidth: string = '20%';
+    progressBarWidth = '20%';
     ngOnInit() {
         setTimeout(() => {
         }, 3000);

@@ -7,30 +7,31 @@
 </div>
 
 -->
+<div class="container" *ngIf="modalConfig">
+  <!-- The Modal -->
+  <div class="modal" id="myModal" [style.display]="displayModal ? 'block' : 'none'">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDialog">
-  Launch demo modal
-</button>
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">{{modalConfig.title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="hideModal()">&times;</button>
+        </div>
 
-<!-- Modal -->
-<div class="modal fade" id="modalDialog" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalDialogLabel">{{modalConfig.title}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p [innerHTML]="modalConfig.body"></p>
+
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" *ngFor='let btn of modalConfig.buttonList'>
+              {{btn.buttonLabel}}
+            </button>
+          </div>
+
+        </div>
       </div>
-      <div class="modal-body"><p>{{modalConfig.body}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" *ngFor ='let btn of modalConfig.buttonLst'>
-          {{btn.btnLabel}}
-        </button>
-      </div> 
     </div>
   </div>
-</div>
-
