@@ -7,28 +7,40 @@ import { ToastrModule, ToastrService } from "ngx-toastr";
 })
 export class BpaService {
 
-  // vmIPAddress: string = '10.81.59.209:9091'; // BAC
-  // nsoInstance: string = 'RTP-Core,nso5-lsa4-re'; // BAC
-  vmIPAddress: string = '10.83.34.65'; // ATT-M
-  nsoInstance: string = 'All'; // ATT-M
+  vmIPAddress: string = '';
+  nsoInstance: string = '';
+
+  bacVmIPAddress: string = '10.81.59.209:9091'; // BAC
+  bacNsoInstance: string = 'RTP-Core,nso5-lsa4-re'; // BAC
+  attVmIPAddress: string = '10.83.34.65'; // ATT-M
+  attNsoInstance: string = 'All'; // ATT-M
 
   constructor(
     private httpClient: HttpClient, 
     private toastr: ToastrService
   ) {}
 
-  fnValidateLogin(base64Credential) {
+  fnValidateLogin(base64Credential,flag) {
     const httpHeaders = {
       headers: new HttpHeaders({
         Accept: "application/json",
         Authorization: "Basic " + base64Credential
       })
     };
-
+    if(flag){
+      this.vmIPAddress=this.bacVmIPAddress;
+      this.nsoInstance=this.bacNsoInstance;
+    }
+    else{
+      this.vmIPAddress=this.attVmIPAddress;
+      this.nsoInstance=this.attNsoInstance;
+    }
     const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/login`;
     const requestBody = {};
 
-    return this.httpClient.post(url, requestBody, httpHeaders);
+    return this.httpClient.post(url, requestBody, httpHeaders)
+    
+  
   }
 
   getActiveServices() {

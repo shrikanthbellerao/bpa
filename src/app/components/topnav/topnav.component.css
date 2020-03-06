@@ -41,6 +41,7 @@ nav {
 .dropdown-menu a:hover {
     color: #fff;
     background-color: #034e84;
+    
 }
 
 .navbar a.dropdown-item.active {
@@ -95,3 +96,41 @@ i {
 .serviceMenu {
     padding: 2rem 3.5rem;
 }
+
+.dropdown{
+    cursor: pointer;
+}
+@media screen and (max-width:767px){
+    .navbar-toggler {
+    margin-top:-20px;
+    }
+    .navbar-toggler-icon{
+    width:25px;
+    height:25px;
+    }
+    .navbar-brand{
+        margin-top:-20px;
+    }
+    .dropdown{
+        overflow:auto;
+    }
+    }
+/*@media screen and (max-width:770px)
+{
+    max-width:660px;
+}
+@media screen and (max-width:436px)
+{
+     .nav{
+        width:100%;
+    }
+} */
+@media screen and (max-width: 767.98px) { 
+    #navbarSupportedContent{
+        background-color:rgba(52, 58, 64, 1);
+        color:black;
+        
+    }
+ }
+
+
