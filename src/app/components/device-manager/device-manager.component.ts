@@ -24,7 +24,7 @@ export class DeviceManagerComponent implements OnInit {
   rowDatafromCell: any;
   pingDeviceInfo: any;
   pingStatus: any;
-  displayModal: boolean = false;
+  displayModal = false;
 
   ngOnInit() {
 
@@ -64,19 +64,19 @@ export class DeviceManagerComponent implements OnInit {
       this.deviceList = response;
       for (let i = 0; i < this.deviceList.length; i++) {
         this.rowData.push({
-          'name': this.deviceList[i].name,
-          'address': this.deviceList[i].address,
-          'controller_id': this.deviceList[i].controller_id,
-          'port': 22,
-          'protocol': this.deviceList[i].protocol,
-          'authgroup': this.deviceList[i].authgroup,
-          'ned_id': this.deviceList[i].ned_id,
-          'latitude': this.deviceList[i].latitude,
-          'longitude': this.deviceList[i].longitude,
-          'sub_controller_id': this.deviceList[i].sub_controller_id
-        })
+          name: this.deviceList[i].name,
+          address: this.deviceList[i].address,
+          controller_id: this.deviceList[i].controller_id,
+          port: 22,
+          protocol: this.deviceList[i].protocol,
+          authgroup: this.deviceList[i].authgroup,
+          ned_id: this.deviceList[i].ned_id,
+          latitude: this.deviceList[i].latitude,
+          longitude: this.deviceList[i].longitude,
+          sub_controller_id: this.deviceList[i].sub_controller_id
+        });
       }
-    }), err => console.log('Error')
+    }), () => console.log('Error');
   }
 
   onViewBtnClick(e) {
@@ -84,7 +84,7 @@ export class DeviceManagerComponent implements OnInit {
 
     this.rowDatafromCell = e.rowData;
     this.modalConfig = {
-      title: " Device View",
+      title: ' Device View',
       body: `<div class="container">
       <div class="row">
         <div class="col md-6">
@@ -119,15 +119,15 @@ export class DeviceManagerComponent implements OnInit {
     this.rowDatafromCell = e.rowData;
     this.pingDeviceInfo = [
       {
-        "name": this.rowDatafromCell.name,
-        "controller_id": this.rowDatafromCell.controller_id,
-        "sub_controller_id": this.rowDatafromCell.sub_controller_id
+        name: this.rowDatafromCell.name,
+        controller_id: this.rowDatafromCell.controller_id,
+        sub_controller_id: this.rowDatafromCell.sub_controller_id
       }
-    ]
+    ];
     this.bpaService.getPingResult(this.pingDeviceInfo).subscribe((response) => {
       this.pingStatus = response;
       this.modalConfig = {
-        title: "Ping Status",
+        title: 'Ping Status',
         body: `<table class="table">
         <tr>
         <th scope="col md-2">
@@ -141,15 +141,15 @@ export class DeviceManagerComponent implements OnInit {
         </th>
         </tr>
         <tr>
-        <td>`+ this.rowDatafromCell.name + `</td>
-        <td>`+ this.rowDatafromCell.controller_id + `</td>
-        <td>`+ this.pingStatus[0].result[0].value + `</tr>
+        <td>` + this.rowDatafromCell.name + `</td>
+        <td>` + this.rowDatafromCell.controller_id + `</td>
+        <td>` + this.pingStatus[0].result[0].value + `</tr>
 </table>`,
         buttonList: []
-      }
+      };
       this.displayModal = true;
 
-    }), err => console.log('Error')
+    }), () => console.log('Error');
 
   }
 
@@ -170,7 +170,7 @@ export class DeviceManagerComponent implements OnInit {
 
 
   onSelectionChanged() {
-    var selectedRows = this.gridApi.getSelectedRows();
+    const selectedRows = this.gridApi.getSelectedRows();
     this.selectedRowsNo = selectedRows.length;
   }
 
@@ -178,8 +178,7 @@ export class DeviceManagerComponent implements OnInit {
   buttonState() {
     if (this.selectedRowsNo > 0) {
       return false;
-    }
-    else {
+    } else {
       return true;
     }
   }
