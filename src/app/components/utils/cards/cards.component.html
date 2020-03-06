@@ -1,30 +1,7 @@
 <!-- Instructions to use card component in other components:
-   parent component html file 
-   <app-cards [inputToCard]="cardConfig"></app-cards>
-   
-   Sample cardConfig Object:
-     cardConfig = {
-     header: "Warning",
-     headerColor: "lightblue",
-     body: "Password is Incorrect",
-     btnArray:[{
-       color: "success",
-       btext: "ok",
-       fnName: this.okFun
-     },{
-       color: "danger",
-       btext: "cancel",
-       fnName: this.cancelfn
-      }]
-     };
-   
-   okFun() {
-     alert("ok")
-   }
-   cancelfn() {
-     alert("cancel")
-   }-->
-   <div class="row">
+  <app-cards [inputToCard]="cardConfig"></app-cards>
+-->
+<!-- <div class="row">
     <div class="col-5" id="block1">
        <div class="card" id="outerBlock">
           <div class="card-header" [ngStyle]="{'background-color': inputToCard.headerColor}">
@@ -40,4 +17,22 @@
           </div>
        </div>
     </div>
- </div>
+ </div> -->
+<div class="row my-flex-card">
+  <div class="col-sm-4" *ngFor='let item of inputToCard'>
+    <div class="card border border-dark">
+      <div class="card-header">{{item.name}}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{item.description}}</p>
+        <div class="bgcolor">{{item.tags[0]['name']}}</div>
+      </div>
+      <div class="card-footer text-muted">
+        <ng-container>
+          <button (click)="order(item)" class="btn"><i class="fa fa-heart-o"></i></button>
+          <button (click)="order(item)" class="btn btn-primary ml-6 ">Order</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

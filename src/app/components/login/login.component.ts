@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   accessToken: string;
   apiError = false;
   startSpinner = false;
+  modalConfig = {
+  }
 
   constructor(private bpaService: BpaService, private router: Router) { }
 
@@ -23,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   // Method to invoke a function in Service to validate whether the user is a valid user or not
   fnValidateCredential(formData) {
-  this.startSpinner = true;
-  console.log('Inside fnValidateCredential', formData.value);
+    this.startSpinner = true;
+    console.log('Inside fnValidateCredential', formData.value);
 
   const base64Credential: string = btoa(formData.value.userName + ':' + formData.value.password);
   console.log(base64Credential);
@@ -36,10 +38,29 @@ export class LoginComponent implements OnInit {
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
-    }, err =>  {  this.apiError = true; this.startSpinner = false; } );
+    }, err => { this.apiError = true; this.startSpinner = false; });
   }
 
   forGetPassword() {
     console.log('forget password....');
+  }
+
+  newRegister() {
+    this.router.navigate(['/signup']);
+  }
+
+  contactus() {
+    this.modalConfig = {
+      title: "LoginComponent",
+      body: "Login Content",
+      show: true
+    }
+  }
+
+  questions() {
+    this.modalConfig = {
+      title: "LoginComponent",
+      body: "Login Content"
+    }
   }
 }
