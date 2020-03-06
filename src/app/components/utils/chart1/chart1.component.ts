@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
-//import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+// import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-chart1',
@@ -19,7 +19,14 @@ export class Chart1Component implements OnInit {
     legend: {
       position: 'bottom',
     },
-   
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
   };
 
   // public pieChartLabels: Label[] = [["In-Process"],["Complete"],["Rollback-In-Process"]];
@@ -42,6 +49,7 @@ export class Chart1Component implements OnInit {
   ngOnInit() {
 
     console.log(this.chart1Elements);
+
     this.chart1Elements.forEach((data) => {
      if(data.status === 'Complete')
       this.completeCount++;
@@ -68,12 +76,12 @@ export class Chart1Component implements OnInit {
   
  }
   // events
-  // public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
   //   // console.log(event, active);
-  // }
+  }
 
-  // public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
   //   // console.log(event, active);
-  // }
+  }
 
 }

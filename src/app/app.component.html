@@ -1,5 +1,8 @@
 <div class="container-fluid">
   <!-- <app-dashboard></app-dashboard> -->
-  <router-outlet></router-outlet>
+ <div [ngClass]= "loginPageFlg ? container :''">
+  <app-topnav *ngIf= '!loginPageFlg'></app-topnav>
+   <router-outlet></router-outlet>
+  <app-footer *ngIf= '!loginPageFlg'></app-footer>
+ </div>
 </div>
-

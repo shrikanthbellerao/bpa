@@ -7,6 +7,7 @@ import { BpaService } from 'src/app/service/bpa.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
   chart1dash:any;
   chartDash:any;
   timelinedash:any = [{ 
@@ -35,20 +36,21 @@ export class DashboardComponent implements OnInit {
     time: "5pm",
   } ];
 
-constructor(private bpaservice : BpaService) { 
+constructor(private bpaservice : BpaService) { }
+
+ngOnInit() {
+
   this.bpaservice.getServiceorders().subscribe(res => {
     console.log('response:',res);
     this.chart1dash = res['data'];
   }, err => console.log('Error:',err))
 
-  this.bpaservice.getServiceitems().subscribe(res => {
+  this.bpaservice.getServiceItems().subscribe(res => {
     console.log('response:',res);
     this.chartDash = res['data'];
+    console.log(this.chartDash);
   }, err => console.log('Error:',err))
 
-}
-
-ngOnInit() {
 } 
 //  this.timelinedash = [{ 
 //     icontype : "coffee",
