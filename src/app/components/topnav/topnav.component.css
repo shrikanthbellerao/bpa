@@ -129,7 +129,11 @@ i {
     #navbarSupportedContent{
         background-color:rgba(52, 58, 64, 1);
         color:black;
-        
+        position: relative;
+        z-index: 10;
+    }
+    .settings{
+        margin-left: 250px;
     }
  }
 
