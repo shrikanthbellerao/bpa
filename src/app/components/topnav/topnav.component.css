@@ -1,3 +1,8 @@
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
 .navbar {
     max-height: 40px;
     border-radius: 2px;
@@ -17,7 +22,6 @@ nav {
     padding-left: 8px;
     padding-right: 20px;
     font-size: 14px;
-    text-align: center;
     color: white;
 }
 
@@ -53,7 +57,6 @@ nav {
     background-image: url("src\assets\datacenter.jpg");
     margin-bottom: .05rem;
     border-radius: .1rem .1rem .1rem .1rem;
-
 }
 
 .dropdown-menu {
@@ -100,9 +103,57 @@ i {
 .dropdown{
     cursor: pointer;
 }
-@media screen and (max-width:767px){
+.slide-right{
+    padding-left:0px;
+    padding-right:0px;
+}
+.settings{
+    margin-top:7px;
+}
+.icon-bar {
+	width: 22px; 
+	height: 2px;
+	background-color: white;;
+	display: block;
+	transition: all 0.2s;
+	margin-top: 4px
+}
+ 
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+  padding-bottom: 8px;
+}
+.navbar-toggler .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+
+  }
+   
+  .navbar-toggler .middle-bar {
+    opacity: 0;
+  }
+   
+  .navbar-toggler .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+  }
+   
+  .navbar-toggler.collapsed .top-bar {
+    transform: rotate(0);
+  }
+   
+  .navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+  }
+   
+  .navbar-toggler.collapsed .bottom-bar {
+    transform: rotate(0);
+  }
+@media screen and (max-width:992px){
     .navbar-toggler {
     margin-top:-20px;
+    
     }
     .navbar-toggler-icon{
     width:25px;
@@ -111,30 +162,26 @@ i {
     .navbar-brand{
         margin-top:-20px;
     }
-    .dropdown{
-        overflow:auto;
-    }
-    }
-/*@media screen and (max-width:770px)
-{
-    max-width:660px;
-}
-@media screen and (max-width:436px)
-{
-     .nav{
-        width:100%;
-    }
-} */
-@media screen and (max-width: 767.98px) { 
-    #navbarSupportedContent{
+    .navbar-collapse{
         background-color:rgba(52, 58, 64, 1);
         color:black;
         position: relative;
         z-index: 10;
     }
-    .settings{
-        margin-left: 250px;
+    .center{
+        text-align: left;
     }
- }
+    .dropdown-header {
+        padding: 1.5rem 4rem;
+    }
+    .settings{
+        margin-bottom: 10px;
+        margin-right: 22px;
+        margin-left: 10px;
+        
+    }
+    
+}
+
 
 

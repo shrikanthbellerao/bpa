@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'app-topnav',
@@ -9,5 +10,8 @@ export class TopnavComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { $('.trigger').click(function(){
+    $('.navbar-collapse').collapse('hide');
+  });}
+ 
 }
