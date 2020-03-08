@@ -16,7 +16,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ChartComponent } from './components/utils/chart/chart.component';
-import { Chart1Component } from './components/utils/chart1/chart1.component';
+import { OrdersPiechart } from './components/utils/Orderspiechart/Orderspiechart.component';
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
@@ -50,7 +50,7 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     CollapsibleComponent,
     TimelineComponent,
     ChartComponent,
-    Chart1Component,
+    OrdersPiechart,
     TooltipComponent,
     ProgressbarComponent,
     ButtonComponent,
