@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as d3 from 'd3';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-chart',
@@ -7,215 +7,156 @@ import * as d3 from 'd3';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
-
-  // chartElements:any = [{categoryIds: {name: "Collaboration Services" }},
-  // {categoryIds: {name: "MVP Service Catalog Refresh #2" }},
-  // {categoryIds: {name: "Collaboration Services" }},
-  // {categoryIds: {name: "Enterprise Services" }} ,
-  // {categoryIds: {name: "Collaboration Services" }},
-  // {categoryIds: {name: "Core Services" }}];
+ 
+  @Input()
+  chartElements:any;
 
   constructor() { }
 
-  // collabCount = 0;
-  // mvpCount = 0;
-  // enterpriseCount = 0;
-  // coreCount = 0;
-  // dmzCount = 0;
-  // branchCount = 0;
-  // commonCount = 0;
-  // datacenterCount = 0;
-
+  collabCount = 0;
+  collab1Count = 0;
+  flag1:boolean = true;
+  mvpCount = 0;
+  mvp1Count = 0;
+  flag2:boolean = true;
+  enterpriseCount = 0;
+  enterprise1Count = 0;
+  flag3:boolean = true;
+  coreCount = 0;
+  core1Count = 0;
+  flag4:boolean = true;
+  dmzCount = 0;
+  dmz1Count = 0;
+  flag5:boolean = true;
+  branchCount = 0;
+  branch1Count = 0;
+  flag6:boolean = true;
+  commonCount = 0;
+  common1Count = 0;
+  flag7:boolean = true;
+  datacenterCount = 0;
+  datacenter1Count = 0;
+  flag8:boolean = true;
+  chart:any = [];
+  
   ngOnInit() {
   
-    // console.log(this.chartElements);
-
     // this.chartElements.forEach((data) => {
-    //   if(data.categoryIds.name === "Collaboration Services")
-    //    this.collabCount++;
-     
-    //   if(data.categoryIds.name === 'MVP Service Catalog Refresh #2')
-    //    this.mvpCount++;
-  
-    //   if(data.categoryIds.name === 'Enterprise Services')
-    //    this.enterpriseCount++;
-  
-    //   if(data.categoryIds.name === 'Core Services')
-    //    this.coreCount++;
-  
-    //   if(data.categoryIds.name === 'Branch Services')
-    //    this.branchCount++;
-  
-    //   if(data.categoryIds.name === 'DMZ Services')
-    //    this.dmzCount++;
-  
-    //   if(data.categoryIds.name === 'Common Services')
-    //    this.commonCount++;
-  
-    //   if(data.categoryIds.name === 'Data Center Services')
-    //    this.datacenterCount++;
-    //  })
-  
-    //  console.log('collab items',this.collabCount);
-  
-    // var data1:any[] = [{
-    //   "serviceName" : "Collaboration",
-    //   "serviceItems" : this.collabCount,
-    // }, {
-    //   "serviceName" : "Enterprise",
-    //   "serviceItems" : this.enterpriseCount,
-    // }, {
-    //   "serviceName" : "Core",
-    //   "serviceItems" : this.coreCount,
-    // }, {
-    //   "serviceName" : "DMZ",
-    //   "serviceItems" : this.dmzCount,
-    // }, {
-    //   "serviceName" : "Branch",
-    //   "serviceItems" : this.branchCount,
-    // }, {
-    //   "serviceName" : "Common",
-    //   "serviceItems" : this.commonCount,
-    // }, {
-    //   "serviceName" : "MVP",
-    //   "serviceItems" : this.mvpCount,
-    // }, {
-    //   "serviceName" : "Data Center",
-    //   "serviceItems" : this.datacenterCount,
-    // }];
-   
-  // var svg = d3.select("svg"),
-  // width = +svg.attr("width"),
-  // height = +svg.attr("height"),
-  // innerRadius = 100,
-  // outerRadius = Math.min(width,height)/2.5,
-  // g=svg.append("g").attr("transform","translate(" + width/2 + "," + height/2 + ")" );
-  
-  // var xScaleOffset = Math.PI * 75/180;
-  // var x = d3.scaleBand().range([xScaleOffset, 2* Math.PI + xScaleOffset]).align(0);
-  // var y = d3.scaleLinear().range([innerRadius,outerRadius]);
-  // var z = d3.scaleOrdinal<string>().range(["#a1d76a", "#91bfdb"]);
-  // var zClasses = ['Non-Admin'];
+    //     if(data.categoryIds.name === "Refresh Cisco IP Phone")
+    //       this.collabCount++;
+    //       // if(this.flag1)
+    //       //  this.collabCount++;
+    //       // else 
+    //       //  this.collab1Count++;
+        
+    //       // this.flag1 = !this.flag1;
+        
+    //     if(data.categoryIds.name === "MVP Service Catalog Refresh #2")
+    //       this.mvpCount++;
+    //       // if(this.flag2)
+    //       //  this.mvpCount++;
+    //       // else
+    //       //  this.mvp1Count++;
 
-  // // var meanAccidents = d3.mean(data1, function(d) { return d3.sum(keys, function(key) { return d[key]; }); })
-  // var meanAccidents = d3.mean(data1, function(d) { return data1.length })
-  // var keys = [];
-  // var key:any;
-
-  // // for (key in data1){
-  // //   if (key != "serviceName")
-  // //     keys.push(key['serviceName']);
-  // // }
-
-  // this.chartElements.forEach(function(d){
-  //   d.total = 0;
-  //   keys.forEach(function(k){
-  //     d.total += d[k];
-  //   })
-  // });
-  
-  // x.domain(data1.map(function(d) {
-  //   return d.serviceName;
-  // }));
-  // y.domain([0, d3.max(data1, function(d) {
-  //   return d.serviceItems;})]).nice();
-  // z.domain(keys);
-  
-  // g.append('g')
-  //     .selectAll("g")
-  //   .data(d3.stack().keys(keys)(data1))
-  //   .enter().append("g")
-  //     .attr("fill", function(d) { return z(d.key); })
-  //   .selectAll("path")
-  //   .data(function(d) { return d; })
-  //   .enter().append("path")
-  //     .attr("d", <any>d3.arc()
-  //         .innerRadius(function(d) { return y(d[0]); })
-  //         .outerRadius(function(d) { return y(d[1]); })
-  //         .startAngle(function(d:any) { return x(d.data1.serviceName); })
-  //         .endAngle(function(d:any) { return x(d.data1.serviceName) + x.bandwidth(); })
-  //         .padAngle(0.01)
-  //         .padRadius(innerRadius));
-  
-  //         var yAxis = g.append("g")
-  //         .attr("text-anchor", "middle");
+    //       //  this.flag2 = !this.flag2;
     
-  //     var yTicksValues = d3.ticks(0, 40, 4);
+    //     if(data.categoryIds.name === "Enterprise Services")
+    //       this.enterpriseCount++;
+    //       // if(this.flag3)
+    //       //  this.enterpriseCount++;
+    //       // else
+    //       //  this.enterprise1Count++;
+
+    //       //  this.flag3 = !this.flag3;
+        
+        
+    //     if(data.categoryIds.name === "Core Services")
+    //       this.coreCount++;
+    //       // if(this.flag4)
+    //       //  this.coreCount++;
+    //       // else
+    //       //  this.core1Count++;
+
+    //       //  this.flag4 = !this.flag4;
+        
+         
+    //     if(data.categoryIds.name === "Branch Services")
+    //       this.branchCount++;
+    //       // console.log(this.branchCount);
+    //       // if(this.flag5)
+    //       //  this.branchCount++;
+    //       // else
+    //       //  this.branch1Count++;
+
+    //       // this.flag5 = !this.flag5;
+        
+        
+    //     if(data.categoryIds.name === "DMZ Services")
+    //       this.dmzCount++;
+    //       // if(this.flag6)
+    //       //  this.dmzCount++;
+    //       // else
+    //       //  this.dmz1Count++;
+
+    //       // this.flag6 = !this.flag6;
+        
+         
+    //     if(data.categoryIds.name === "Common Services")
+    //       this.commonCount++;
+    //       // if(this.flag7)
+    //       //  this.commonCount++;
+    //       // else
+    //       //  this.common1Count++;
+
+    //       // this.flag7 = !this.flag7;
+        
+         
+    //     if(data.categoryIds.name === "Data Center Services")
+    //       this.datacenterCount++;
+    //       // if(this.flag8)
+    //       //  this.datacenterCount++;
+    //       // else
+    //       //  this.datacenter1Count++;
+
+    //       // this.flag8 = !this.flag8;
+        
+    // })
     
-  //     console.log('Mean: ', meanAccidents);
-
-  // var yMeanTick = yAxis
-  //   .append("g")
-  //   .datum([meanAccidents]);
-
-  // yMeanTick.append("circle")
-  //     .attr("fill", "none")
-  //     .attr("stroke", "#C0625E")
-  //     .attr("stroke-dasharray", "5 3")
-  //     .attr("r", 'y');
-
-  // var yTick = yAxis
-  //   .selectAll("g")
-  //   .data(yTicksValues)
-  //   .enter().append("g");
-
-  // yTick.append("circle")
-  //     .attr("fill", "none")
-  //     .attr("stroke", "#ccdcea")
-  //     .attr("r", y);
-
-  // yTick.append("text")
-  //     .attr("y", function(d) { return -y(d); })
-  //     .attr("dy", "0.35em")
-  //     .attr("fill", "none")
-  //     .attr("stroke", "#fff")
-  //     .attr("stroke-width", 5)
-  //     .text(y.tickFormat(5, "s"));
-
-  // yTick.append("text")
-  //     .attr("y", function(d) { return -y(d); })
-  //     .attr("dy", "0.35em")
-  //     .text(y.tickFormat(5, "s"));
-
-  // yAxis.append("text")
-  //     .attr("y", function(d) { return -y(yTicksValues.pop()); })
-  //     .attr("dy", "-2em")
-  //     .text("Requests");
-
-  //     var label = g.append("g")
-  //     .selectAll("g")
-  //     .data(data1)
-  //     .enter().append("g")
-  //       .attr("text-anchor", "middle")
-  //       .attr("transform", function(d) { return "rotate(" + ((x(d.serviceName) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ")translate(" + innerRadius + ",0)"; });
   
-  //   label.append("line")
-  //       .attr("x2", function(d) { return (((d.serviceName % 5) == 0) || (d.serviceName == '1')) ? -7 : -4 })
-  //       .attr("stroke", "#000");
-  
-  //   label.append("text")
-  //       .attr("transform", function(d) { return (x(d.serviceName) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,16)" : "rotate(-90)translate(0,-9)"; })
-  //       .text(function(d) { 
-  //         var xlabel = (((d.serviceName % 5) == 0) || (d.serviceName == '1')) ? d.serviceName : '';
-  //         return xlabel; });
-
-  //   var legend = g.append("g")
-  //     .selectAll("g")
-  //     .data(zClasses)
-  //     .enter().append("g")
-  //       .attr("transform", function(d, i) { return "translate(-50," + (i - (zClasses.length - 1) / 2) * 25+ ")"; });
-  
-  //   legend.append("circle")
-  //       .attr("r", 8)
-  //       .attr("fill", z);
-  
-  //   legend.append("text")
-  //       .attr("x", 15)
-  //       .attr("y", 0)
-  //       .attr("dy", "0.35em")
-  //       .text(function(d) { return d; });
-
-  
+    
+    this.chart = new Chart('canvas', {
+      type: 'line',
+      data: {
+        labels: ["Collaboration","MVP","Enterprise","Core","Branch","Common","Data Center"],
+        datasets: [
+          { 
+            label: "Admin",
+            data: [5,1,3,1,7,2,1,2],
+            borderColor: "#3cba9f",
+            fill: false
+          },
+          { 
+            label: "Non-Admin",
+            data: [1,5,1,2,6,1,2,1,4],
+            borderColor: "#ffcc00",
+            fill: false
+          },
+        ]
+      },
+      options: {
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [{
+            display: false
+          }],
+          yAxes: [{
+            display: false
+          }],
+        }
+      }
+    });
   
   }
 }

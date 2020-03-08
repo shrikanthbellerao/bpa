@@ -1,9 +1,5 @@
-.card-body {
-    /* width:350px;
-    height: 200px; */
-    margin-top: 30px;
-    float: left;
-    border: 2px solid white;
-    box-shadow: 0 0 40px lightgray;
+.main-card{
+  width: 600px;
+  box-shadow: 2px lightgrey;
 
-  }
+}

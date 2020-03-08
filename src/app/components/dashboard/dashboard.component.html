@@ -8,18 +8,16 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="col-md col-sm">
-                <app-chart></app-chart>
+            <div *ngIf='chartDash' class="card-body col-md col-sm">
+                <app-chart [chartElements] = 'chartDash'></app-chart>
             </div>
-          </div>
             <div *ngIf='chart1dash' class="col-md col-sm">
               <app-Orderspiechart [chart1Elements] = 'chart1dash'></app-Orderspiechart>
             </div>
-            <div class="col">
-             <div class="col-md col-sm" style="float: right;">
+          </div>
+             <div class="card-body col-md col-sm" style="float: right;">
                 <app-timeline [timelineElements] = "timelinedash"></app-timeline>
              </div>
-            </div>
         </div>
 </div>
 

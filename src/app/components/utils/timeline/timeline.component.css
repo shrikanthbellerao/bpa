@@ -4,8 +4,8 @@
     overflow: hidden;
     float: right;
     margin: 20px auto 0;
-    border: 2px solid white;
-    box-shadow: 0 0 40px lightgray;
+    border: 0.5px solid black;
+    /* box-shadow: 0 0 40px lightgray; */
     overflow-y: scroll;
   }
   
