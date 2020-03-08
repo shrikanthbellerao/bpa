@@ -1,3 +1,36 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="col col-12">
+                <marquee direction="right" scrollamount="15">
+                   SITE UNDER CONSTRUCTION!
+                </marquee>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="col-md col-sm">
+                <app-chart></app-chart>
+            </div>
+          </div>
+            <div *ngIf='chart1dash' class="col-md col-sm">
+                <app-chart1 [chart1Elements] = "chart1dash"></app-chart1>
+            </div>
+            <div class="col">
+             <div class="col-md col-sm" style="float: right;">
+                <app-timeline [timelineElements] = "timelinedash"></app-timeline>
+             </div>
+            </div>
+        </div>
+</div>
+
+
+<!-- <div class="container"> 
+    <div class="row">
+      <div class="col col-10">
+        <marquee scrollamount="15">
+            This is a sample scrolling text that has scrolls texts to right.
+        </marquee>
+      </div>
 <div class="container">
   <div class="row">
     <div class="col col-10">
@@ -10,11 +43,5 @@
     <div class="col-md col-sm">
       <app-chart></app-chart>
     </div>
-    <div class="col-md col-sm">
-      <app-chart1></app-chart1>
-    </div>
-    <div class="col-md col-sm">
-      <app-timeline [timelineElements]="timelinedash"></app-timeline>
-    </div>
-  </div>
-</div>
+</div> -->
+    

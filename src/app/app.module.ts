@@ -10,8 +10,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
-
 import { ToastrModule } from 'ngx-toastr';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
