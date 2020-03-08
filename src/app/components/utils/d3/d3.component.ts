@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 
 import { BpaService } from 'src/app/service/bpa.service';
-import { Z_ASCII } from 'zlib';
 
 @Component({
   selector: 'app-d3',
@@ -45,31 +44,31 @@ export class D3Component implements OnInit {
       console.log('Data read from CSV file: ');
       // console.log('csvTextData =>', csvTextData);
 
-      let csvJsonData = d3.csvParse(csvTextData);
-      console.log('csvJsonData =>', csvJsonData);
+      let data = d3.csvParse(csvTextData);
+      console.log('csvJsonData =>', data);
 
-      let keys = csvJsonData.columns.slice(1);
-      let meanAccidents = d3.mean(csvJsonData, function(d) { return d3.sum(keys, function(key) { return d[key]; }); })
+      let keys = data.columns.slice(1);
+      let meanAccidents = d3.mean(data, function(d) { return d3.sum(keys, function(key) { return parseInt(d[key]); }); });
 
-      x.domain(csvJsonData.map(function(d) { return d.km; }));
-      y.domain([0, d3.max(csvJsonData, function(d) { return (d.left_lane + d.right_lane); })]);
-      z.domain(csvJsonData.columns.slice(1));
+      x.domain(data.map(function(d) { return d.km; }));
+      y.domain([0, parseInt(d3.max(data, function(d) { return (d.left_lane + d.right_lane); }))]);
+      z.domain(data.columns.slice(1));
       console.log('keys: ', keys);
 
       // Accidents
       g.append('g')
         .selectAll('g')
-        .data(d3.stack().keys(csvJsonData.columns.slice(1))(csvJsonData))
+        .data(d3.stack().keys(keys)(data))
         .enter().append('g')
-        .attr('fill', function(d) { return z(d.key); })
+        .attr('fill', function(d) { return z(d['key']); })
         .selectAll('path')
         .data(function(d) { return d; })
         .enter().append('path')
         .attr('d', d3.arc()
           .innerRadius(function(d) { return y(d[0]); })
           .outerRadius(function(d) { return y(d[1]); })
-          .startAngle(function(d) { return x(d.data.km); })
-          .endAngle(function(d) { return x(d.data.km) + x.bandwidth(); })
+          .startAngle(function(d) { return x(d['data']['km']); })
+          .endAngle(function(d) { return x(d['data']['km']) + x.bandwidth(); })
           .padAngle(0.01)
           .padRadius(innerRadius));
 
@@ -122,19 +121,19 @@ export class D3Component implements OnInit {
       // Labels for xAxis
       let label = g.append('g')
                     .selectAll('g')
-                    .data(csvJsonData)
+                    .data(data)
                     .enter().append('g')
                     .attr('text-anchor', 'middle')
                     .attr('transform', function(d) { return 'rotate(' + ((x(d.km) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ')translate(' + innerRadius + ',0)'; });
 
       label.append('line')
-            .attr('x2', function(d) { return (((d.km % 5) == 0) | (d.km == '1')) ? -7 : -4 })
+            .attr('x2', function(d) { return (((d.km % 5) === 0) || (d.km === '1')) ? -7 : -4 })
             .attr('stroke', '#000');
 
       label.append('text')
             .attr('transform', function(d) { return (x(d.km) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? 'rotate(90)translate(0,16)' : 'rotate(-90)translate(0,-9)'; })
             .text(function(d) {
-              let xlabel = (((d.km % 5) == 0) | (d.km == '1')) ? d.km : '';
+              let xlabel = (((d.km % 5) === 0) || (d.km === '1')) ? d.km : '';
               return xlabel;
             });
 
