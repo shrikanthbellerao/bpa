@@ -42,6 +42,8 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
+import { D3Component } from './components/utils/d3/d3.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,8 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     FAQComponent,
     ResetPswdComponent,
     TopnavComponent,
-    FooterComponent
+    FooterComponent,
+    D3Component
   ],
   imports: [
     BrowserModule,
@@ -93,12 +96,9 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     ArchwizardModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([])
-  
   ],
   providers: [],
   entryComponents : [ButtonRendererComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-

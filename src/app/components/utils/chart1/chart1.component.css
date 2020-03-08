@@ -1,0 +1,10 @@
+.card-body {
+    width:350px;
+    height: 450px;
+    /* margin: 20px auto 0; */
+    box-shadow: 0 0 40px lightgray;
+    margin-top: 20px;
+    margin-right: -10px;
+    float: left;
+    border: 2px solid white;
+  }

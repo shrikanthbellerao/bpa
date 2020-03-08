@@ -6,6 +6,11 @@
                 </marquee>
             </div>
         </div>
+        <!-- <div class="row col-12">
+          <div class="col-8">
+            <app-d3></app-d3>
+          </div>
+        </div> -->
         <div class="row">
           <div class="col">
             <div *ngIf='chartDash' class="card-body col-md col-sm">
@@ -31,15 +36,23 @@
       </div>
 <div class="container">
   <div class="row">
-    <div class="col col-10">
-      <marquee scrollamount="15">
-        This is a sample scrolling text that has scrolls texts to right.
+    <div class="col-12">
+      <marquee direction="left" scrollamount="15">
+        SITE UNDER CONSTRUCTION!
       </marquee>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md col-sm">
-      <app-chart></app-chart>
+</div>
+
+<div class="container-fluid">
+  
+
+    <div *ngIf='chart1dash' class="col-4">
+      <app-chart1 [chart1Elements]="chart1dash"></app-chart1>
     </div>
+-->
+    <div class="col-4" style="float: right;">
+      <app-timeline [timelineElements]="timelinedash"></app-timeline>
+    </div>
+  <!-- </div>
 </div> -->
-    
