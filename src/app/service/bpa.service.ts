@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { ToastrModule, ToastrService } from "ngx-toastr";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: "root"
@@ -15,10 +15,7 @@ export class BpaService {
   attVmIPAddress: string = '10.83.34.65'; // ATT-M
   attNsoInstance: string = 'All'; // ATT-M
 
-  constructor(
-    private httpClient: HttpClient, 
-    private toastr: ToastrService
-  ) {}
+  constructor( private httpClient: HttpClient, private toastr: ToastrService) {}
 
   fnValidateLogin(base64Credential,flag) {
     const httpHeaders = {

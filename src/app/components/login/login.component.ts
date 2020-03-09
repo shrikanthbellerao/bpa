@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   startSpinner = false;
   count=0;
 
-
   modalConfig = { 
   }
 
@@ -29,9 +28,8 @@ export class LoginComponent implements OnInit {
   // Method to invoke a function in Service to validate whether the user is a valid user or not
   fnValidateCredential(formData,flag) {
     if(flag) this.count=0;
-
-
-  this.startSpinner = true;
+    
+    this.startSpinner = true;
     console.log('Inside fnValidateCredential', formData.value);
 
     const base64Credential: string = btoa(formData.value.userName + ":" + formData.value.password);
