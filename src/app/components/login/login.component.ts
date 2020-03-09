@@ -48,18 +48,7 @@ export class LoginComponent implements OnInit {
       forGetPassword() {
       console.log('forget password....')
       }
-      
-      // localStorage.setItem('accessToken', this.accessToken);
-      // this.apiError = false;
-      // this.startSpinner = false;
-      // this.router.navigate(['/dashboard']);
-      // err =>  {  this.apiError = true; this.startSpinner = false;}
 
-
-  // forGetPassword() 
-  // {
-  //   console.log('forget password....')
-  // }
 
   newRegister()
   {

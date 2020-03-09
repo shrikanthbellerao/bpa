@@ -1,11 +1,49 @@
-<ag-grid-angular
-    style="width: 1000px; height: 500px;"
-    class="ag-theme-balham"
-    [rowData]="rowData"
-    [columnDefs]="columnDefs"
-    [floatingFilter]="true"
-    rowSelection="multiple"
-    [rowMultiSelectWithClick]="true" 
-    >
-</ag-grid-angular>
-{{ rowData | json}}
+<div style="margin: 5px 10px;">
+    <label>
+        <button class="btn btn-success ml-2" (click)="onBtnExport()"><i class="fa fa-download"></i>CSV</button>
+    </label>
+</div>
+
+<div class="row m-3">
+
+    <ag-grid-angular style="width: 100%; height:380px;" class="ag-theme-balham" [rowData]="rowData"
+        [rowSelection]='single' [pagination]="true" [paginationPageSize]="10" [excelStyles]="excelStyles"
+        [enableFilter]="true" [floatingFilter]="true" [columnDefs]="columnDefs" [floatingFilter]="true"
+        rowSelection="single" [rowMultiSelectWithClick]="true" [domLayout]="domLayout"
+        (firstDataRendered)="onFirstDataRendered($event)" (rowSelected)="onRowSelected($event)"
+        (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+</div>
+
+<div *ngIf='showSelectedData'>
+    <div class="card">
+        <div class="card-header">
+            Status
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col col-3">
+                    <p class="card-order">Order Number : {{ showSelectedData.orderNumber}}</p>
+                </div>
+                <div class="col col-3">
+                    <p class="card-order">User : {{ showSelectedData.userName}}</p>
+
+                </div>
+                <div class="col col-3">
+                    <p class="card-order">Status : {{ showSelectedData.status}}</p>
+
+                </div>
+                <div class="col col-3">
+                    <p class="card-order">Update Date :
+                        {{ showSelectedData.updatedAt | date:'mediumDate'}},{{ showSelectedData.updatedAt | date:'shortTime'}}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='showSelectedData.status === "Complete"'>
+        as
+    </div>
+</div>
+<app-timeline *ngIf='timeline.length' [timelineElements]='timeline'></app-timeline>

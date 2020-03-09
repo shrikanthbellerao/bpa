@@ -43,6 +43,7 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
+import { UserButtonsComponent } from './components/utils/user-buttons/user-buttons.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,8 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     FAQComponent,
     ResetPswdComponent,
     TopnavComponent,
-    FooterComponent
+    FooterComponent,
+    UserButtonsComponent
   ],
   imports: [
     BrowserModule,
@@ -98,8 +100,9 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
   
   ],
   providers: [],
-  entryComponents : [ButtonRendererComponent],
-  bootstrap: [AppComponent]
+  entryComponents : [UserButtonsComponent],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
 
