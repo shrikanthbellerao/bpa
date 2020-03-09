@@ -48,19 +48,26 @@ export class D3Component implements OnInit {
       console.log('csvJsonData =>', data);
 
       let keys = data.columns.slice(1);
-      let meanAccidents = d3.mean(data, function(d) { return d3.sum(keys, function(key) { return parseInt(d[key]); }); });
 
-      x.domain(data.map(function(d) { return d.km; }));
-      y.domain([0, parseInt(d3.max(data, function(d) { return (d.left_lane + d.right_lane); }))]);
-      z.domain(data.columns.slice(1));
+      let dataArr = data.map(row => { return JSON.parse(JSON.stringify(row)); });
+
+      let meanAccidents = d3.mean(dataArr, function(d) { return d3.sum(keys, function(key) { return parseInt(d[key]); }); });
+
+      x.domain(dataArr.map(function(d) { return d.km; }));
+      y.domain([0, parseInt(d3.max(dataArr, function(d) { return (d.left_lane + d.right_lane); }))]);
+      z.domain(keys);
       console.log('keys: ', keys);
 
-      // Accidents
       g.append('g')
         .selectAll('g')
-        .data(d3.stack().keys(keys)(data))
+        .data(d3.stack().keys(keys)(dataArr))
         .enter().append('g')
-        .attr('fill', function(d) { return z(d['key']); })
+// @ts-ignore
+      .attr('fill', function(d) {
+              console.log('d of key: ', d['key']);
+              console.log('z method applied: ', z(d['key']));
+              return z(d['key']);
+        })
         .selectAll('path')
         .data(function(d) { return d; })
         .enter().append('path')
@@ -70,7 +77,8 @@ export class D3Component implements OnInit {
           .startAngle(function(d) { return x(d['data']['km']); })
           .endAngle(function(d) { return x(d['data']['km']) + x.bandwidth(); })
           .padAngle(0.01)
-          .padRadius(innerRadius));
+          .padRadius(innerRadius)
+        );
 
       //yAxis and Mean
       let yAxis = g.append('g')
@@ -88,6 +96,7 @@ export class D3Component implements OnInit {
                 .attr('fill', 'none')
                 .attr('stroke', '#C0625E')
                 .attr('stroke-dasharray', '5 3')
+// @ts-ignore
                 .attr('r', y);
 
       let yTick = yAxis
@@ -121,7 +130,7 @@ export class D3Component implements OnInit {
       // Labels for xAxis
       let label = g.append('g')
                     .selectAll('g')
-                    .data(data)
+                    .data(dataArr)
                     .enter().append('g')
                     .attr('text-anchor', 'middle')
                     .attr('transform', function(d) { return 'rotate(' + ((x(d.km) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ')translate(' + innerRadius + ',0)'; });
@@ -146,6 +155,7 @@ export class D3Component implements OnInit {
 
       legend.append('circle')
             .attr('r', 8)
+// @ts-ignore
             .attr('fill', z);
 
       legend.append('text')
