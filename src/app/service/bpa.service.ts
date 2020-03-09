@@ -91,10 +91,10 @@ export class BpaService {
     };
   
 
-    const url2: string =
+    const urlActive: string =
       `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
 
-    return this.httpClient.get(url2, httpHeaders);
+    return this.httpClient.get(urlActive, httpHeaders);
   }
   getServiceCategory() {
     const getToken = localStorage.getItem('accessToken');
@@ -106,7 +106,7 @@ export class BpaService {
     };
 
     const url: string =
-      `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories?_page=1&_limit=200000`;
+      `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
 
     return this.httpClient.get(url, httpHeaders);
   }
