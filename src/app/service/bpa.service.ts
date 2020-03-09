@@ -41,7 +41,7 @@ export class BpaService {
   }
   
   getActiveServices() {
-    const getToken = localStorage.getItem("accessToken");
+    const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
       headers: new HttpHeaders({
         Accept: 'application/json',
@@ -112,7 +112,7 @@ export class BpaService {
   }
 
   getDeviceList() {
-    const getToken = localStorage.getItem("accessToken");
+    const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
       headers: new HttpHeaders({
         Accept: 'application/json',
