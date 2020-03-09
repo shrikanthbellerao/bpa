@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-
 import { BpaService } from 'src/app/service/bpa.service';
 import { Z_ASCII } from 'zlib';
 
@@ -32,10 +31,10 @@ export class D3Component implements OnInit {
               .range([xScaleOffset, 2 * Math.PI + xScaleOffset])
               .align(0);
 
-    let y = d3.scaleLinear()
+    let y = d3.scaleLinear<any>()
               .range([innerRadius, outerRadius]);
 
-    let z = d3.scaleOrdinal()
+    let z = d3.scaleOrdinal<any>()
               .range(['#a1d76a', '#91bfdb']);
 
     let zClasses = ['внутренняя сторона', 'внешняя сторона'];
