@@ -42,7 +42,7 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
-import { D3Component } from './components/utils/d3/d3.component';
+import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +75,7 @@ import { D3Component } from './components/utils/d3/d3.component';
     ResetPswdComponent,
     TopnavComponent,
     FooterComponent,
-    D3Component
+    D3SpiralStackedBarComponent
   ],
   imports: [
     BrowserModule,
