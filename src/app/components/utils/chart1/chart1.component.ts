@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
-//import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+// import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-chart1',
@@ -10,59 +10,78 @@ import { Label } from 'ng2-charts';
 })
 export class Chart1Component implements OnInit {
 
+  @Input()
+  chart1Elements: any;
+
+  // public pieChartData: number[]= [];
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
-      position: 'left',
+      position: 'bottom',
     },
-    /*plugins: {
+    plugins: {
       datalabels: {
         formatter: (value, ctx) => {
           const label = ctx.chart.data.labels[ctx.dataIndex];
           return label;
         },
       },
-    }*/
+    }
   };
-  public pieChartLabels: Label[] = [['Download Sales'], ['In Store Sales'], ['Mail Sales']];
-  public pieChartData: number[] = [300, 500, 100];
+
+  // public pieChartLabels: Label[] = [["In-Process"],["Complete"],["Rollback-In-Process"]];
+  public pieChartLabels: Label[] =[];
+  public pieChartData: number[] = [];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
-  //public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
       backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
     },
   ];
 
+  completeCount = 0;
+  ripCount = 0;
+  inprocessCount = 0;
+  rollbackCount = 0;
   constructor() { }
 
   ngOnInit() {
-  }
 
+    console.log(this.chart1Elements);
+
+    this.chart1Elements.forEach((data) => {
+     if(data.status === 'Complete')
+      this.completeCount++;
+    
+     if(data.status === 'Rollback-In-Process')
+      this.ripCount++;
+
+     if(data.status === 'In-process')
+      this.inprocessCount++;
+
+     if(data.status === 'Rollback')
+      this.rollbackCount++;
+    })
+
+  console.log('Active items',this.completeCount);
+  this.pieChartLabels.push(["Complete"]);
+  this.pieChartData.push(this.completeCount);
+  this.pieChartLabels.push(["Rollback-In-Process"]);
+  this.pieChartData.push(this.ripCount);
+  this.pieChartLabels.push(["In-process"]);
+  this.pieChartData.push(this.inprocessCount);
+  this.pieChartLabels.push(["Rollback"]);
+  this.pieChartData.push(this.rollbackCount);
+  
+ }
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+  //   // console.log(event, active);
   }
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+  //   // console.log(event, active);
   }
-
-  /*addSlice() {
-    this.pieChartLabels.push(['Line 1', 'Line 2', 'Line 3']);
-    this.pieChartData.push(400);
-    this.pieChartColors[0].backgroundColor.push('rgba(196,79,244,0.3)');
-  }
-
-  removeSlice() {
-    this.pieChartLabels.pop();
-    this.pieChartData.pop();
-    this.pieChartColors[0].backgroundColor.pop();
-  }
-
-  changeLegendPosition() {
-    this.pieChartOptions.legend.position = this.pieChartOptions.legend.position === 'left' ? 'top' : 'left';
-  }*/
 
 }

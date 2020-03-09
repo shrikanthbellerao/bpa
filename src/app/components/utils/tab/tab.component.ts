@@ -6,18 +6,19 @@ import { Component, OnInit, Input } from '@angular/core';
   
 })
 export class TabComponent implements OnInit {
-  @Input() nav;
 
+  @Input() 
+  nav
+  
   showContent;
-
-  constructor() { }
+  
+  constructor() {}
 
   show(res) {
     this.showContent = res;
   }
+  
   ngOnInit() {
     this.show(this.nav[0].content)
   }
-
 }
-
