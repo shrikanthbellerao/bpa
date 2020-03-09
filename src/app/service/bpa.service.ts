@@ -39,7 +39,7 @@ export class BpaService {
     
   
   }
-
+  
   getActiveServices() {
     const getToken = localStorage.getItem("accessToken");
     const httpHeaders = {
@@ -48,9 +48,23 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
+
+    
     const urlActive: string =
       `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
 
+    return this.httpClient.get(urlActive, httpHeaders);
+  }
+  getServiceorders() {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+
+    const urlActive: string = 'https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-orders'
     return this.httpClient.get(urlActive, httpHeaders);
   }
 
@@ -110,5 +124,12 @@ export class BpaService {
       `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
 
     return this.httpClient.get(urlDevices, httpHeaders);
+  }
+   // Method to read data present in CSV file
+   fnReadCSV(fileName) {
+
+    console.log('Inside fnReadCSV: ', fileName);
+
+    return this.httpClient.get(fileName, { responseType: 'text' })
   }
 }
