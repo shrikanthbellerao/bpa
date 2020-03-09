@@ -82,7 +82,7 @@ export class BpaService {
   */
 
   getServiceItems() {
-    const getToken = localStorage.getItem("accessToken");
+    const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
       headers: new HttpHeaders({
         Accept: 'application/json',
