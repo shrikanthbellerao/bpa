@@ -1,71 +1,69 @@
   <nav class="navbar nav-fill w-100 navbar-expand-lg navbar-dark bg-dark ">
-  <a class="navbar-brand" href="https://www.cisco.com/">
-    <img src="assets/logo.png" class="logo" height="54" width="83" alt="cisco-logo">
-  </a>
-  <button class="navbar-toggler collapsed btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <!-- <span class="navbar-toggler-icon"></span> -->
-    <span class="icon-bar top-bar"></span>
-	<span class="icon-bar middle-bar"></span>
-	<span class="icon-bar bottom-bar"></span>
-  </button>
-  <div class="collapse navbar-collapse adjust" id="navbarSupportedContent" >
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item dropdown center">
-        <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown"id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Service Catalog</a>
-        <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
-          <h6 class="dropdown-header heading trigger serviceMenu backgroundImage">Service Catalog</h6>
-          <a routerLink="/Services" class="dropdown-item trigger">Services</a>
-          <a routerLink="/activeServices" class="dropdown-item trigger">Orders</a>
-        </div>
-      </li>
-      <li class="nav-item center">
-        <a routerLink="/deviceManager" class="nav-link py-0 trigger">Device Manager</a>
-      </li>
-      <li class="nav-item dropdown center">
-        <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Admin</a>
-        <div class="dropdown-menu align">
-          <h6 class="dropdown-header heading backgroundImage">Admin Settings</h6>
-          <a routerLink="/ManageRoles" class="dropdown-item trigger">Manage Roles</a>
-          <a routerLink="/BroadcastMessage" class="dropdown-item trigger">Broadcast Message</a>
-          <a routerLink="/ReviewRequest" class="dropdown-item trigger">Review Request</a>
-          <a routerLink="/MyProfile" class="dropdown-item active trigger">My Profile</a>
-        </div>
-      </li>
-    </ul>
-    <ul class="navbar-nav nav-fill">
-      <li class="nav-item icon center">
-        <a class="py-0 nav-link">
-          <span>
-            <i class="fa fa-user-circle"></i>
-          </span>
-        </a>
-      </li>
-      <li class="account nav-item nav-fill center">
-        <span class="d-block profile">Katherine McGoulin</span>
-        <span class="d-block profile">Analyst</span>
-      </li>
-      <li class="nav-item nav-fill center slide-right">
-      <div class="dropdown nav-fill">
-        <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          <i class="fa fa-ellipsis-v"></i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right settings" aria-labelledby="dropdownMenuButton">
-          <h6 class="dropdown-header heading backgroundImage">Settings</h6>
-          <a routerLink="/FAQ" class="dropdown-item trigger">FAQ</a>
-          <a routerLink="/ResetPassword" class="dropdown-item trigger">Reset Password</a>
-          <a routerLink="" class="dropdown-item trigger">Logout</a>
-        </div>
-      </div>
-      </li>
-    </ul>
-  </div>
-</nav>   
-
-
-
-    
-
+    <a class="navbar-brand" href="https://www.cisco.com/">
+      <img src="assets/logo.png" class="logo" height="54" width="83" alt="cisco-logo">
+    </a>
+    <button class="navbar-toggler collapsed btn" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse adjust" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item dropdown center">
+          <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown" id="navbarDropdown" role="button"
+            aria-haspopup="true" aria-expanded="false">
+            Service Catalog</a>
+          <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
+            <h6 class="dropdown-header  trigger serviceMenu backgroundImage">Service Catalog</h6>
+            <a routerLink="/Services" class="dropdown-item trigger">Services</a>
+            <a routerLink="/activeServices" class="dropdown-item trigger">Orders</a>
+          </div>
+        </li>
+        <li class="nav-item center">
+          <a routerLink="/deviceManager" class="nav-link py-0 trigger">Device Manager</a>
+        </li>
+        <li class="nav-item dropdown center">
+          <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Admin</a>
+          <div class="dropdown-menu align">
+            <h6 class="dropdown-header  backgroundImage">Admin Settings</h6>
+            <a routerLink="/ManageRoles" class="dropdown-item trigger">Manage Roles</a>
+            <a routerLink="/BroadcastMessage" class="dropdown-item trigger">Broadcast Message</a>
+            <a routerLink="/ReviewRequest" class="dropdown-item trigger">Review Request</a>
+            <a routerLink="/MyProfile" class="dropdown-item active trigger">My Profile</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-fill">
+        <li class="nav-item icon center">
+          <a class="py-0 nav-link">
+            <span>
+              <i class="fa fa-user-circle"></i>
+            </span>
+          </a>
+        </li>
+        <li class="account nav-item nav-fill center">
+          <span class="d-block profile">Katherine McGoulin</span>
+          <span class="d-block profile">Analyst</span>
+        </li>
+        <li class="nav-item nav-fill center slide-right">
+          <div class="dropdown nav-fill">
+            <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right settings" aria-labelledby="dropdownMenuButton">
+              <h6 class="dropdown-header  backgroundImage">Settings</h6>
+              <a routerLink="/FAQ" class="dropdown-item trigger">FAQ</a>
+              <a routerLink="/ResetPassword" class="dropdown-item trigger">Reset Password</a>
+              <a routerLink="" class="dropdown-item trigger">Logout</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>

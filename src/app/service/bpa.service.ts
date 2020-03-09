@@ -10,7 +10,7 @@ export class BpaService {
   vmIPAddress: string = '';
   nsoInstance: string = '';
 
-  bacVmIPAddress: string = '10.81.59.209:9091'; // BAC
+  bacVmIPAddress: string = '10.81.59.208:9091'; // BAC
   bacNsoInstance: string = 'RTP-Core,nso5-lsa4-re'; // BAC
   attVmIPAddress: string = '10.83.34.65'; // ATT-M
   attNsoInstance: string = 'All'; // ATT-M

@@ -9,7 +9,7 @@ declare var $: any;
 export class TopnavComponent implements OnInit {
 
   constructor() { }
-
+  /* to hide the collapsed nav on clicking a nav item */
   ngOnInit() { $('.trigger').click(function(){
     $('.navbar-collapse').collapse('hide');
   });}
