@@ -93,7 +93,7 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     ArchwizardModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([])
-  
+
   ],
   providers: [],
   entryComponents : [ButtonRendererComponent],

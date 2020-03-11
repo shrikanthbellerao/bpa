@@ -163,7 +163,7 @@ export class DeviceManagerComponent implements OnInit {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.gridApi.sizeColumnsToFit();
-    this.paginationPageSize = 20;
+    this.paginationPageSize = 15;
 
   }
 

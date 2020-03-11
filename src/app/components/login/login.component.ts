@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   apiError = false;
   startSpinner = false;
   modalConfig = {
-  }
+  };
 
   constructor(private bpaService: BpaService, private router: Router) { }
 
@@ -28,10 +28,10 @@ export class LoginComponent implements OnInit {
     this.startSpinner = true;
     console.log('Inside fnValidateCredential', formData.value);
 
-  const base64Credential: string = btoa(formData.value.userName + ':' + formData.value.password);
-  console.log(base64Credential);
+    const base64Credential: string = btoa(formData.value.userName + ':' + formData.value.password);
+    console.log(base64Credential);
 
-  this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
+    this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
       console.log('Fetched data from Service: ', response);
       this.accessToken = response['access_token'];
       localStorage.setItem('accessToken', this.accessToken);
@@ -39,6 +39,10 @@ export class LoginComponent implements OnInit {
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
     }, err => { this.apiError = true; this.startSpinner = false; });
+
+    this.bpaService.nodeJsCheck().subscribe(response => {
+      console.log('Message : ', response);
+    });
   }
 
   forGetPassword() {
@@ -51,16 +55,16 @@ export class LoginComponent implements OnInit {
 
   contactus() {
     this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content",
+      title: 'LoginComponent',
+      body: 'Login Content',
       show: true
-    }
+    };
   }
 
   questions() {
     this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content"
-    }
+      title: 'LoginComponent',
+      body: 'Login Content'
+    };
   }
 }
