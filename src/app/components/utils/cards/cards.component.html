@@ -19,19 +19,24 @@
     </div>
  </div> -->
 <div class="row my-flex-card">
-  <div class="col-sm-4" *ngFor='let item of inputToCard'>
-    <div class="card border border-dark">
-      <div class="card-header">{{item.name}}
+  <div class="col-4" *ngFor='let item of inputToCard'>
+    <div class="card border border-secondary">
+      <div class="card-header py-1 px-3 line-clamp">{{item.name}}
       </div>
-      <div class="card-body">
-        <p class="card-text">{{item.description}}</p>
-        <div class="bgcolor">{{item.tags[0]['name']}}</div>
-      </div>
-      <div class="card-footer text-muted">
-        <ng-container>
-          <button (click)="order(item)" class="btn"><i class="fa fa-heart-o blue"></i></button>
-          <button (click)="order(item)" class="btn btn-primary ml-6 ">Order</button>
-        </ng-container>
+      <div class="card-body p-2">
+        <p class="card-text line-clamp"><small>{{item.description}}</small></p>
+        <div class="row">
+          <div class="col-6">
+            <span class="bgColor">
+              {{item.tags[0]['name']}}
+            </span></div>
+          <div class="col-6 d-flex justify-content-end">
+            <span (click)="selectFavourite(item)">
+              <i class="fa fa-heart-o fa-lg mr-1"></i>
+            </span>
+            <button type='button' (click)="order(item)" class="btn btn-sm">Order</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

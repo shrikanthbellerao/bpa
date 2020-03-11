@@ -23,6 +23,8 @@
    }*/
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { BpaService } from 'src/app/service/bpa.service';
+
 
 @Component({
   selector: 'app-cards',
@@ -32,14 +34,29 @@ import { Router } from '@angular/router';
 export class CardsComponent implements OnInit {
   @Input()
   inputToCard: any;
-  constructor(private route: Router) { }
+  constructor(private route: Router, private bpaservice: BpaService) { }
 
   ngOnInit() {
   }
   order(item) {
     this.route.navigate(['/dashboard']);
   }
+  checkItem()
+  {
 
+  }
+  selectFavourite(id) {
+    console.log('id', id)
+    this.bpaservice.deleteFavourite(id._id).subscribe((res) => {
+      console.log('response:', res);
+    })
+  }
+  deleteFavourite(id) {
+    console.log('id', id)
+    this.bpaservice.deleteFavourite(id._id).subscribe((res) => {
+      console.log('response:', res);
+      
+    })
+  }
 
 }
-
