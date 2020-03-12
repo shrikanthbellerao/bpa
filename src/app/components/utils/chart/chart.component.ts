@@ -13,30 +13,6 @@ export class ChartComponent implements OnInit {
 
   constructor() { }
 
-  collabCount = 0;
-  collab1Count = 0;
-  flag1:boolean = true;
-  mvpCount = 0;
-  mvp1Count = 0;
-  flag2:boolean = true;
-  enterpriseCount = 0;
-  enterprise1Count = 0;
-  flag3:boolean = true;
-  coreCount = 0;
-  core1Count = 0;
-  flag4:boolean = true;
-  dmzCount = 0;
-  dmz1Count = 0;
-  flag5:boolean = true;
-  branchCount = 0;
-  branch1Count = 0;
-  flag6:boolean = true;
-  commonCount = 0;
-  common1Count = 0;
-  flag7:boolean = true;
-  datacenterCount = 0;
-  datacenter1Count = 0;
-  flag8:boolean = true;
   chart:any = [];
   
   ngOnInit() {
