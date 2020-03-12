@@ -1,58 +1,40 @@
 <div class="container-fluid">
-        <div class="row">
-            <div class="col col-12">
-                <marquee direction="right" scrollamount="15">
-                   SITE UNDER CONSTRUCTION!
-                </marquee>
-            </div>
-        </div>
-        <!-- <div class="row col-12">
-          <div class="col-8">
-            <app-d3></app-d3>
-          </div>
-        </div> -->
-        <div class="row">
-          <div class="col">
-            <div *ngIf='chartDash' class="card-body col-md col-sm">
-                <app-chart [chartElements] = 'chartDash'></app-chart>
-            </div>
-            <div *ngIf='chart1dash' class="col-md col-sm">
-              <app-Orderspiechart [chart1Elements] = 'chart1dash'></app-Orderspiechart>
-            </div>
-          </div>
-             <div class="card-body col-md col-sm" style="float: right;">
-                <app-timeline [timelineElements] = "timelinedash"></app-timeline>
-             </div>
-        </div>
-</div>
-
-
-<!-- <div class="container"> 
-    <div class="row">
-      <div class="col col-10">
-        <marquee scrollamount="15">
-            This is a sample scrolling text that has scrolls texts to right.
-        </marquee>
+  <div class="row col-12">
+    <marquee direction="right" scrollamount="15">
+      SITE UNDER CONSTRUCTION!
+    </marquee>
+  </div>
+  <div class="row col-12">
+    <div class="col-5">
+      <app-d3-spiral-stacked-bar style="width:100%; display: inline-block;"></app-d3-spiral-stacked-bar>
+    </div>
+    <div class="tab-content col-4">
+        <ul class="nav col-12">
+          <li class="nav-item" (click)="fnTimelineTabClick('complete')">
+            <a data-toggle="tab" class="active nav-link">
+              COMPLETE
+            </a>
+          </li>
+          <li class="nav-item" (click)="fnTimelineTabClick('in-process')">
+            <a data-toggle="tab" class="nav-link">
+              IN-PROCESS
+            </a>
+          </li>
+          <li class="nav-item" (click)="fnTimelineTabClick('rollback')">
+            <a data-toggle="tab" class="nav-link">
+              ROLLBACK-IN-PROCESS
+            </a>
+          </li>
+        </ul>
+        <app-timeline [timelineElements]="timelinedash"></app-timeline>
+    </div>
+    <div class="col-3 charts col" style="padding-left: 10px;width:200px;">
+      <div *ngIf='chartDash' class="card-body" style="padding:0px 0px 0px 0px;margin-left:5px; float: right;">
+        <app-chart [chartElements]='chartDash'></app-chart>
       </div>
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <marquee direction="left" scrollamount="15">
-        SITE UNDER CONSTRUCTION!
-      </marquee>
+      <div *ngIf='chart1dash' style="float: right;">
+        <app-serviceorderpiechart [chart1Elements]='chart1dash'></app-serviceorderpiechart>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="container-fluid">
-  
-
-    <div *ngIf='chart1dash' class="col-4">
-      <app-chart1 [chart1Elements]="chart1dash"></app-chart1>
-    </div>
--->
-    <div class="col-4" style="float: right;">
-      <app-timeline [timelineElements]="timelinedash"></app-timeline>
-    </div>
-  <!-- </div>
-</div> -->

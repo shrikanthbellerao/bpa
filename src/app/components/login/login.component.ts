@@ -39,6 +39,10 @@ export class LoginComponent implements OnInit {
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
     }, err => { this.apiError = true; this.startSpinner = false; });
+
+    this.bpaService.nodeJScheck().subscribe(response => {
+      console.log('Message:', response);
+    });
   }
 
   forGetPassword() {

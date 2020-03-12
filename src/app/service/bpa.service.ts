@@ -18,7 +18,7 @@ export class BpaService {
       })
     };
 
-    const url: string = 'https://10.81.59.209:9091/bpa/api/v1.0/login';
+    const url: string = 'https://10.81.59.208:9091/bpa/api/v1.0/login';
     const requestBody = {};
 
     return this.httpClient.post(url, requestBody, httpHeaders);
@@ -33,7 +33,7 @@ export class BpaService {
       })
     };
 
-    const urlActive: string = 'https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-orders'
+    const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-orders'
     return this.httpClient.get(urlActive, httpHeaders);
   }
 
@@ -45,7 +45,7 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const urlActive: string = 'https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-orders'
+    const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-orders'
 
     return this.httpClient.get(urlActive, httpHeaders);
   }
@@ -69,7 +69,7 @@ export class BpaService {
       })
     };
 
-    const urlActive: string = 'https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc'
+    const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc'
     return this.httpClient.get(urlActive, httpHeaders);
   }
 
@@ -81,7 +81,7 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const url: string = 'https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc';
+    const url: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc';
     return this.httpClient.get(url, httpHeaders);
   }
 
@@ -95,7 +95,7 @@ export class BpaService {
     };
 
     const urlDevices: string = 
-    'https://10.81.59.209:9091/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=RTP-Core,nso5-lsa4-re';
+    'https://10.81.59.208:9091/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=RTP-Core,nso5-lsa4-re';
 
     return this.httpClient.get(urlDevices, httpHeaders);
   }
@@ -106,5 +106,16 @@ export class BpaService {
     console.log('Inside fnReadCSV: ', fileName);
 
     return this.httpClient.get(fileName, { responseType: 'text' })
+  }
+
+  nodeJScheck() {
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/text'
+      })
+    };
+
+    const nodeUrl = 'http://localhost:8080';
+    return this.httpClient.get(nodeUrl,httpHeaders);
   }
 }

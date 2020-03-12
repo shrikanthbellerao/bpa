@@ -43,6 +43,7 @@ ngOnInit() {
   this.bpaservice.getServiceorders().subscribe(res => {
     console.log('response:',res);
     this.chart1dash = res['data'];
+    // this.timelinedash = res['data'];
   }, err => console.log('Error:',err))
 
   this.bpaservice.getServiceItems().subscribe(res => {
@@ -60,5 +61,17 @@ ngOnInit() {
 //     icontype:"users",
 //     header:"Presentation",
 //   } ]
+   
+fnTimelineTabClick(tabName) {
+  console.log('Inside fnTimelineTabClick', tabName);
+  switch(tabName) {
+    case 'complete':
+      break;
+    case 'in-progress':
+      break;
+    case 'rollback':
+      break;
+  }
+}
 
 }

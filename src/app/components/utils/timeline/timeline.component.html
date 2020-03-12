@@ -1,50 +1,38 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+  integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
 
- <div class="card-body overflow-auto">
-             <!-- <app-tab [nav]='nav'>  -->
-
-  <h4>Timeline</h4>
-  <div *ngFor="let timelines of timelineElements">
-  <div class="row">
-      <div class="col-md-12">
-          <div class="main-timeline7">
-                <div class="timeline">
-                  <ul>
-                   <div class="timeline-icon">
-                    <i class="fa fa-{{timelines.icontype}}"></i>
-                    
-                   </div>
-                   <div class="timeline-content">
-
-                    <h5 class="col col-10 title">{{timelines.header}}</h5>
-                    <span class="col col-12 year">{{timelines.time}}</span>
-                   </div>
-                  </ul>
-                </div>
+<div class="card-body overflow-auto" style="padding: 0px 10px 10px 10px;">
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab-eg5-0" role="tabpanel">
+      <div *ngFor="let timelines of timelineElements">
+        <div class="row col-12">
+          <!-- <div class="col-12"> -->
+            <div class="main-timeline7 col-12">
+              <div class="timeline col-12">
+                <ul class="timeline col-12">
+                  <li class="row col-12" style="margin-left: -30px;">
+                    <div class="timeline-icon col-2">
+                      <i class="fa fa-{{timelines.icontype}}"></i>
+                    </div>
+                    <div class="col-10">
+                      <div class="timeline-content row col-12">
+                        <!-- <h5 class="col col-10 title"> -->
+                          {{timelines.header}}
+                        <!-- </h5> -->
+                      </div>
+                      <div class="year row col-12">
+                        {{timelines.time}}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
-          </div>
+            </div>
+          <!-- </div> -->
+        </div>
       </div>
-  </div>
-<!-- </app-tab> -->
-</div>  
-
-<!-- <div class="container">
-  <h4>Timeline</h4>
-  <div *ngFor="let timelines of timelineElements">
-    <div class="row timeline">
-     <ul>
-      <li>
-      <div class="col-2 mt-3">
-        <i class="fa fa-{{timelines.icontype}}"></i>
-      </div>
-      <div class="col-8">
-        <span>{{timelines.header}}</span>
-       <p class="txt-mutated">{{timelines.time}}</p>
-      </div>
-      </li>
-     </ul>
     </div>
   </div>
-</div> -->
+</div>

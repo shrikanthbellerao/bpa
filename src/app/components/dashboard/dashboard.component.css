@@ -3,8 +3,24 @@
     margin: 1px;
 }
 
+#app-d3-spiral-stacked-bar{
+    width: 400px;
+    height: 600px;
+}
+
+.tab-content {
+    width: 380px;
+    height: 480px;
+    overflow: hidden;
+    float: right;
+    /* margin-top: px; */
+    border: 0.5px solid lightgrey;
+    /* box-shadow: 0 0 40px lightgray; */
+    overflow-y: scroll;
+  }
+
 marquee {
-    height:"50px";
+    height:"40px";
     margin-top: 10px;
     color:black;
     font-weight: bold;
