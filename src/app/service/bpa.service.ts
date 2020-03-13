@@ -7,11 +7,11 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 })
 export class BpaService {
 
-  vmIPAddress: string = '';
-  nsoInstance: string = '';
+  vmIPAddress: string = localStorage.getItem('vm');
+  nsoInstance: string = localStorage.getItem('nso');
 
-  bacVmIPAddress: string = '10.81.59.208:9091'; // BAC
-  bacNsoInstance: string = 'RTP-Core,nso5-lsa4-re'; // BAC
+  bacVmIPAddress: string = '10.81.59.209:9091'; // BAC
+  bacNsoInstance: string = 'RTP-LSA,nso5-lsa4-re'; // BAC
   attVmIPAddress: string = '10.83.34.65'; // ATT-M
   attNsoInstance: string = 'All'; // ATT-M
 
@@ -26,11 +26,15 @@ export class BpaService {
     };
     if(flag){
       this.vmIPAddress=this.bacVmIPAddress;
+      localStorage.setItem('vm',this.bacVmIPAddress)
       this.nsoInstance=this.bacNsoInstance;
+      localStorage.setItem('nso',this.bacVmIPAddress)
     }
     else{
       this.vmIPAddress=this.attVmIPAddress;
+      localStorage.setItem('vm',this.attVmIPAddress)
       this.nsoInstance=this.attNsoInstance;
+      localStorage.setItem('nso',this.attNsoInstance)
     }
     const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/login`;
     const requestBody = {};
@@ -132,4 +136,13 @@ export class BpaService {
 
     return this.httpClient.get(fileName, { responseType: 'text' })
   }
+
+ nodeJsCheck(){
+  const httpHeaders = {
+    headers: new HttpHeaders({
+      Accept: 'application/json'
+    })
+  };
+const nodeUrl='http://localhost:8080';
+return this.httpClient.get(nodeUrl,httpHeaders);}
 }

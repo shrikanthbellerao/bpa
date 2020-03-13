@@ -36,10 +36,10 @@ import { DeviceManagerComponent } from './components/device-manager/device-manag
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RolesComponent } from './components/roles/roles.component';
+import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
 import { BroadcastMessageComponent } from './components/broadcast-message/broadcast-message.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
@@ -67,10 +67,10 @@ import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacke
     ActiveServicesComponent,
     DeviceManagerComponent,
     ButtonRendererComponent,
-    RolesComponent,
+    ManageRolesComponent,
     BroadcastMessageComponent,
     UserRegistrationComponent,
-    ProfileComponent,
+    MyProfileComponent,
     FAQComponent,
     ResetPswdComponent,
     TopnavComponent,

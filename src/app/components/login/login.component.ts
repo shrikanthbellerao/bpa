@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log('Inside ngOnInit');
+    this.bpaService.nodeJsCheck().subscribe(response => {
+      console.log('Message :' , response);
+      }) 
   }
 
   // Method to invoke a function in Service to validate whether the user is a valid user or not
