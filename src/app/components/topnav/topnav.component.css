@@ -3,6 +3,10 @@
     outline: none !important;
     box-shadow: none !important;
 }
+.btn-change > .navbar-nav > li > a:focus,
+.btn-change > .navbar-nav > li > a:active {
+        color:white;
+}
 
 .navbar {
     max-height: 40px;

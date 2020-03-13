@@ -12,7 +12,7 @@ export class BpaService {
   nsoInstance: string = localStorage.getItem('nso');
  
   bacVmIPAddress: string = '10.81.59.208:9091'; // BAC
-  bacNsoInstance: string = 'RTP-Core,nso5-lsa4-re'; // BAC
+  bacNsoInstance: string = 'RTP-LSA,nso5-lsa4-re'; // BAC
   attVmIPAddress: string = '10.83.34.65'; // ATT-M
   attNsoInstance: string = 'All'; // ATT-M
 
@@ -95,7 +95,7 @@ getServiceItems() {
     })
   };
 
-  const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc'
+  const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`
   return this.httpClient.get(urlActive, httpHeaders);
 }
 getServiceCategory() {
