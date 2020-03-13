@@ -25,7 +25,8 @@ export class BpaService {
         Authorization: 'Basic ' + base64Credential
       })
     };
-    if(flag){
+
+    if(flag) {
       this.vmIPAddress=this.bacVmIPAddress;
       localStorage.setItem('vm',this.bacVmIPAddress)
       this.nsoInstance=this.bacNsoInstance;
@@ -36,7 +37,7 @@ export class BpaService {
       localStorage.setItem('vm',this.attVmIPAddress)
       this.nsoInstance=this.attNsoInstance;
       localStorage.setItem('nso',this.attNsoInstance)
-    }
+  }
     const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/login`;
     const requestBody = {};
 
