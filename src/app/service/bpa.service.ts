@@ -38,47 +38,39 @@ export class BpaService {
   this.nsoInstance = this.attNsoInstance;
   localStorage.setItem('nso', this.attNsoInstance)
 }
+    const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/login`;
+    const requestBody = {};
 
-  if (flag) {
-    this.vmIPAddress = this.bacVmIPAddress;
-    this.nsoInstance = this.bacNsoInstance;
+    return this.httpClient.post(url, requestBody, httpHeaders)
+    
   }
-  else {
-    this.vmIPAddress = this.attVmIPAddress;
-    this.nsoInstance = this.attNsoInstance;
+  
+  getActiveServices() {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+    
+    const urlActive: string =
+      `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
+
+    return this.httpClient.get(urlActive, httpHeaders);
   }
+  getServiceorders() {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
 
-  const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/login`;
-  const requestBody = {};
-
-  return this.httpClient.post(url, requestBody, httpHeaders)
-}
-
-getActiveServices() {
-  const getToken = localStorage.getItem('accessToken');
-  const httpHeaders = {
-    headers: new HttpHeaders({
-      Accept: 'application/json',
-      Authorization: `Bearer ${getToken}`
-    })
-  };
-
-  const urlActive: string =
+    const urlActive: string =
     `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
 
-  return this.httpClient.get(urlActive, httpHeaders);
-}
-
-getServiceorders() {
-  const getToken = localStorage.getItem('accessToken');
-  const httpHeaders = {
-    headers: new HttpHeaders({
-      Accept: 'application/json',
-      Authorization: `Bearer ${getToken}`
-    })
-  };
-
-  const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
   return this.httpClient.get(urlActive, httpHeaders);
 }
 
@@ -121,7 +113,7 @@ getServiceCategory() {
 
   return this.httpClient.get(url, httpHeaders);
 }
-
+    
 getDeviceList() {
   const getToken = localStorage.getItem('accessToken');
   const httpHeaders = {

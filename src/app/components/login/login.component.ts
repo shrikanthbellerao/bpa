@@ -23,8 +23,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log('Inside ngOnInit');
+    this.bpaService.nodeJScheck().subscribe(response => {
+      console.log('Message:', response);
+    });
   }
-
   // Method to invoke a function in Service to validate whether the user is a valid user or not
   fnValidateCredential(formData,flag) {
     if(flag) this.count=0;
@@ -45,22 +47,17 @@ export class LoginComponent implements OnInit {
     },err => { this.apiError = true; this.startSpinner = false;
       this.count++;
      if(this.count<=1){
-         this.fnValidateCredential(formData,false);
+      this.fnValidateCredential(formData,false);
       }
-      else{
-          alert("The APIs are not working");
-      }
-    });
-
-    this.bpaService.nodeJScheck().subscribe(response => {
-      console.log('Message:', response);
+     else{
+      alert("The APIs are not working");
+     }
+        
     });
   }
-
   forGetPassword() {
     console.log('forget password....')
   }
-
       
   newRegister() {
     this.router.navigate(['/signup']);
@@ -73,7 +70,6 @@ export class LoginComponent implements OnInit {
       show: true
     }
   }
-
   questions() {
     this.modalConfig = {
       title: "LoginComponent",
