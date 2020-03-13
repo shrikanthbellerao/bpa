@@ -62,7 +62,7 @@
 }
 
 .loginBox {
-  top: 300px; 
+  top: 21%; 
   z-index: 9999; 
   position: fixed;
   box-sizing: border-box;
@@ -72,6 +72,7 @@
   border: 1px solid #96cca4 !important;
   box-shadow: inset 0px 5px 18px 3px rgba(245, 244, 244, 0.8);
 }
+
 
 .loginBox input {
 	width: 100%;
@@ -85,7 +86,7 @@
 	background: transparent;
 	outline: none;
 	height: 40px;
-	color: #fff;
+	color: black;
 	font-size: 16px;
 }
 
@@ -147,8 +148,9 @@
 
 a:hover {
   text-decoration: underline;
-} 
+}
 
-.h100 { /* makes the images fit to the viewport*/
+.h100 {
   height : 100vh
-} 
+}
+ 
