@@ -25,7 +25,7 @@ export class BpaService {
         Authorization: 'Basic ' + base64Credential
       })
     };
-    
+
   if(flag) {
     this.vmIPAddress = this.bacVmIPAddress;
     localStorage.setItem('vm', this.bacVmIPAddress)
@@ -146,4 +146,5 @@ nodeJScheck() {
   const nodeUrl = 'http://localhost:8080';
   return this.httpClient.get(nodeUrl, httpHeaders);
 }
+
 }
