@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 
 @Component({
-  selector: 'app-serviceslinechart',
-  templateUrl: './serviceslinechart.component.html',
-  styleUrls: ['./serviceslinechart.component.css']
+  selector: 'app-services-line-chart',
+  templateUrl: './services-line-chart.component.html',
+  styleUrls: ['./services-line-chart.component.css']
 })
-export class ServiceslinechartComponent implements OnInit {
+export class ServicesLineChartComponent implements OnInit {
  
   @Input()
   chartElements:any;

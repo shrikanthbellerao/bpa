@@ -4,11 +4,11 @@ import { Label } from 'ng2-charts';
 // import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
-  selector: 'app-serviceorderpiechart',
-  templateUrl: './serviceorderpiechart.component.html',
-  styleUrls:  ['./serviceorderpiechart.component.css']
+  selector: 'app-service-order-pie-chart',
+  templateUrl: './service-order-pie-chart.component.html',
+  styleUrls:  ['./service-order-pie-chart.component.css']
 })
-export class ServiceorderpiechartComponent implements OnInit {
+export class ServiceOrderPieChartComponent implements OnInit {
 
   @Input()
   chart1Elements: any;

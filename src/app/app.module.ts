@@ -14,8 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
-import { ServiceslinechartComponent } from './components/utils/serviceslinechart/serviceslinechart.component';
-import { ServiceorderpiechartComponent } from './components/utils/serviceorderpiechart/serviceorderpiechart.component';
+import { ServicesLineChartComponent } from './components/utils/Services-Line-Chart/Services-Line-Chart.component';
+import { ServiceOrderPieChartComponent } from './components/utils/service-order-pie-chart/service-order-pie-chart.component';
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
@@ -50,8 +50,8 @@ import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacke
     DashboardComponent,
     CollapsibleComponent,
     TimelineComponent,
-    ServiceslinechartComponent,
-    ServiceorderpiechartComponent,
+    ServicesLineChartComponent,
+    ServiceOrderPieChartComponent,
     TooltipComponent,
     ProgressbarComponent,
     ButtonComponent,

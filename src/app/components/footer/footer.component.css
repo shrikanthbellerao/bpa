@@ -10,7 +10,6 @@ footer {
 .copyright,
 .support {
     margin-top: 3px;
-    padding-left: 25px;
 }
 
 .support {
@@ -26,4 +25,18 @@ p {
 a {
     color: inherit;
 
+}
+
+@media screen and (max-width:992px)
+{
+    .hidden-md{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .hidden-sm{
+        display:none;
+    }
 }

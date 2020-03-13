@@ -20,10 +20,10 @@
          </div>
     <div class="col-3 charts" style="padding-left: 10px;width:200px;">
       <div *ngIf='chartDash' class="card-body" style="padding:0px 0px 0px 0px;margin-left:5px; ">
-        <app-serviceslinechart [chartElements]='chartDash'></app-serviceslinechart>
+        <app-services-line-chart [chartElements]='chartDash'></app-services-line-chart>
       </div>
       <div *ngIf='chart1dash'>
-        <app-serviceorderpiechart [chart1Elements]='chart1dash'></app-serviceorderpiechart>
+        <app-service-order-pie-chart [chart1Elements]='chart1dash'></app-service-order-pie-chart>
       </div>
     </div>
   </div>
