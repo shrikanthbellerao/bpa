@@ -12,6 +12,7 @@ import { UserRegistrationComponent } from "./components/user-registration/user-r
 import { ProfileComponent } from "./components/profile/profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
 import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
+import { ActiveStatusComponent } from './components/active-status/active-status.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: "FAQ", component: FAQComponent },
   { path: "ResetPassword", component: ResetPswdComponent },
   { path: "activeServices", component: ActiveServicesComponent },
-  { path: "deviceManager", component: DeviceManagerComponent }
+  { path: "deviceManager", component: DeviceManagerComponent },
+  { path: "activeStatus", component: ActiveStatusComponent }
 ];
 
 @NgModule({

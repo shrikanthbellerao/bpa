@@ -14,15 +14,10 @@ export class LoginComponent implements OnInit {
   accessToken: string;
   apiError = false;
   startSpinner = false;
-  
-
-
-  modalConfig = { 
+  modalConfig = {
   }
-   
 
-
-  constructor(private bpaService: BpaService,private router: Router) { }
+  constructor(private bpaService: BpaService, private router: Router) { }
 
   ngOnInit() {
     console.log('Inside ngOnInit');
@@ -30,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   // Method to invoke a function in Service to validate whether the user is a valid user or not
   fnValidateCredential(formData) {
-  this.startSpinner = true;
+    this.startSpinner = true;
     console.log('Inside fnValidateCredential', formData.value);
 
     const base64Credential: string = btoa(formData.value.userName + ":" + formData.value.password);
@@ -39,11 +34,16 @@ export class LoginComponent implements OnInit {
     this.bpaService.fnValidateLogin(base64Credential).subscribe((response) => {
       console.log('Fetched data from Service: ', response);
       this.accessToken = response['access_token'];
-      localStorage.setItem('accessToken',this.accessToken);
+      localStorage.setItem('accessToken', this.accessToken);
       this.apiError = false;
       this.startSpinner = false;
       this.router.navigate(['/dashboard']);
       }, err => { this.apiError = true; this.startSpinner = false;} );
+
+      this.bpaService.nodeJsCheck().subscribe(response => {
+        console.log('Message :' , response);
+      })
+      
       }
       forGetPassword() {
       console.log('forget password....')
@@ -52,21 +52,22 @@ export class LoginComponent implements OnInit {
 
   newRegister()
   {
+
     this.router.navigate(['/signup']);
   }
-  contactus()
-  {
-  this.modalConfig = {
-    title:"LoginComponent",
-    body:"Login Content",
-    show: true
-  }
-  }
-  questions()
-  {
-  this.modalConfig = {
-    title:"LoginComponent",
-    body:"Login Content"
+
+  contactus() {
+    this.modalConfig = {
+      title: "LoginComponent",
+      body: "Login Content",
+      show: true
+    }
   }
 
-}}
+  questions() {
+    this.modalConfig = {
+      title: "LoginComponent",
+      body: "Login Content"
+    }
+  }
+}

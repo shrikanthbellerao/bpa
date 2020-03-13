@@ -10,11 +10,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
-
 import { ToastrModule } from 'ngx-toastr';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ChartComponent } from './components/utils/chart/chart.component';
 import { Chart1Component } from './components/utils/chart1/chart1.component';
@@ -44,13 +43,16 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { UserButtonsComponent } from './components/utils/user-buttons/user-buttons.component';
+import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
+import { HrTimelineComponent } from './components/utils/hr-timeline/hr-timeline.component';
+import { ActiveStatusComponent } from './components/active-status/active-status.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
     CollapsibleComponent,
-    SpinnerComponent,
     TimelineComponent,
     ChartComponent,
     Chart1Component,
@@ -76,7 +78,10 @@ import { UserButtonsComponent } from './components/utils/user-buttons/user-butto
     ResetPswdComponent,
     TopnavComponent,
     FooterComponent,
-    UserButtonsComponent
+    UserButtonsComponent,
+    D3SpiralStackedBarComponent,
+    HrTimelineComponent,
+    ActiveStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +102,6 @@ import { UserButtonsComponent } from './components/utils/user-buttons/user-butto
     ArchwizardModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([])
-  
   ],
   providers: [],
   entryComponents : [UserButtonsComponent],
@@ -105,5 +109,3 @@ import { UserButtonsComponent } from './components/utils/user-buttons/user-butto
   
 })
 export class AppModule { }
-
-

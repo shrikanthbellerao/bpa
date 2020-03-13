@@ -1,0 +1,51 @@
+<!--  
+    <div class="timeline">
+      <div class="events">
+        <ol>
+          <ul>
+            <li>
+              <a href="#0" class="selected">Early Life</a>
+            </li>
+            <li>
+              <a href="#1">Career</a>
+            </li>
+            <li>
+              <a href="#2">Philosophy</a>
+            </li>
+            <li>
+              <a href="#3">Legacy</a>
+            </li>
+            <li>
+              <a href="#0" class="selected">Early Life</a>
+            </li>
+            <li>
+              <a href="#1">Career</a>
+            </li>
+            <li>
+              <a href="#2">Philosophy</a>
+            </li>
+            <li>
+              <a href="#3">Legacy</a>
+            </li>
+          </ul>
+        </ol>
+      </div>
+    </div> 
+
+ -->
+
+<div class="timeline">
+      <div class="events">
+        <ol>
+          <ul>
+            <li *ngFor='let item of timelineElement'>
+              <a href="#0" class="selected" *ngIf='item.status === "Complete"'>{{item.header}}</a>
+            </li> 
+          </ul>
+        </ol>
+      </div>
+    </div>
+
+
+
+     

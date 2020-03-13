@@ -4,6 +4,8 @@ import { BpaService } from 'src/app/service/bpa.service';
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 import { UserButtonsComponent } from 'src/app/components/utils/user-buttons/user-buttons.component';
 import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.component';
+import { HrTimelineComponent } from 'src/app/components/utils/hr-timeline/hr-timeline.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-active-services',
@@ -13,15 +15,22 @@ import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.co
 export class ActiveServicesComponent implements OnInit {
 
   timeline = []
-
+timelines =[]
   rowData: any = [];
   // filter1;
   serviceItem;
   showSelectedData
-  constructor(private bpaService: BpaService) {}
+  constructor(private bpaService: BpaService,private router: Router) {}
   private gridApi;
+modalConfig : any;
+modalC : any;
+displayModal :any;
+selectedRowsNo: any;
+paginationPageSize: any;
+gridColumnApi: any;
 
-  
+
+  count = 0;
   
   ngOnInit() {
     this.bpaService.getActiveServices().subscribe(response => {
@@ -29,6 +38,9 @@ export class ActiveServicesComponent implements OnInit {
       console.log('response...', response);
 
       this.rowData = response['data'].map((obj) => {
+
+        obj.updatedAt = this.bpaService.fnFormatDate(obj.updatedAt);
+
         obj.formData = JSON.stringify(obj.formData.connectionRow);
         console.log(obj.formData);console.log('\n');
         return obj;
@@ -51,8 +63,8 @@ export class ActiveServicesComponent implements OnInit {
 
   columnDefs = [
     
-    { headerName: 'Order Id', field: 'orderNumber', sortable: true, filter: 'agNumberColumnFilter' , checkboxSelection: true ,width: 120 ,unSortIcon: true },
-    { headerName: 'Order Instance Id', field: 'processInstanceId', sortable: true, filter: true, width: 120 },
+    { headerName: 'Order Id', field: 'orderNumber', sortable: true, filter: 'agNumberColumnFilter' , width: 100 ,unSortIcon: true },
+    { headerName: 'Order Instance Id', field: 'processInstanceId', sortable: true, filter: true, width: 120  },
     { headerName: 'Service', field: 'description', sortable: true, filter: true, width: 120 },
     { headerName: 'Action', cellRenderer: (res => 'Create'), sortable: true, filter: true, width: 120 },
     { headerName: 'Order Form', field: 'formData', sortable: true, filter: true, width: 120 },
@@ -60,7 +72,8 @@ export class ActiveServicesComponent implements OnInit {
     { headerName: 'Update-Time', field: 'updatedAt', sortable: true, filter: 'agDateColumnFilter', width: 120 },
     { headerName: 'User', field: 'userName', sortable: true, filter: true, width: 120 },
     { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 120 },
-    { headerName: 'User Actions', field: 'useractions', cellRendererFramework: UserButtonsComponent , width: 120 }
+    { headerName: 'User Actions', field: 'useractions', cellRendererFramework: UserButtonsComponent ,  cellRendererParams: {
+      onClick: this.onViewBtnClick.bind(this), Ping: this.onPingBtnClick.bind(this)}, width: 120 }
       
   ];
 
@@ -74,25 +87,86 @@ agGroupCellRenderer(response)
 console.log('response:',response) 
 
 }
-
-onRowSelected(event) {
+onViewBtnClick(event) {
   this.timeline = [];
-  console.log(event.data);
-  this.showSelectedData = event.data;
-
-  this.bpaService.getActions(event.data._id).subscribe((res) => {
+  console.log(event.rowData);
+  this.showSelectedData = event.rowData;
+  this.bpaService.getActions(event.rowData._id).subscribe((res) => {
     console.log('dsagdjgadha', res);
-  res['data'].forEach(element => {
-   this.timeline.push({
-      icontype : 'check-square',
-      header : element.milestone,
-      time:'567'
-    })
-  });
+    res['data'].forEach(element => {
+      if(element.status === 'Complete') {
+      this.timeline.push({
+        header : element.milestone,
+        status: element.status
+      })
+      
+    };
+  })
+    this.showSelectedData = event.rowData;
+    this.count = (100/res['data'].length)*this.timeline.length;
+    this.bpaService.setStatus({timeline: this.timeline, showData: this.showSelectedData,count: this.count});
+    this.router.navigate(['/activeStatus'])
+
+  
   })
 }
+onPingBtnClick(event){
+  this.timelines = [];
+  this.showSelectedData = event.rowData;
+  this.bpaService.getActions(event.rowData._id).subscribe((res) => {
+    console.log('dsagdjgadha', res);
+    res['data'].forEach(element => {
+      this.timelines.push({
+        icontype : "eye" ,
+        header : element.milestone,
+        time: element.updatedAt
+      })
 
+      
+    });
+    this.count = (100/res['data'].length)*this.timelines.length;
+    // this.showSelectedData = event.rowData;
+    // this.modalC = {
+    //   title: 'Milestones Completed:',
+    //   body: '',
+
+    //   buttonList: []
+    // };
+    // console.log('ModalConfig',this.modalC)
+    // this.displayModal = true;
+
+  })
+  
+}
+
+hideModal() {
+  this.displayModal = false;
+}
+
+
+
+
+
+
+onSelectionChanged() {
+  const selectedRows = this.gridApi.getSelectedRows();
+  this.selectedRowsNo = selectedRows.length;
+}
+
+
+buttonState() {
+  if (this.selectedRowsNo > 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+deselectRows() {
+  this.gridApi.deselectAll();
+}
+
+}
  
 
 
-}

@@ -6,3 +6,12 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
+.borderTest {
+  border: 1px solid black !important;
+}
+
+ 
+
+.ag-theme-balham .ag-root {
+  border-radius: 13px;
+}

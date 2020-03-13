@@ -28,6 +28,15 @@ export class UserButtonsComponent implements ICellRendererAngularComp {
   
       }
     }
+    onPing($event) {
+      if (this.clickedRow.onClick instanceof Function) {
+      const params = {
+      event: $event,
+      rowData: this.clickedRow.node.data
+      }
+      this.clickedRow.Ping(params);
+      }
+    }
   ngOnInit() {
   }
   }
