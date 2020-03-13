@@ -15,7 +15,7 @@ export class D3SpiralStackedBarComponent implements OnInit {
   ngOnInit() {
 
     let svg = d3.select('svg');
-    let width = window.innerWidth/2;
+    let width = window.innerWidth/2.4;
     let height = width;
     let innerRadius = width * 0.2;
     let outerRadius = width * 0.7;
@@ -109,8 +109,8 @@ export class D3SpiralStackedBarComponent implements OnInit {
 
       yAxis.append('text')
         .attr('y', function(d) { return -y(yTicksValues.pop()); })
-        .attr('dy', '-2em')
-        .text('МКАД, аварийность');
+        .attr('dy', '-2em');
+        // .text('МКАД, аварийность');
 
       // Labels for xAxis
       let label = g.append('g')

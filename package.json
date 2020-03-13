@@ -25,6 +25,7 @@
     "ag-grid-angular": "^22.1.1",
     "ag-grid-community": "^22.1.1",
     "angular-archwizard": "^5.0.0",
+    "angular-chart.js": "^1.1.1",
     "angular-font-awesome": "^3.1.2",
     "angular-popper": "^2.0.1",
     "bootstrap": "^4.4.1",
@@ -42,6 +43,7 @@
     "popper.js": "^1.16.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "zlib": "^1.0.5",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
