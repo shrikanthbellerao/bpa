@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
-    "@material/tabs": "^2.3.0",
     "ag-grid": "^18.1.2",
     "ag-grid-angular": "^22.1.1",
     "ag-grid-community": "^22.1.1",
