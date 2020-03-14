@@ -11,12 +11,11 @@ import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { ToastrModule } from 'ngx-toastr';
-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
-import { ChartComponent } from './components/utils/chart/chart.component';
-import { Chart1Component } from './components/utils/chart1/chart1.component';
+import { ServicesLineChartComponent } from './components/utils/services-line-chart/services-line-chart.component';
+import { ServiceOrderPieChartComponent } from './components/utils/service-order-pie-chart/service-order-pie-chart.component';
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
@@ -36,10 +35,10 @@ import { DeviceManagerComponent } from './components/device-manager/device-manag
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RolesComponent } from './components/roles/roles.component';
+import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
 import { BroadcastMessageComponent } from './components/broadcast-message/broadcast-message.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
@@ -52,8 +51,8 @@ import { UserActionsDownloadCsvComponent } from './components/utils/user-actions
     DashboardComponent,
     CollapsibleComponent,
     TimelineComponent,
-    ChartComponent,
-    Chart1Component,
+    ServicesLineChartComponent,
+    ServiceOrderPieChartComponent,
     TooltipComponent,
     ProgressbarComponent,
     ButtonComponent,
@@ -68,10 +67,10 @@ import { UserActionsDownloadCsvComponent } from './components/utils/user-actions
     ActiveServicesComponent,
     DeviceManagerComponent,
     ButtonRendererComponent,
-    RolesComponent,
+    ManageRolesComponent,
     BroadcastMessageComponent,
     UserRegistrationComponent,
-    ProfileComponent,
+    MyProfileComponent,
     FAQComponent,
     ResetPswdComponent,
     TopnavComponent,
