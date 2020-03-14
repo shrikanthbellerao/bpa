@@ -3,11 +3,11 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid';
 
 @Component({
-  selector: 'app-button-renderer',
-  templateUrl: './button-renderer.component.html',
-  styleUrls: ['./button-renderer.component.css']
+  selector: 'app-user-actions',
+  templateUrl: './user-actions-icon-device-manager.component.html',
+  styleUrls: ['./user-actions-icon-device-manager.component.css']
 })
-export class ButtonRendererComponent implements ICellRendererAngularComp {
+export class UserActionsIconDeviceManagerComponent implements ICellRendererAngularComp {
 
   constructor() { }
 

@@ -12,4 +12,5 @@ export class LineScalePulseOutComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }

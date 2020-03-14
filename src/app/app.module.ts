@@ -32,7 +32,7 @@ import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
-import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
+import { UserActionsIconDeviceManagerComponent } from './components/utils/user-actions-icon-device-manager/user-actions-icon-device-manager.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
@@ -66,7 +66,7 @@ import { UserActionsDownloadCsvComponent } from './components/utils/user-actions
     SignupComponent,
     ActiveServicesComponent,
     DeviceManagerComponent,
-    ButtonRendererComponent,
+    UserActionsIconDeviceManagerComponent,
     ManageRolesComponent,
     BroadcastMessageComponent,
     UserRegistrationComponent,
@@ -99,7 +99,7 @@ import { UserActionsDownloadCsvComponent } from './components/utils/user-actions
     AgGridModule.withComponents([])
   ],
   providers: [],
-  entryComponents : [ButtonRendererComponent, UserActionsDownloadCsvComponent],
+  entryComponents : [UserActionsIconDeviceManagerComponent, UserActionsDownloadCsvComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

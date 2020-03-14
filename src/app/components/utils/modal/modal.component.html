@@ -11,12 +11,12 @@
   <!-- The Modal -->
   <div class="modal" id="myModal" [style.display]="displayModal ? 'block' : 'none'">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+      <div class="modal-content border border-dark">
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h5 class="modal-title">{{modalConfig.title}}</h5>
-          <button type="button" class="close" data-dismiss="modal" (click)="hideModal()">&times;</button>
+          <h6 class="modal-title"><strong>{{modalConfig.title}}</strong></h6>
+          <button type="button" class="close" data-dismiss="modal" (click)="hideModal()"><span style="color:red;">&times;</span></button>
         </div>
 
         <!-- Modal body -->
