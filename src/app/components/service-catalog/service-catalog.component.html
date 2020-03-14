@@ -1,4 +1,4 @@
-<!--<app-cards [inputToCard]='cardResponse'></app-cards>
+<!-- <app-cards [inputToCard]='cardResponse'></app-cards>
 <div *ngFor ='let item of Response'>
 <p>{{item.name}}</p>
 </div>--->
@@ -29,41 +29,25 @@
         </div>
       </div>
       <div *ngIf='!enable1' class="col-md-9 mt-4">
-        <app-cards [inputToCard]='cardResponse'></app-cards>
+        <app-cards (deleteFav)='deleteFavourite($event)' (addFav)='selectFavourite($event)' [inputToCard]='cardResponse'></app-cards>
       </div>
       <div *ngIf='enable1' class="col-md-9 mt-4 listView">
         <div *ngFor='let item of cardResponse'>
-
-          <h6 class="line-clamp">{{item.name}}</h6>
-          <!-- <p class="line-clamp"><small>{{item.description}}</small></p> -->
+          <h6 appEllipsifyMe>{{item.name}}</h6>
           <div class="row">
             <div class="col-9">
-              <p class="line-clamp"><small>{{item.description}}</small></p>
+              <p appEllipsifyMe><small>{{item.description}}</small></p>
             </div>
             <div class="col-2 ">
               <span class="bgColor">
                 {{item.tags[0]['name']}}
               </span>
-              
             </div>
-            <!-- <div class="col-6 d-flex justify-content-end"> -->
-              <!-- <div *ngIf ='checkItem(item);then deleteFav else selectFav'>
-                <ng-template #deleteFav>
-                  <span (click)="selectFavourite(item)">
-                    <i class="fa fa-heart-o fa-lg mr-1"></i>
-                  </span>
-                </ng-template>
-                <ng-template #selectFav>
-                  <span (click)="deleteFavourite(item)">
-                    <i class="fa fa-heart fa-lg mr-1"></i>
-                  </span>
-                </ng-template>
-                
-              </div>
-              <button type='button' (click)="order(item)" class="btn btn-sm">Order</button>
-            </div> -->
             <div class="col-1 d-flex justify-content-end">
-              <span (click)="checkItem(item)">
+              <span *ngIf='item.flag' (click)="deleteFavourite(item)">
+                <i class="fa fa-heart fa-lg mr-2"></i>
+              </span>
+              <span *ngIf='!item.flag' (click)="selectFavourite(item)">
                 <i class="fa fa-heart-o fa-lg mr-2"></i>
               </span>
               <button type='button' (click)="order(item)" class="btn btn-sm">Order</button>
@@ -73,24 +57,5 @@
         </div>
       </div>
     </div>
-    <!--<div *ngIf='enable1' class="col-md-9 mt-4">
-      <div *ngFor='let item of cardResponse' class="card mb-1">
-        <div class="line-clamp" data-toggle="popover" title="Popover Header"
-          data-content="Some content inside the popover">{{item.name}}
-        </div>
-        <div class="card-body">
-          <p class="card-text line-clamp ">{{item.description}}</p>
-          <div class="row card-body">
-            {{item.tags[0]['name']}}
-            <div class="ml-auto">
-              <button (click)="order(item)" class="btn">
-                <i class="fa fa-heart-o"></i>
-              </button>
-              <button type='button' (click)="order(item)" class="btn btn-primary btn-sm">Order</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </body>

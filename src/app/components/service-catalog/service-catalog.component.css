@@ -45,11 +45,7 @@ hr {
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;
 }
-.line-clamp {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-} 
+
 p{
   margin-bottom: 0rem;
 }
@@ -57,7 +53,3 @@ h6{
   margin-bottom: 0rem;
   font-weight: bold;
 }
-.line-clamp:hover {
-  overflow: visible;
-  word-wrap: break-word;
-}    

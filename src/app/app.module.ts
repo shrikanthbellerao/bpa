@@ -10,11 +10,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
-
 import { ToastrModule } from 'ngx-toastr';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { SpinnerComponent } from './components/utils/spinner/spinner.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ChartComponent } from './components/utils/chart/chart.component';
 import { Chart1Component } from './components/utils/chart1/chart1.component';
@@ -43,13 +42,15 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
+import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
+import { EllipsifyMeDirective } from './ellipsify-me.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
     CollapsibleComponent,
-    SpinnerComponent,
     TimelineComponent,
     ChartComponent,
     Chart1Component,
@@ -74,7 +75,10 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     FAQComponent,
     ResetPswdComponent,
     TopnavComponent,
-    FooterComponent
+    FooterComponent,
+    D3SpiralStackedBarComponent,
+    EllipsifyMeDirective,
+
   ],
   imports: [
     BrowserModule,
@@ -95,12 +99,9 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     ArchwizardModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([])
-  
   ],
   providers: [],
   entryComponents : [ButtonRendererComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-

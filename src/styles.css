@@ -7,3 +7,6 @@
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
 
+.borderTest {
+  border: 1px solid black !important;
+}

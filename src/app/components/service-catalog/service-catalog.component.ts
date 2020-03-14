@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BpaService } from 'src/app/service/bpa.service';
+import { Observable, forkJoin } from 'rxjs';
 @Component({
   selector: 'app-service-catalog',
   templateUrl: './service-catalog.component.html',
@@ -11,80 +12,86 @@ export class ServiceCatalogComponent implements OnInit {
   favResponse;
   Response;
   storeIndex = [];
-  
-
+  favResponseCopy;
+  favourite = false;
   constructor(private bpaservice: BpaService) {
-    this.bpaservice.getServiceItems().subscribe(res => {
-      this.storeResponse = res['data'];
-      this.cardResponse = this.storeResponse;
-      
-    }, err => console.log('error.....', err))
-
-
     this.bpaservice.getServiceCategory().subscribe(res => {
       this.Response = res['data'];
     }, err => console.log('error..', err))
+    this.callApis();
   }
-
+  callApis() {
+    forkJoin([this.bpaservice.getServiceItems(), this.bpaservice.getFavItems()]).subscribe((record) => {
+      this.storeResponse = record[0]['data'];
+      this.cardResponse = this.storeResponse;
+      this.favResponse = record[1]['data'];
+      this.favResponseCopy = record[1]['data'];
+      this.cardResponse.map((res) => {
+        const findFav = this.favResponseCopy.find((fav) => fav['serviceitems'][0]._id === res._id);
+        return res['flag'] = findFav ? true : false;
+      });
+    })
+  }
   ngOnInit() {
   }
-  getCheck(i) {
-    this.cardResponse = [];
-    const findIndex = this.storeIndex.findIndex(x => x === i);
-    (findIndex >= 0) ? this.storeIndex.splice(findIndex, 1) : this.storeIndex.push(i)
-    if (this.storeIndex.length === 0) {
-      this.cardResponse = this.storeResponse;
-    } else {
-      this.storeIndex.forEach((index) => {
-        const getResponse = this.storeResponse.filter((check) => check.categoryIds[0]['name'] === this.Response[index].name);
-        this.cardResponse.push(...getResponse)
-
+  getCheck(index) {
+    if (index>=0) {
+      const findIndex = this.storeIndex.findIndex(x => x === index);
+      (findIndex >= 0) ? this.storeIndex.splice(findIndex, 1) : this.storeIndex.push(index)
+    }
+    if (!this.favourite) {
+      this.cardResponse = [];
+      if (this.storeIndex.length === 0) {
+        this.cardResponse = this.storeResponse;
+      } else {
+        this.storeIndex.forEach((index) => {
+          const getResponse = this.storeResponse.filter((check) => check.categoryIds[0]['name'] === this.Response[index].name);
+          this.cardResponse.push(...getResponse);
+        })
+      }
+    } 
+    else {
+      this.bpaservice.getFavItems().subscribe((record) => {
+        this.favResponse = record['data'];
+        this.storeResponse.map((res) => {
+          const findFav = this.favResponse.find((fav) => fav['serviceitems'][0]._id === res._id);
+          return res['flag'] = findFav ? true : false;
+        });
+        this.cardResponse = this.storeResponse.filter((res) => res.flag === true);
+        if (this.storeIndex.length === 0) {
+          this.cardResponse = this.cardResponse;
+        } else {
+          let getResponse = []
+          this.storeIndex.forEach((index) => {
+            getResponse.push(...this.storeResponse.filter((check) => check.categoryIds[0]['name'] === this.Response[index].name));
+          })
+          this.cardResponse = this.cardResponse.filter((res) => getResponse.find((fav) => fav._id === res._id));
+        }
       })
     }
+
   }
   getFav(fav) {
-    this.cardResponse = [];
-    this.favResponse=[];
-     console.log('response..', fav)
-    if (fav) {
-      this.bpaservice.getFavItems().subscribe(res => {
-        // this.storeResponse = res['data'];
-        res['data'].forEach((card) => {
-          this.favResponse.push(card.serviceitems[0])
-          this.favResponse.forEach((res) => this.cardResponse.push( this.storeResponse.find((result ) => result._id === res._id )));
-        })
-        console.log(this.favResponse);
-
-      }, err => console.log('error..', err))
-    } else {
-      this.bpaservice.getServiceItems().subscribe(res => {
-        this.storeResponse = res['data'];
-        this.cardResponse = this.storeResponse;
-      }, err => console.log('error.....', err))
-
-    }
+    this.favourite = fav;
+    this.getCheck(-1)
   }
-
-
   selectFavourite(id) {
-    console.log('id', id)
-    this.bpaservice.selectFavourite(id._id).subscribe((res) => {
-      console.log('response:', res);
-    })
+    this.bpaservice.selectFavourite(id._id).subscribe((res) =>  this.callFavCheck())
   }
   deleteFavourite(id) {
-    console.log('id', id)
-    this.bpaservice.deleteFavourite(id._id).subscribe((res) => {
-      console.log('response:', res);
-      
-    })
+    const getID = this.favResponseCopy.find((res) => res['serviceitems'][0]._id === id._id);
+    this.bpaservice.deleteFavourite(getID._id).subscribe((res) => this.callFavCheck())
   }
-  checkItem(item)
-  {
-    console.log(this.favResponse);
-    if(this.favResponse.find(item))
-      return true;
-     else
-      return false; 
+
+  callFavCheck() {
+    this.bpaservice.getFavItems().subscribe((record) => {
+      this.favResponse = record['data'];
+      this.favResponseCopy = record['data'];
+      this.cardResponse = this.storeResponse;
+      this.cardResponse.map((res) => {
+        const findFav = this.favResponseCopy.find((fav) => fav['serviceitems'][0]._id === res._id);
+        return res['flag'] = findFav ? true : false;
+      });
+    })
   }
 }

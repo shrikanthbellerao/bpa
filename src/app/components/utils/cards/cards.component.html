@@ -21,18 +21,21 @@
 <div class="row my-flex-card">
   <div class="col-4" *ngFor='let item of inputToCard'>
     <div class="card border border-secondary">
-      <div class="card-header py-1 px-3 line-clamp">{{item.name}}
+      <div appEllipsifyMe class="card-header py-1 px-3 ">{{item.name}}
       </div>
       <div class="card-body p-2">
-        <p class="card-text line-clamp"><small>{{item.description}}</small></p>
+        <p appEllipsifyMe class="card-text "><small>{{item.description}}</small></p>
         <div class="row">
           <div class="col-6">
             <span class="bgColor">
               {{item.tags[0]['name']}}
             </span></div>
           <div class="col-6 d-flex justify-content-end">
-            <span (click)="selectFavourite(item)">
-              <i class="fa fa-heart-o fa-lg mr-1"></i>
+            <span *ngIf='item.flag' (click)="deleteFavourite(item)">
+              <i class="fa fa-heart fa-lg mr-2"></i>
+            </span>
+            <span *ngIf='!item.flag' (click)="selectFavourite(item)">
+              <i class="fa fa-heart-o fa-lg mr-2"></i>
             </span>
             <button type='button' (click)="order(item)" class="btn btn-sm">Order</button>
           </div>
