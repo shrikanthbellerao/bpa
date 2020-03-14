@@ -196,4 +196,4 @@ export class DeviceManagerComponent implements OnInit {
 
  // rowData: any = [{name: 'BPA',
   // address: '192.168.10.1', controller_id : 'RTP-LSA', port: 22, protocol: 'ssh', authgroup: 'CORE', ned_id: 'ned_id'}];
-  
+

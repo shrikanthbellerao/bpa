@@ -33,6 +33,6 @@ export class ModalComponent implements OnInit {
   }
 
   hideModal() {
-    this.closeModal.emit()
+    this.closeModal.emit();
   }
 }
