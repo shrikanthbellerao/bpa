@@ -1,9 +1,11 @@
-.container {
-    width: 400px;
-    height: 400px;
+.card-body {
+    width: 350px;
+    height: 450px;
     overflow: hidden;
+    float: right;
     margin: 20px auto 0;
-    box-shadow: 0 0 40px #a0a0a0;
+    border: 2px solid white;
+    box-shadow: 0 0 40px lightgray;
     overflow-y: scroll;
   }
   

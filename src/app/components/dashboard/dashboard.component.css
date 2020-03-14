@@ -4,7 +4,9 @@
 }
 
 marquee {
-    direction:"right";
     height:"50px";
-    margin-top: 80px;
+    margin-top: 10px;
+    color:black;
+    font-weight: bold;
+    /* border: 2px solid grey; */
 }

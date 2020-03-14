@@ -9,3 +9,52 @@
 .borderTest {
   border: 1px solid black !important;
 }
+
+.ag-theme-balham{
+  font-family: 'Lato' !important;
+  color:black !important;
+}
+.ag-theme-balham .ag-root{
+  border-color: black;
+  border-radius: 13px !important;
+}
+.ag-theme-balham .ag-header-row:first-child .ag-header-cell{
+  background-color: #F1F7FC;
+}
+.ag-theme-balham .ag-header-cell:not(.ag-header-group-cell-no-group){
+  background-color: rgb(241, 247, 252)
+
+}
+.ag-theme-balham *:focus, .ag-theme-balham * *:before, .ag-theme-balham * *:after {
+  color: #017cad;
+  }
+.fa-download:before {
+  
+    color: white !important;
+}
+.ag-row-hover {
+    background-color: #e7e7f5 !important;
+  }
+.ag-column-hover {
+    background-color: rgb(241, 247, 252)
+  }
+  
+.ag-header-cell-label .ag-header-cell-text{
+  color:black !important;
+  margin: auto !important;
+
+}
+.ag-theme-balham .ag-input-wrapper input:not([type]), .ag-theme-balham .ag-input-wrapper input[type='text'], .ag-theme-balham .ag-input-wrapper input[type='number'], .ag-theme-balham .ag-input-wrapper input[type='tel'], .ag-theme-balham .ag-input-wrapper input[type='date'], .ag-theme-balham .ag-input-wrapper input[type='datetime-local']{
+
+  border-color: dimgray;
+}
+.ag-theme-balham .ag-paging-panel {
+
+  background-color: #F1F7FC;
+}
+.ag-cell-value{
+  margin: auto !important;
+}
+.ag-floating-filter-body input{
+  border-radius: 5px !important;
+}

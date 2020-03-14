@@ -10,8 +10,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPopper } from 'angular-popper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
-
 import { ToastrModule } from 'ngx-toastr';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
@@ -42,6 +42,9 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { ProfileComponent } from './components/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
+import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
+import { UserActionsDownloadCsvComponent } from './components/utils/user-actions-download-csv/user-actions-download-csv.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +75,9 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     FAQComponent,
     ResetPswdComponent,
     TopnavComponent,
-    FooterComponent
+    FooterComponent,
+    D3SpiralStackedBarComponent,
+    UserActionsDownloadCsvComponent
   ],
   imports: [
     BrowserModule,
@@ -93,12 +98,9 @@ import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
     ArchwizardModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([])
-
   ],
   providers: [],
-  entryComponents : [ButtonRendererComponent],
+  entryComponents : [ButtonRendererComponent, UserActionsDownloadCsvComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-

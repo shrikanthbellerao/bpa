@@ -25,7 +25,7 @@
 
 
           <!-- Modal footer -->
-          <div class="modal-footer">
+          <div class="modal-footer" *ngIf="modalConfig.buttonList.length">
             <button type="button" class="btn btn-secondary" *ngFor='let btn of modalConfig.buttonList'>
               {{btn.buttonLabel}}
             </button>

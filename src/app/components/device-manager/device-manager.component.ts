@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { BpaService } from 'src/app/service/bpa.service';
 import { ButtonRendererComponent } from 'src/app/components/utils/button-renderer/button-renderer.component';
+import { UserActionsDownloadCsvComponent } from 'src/app/components/utils/user-actions-download-csv/user-actions-download-csv.component';
+
 
 @Component({
   selector: 'app-device-manager',
@@ -14,6 +16,8 @@ export class DeviceManagerComponent implements OnInit {
 
   private gridApi: any;
   rowData: any;
+  // rowData: any = [{name: 'BPA',
+  // address: '192.168.10.1', controller_id : 'RTP-LSA', port: 22, protocol: 'ssh', authgroup: 'CORE', ned_id: 'ned_id'}];
   defaultColDef: any;
   columnDefs: any;
   gridColumnApi: any;
@@ -31,23 +35,24 @@ export class DeviceManagerComponent implements OnInit {
     this.columnDefs = [
 
       {
-        headerName: 'Name', field: 'name', sortable: true, filter: true, headerCheckboxSelection: true,
-        headerCheckboxSelectionFilteredOnly: true,
-        checkboxSelection: true
+        headerName: 'Name', field: 'name', sortable: true, filter: true, width: '300'
       },
-      { headerName: 'Address', field: 'address', sortable: true, filter: true },
-      { headerName: 'Controller', field: 'controller_id', sortable: true, filter: true },
-      { headerName: 'Port', field: 'port', sortable: true, filter: true },
-      { headerName: 'Protocol', field: 'protocol', sortable: true, filter: true },
-      { headerName: 'Auth Group', field: 'authgroup', sortable: true, filter: true },
-      { headerName: 'Ned ID', field: 'ned_id', sortable: true, filter: true },
+      { headerName: 'Address', field: 'address', sortable: true, filter: true, width: '150' },
+      { headerName: 'Controller', field: 'controller_id', sortable: true, filter: true, width: '150' },
+      { headerName: 'Port', field: 'port', sortable: true, filter: true, width: '100' },
+      { headerName: 'Protocol', field: 'protocol', sortable: true, filter: true, width: '100' },
+      { headerName: 'Auth Group', field: 'authgroup', sortable: true, filter: true, width: '150' },
+      { headerName: 'Ned ID', field: 'ned_id', sortable: true, filter: true, width: '300' },
       {
         headerName: 'User Actions', field: 'useractions', cellRendererFramework: ButtonRendererComponent,
         cellRendererParams: {
           onClick: this.onViewBtnClick.bind(this),
           Ping: this.onPingBtnClick.bind(this)
 
-        }, editable: false
+        }, editable: false, headerComponentFramework: UserActionsDownloadCsvComponent,
+        headerComponentParams: {
+          onDownloadClick: this.onBtnExport.bind(this)
+        }
       }
 
     ];
@@ -56,10 +61,8 @@ export class DeviceManagerComponent implements OnInit {
       resizable: true,
     };
 
-
-
-
     this.bpaService.getDeviceList().subscribe(response => {
+      // tslint:disable-next-line: max-line-length
       this.rowData = [];
       this.deviceList = response;
       for (let i = 0; i < this.deviceList.length; i++) {
