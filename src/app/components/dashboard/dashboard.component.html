@@ -1,26 +1,30 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <marquee direction="left" scrollamount="15">
-        SITE UNDER CONSTRUCTION!
-      </marquee>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
   <div class="row col-12">
-    <div class="col-8">
-      <app-d3-spiral-stacked-bar></app-d3-spiral-stacked-bar>
+    <marquee direction="right" scrollamount="15">
+      SITE UNDER CONSTRUCTION!
+    </marquee>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <app-d3-spiral-stacked-bar ></app-d3-spiral-stacked-bar>
     </div>
-
-<!--
-    <div *ngIf='chart1dash' class="col-4">
-      <app-chart1 [chart1Elements]="chart1dash"></app-chart1>
-    </div>
--->
-    <div class="col-4" style="float: right;">
-      <app-timeline [timelineElements]="timelinedash"></app-timeline>
+    <div class="tab-content col-4">
+        <ul class="nav  nav-fill">
+          <li *ngFor='let item of statuslist' class="nav-item" (click)="fnTimelineTabClick(item)">
+            <a class="nav-link cursor" data-toggle="tab" >
+              {{item}}
+            </a>
+          </li>         
+        </ul>
+      <app-timeline *ngIf='filterlist && filterlist.length > 0' [timelineElements]="filterlist"></app-timeline>
+         </div>
+    <div class="col-3 charts" style="padding-left: 10px;width:200px;">
+      <div *ngIf='chartDash' class="card-body" style="padding:0px 0px 0px 0px;margin-left:5px; ">
+        <app-services-line-chart [chartElements]='chartDash'></app-services-line-chart>
+      </div>
+      <div *ngIf='chart1dash'>
+        <app-service-order-pie-chart [chart1Elements]='chart1dash'></app-service-order-pie-chart>
+      </div>
     </div>
   </div>
 </div>
