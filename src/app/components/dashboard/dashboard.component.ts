@@ -18,28 +18,20 @@ constructor(private bpaservice : BpaService) { }
 ngOnInit() {
 
   this.bpaservice.getServiceorders().subscribe(res => {
-    console.log('response:',res);
-    this.chart1dash = res['data'];
-    this.timelinedash = res['data'];
-    this.fnTimelineTabClick(this.statuslist[0])
-  }, err => console.log('Error:',err))
+
+    console.log('response of getServiceorders:', res);
+    this.chart1dash = res['body']['data'];
+    this.timelinedash = res['body']['data'];
+    this.fnTimelineTabClick(this.statuslist[0]);
+  }, err => console.log('Error:', err));
 
   this.bpaservice.getServiceItems().subscribe(res => {
-    console.log('response:',res);
+    console.log('response:', res);
     this.chartDash = res['data'];
     console.log(this.chartDash);
-  }, err => console.log('Error:',err))
+  }, err => console.log('Error:', err));
+}
 
-} 
-//  this.timelinedash = [{ 
-//     icontype : "coffee",
-//     header : "Let's have coffee",
-//   },
-//   {
-//     icontype:"users",
-//     header:"Presentation",
-//   } ]
-   
 fnTimelineTabClick(tabName) {
   console.log('Inside fnTimelineTabClick', tabName);
      this.filterlist = [];
