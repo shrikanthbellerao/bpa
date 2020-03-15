@@ -101,9 +101,9 @@ export class BpaService {
       })
     };
     const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
-
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
+  //Method to select the Favourite Items from Service Catalog microservice of BPA
   selectFavourite(id) {
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
@@ -118,6 +118,8 @@ export class BpaService {
     };
     return this.httpClient.post(urlActive, requestBody, httpHeaders);
   }
+
+  //Method to get the Favourite Items from Service Catalog microservice of BPA
   getFavItems() {
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
@@ -131,6 +133,8 @@ export class BpaService {
     return this.httpClient.get(urlActive, httpHeaders);
 
   }
+
+  //Method to delete the Favourite Items from Service Catalog microservice of BPA
   deleteFavourite(id) {
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
@@ -161,42 +165,6 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'service-orders', requestBody, this.nodeJsHttpHeaders);
   }
-
-  /* 
-    Use below approach to display Toastr from any component:
-    1. In case of Success message: this.toastr.success(msg, 'Success!');
-    2. In case of Error message: this.toastr.error(msg, 'Error!');
-    3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
-    4. In case of Info message: this.toastr.info(msg, 'Info');
-    
-    Toaster code this.bpaService.showSuccess('Login Successful!')
-    Toaster code this.bpaService.showError('Invalid Credentials')
-    this.bpaService.showWarning('Maximum Attempts Allowed is 5')
-    Toaster code this.bpaService.showInfo('Remember Next time')
-  */
- 
-  // getServiceItem(){
-  //   const getToken = localStorage.getItem('accessToken');
-  //   const httpHeaders = {
-  //   headers: new HttpHeaders({
-  //   Accept: 'application/json',
-  //   Authorization : `Bearer ${getToken}`
-  //   })
-  //   };
-  //   const urlActive : string ='https://10.81.59.209:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc'
-
-  //   return this.httpClient.get(urlActive, httpHeaders);
-  //   }
-  /* Use below approach to display Toastr from any component:
-  1. In case of Success message: this.toastr.success(msg, 'Success!');
-  2. In case of Error message: this.toastr.error(msg, 'Error!');
-  3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
-  4. In case of Info message: this.toastr.info(msg, 'Info');
-  /* Toaster code this.bpaService.showSuccess('Login Successful!')*/
-  /* Toaster code this.bpaService.showError('Invalid Credentials')
-  this.bpaService.showWarning('Maximum Attempts Allowed is 5')*/
-  /* Toaster code this.bpaService.showInfo('Remember Next time')*/
-
 
   // Method to get the list of Service Items from Service Catalog microservice of BPA
   getServiceItems() {
