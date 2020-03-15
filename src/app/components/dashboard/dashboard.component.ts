@@ -8,7 +8,7 @@ import { BpaService } from 'src/app/service/bpa.service';
 })
 export class DashboardComponent implements OnInit {
   filterlist = [];
-  statuslist = ['Complete', 'IN-PROCESS','ROLLBACK-IN-PROCESS']
+  statuslist = ['COMPLETE', 'IN-PROCESS','ROLLBACK-IN-PROCESS','ROLLBACK']
   chart1dash:any;
   chartDash:any;
   timelinedash:any = []
@@ -31,14 +31,6 @@ ngOnInit() {
   }, err => console.log('Error:',err))
 
 } 
-//  this.timelinedash = [{ 
-//     icontype : "coffee",
-//     header : "Let's have coffee",
-//   },
-//   {
-//     icontype:"users",
-//     header:"Presentation",
-//   } ]
    
 fnTimelineTabClick(tabName) {
   console.log('Inside fnTimelineTabClick', tabName);
