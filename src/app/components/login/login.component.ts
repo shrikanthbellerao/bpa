@@ -60,53 +60,46 @@ export class LoginComponent implements OnInit {
         } else {
           alert('The APIs are not working');
         }
-<<<<<<< HEAD
-        
-      } );
-      this.bpaService.nodeJsCheck().subscribe(response => {
-        console.log('Message :' , response);
-      })
-=======
->>>>>>> 540fc3ea2eb8971735b51d439bc55f5b22835404
       }
     }, err => {
-      this.apiError = true;
-      this.count++;
+    this.apiError = true;
+    this.count++;
+    if (this.count <= 1) {
+    this.fnValidateCredential(formData, false);
+    } else {
+    alert('The APIs are not working');
+    } 
+      });
+    //   this.bpaService.nodeJsCheck().subscribe(response => {
+    //     console.log('Message :' , response);
+    //   })
+    //   }
 
-      if (this.count <= 1) {
-        this.fnValidateCredential(formData, false);
-      } else {
-        alert('The APIs are not working');
-      }
-<<<<<<< HEAD
+    // }, err => {
+    //   this.apiError = true;
+    //   this.count++;
 
+    }
       
-  newRegister() {
-=======
-    });
-  }
+ 
 
   // Method to register a new user
-  fnRegisterNewUser() {
->>>>>>> 540fc3ea2eb8971735b51d439bc55f5b22835404
-    this.router.navigate(['/signup']);
+fnRegisterNewUser() {
+  this.router.navigate(['/signup']);
   }
-
   // Method to display "Contact Us" page
   contactus() {
-    this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content",
-      show: true
-    };
+  this.modalConfig = {
+  title: "LoginComponent",
+  body: "Login Content",
+  show: true
+  };
   }
-
   // Method to display "Questions" page
   questions() {
-    this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content"
-    };
+  this.modalConfig = {
+  title: "LoginComponent",
+  body: "Login Content"
+  };
   }
-
-}
+  }
