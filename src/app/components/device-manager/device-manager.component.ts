@@ -14,7 +14,7 @@ export class DeviceManagerComponent implements OnInit {
   constructor(private bpaService: BpaService) {
   }
 
-  private gridApi: any;
+  gridApi: any;
   rowData: any;
   defaultColDef: any;
   columnDefs: any;
@@ -26,86 +26,80 @@ export class DeviceManagerComponent implements OnInit {
   rowDatafromCell: any;
   pingDeviceInfo: any;
   pingStatus: any;
-  displayModal = false;
+  displayModal: any = false;
 
   ngOnInit() {
 
     this.columnDefs = [
 
-      {
-        headerName: 'Name', field: 'name', sortable: true, filter: true, width: 300
-      },
+      { headerName: 'Name', field: 'name', sortable: true, filter: true, width: 300 },
       { headerName: 'Address', field: 'address', sortable: true, filter: true, width: 150 },
       { headerName: 'Controller', field: 'controller_id', sortable: true, filter: true, width: 150 },
       { headerName: 'Port', field: 'port', sortable: true, filter: true, width: 100 },
       { headerName: 'Protocol', field: 'protocol', sortable: true, filter: true, width: 100 },
       { headerName: 'Auth Group', field: 'authgroup', sortable: true, filter: true, width: 150 },
       { headerName: 'Ned ID', field: 'ned_id', sortable: true, filter: true, width: 300 },
-      {
-        headerName: 'User Actions', field: 'useractions', cellRendererFramework: UserActionsIconDeviceManagerComponent,
+      { headerName: 'User Actions', field: 'useractions', cellRendererFramework: UserActionsIconDeviceManagerComponent,
         cellRendererParams: {
           onClick: this.onViewBtnClick.bind(this),
           Ping: this.onPingBtnClick.bind(this)
-
-        }, editable: false, headerComponentFramework: UserActionsDownloadCsvComponent,
+        },
+        editable: false, headerComponentFramework: UserActionsDownloadCsvComponent,
         headerComponentParams: {
           onDownloadClick: this.onBtnExport.bind(this)
         }
       }
-
     ];
+
     this.defaultColDef = {
       editable: true,
       resizable: true,
     };
 
     this.bpaService.getDeviceList().subscribe(response => {
-      // tslint:disable-next-line: max-line-length
       this.rowData = [];
       this.deviceList = response;
-      for (let i = 0; i < this.deviceList.length; i++) {
+      this.deviceList.forEach(item => {
         this.rowData.push({
-          name: this.deviceList[i].name,
-          address: this.deviceList[i].address,
-          controller_id: this.deviceList[i].controller_id,
+          name: item.name,
+          address: item.address,
+          controller_id: item.controller_id,
           port: 22,
-          protocol: this.deviceList[i].protocol,
-          authgroup: this.deviceList[i].authgroup,
-          ned_id: this.deviceList[i].ned_id,
-          latitude: this.deviceList[i].latitude,
-          longitude: this.deviceList[i].longitude,
-          sub_controller_id: this.deviceList[i].sub_controller_id
+          protocol: item.protocol,
+          authgroup: item.authgroup,
+          ned_id: item.ned_id,
+          latitude: item.latitude,
+          longitude: item.longitude,
+          sub_controller_id: item.sub_controller_id
         });
-      }
+      });
     }), () => console.log('Error');
   }
 
   onViewBtnClick(e) {
-
-
     this.rowDatafromCell = e.rowData;
     this.modalConfig = {
       title: ' Device View',
       body: `<div class="container">
       <div class="row">
         <div class="col md-6">
-          <p><strong class="mr-4">Name</strong>` + this.rowDatafromCell.name + `</p></div>
+          <p><strong class="mr-4">Name</strong>${this.rowDatafromCell.name}</p></div>
         <div class="col md-6">
-          <p><strong class="mr-4">Address</strong> ` + this.rowDatafromCell.address + `</p>
+          <p><strong class="mr-4">Address</strong>${this.rowDatafromCell.address}</p>
         </div>
       </div>
       <div class="row">
         <div class="col md-6">
-          <p><strong class="mr-4">Port &nbsp;&nbsp;</strong>` + this.rowDatafromCell.port + `</p></div>
+          <p><strong class="mr-4">Port &nbsp;&nbsp;</strong>${this.rowDatafromCell.port}</p></div>
         <div class="col md-6">
-          <p><strong class="mr-3">Controller</strong>` + this.rowDatafromCell.controller_id + `</p>
+          <p><strong class="mr-3">Controller</strong>${this.rowDatafromCell.controller_id}</p>
         </div>
       </div>
       <div class="row">
         <div class="col md-6">
-          <p><strong class="mr-4">Group</strong>` + this.rowDatafromCell.authgroup + `</p></div>
+          <p><strong class="mr-4">Group</strong>${this.rowDatafromCell.authgroup}</p></div>
         <div class="col md-6">
-          <p><strong class="mr-4">Protocol</strong> ` + this.rowDatafromCell.protocol + `</p>
+          <p><strong class="mr-4">Protocol</strong>${this.rowDatafromCell.protocol}</p>
         </div>
       </div>
       </div>`,
@@ -131,21 +125,22 @@ export class DeviceManagerComponent implements OnInit {
         title: 'Ping Status',
         body: `<table class="table">
         <tr>
-        <th scope="col md-2">
-        Device
-        </th>
-        <th scope="col">
-        Controller
-        </th>
-        <th scope="col">
-        Result
-        </th>
+          <th scope="col md-2">
+            Device
+          </th>
+          <th scope="col">
+            Controller
+          </th>
+          <th scope="col">
+            Result
+          </th>
         </tr>
         <tr>
-        <td>` + this.rowDatafromCell.name + `</td>
-        <td>` + this.rowDatafromCell.controller_id + `</td>
-        <td>` + this.pingStatus[0].result[0].value + `</tr>
-</table>`,
+          <td>${this.rowDatafromCell.name}</td>
+          <td>${this.rowDatafromCell.controller_id}</td>
+          <td>${this.pingStatus[0].result[0].value}</td>
+        </tr>
+        </table>`,
         buttonList: []
       };
       this.displayModal = true;
@@ -153,7 +148,6 @@ export class DeviceManagerComponent implements OnInit {
     }), () => console.log('Error');
 
   }
-
 
   hideModal() {
     this.displayModal = false;
@@ -168,28 +162,23 @@ export class DeviceManagerComponent implements OnInit {
 
   }
 
-
-
   onSelectionChanged() {
     const selectedRows = this.gridApi.getSelectedRows();
     this.selectedRowsNo = selectedRows.length;
   }
 
-
-  buttonState() {
-    if (this.selectedRowsNo > 0) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  deselectRows() {
-    this.gridApi.deselectAll();
-  }
-
-
   onBtnExport() {
     this.gridApi.exportDataAsCsv();
   }
+  // buttonState() {
+  //   if (this.selectedRowsNo > 0) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
+
+  // deselectRows() {
+  //   this.gridApi.deselectAll();
+  // }
 }

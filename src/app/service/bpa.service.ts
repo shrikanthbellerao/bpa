@@ -199,7 +199,7 @@ export class BpaService {
       })
     };
     const body = pingDeviceInfo;
-    const urlPing = 'https://10.81.59.208:9091/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=RTP-LSA,nso5-lsa4-rd';
+    const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
     return this.httpClient.post(urlPing, body, httpHeaders);
 
   }
