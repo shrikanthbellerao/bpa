@@ -1,50 +1,14 @@
-<div style="margin: 5px 10px;">
-    <label>
-        <button class="btn btn-success ml-2" (click)="onBtnExport()"><i class="fa fa-download"></i>CSV</button>
-    </label>
-</div>
+<div class='row m-3'>
 
-<div class="row m-3">
-
-    <ag-grid-angular style="width: 100%; height:520px;" class="ag-theme-balham" [rowData]="rowData"
-        [rowSelection]='single' [pagination]="true" [paginationPageSize]="15" [excelStyles]="excelStyles"
-        [enableFilter]="true" [floatingFilter]="true" [columnDefs]="columnDefs" [floatingFilter]="true"
-        rowSelection="single" [rowMultiSelectWithClick]="true" [domLayout]="domLayout"
-        (firstDataRendered)="onFirstDataRendered($event)" (rowSelected)="onRowSelected($event)"
-        (gridReady)="onGridReady($event)">
+    <ag-grid-angular style='width: 100%; height:520px;' class='ag-theme-balham' [rowData]='rowData'
+        [rowSelection]='single' [pagination]='true' [paginationPageSize]='15' [excelStyles]='excelStyles'
+        [enableFilter]='true' [floatingFilter]='true' [columnDefs]='columnDefs' [floatingFilter]='true'
+        rowSelection='single' [rowMultiSelectWithClick]='true' [domLayout]='domLayout'
+        (firstDataRendered)='onFirstDataRendered($event)' (rowSelected)='onRowSelected($event)'
+        (gridReady)='onGridReady($event)'>
     </ag-grid-angular>
 </div>
-
-<!-- <div *ngIf='showSelectedData'>
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col col-2.5">
-                    <p class="card-order">Order Number : {{ showSelectedData.orderNumber}}</p>
-                </div>
-                <div class="col col-2.5">
-                    <p class="card-order">User : {{ showSelectedData.userName}}</p>
-
-                </div>
-                <div class="col col-2.5">
-                    <p class="card-order">Status : {{ showSelectedData.status}}</p>
-
-                </div>
-                <div class="col col-2.5">
-                    <p class="card-order">Update Date :
-                        {{ showSelectedData.updatedAt | date:'mediumDate'}},{{ showSelectedData.updatedAt | date:'shortTime'}}
-                    </p>
-
-                </div>
-                <div class="col col-2.5">
-                    <p class="card-order">Completion :
-
-                    </p>
-
-                </div>
-            </div>
-        </div> 
-    </div>
-</div> -->
-<app-modal (closeModal)='hideModal()' [timelineElement]='timeline' [modalConfig]='modalConfig' [displayModal]="displayModal"></app-modal>
-<app-timeline *ngIf='timelines && timelines.length' [timelineElements]='timelines'  ></app-timeline>
+<app-modal (closeModal)='hideModal()' [timelineElement]='timeline' [modalConfig]='modalConfig'
+    [displayModal]='displayModal'></app-modal>
+<app-timeline *ngIf='timelines && timelines.length' [timelineElements]='timelines'></app-timeline>
+F

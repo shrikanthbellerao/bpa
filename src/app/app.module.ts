@@ -41,7 +41,7 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
-import { UserButtonsComponent } from './components/utils/user-buttons/user-buttons.component';
+import { UserButtonsComponent } from './components/utils/user-actions-active-services/user-buttons.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 import { HrTimelineComponent } from './components/utils/hr-timeline/hr-timeline.component';
 import { ActiveStatusComponent } from './components/active-status/active-status.component';

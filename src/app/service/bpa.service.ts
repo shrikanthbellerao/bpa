@@ -6,7 +6,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class BpaService {
-storedata;
+  storedata;
 
   vmIPAddress: string = localStorage.getItem('vm');
   nsoInstance: string = localStorage.getItem('nso');
@@ -15,19 +15,6 @@ storedata;
   bac208NsoInstance: string = 'RTP-LSA,nso5-lsa4-rd';
   bac209VmIPAddress: string = '10.81.59.209:9091';
   bac209NsoInstance: string = 'RTP-LSA,nso5-lsa4-rd';
-
-  /*
-    Use below approach to display Toastr from any component:
-    1. In case of Success message: this.toastr.success(msg, 'Success!');
-    2. In case of Error message: this.toastr.error(msg, 'Error!');
-    3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
-    4. In case of Info message: this.toastr.info(msg, 'Info');
-
-    Toaster code this.bpaService.showSuccess('Login Successful!')
-    Toaster code this.bpaService.showError('Invalid Credentials')
-    this.bpaService.showWarning('Maximum Attempts Allowed is 5')
-    Toaster code this.bpaService.showInfo('Remember Next time')
-  */
 
   constructor(
     private httpClient: HttpClient,
@@ -83,37 +70,23 @@ storedata;
 
     return this.httpClient.get(urlActive, httpHeaders);
   }
-  setStatus(getData){
-   this.storedata = getData;
+  setStatus(getData) {
+    this.storedata = getData;
   }
-  getStatus(){
+  getStatus() {
     return this.storedata;
-   }
+  }
   getActions(id) {
-    const getToken = localStorage.getItem('accessToken');
-    const httpHeaders = {
+    const bpaHttpHeaders: any = {
       headers: new HttpHeaders({
         Accept: 'application/json',
-        Authorization: `Bearer ${getToken}`
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
-    };
-    const urlActive: string = `https://10.81.59.208:9091/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`
-
-    // const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
-    return this.httpClient.get(urlActive, httpHeaders);
+    }; const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`
+    return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
   getServiceorders() {
-
-    // const bpaHttpHeaders: any = {
-    //   headers: new HttpHeaders({
-    //     Accept: 'application/json',
-    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //   })
-    // };
-    // const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
-    // return this.httpClient.get(urlActive, bpaHttpHeaders);
-
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress
@@ -180,10 +153,10 @@ storedata;
   }
 
   fnFormatDate(inputDate) {
-    return inputDate.substring(5,7) + '/' +
-          inputDate.substring(8,10) + '/' +
-          inputDate.substring(0,4) + ' ' + 
-          inputDate.substring(11,16);  
+    return inputDate.substring(5, 7) + '/' +
+      inputDate.substring(8, 10) + '/' +
+      inputDate.substring(0, 4) + ' ' +
+      inputDate.substring(11, 16);
   }
 }
 

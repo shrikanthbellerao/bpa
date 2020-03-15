@@ -62,8 +62,8 @@ export class LoginComponent implements OnInit {
         }
       }
     }, err => {
-    this.apiError = true;
-    this.count++;
+      this.apiError = true;
+      this.count++;
     if (this.count <= 1) {
     this.fnValidateCredential(formData, false);
     } else {
@@ -78,11 +78,8 @@ export class LoginComponent implements OnInit {
     // }, err => {
     //   this.apiError = true;
     //   this.count++;
-
-    }
+}
       
- 
-
   // Method to register a new user
 fnRegisterNewUser() {
   this.router.navigate(['/signup']);
@@ -103,3 +100,4 @@ fnRegisterNewUser() {
   };
   }
   }
+  
