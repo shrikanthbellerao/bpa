@@ -43,6 +43,8 @@ import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 import { UserActionsDownloadCsvComponent } from './components/utils/user-actions-download-csv/user-actions-download-csv.component';
+import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import { UserActionsDownloadCsvComponent } from './components/utils/user-actions
     TopnavComponent,
     FooterComponent,
     D3SpiralStackedBarComponent,
-    UserActionsDownloadCsvComponent
+    UserActionsDownloadCsvComponent,
+    EllipsifyMeDirective
   ],
   imports: [
     BrowserModule,
