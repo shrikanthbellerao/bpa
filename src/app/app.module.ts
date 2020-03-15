@@ -41,11 +41,12 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
-import { UserButtonsComponent } from './components/utils/UserActionsIconActiveServices/UserActionsIconActiveServices.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 import { HrTimelineComponent } from './components/utils/hr-timeline/hr-timeline.component';
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
+import { UserActionIconActiveServicesComponent } from './components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
+
 
 @NgModule({
   declarations: [
@@ -78,11 +79,11 @@ import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive'
     ResetPswdComponent,
     TopnavComponent,
     FooterComponent,
-    UserButtonsComponent,
     D3SpiralStackedBarComponent,
     HrTimelineComponent,
     ActiveStatusComponent,
-    EllipsifyMeDirective
+    EllipsifyMeDirective,
+    UserActionIconActiveServicesComponent
 
   ],
   imports: [
@@ -106,7 +107,7 @@ import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive'
     AgGridModule.withComponents([])
   ],
   providers: [],
-  entryComponents : [UserButtonsComponent],
+  entryComponents : [UserActionIconActiveServicesComponent],
   bootstrap: [AppComponent],
   
 })

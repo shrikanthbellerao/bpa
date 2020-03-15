@@ -70,14 +70,7 @@ export class LoginComponent implements OnInit {
     alert('The APIs are not working');
     } 
       });
-    //   this.bpaService.nodeJsCheck().subscribe(response => {
-    //     console.log('Message :' , response);
-    //   })
-    //   }
-
-    // }, err => {
-    //   this.apiError = true;
-    //   this.count++;
+ 
 }
       
   // Method to register a new user

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { BpaService } from 'src/app/service/bpa.service';
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
-import { UserButtonsComponent } from 'src/app/components/utils/UserActionsIconActiveServices/UserActionsIconActiveServices.component';
+import { UserActionIconActiveServicesComponent } from 'src/app/components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
 import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.component';
 import { HrTimelineComponent } from 'src/app/components/utils/hr-timeline/hr-timeline.component';
 import { Router } from '@angular/router';
@@ -65,7 +65,7 @@ export class ActiveServicesComponent implements OnInit {
     { headerName: 'User', field: 'userName', sortable: true, filter: true, width: 120 },
     { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 120 },
     {
-      headerName: 'User Actions', field: 'useractions', sortable: false, filter: false, cellRendererFramework: UserButtonsComponent, cellRendererParams: {
+      headerName: 'User Actions', field: 'useractions', sortable: false, filter: false, cellRendererFramework: UserActionIconActiveServicesComponent, cellRendererParams: {
         onClick: this.onViewBtnClick.bind(this), Ping: this.onPingBtnClick.bind(this)
       }, width: 120
     }

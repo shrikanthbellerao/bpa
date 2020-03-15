@@ -1,11 +1,11 @@
-import { Component, OnInit} from '@angular/core';
-import { ICellRendererAngularComp } from 'ag-grid-angular';
-import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
-  selector: 'app-user-buttons',
-  templateUrl: './UserActionsIconActiveServices.component.html'
+  selector: 'app-user-action-icon-active-services',
+  templateUrl: './user-action-icon-active-services.component.html',
+  styleUrls: ['./user-action-icon-active-services.component.css']
 })
-export class UserButtonsComponent implements ICellRendererAngularComp {
+export class UserActionIconActiveServicesComponent implements OnInit {
 
   constructor() { }
   clickedRow:any;
@@ -39,5 +39,6 @@ export class UserButtonsComponent implements ICellRendererAngularComp {
   ngOnInit() {
   }
   }
+
 
 
