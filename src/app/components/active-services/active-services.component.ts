@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { BpaService } from 'src/app/service/bpa.service';
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
-import { UserButtonsComponent } from 'src/app/components/utils/user-actions-active-services/user-buttons.component';
+import { UserButtonsComponent } from 'src/app/components/utils/UserActionsIconActiveServices/UserActionsIconActiveServices.component';
 import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.component';
 import { HrTimelineComponent } from 'src/app/components/utils/hr-timeline/hr-timeline.component';
 import { Router } from '@angular/router';

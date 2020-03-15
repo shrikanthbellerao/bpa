@@ -16,6 +16,18 @@ export class BpaService {
   bac209VmIPAddress: string = '10.81.59.209:9091';
   bac209NsoInstance: string = 'RTP-LSA,nso5-lsa4-rd';
 
+  /*
+    Use below approach to display Toastr from any component:
+    1. In case of Success message: this.toastr.success(msg, 'Success!');
+    2. In case of Error message: this.toastr.error(msg, 'Error!');
+    3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
+    4. In case of Info message: this.toastr.info(msg, 'Info');
+    Toaster code this.bpaService.showSuccess('Login Successful!')
+    Toaster code this.bpaService.showError('Invalid Credentials')
+    this.bpaService.showWarning('Maximum Attempts Allowed is 5')
+    Toaster code this.bpaService.showInfo('Remember Next time')
+  */
+
   constructor(
     private httpClient: HttpClient,
     private toastr: ToastrService) {

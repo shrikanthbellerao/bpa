@@ -3,8 +3,7 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid';
 @Component({
   selector: 'app-user-buttons',
-  templateUrl: './user-buttons.component.html',
-  styleUrls: ['./user-buttons.component.css']
+  templateUrl: './UserActionsIconActiveServices.component.html'
 })
 export class UserButtonsComponent implements ICellRendererAngularComp {
 

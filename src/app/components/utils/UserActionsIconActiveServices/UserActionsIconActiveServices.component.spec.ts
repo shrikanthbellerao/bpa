@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserButtonsComponent } from './user-buttons.component';
+import { UserButtonsComponent } from './UserActionsIconActiveServices.component';
 
 describe('UserButtonsComponent', () => {
   let component: UserButtonsComponent;
