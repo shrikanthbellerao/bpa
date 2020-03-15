@@ -42,6 +42,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
+import { AppConfigComponent } from './components/app-config/app-config.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacke
     ResetPswdComponent,
     TopnavComponent,
     FooterComponent,
-    D3SpiralStackedBarComponent
+    D3SpiralStackedBarComponent,
+    AppConfigComponent
   ],
   imports: [
     BrowserModule,
