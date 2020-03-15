@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
   userName: string  = '';
   password: string  = '';
   accessToken: string;
-  apiError = false;
-  startSpinner = false;
-  count = 0;
-  modalConfig = {};
+  apiError          = false;
+  startSpinner      = false;
+  count             = 0;
+  modalConfig       = {};
 
   constructor(private bpaService: BpaService, private router: Router) { }
 
@@ -51,8 +51,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('accessToken', this.accessToken);
         this.apiError = false;
         this.router.navigate(['/dashboard']);
-      }
-    }, err => {
+      } else {
         this.apiError = true;
         this.count++;
 
@@ -61,24 +60,18 @@ export class LoginComponent implements OnInit {
         } else {
           alert('The APIs are not working');
         }
+      }
+    }, err => {
+      this.apiError = true;
+      this.count++;
 
-      });
-    
-    this.bpaService.nodeJsCheck().subscribe(response => {
-      console.log('Message :', response);
-    })
+      if (this.count <= 1) {
+        this.fnValidateCredential(formData, false);
+      } else {
+        alert('The APIs are not working');
+      }
+    });
   }
-  // }, err => {
-  //   this.apiError = true;
-  //   this.count++;
-
-  //   if (this.count <= 1) {
-  //     this.fnValidateCredential(formData, false);
-  //   } else {
-  //     alert('The APIs are not working');
-  //   }
-  //   });
-  // }
 
   // Method to register a new user
   fnRegisterNewUser() {
