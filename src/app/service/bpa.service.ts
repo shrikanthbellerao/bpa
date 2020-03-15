@@ -207,14 +207,6 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-
-    // const url2: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc';
-  
-
-    // const urlActive: string =
-    //   `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
-
-    // return this.httpClient.get(urlActive, httpHeaders);
     const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
@@ -228,12 +220,6 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     }; 
-    // const url: string =
-    // // 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-categories?_page=1&_limit=200000'
-    //   `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories?_page=1&_limit=200000`;
-
-    // return this.httpClient.get(url, httpHeaders);
-    // };
     const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
     return this.httpClient.get(url, bpaHttpHeaders);
   }

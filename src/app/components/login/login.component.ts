@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  userName: string = '';
-  password: string = '';
+  userName: string  = '';
+  password: string  = '';
   accessToken: string;
   apiError = false;
   startSpinner = false;
@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
       title: "LoginComponent",
       body: "Login Content",
       show: true
-    }
+    };
   }
 
   // Method to display "Questions" page
@@ -99,6 +99,6 @@ export class LoginComponent implements OnInit {
     this.modalConfig = {
       title: "LoginComponent",
       body: "Login Content"
-    }
+    };
   }
 }
