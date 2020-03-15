@@ -21,6 +21,7 @@ export class BpaService {
     2. In case of Error message: this.toastr.error(msg, 'Error!');
     3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
     4. In case of Info message: this.toastr.info(msg, 'Info');
+
     Toaster code this.bpaService.showSuccess('Login Successful!')
     Toaster code this.bpaService.showError('Invalid Credentials')
     this.bpaService.showWarning('Maximum Attempts Allowed is 5')
@@ -66,7 +67,6 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'login', requestBody, this.nodeJsHttpHeaders);
   }
-
   
   // Method to get the Active Service info from Service Catalog microservice of BPA
   getActiveServices() {
@@ -188,14 +188,4 @@ export class BpaService {
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
 
-  
-nodeJsCheck(){
-  const httpHeaders = {
-  headers: new HttpHeaders({
-  Accept: 'application/json'
-  })
-  };
-  const nodeUrl = 'http://localhost:8080';
-  return this.httpClient.get(nodeUrl, httpHeaders);
-  }
 } 
