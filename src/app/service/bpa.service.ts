@@ -10,19 +10,30 @@ export class BpaService {
   vmIPAddress: string = localStorage.getItem('vm');
   nsoInstance: string = localStorage.getItem('nso');
 
-  bac208VmIPAddress: string = '10.81.59.208:9091';
-  bac208NsoInstance: string = 'RTP-LSA,nso5-lsa4-rd';
-  bac209VmIPAddress: string = '10.81.59.209:9091';
-  bac209NsoInstance: string = 'RTP-LSA,nso5-lsa4-rd';
+  bac208VmIPAddress = '10.81.59.208:9091';
+  bac208NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
+  bac209VmIPAddress = '10.81.59.209:9091';
+  bac209NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
 
- 
+  /*
+   Use below approach to display Toastr from any component:
+   1. In case of Success message: this.toastr.success(msg, 'Success!');
+   2. In case of Error message: this.toastr.error(msg, 'Error!');
+   3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
+   4. In case of Info message: this.toastr.info(msg, 'Info');
+
+   Toaster code this.bpaService.showSuccess('Login Successful!')
+   Toaster code this.bpaService.showError('Invalid Credentials')
+   this.bpaService.showWarning('Maximum Attempts Allowed is 5')
+   Toaster code this.bpaService.showInfo('Remember Next time')
+ */
 
   constructor(
     private httpClient: HttpClient,
     private toastr: ToastrService) {
   }
 
-  nodeAppUrl: string = 'http://localhost:8080/';
+  nodeAppUrl = 'http://localhost:8080/';
   nodeJsHttpHeaders = {
     headers: new HttpHeaders({
       Accept: 'application/json'
@@ -66,7 +77,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
+    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
@@ -99,7 +110,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`
+    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
@@ -112,7 +123,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
+    const url = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
     return this.httpClient.get(url, bpaHttpHeaders);
   }
 
@@ -125,7 +136,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const urlDevices: string = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
+    const urlDevices = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
     return this.httpClient.get(urlDevices, bpaHttpHeaders);
   }
 
@@ -133,9 +144,10 @@ export class BpaService {
   fnReadCSV(fileName) {
     console.log('Inside fnReadCSV: ', fileName);
     return this.httpClient.get(fileName, { responseType: 'text' });
-   }
+  }
 
-getPingResult(pingDeviceInfo) {
+  // Method to Ping Device from Device Manager
+  getPingResult(pingDeviceInfo) {
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
       headers: new HttpHeaders({
@@ -148,18 +160,7 @@ getPingResult(pingDeviceInfo) {
     const urlPing = 'https://10.81.59.208:9091/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=RTP-LSA,nso5-lsa4-rd';
     return this.httpClient.post(urlPing, body, httpHeaders);
 
-
-  }
-
-    nodeJsCheck() {
-    const httpHeaders = {
-      headers: new HttpHeaders({
-        Accept: 'application/json'
-      })
-    };
-
-    const nodeUrl = 'http://localhost:8080';
-    return this.httpClient.get(nodeUrl, httpHeaders);
   }
 }
+
 

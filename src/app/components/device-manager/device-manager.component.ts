@@ -33,14 +33,14 @@ export class DeviceManagerComponent implements OnInit {
     this.columnDefs = [
 
       {
-        headerName: 'Name', field: 'name', sortable: true, filter: true, width: '300'
+        headerName: 'Name', field: 'name', sortable: true, filter: true, width: 300
       },
-      { headerName: 'Address', field: 'address', sortable: true, filter: true, width: '150' },
-      { headerName: 'Controller', field: 'controller_id', sortable: true, filter: true, width: '150' },
-      { headerName: 'Port', field: 'port', sortable: true, filter: true, width: '100' },
-      { headerName: 'Protocol', field: 'protocol', sortable: true, filter: true, width: '100' },
-      { headerName: 'Auth Group', field: 'authgroup', sortable: true, filter: true, width: '150' },
-      { headerName: 'Ned ID', field: 'ned_id', sortable: true, filter: true, width: '300' },
+      { headerName: 'Address', field: 'address', sortable: true, filter: true, width: 150 },
+      { headerName: 'Controller', field: 'controller_id', sortable: true, filter: true, width: 150 },
+      { headerName: 'Port', field: 'port', sortable: true, filter: true, width: 100 },
+      { headerName: 'Protocol', field: 'protocol', sortable: true, filter: true, width: 100 },
+      { headerName: 'Auth Group', field: 'authgroup', sortable: true, filter: true, width: 150 },
+      { headerName: 'Ned ID', field: 'ned_id', sortable: true, filter: true, width: 300 },
       {
         headerName: 'User Actions', field: 'useractions', cellRendererFramework: UserActionsIconDeviceManagerComponent,
         cellRendererParams: {
@@ -193,7 +193,3 @@ export class DeviceManagerComponent implements OnInit {
     this.gridApi.exportDataAsCsv();
   }
 }
-
- // rowData: any = [{name: 'BPA',
-  // address: '192.168.10.1', controller_id : 'RTP-LSA', port: 22, protocol: 'ssh', authgroup: 'CORE', ned_id: 'ned_id'}];
-
