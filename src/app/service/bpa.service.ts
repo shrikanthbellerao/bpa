@@ -100,7 +100,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-orders'
+    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
 
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
@@ -219,7 +219,7 @@ export class BpaService {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
-    }; 
+    };
     const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
     return this.httpClient.get(url, bpaHttpHeaders);
   }
@@ -240,7 +240,7 @@ export class BpaService {
   // Method to read data present in CSV file
   fnReadCSV(fileName) {
     console.log('Inside fnReadCSV: ', fileName);
-    return this.httpClient.get(fileName, { responseType: 'text' })
+    return this.httpClient.get(fileName, { responseType: 'text' });
   }
 
   
@@ -253,6 +253,4 @@ nodeJsCheck(){
   const nodeUrl = 'http://localhost:8080';
   return this.httpClient.get(nodeUrl, httpHeaders);
   }
-
 } 
-
