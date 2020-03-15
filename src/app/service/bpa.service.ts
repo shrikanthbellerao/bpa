@@ -89,7 +89,7 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/user-favorites'
+    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
     const requestBody = {
       name: id
     };
@@ -105,7 +105,7 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/user-favorites'
+    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
 
     return this.httpClient.get(urlActive, httpHeaders);
 
@@ -120,7 +120,7 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    return this.httpClient.delete(`https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/user-favorites/${id}`, httpHeaders);
+    return this.httpClient.delete(`https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites/${id}`, httpHeaders);
   }
 
   // Method to get the list of Service Orders from Service Catalog microservice of BPA
