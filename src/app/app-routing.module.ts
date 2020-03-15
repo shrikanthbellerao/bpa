@@ -6,10 +6,10 @@ import { ActiveServicesComponent } from "./components/active-services/active-ser
 import { SignupComponent } from "./components/utils/signup/signup.component";
 import { ServiceCatalogComponent } from "./components/service-catalog/service-catalog.component";
 import { DeviceManagerComponent } from "./components/device-manager/device-manager.component";
-import { RolesComponent } from "./components/roles/roles.component";
+import { ManageRolesComponent } from "./components/manage-roles/manage-roles.component";
 import { BroadcastMessageComponent } from "./components/broadcast-message/broadcast-message.component";
 import { UserRegistrationComponent } from "./components/user-registration/user-registration.component";
-import { ProfileComponent } from "./components/profile/profile.component";
+import { MyProfileComponent } from "./components/my-profile/my-profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
 import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
@@ -18,14 +18,14 @@ const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "signup", component: SignupComponent },
-  { path: "Services", component: ServiceCatalogComponent },
+  { path: "services", component: ServiceCatalogComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
-  { path: "ManageRoles", component: RolesComponent },
-  { path: "BroadcastMessage", component: BroadcastMessageComponent },
-  { path: "ReviewRequest", component: UserRegistrationComponent },
-  { path: "MyProfile", component: ProfileComponent },
+  { path: "manageRoles", component: ManageRolesComponent },
+  { path: "broadcastMessage", component: BroadcastMessageComponent },
+  { path: "reviewRequest", component: UserRegistrationComponent },
+  { path: "myProfile", component: MyProfileComponent },
   { path: "FAQ", component: FAQComponent },
-  { path: "ResetPassword", component: ResetPswdComponent },
+  { path: "resetPassword", component: ResetPswdComponent },
   { path: "activeServices", component: ActiveServicesComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
   { path: "activeStatus", component: ActiveStatusComponent }
