@@ -36,7 +36,7 @@ export class ServiceOrderPieChartComponent implements OnInit {
   public pieChartLegend = true;
   public pieChartColors = [
     {
-      backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+      backgroundColor: ['#e83e8c','#ffc107','#20c997','#007bff'],
     },
   ];
 
