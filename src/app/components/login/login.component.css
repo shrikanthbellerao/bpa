@@ -147,4 +147,8 @@
 
 a:hover {
   text-decoration: underline;
-}
+} 
+
+.h100 { /* makes the images fit to the viewport*/
+  height : 100vh
+} 

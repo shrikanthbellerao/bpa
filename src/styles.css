@@ -9,9 +9,40 @@
 .borderTest {
   border: 1px solid black !important;
 }
-
- 
-
+.ag-theme-balham{
+  font-family: 'lato' !important;
+  color: black !important;
+}
 .ag-theme-balham .ag-root {
   border-radius: 13px;
+  border-color: black;
+}
+.ag-theme-balham .ag-header-row:first-child .ag-header-cell{
+  background-color: #F1F7FC;
+}
+.ag-theme-balham .ag-header-cell:not(.ag-header-group-cell-no-group){
+  background-color: rgb(241, 247, 252)
+
+}
+.ag-theme-balham *:focus, .ag-theme-balham * *:before, .ag-theme-balham * *:after {
+color: rgb(1, 124, 173)
+}
+.ag-row-hover {
+  /* putting in !important so it overrides the theme's styling as it hovers the row also */
+  background-color: #e7e7f5 !important;
+}
+
+.ag-column-hover {
+  background-color: rgb(241, 247, 252)
+}
+.ag-header-group-cell-label, .ag-header-cell-label{
+  color: black;
+}
+.ag-theme-balham .ag-input-wrapper input:not([type]), .ag-theme-balham .ag-input-wrapper input[type='text'], .ag-theme-balham .ag-input-wrapper input[type='number'], .ag-theme-balham .ag-input-wrapper input[type='tel'], .ag-theme-balham .ag-input-wrapper input[type='date'], .ag-theme-balham .ag-input-wrapper input[type='datetime-local']{
+
+  border-color: dimgray;
+}
+.ag-theme-balham .ag-paging-panel {
+
+  background-color: #F1F7FC;
 }

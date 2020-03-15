@@ -72,7 +72,7 @@ gridColumnApi: any;
     { headerName: 'Update-Time', field: 'updatedAt', sortable: true, filter: 'agDateColumnFilter', width: 120 },
     { headerName: 'User', field: 'userName', sortable: true, filter: true, width: 120 },
     { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 120 },
-    { headerName: 'User Actions', field: 'useractions', cellRendererFramework: UserButtonsComponent ,  cellRendererParams: {
+    { headerName: 'User Actions', field: 'useractions', sortable: false, filter: false, cellRendererFramework: UserButtonsComponent ,  cellRendererParams: {
       onClick: this.onViewBtnClick.bind(this), Ping: this.onPingBtnClick.bind(this)}, width: 120 }
       
   ];

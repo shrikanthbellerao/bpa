@@ -31,7 +31,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
-import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
+import { ActiveServicesComponent } from './components/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
