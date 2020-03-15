@@ -45,6 +45,7 @@ import { UserButtonsComponent } from './components/utils/user-actions-active-ser
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 import { HrTimelineComponent } from './components/utils/hr-timeline/hr-timeline.component';
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
+import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,9 @@ import { ActiveStatusComponent } from './components/active-status/active-status.
     UserButtonsComponent,
     D3SpiralStackedBarComponent,
     HrTimelineComponent,
-    ActiveStatusComponent
+    ActiveStatusComponent,
+    EllipsifyMeDirective
+
   ],
   imports: [
     BrowserModule,

@@ -85,6 +85,48 @@ export class BpaService {
     }; const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
+  //Method to select the Favourite Items from Service Catalog microservice of BPA
+  selectFavourite(id) {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
+    const requestBody = {
+      name: id
+    };
+    return this.httpClient.post(urlActive, requestBody, httpHeaders);
+  }
+
+  //Method to get the Favourite Items from Service Catalog microservice of BPA
+  getFavItems() {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
+
+    return this.httpClient.get(urlActive, httpHeaders);
+
+  }
+
+  //Method to delete the Favourite Items from Service Catalog microservice of BPA
+  deleteFavourite(id) {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+    return this.httpClient.delete(`https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites/${id}`, httpHeaders);
+  }
 
   getServiceorders() {
     const requestBody = {
@@ -140,18 +182,6 @@ export class BpaService {
     console.log('Inside fnReadCSV: ', fileName);
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
-
-  nodeJsCheck() {
-    const httpHeaders = {
-      headers: new HttpHeaders({
-        Accept: 'application/json'
-      })
-
-    };
-    const nodeUrl = 'http://localhost:8080';
-    return this.httpClient.get(nodeUrl, httpHeaders);
-  }
-
   fnFormatDate(inputDate) {
     return inputDate.substring(5, 7) + '/' +
       inputDate.substring(8, 10) + '/' +

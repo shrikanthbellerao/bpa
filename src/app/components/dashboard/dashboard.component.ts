@@ -8,7 +8,7 @@ import { BpaService } from 'src/app/service/bpa.service';
 })
 export class DashboardComponent implements OnInit {
   filterlist = [];
-  statuslist = ['Complete', 'IN-PROCESS','ROLLBACK-IN-PROCESS']
+  statuslist = ['COMPLETE', 'IN-PROCESS','ROLLBACK-IN-PROCESS','ROLLBACK']
   chart1dash:any;
   chartDash:any;
   timelinedash:any = []

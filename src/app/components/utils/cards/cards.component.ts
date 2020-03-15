@@ -21,7 +21,7 @@
    cancelfn() {
      alert("cancel")
    }*/
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,12 +32,19 @@ import { Router } from '@angular/router';
 export class CardsComponent implements OnInit {
   @Input()
   inputToCard: any;
-  constructor(private route: Router) { }
-
+  @Output() deleteFav = new EventEmitter();
+  @Output() addFav = new EventEmitter();
+  constructor(private route: Router) {
+  }
   ngOnInit() {
   }
   order(item) {
     this.route.navigate(['/dashboard']);
   }
+  selectFavourite(id) {
+    this.addFav.emit(id)
+  }
+  deleteFavourite(id) {
+    this.deleteFav.emit(id);
+  }
 }
-
