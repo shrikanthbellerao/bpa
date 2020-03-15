@@ -67,7 +67,7 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'login', requestBody, this.nodeJsHttpHeaders);
   }
-  
+
   // Method to get the Active Service info from Service Catalog microservice of BPA
   getActiveServices() {
 
@@ -187,5 +187,4 @@ export class BpaService {
     console.log('Inside fnReadCSV: ', fileName);
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
-
 } 
