@@ -21,29 +21,6 @@ export class BpaService {
     2. In case of Error message: this.toastr.error(msg, 'Error!');
     3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
     4. In case of Info message: this.toastr.info(msg, 'Info');
-
-  fnValidateLogin(base64Credential,flag) {
-    const httpHeaders = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: 'Basic ' + base64Credential
-      })
-    };
-
-    if(flag){
-      this.vmIPAddress= this.bacVmIPAddress;
-      localStorage.setItem('vm',this.bacVmIPAddress)
-      this.nsoInstance=this.bacNsoInstance;
-      localStorage.setItem('nso',this.bacVmIPAddress)
-
-    }
-    else{
-      this.vmIPAddress=this.attVmIPAddress;
-      localStorage.setItem('vm',this.attVmIPAddress)
-
-      this.nsoInstance=this.attNsoInstance;
-      localStorage.setItem('nso',this.attNsoInstance)
-
     Toaster code this.bpaService.showSuccess('Login Successful!')
     Toaster code this.bpaService.showError('Invalid Credentials')
     this.bpaService.showWarning('Maximum Attempts Allowed is 5')
