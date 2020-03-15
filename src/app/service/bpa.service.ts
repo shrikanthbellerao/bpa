@@ -187,4 +187,5 @@ export class BpaService {
     console.log('Inside fnReadCSV: ', fileName);
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
+
 }
