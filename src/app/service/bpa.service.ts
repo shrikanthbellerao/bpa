@@ -11,10 +11,10 @@ export class BpaService {
   vmIPAddress: string = localStorage.getItem('vm');
   nsoInstance: string = localStorage.getItem('nso');
 
-  bac208VmIPAddress: string = '10.81.59.208:9091';
-  bac208NsoInstance: string = 'RTP-LSA,nso5-lsa4-rd';
-  bac209VmIPAddress: string = '10.81.59.209:9091';
-  bac209NsoInstance: string = 'RTP-LSA,nso5-lsa4-rd';
+  bac208VmIPAddress = '10.81.59.208:9091';
+  bac208NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
+  bac209VmIPAddress = '10.81.59.209:9091';
+  bac209NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
 
   /*
     Use below approach to display Toastr from any component:
@@ -33,7 +33,7 @@ export class BpaService {
     private toastr: ToastrService) {
   }
 
-  nodeAppUrl: string = 'http://localhost:8080/';
+  nodeAppUrl = 'http://localhost:8080/';
   nodeJsHttpHeaders = {
     headers: new HttpHeaders({
       Accept: 'application/json'
@@ -112,14 +112,14 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
+    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
     const requestBody = {
       name: id
     };
     return this.httpClient.post(urlActive, requestBody, httpHeaders);
   }
 
-  //Method to get the Favourite Items from Service Catalog microservice of BPA
+  // Method to get the Favourite Items from Service Catalog microservice of BPA
   getFavItems() {
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
@@ -128,13 +128,13 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
+    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites`;
 
     return this.httpClient.get(urlActive, httpHeaders);
 
   }
 
-  //Method to delete the Favourite Items from Service Catalog microservice of BPA
+  // Method to delete the Favourite Items from Service Catalog microservice of BPA
   deleteFavourite(id) {
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
@@ -164,7 +164,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`
+    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
@@ -177,7 +177,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const url: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
+    const url = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
     return this.httpClient.get(url, bpaHttpHeaders);
   }
 
@@ -190,7 +190,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const urlDevices: string = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
+    const urlDevices = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
     return this.httpClient.get(urlDevices, bpaHttpHeaders);
   }
 
@@ -207,5 +207,20 @@ export class BpaService {
       inputDate.substring(0, 4) + ' ' +
       inputDate.substring(11, 16);
   }
-}
 
+
+  // Method to Ping Device from Device Manager
+  getPingResult(pingDeviceInfo) {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`,
+
+      })
+    };
+    const body = pingDeviceInfo;
+    const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
+    return this.httpClient.post(urlPing, body, httpHeaders);
+  }
+}

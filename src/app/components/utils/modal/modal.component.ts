@@ -16,7 +16,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styles: ['width85 { width: 85vw !important}']
+  styleUrls: ['./modal.component.css']
 })
 
 export class ModalComponent implements OnInit {
@@ -36,6 +36,6 @@ export class ModalComponent implements OnInit {
   }
 
   hideModal() {
-    this.closeModal.emit()
+    this.closeModal.emit();
   }
 }

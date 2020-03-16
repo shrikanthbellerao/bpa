@@ -10,13 +10,15 @@
 <div class="container" *ngIf="modalConfig">
   <!-- The Modal -->
   <div class="modal" id="myModal" [style.display]="displayModal ? 'block' : 'none'">
-    <div class='modal-dialog modal-lg' >
-      <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content border border-dark">
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h5 class="modal-title">{{modalConfig.title}}</h5>
-          <button type="button" class="close" data-dismiss="modal" (click)="hideModal()">&times;</button>
+          <h6 class="modal-title"><strong>{{modalConfig.title}}</strong></h6>
+          <button type="button" class="close" data-dismiss="modal" (click)="hideModal()">
+            <span style="color:red;">&times;</span>
+          </button>
         </div>
 
         <!-- Modal body -->
@@ -27,6 +29,9 @@
           <app-timeline *ngIf='timelineElements && timelineElements.length' [timelineElements]='timelineElements'></app-timeline>
           <!-- Modal footer -->
           <div class="modal-footer">
+
+          <!-- Modal footer -->
+          <div class="modal-footer" *ngIf="modalConfig.buttonList">
             <button type="button" class="btn btn-secondary" *ngFor='let btn of modalConfig.buttonList'>
               {{btn.buttonLabel}}
             </button>

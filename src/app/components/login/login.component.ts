@@ -80,16 +80,16 @@ export class LoginComponent implements OnInit {
   // Method to display "Contact Us" page
   contactus() {
     this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content",
+      title: 'LoginComponent',
+      body: 'Login Content',
       show: true
     };
   }
   // Method to display "Questions" page
   questions() {
     this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content"
+      title: 'LoginComponent',
+      body: 'Login Content'
     };
   }
 }
