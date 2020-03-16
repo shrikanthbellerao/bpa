@@ -1,31 +1,38 @@
-import { Component, OnInit, Input } from '@angular/core';
-@Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html'
-})
-
 /* Sample modalConfig Object:
 
   modalConfig = {
     title:"Login",
     body:"Login Content",
-    buttonLst:[{
-      btnLabel: "Ok"
+    buttonList:[{
+      buttonLabel: "Ok"
     },{
-      btnLabel: "Submit"
+      buttonLabel: "Submit"
     },{
       ....
     }]
   };
-
 */
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+@Component({
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.css']
+})
 
 export class ModalComponent implements OnInit {
 
-  @Input()
-  modalConfig:any;
+  @Input() displayModal: boolean;
+
+  @Input() modalConfig: any;
+
+  @Output() closeModal = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
+
+  hideModal() {
+    this.closeModal.emit();
+  }
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -32,7 +32,7 @@ import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
-import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
+import { UserActionsIconDeviceManagerComponent } from './components/utils/user-actions-icon-device-manager/user-actions-icon-device-manager.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
@@ -42,7 +42,9 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
+import { UserActionsDownloadCsvComponent } from './components/utils/user-actions-download-csv/user-actions-download-csv.component';
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
+
 
 @NgModule({
   declarations: [
@@ -66,7 +68,7 @@ import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive'
     SignupComponent,
     ActiveServicesComponent,
     DeviceManagerComponent,
-    ButtonRendererComponent,
+    UserActionsIconDeviceManagerComponent,
     ManageRolesComponent,
     BroadcastMessageComponent,
     UserRegistrationComponent,
@@ -76,8 +78,8 @@ import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive'
     TopnavComponent,
     FooterComponent,
     D3SpiralStackedBarComponent,
-    EllipsifyMeDirective,
-
+    UserActionsDownloadCsvComponent,
+    EllipsifyMeDirective
   ],
   imports: [
     BrowserModule,
@@ -100,7 +102,7 @@ import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive'
     AgGridModule.withComponents([])
   ],
   providers: [],
-  entryComponents : [ButtonRendererComponent],
+  entryComponents : [UserActionsIconDeviceManagerComponent, UserActionsDownloadCsvComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
