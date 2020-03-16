@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { LoginComponent } from "./components/login/login.component";
-import { ActiveServicesComponent } from "./components/utils/active-services/active-services.component";
+import { ActiveServicesComponent } from "./components/active-services/active-services.component";
 import { SignupComponent } from "./components/utils/signup/signup.component";
 import { ServiceCatalogComponent } from "./components/service-catalog/service-catalog.component";
 import { DeviceManagerComponent } from "./components/device-manager/device-manager.component";
@@ -12,6 +12,7 @@ import { UserRegistrationComponent } from "./components/user-registration/user-r
 import { MyProfileComponent } from "./components/my-profile/my-profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
 import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
+import { ActiveStatusComponent } from './components/active-status/active-status.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -25,7 +26,9 @@ const routes: Routes = [
   { path: "myProfile", component: MyProfileComponent },
   { path: "FAQ", component: FAQComponent },
   { path: "resetPassword", component: ResetPswdComponent },
-  { path: "activeServices", component: ActiveServicesComponent }
+  { path: "activeServices", component: ActiveServicesComponent },
+  { path: "deviceManager", component: DeviceManagerComponent },
+  { path: "activeStatus", component: ActiveStatusComponent }
 ];
 
 @NgModule({

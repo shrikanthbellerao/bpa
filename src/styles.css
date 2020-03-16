@@ -9,14 +9,13 @@
 .borderTest {
   border: 1px solid black !important;
 }
-
 .ag-theme-balham{
-  font-family: 'Lato' !important;
-  color:black !important;
+  font-family: 'lato' !important;
+  color: black !important;
 }
-.ag-theme-balham .ag-root{
+.ag-theme-balham .ag-root {
+  border-radius: 13px;
   border-color: black;
-  border-radius: 13px !important;
 }
 .ag-theme-balham .ag-header-row:first-child .ag-header-cell{
   background-color: #F1F7FC;
@@ -26,6 +25,18 @@
 
 }
 .ag-theme-balham *:focus, .ag-theme-balham * *:before, .ag-theme-balham * *:after {
+color: rgb(1, 124, 173)
+}
+.ag-row-hover {
+  /* putting in !important so it overrides the theme's styling as it hovers the row also */
+  background-color: #e7e7f5 !important;
+}
+
+.ag-column-hover {
+  background-color: rgb(241, 247, 252)
+}
+.ag-header-group-cell-label, .ag-header-cell-label{
+  color: black;
   color: #017cad;
   }
 .fa-download:before {

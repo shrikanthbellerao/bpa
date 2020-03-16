@@ -30,7 +30,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
-import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
+import { ActiveServicesComponent } from './components/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
 import { UserActionsIconDeviceManagerComponent } from './components/utils/user-actions-icon-device-manager/user-actions-icon-device-manager.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
@@ -42,8 +42,12 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
+import { ActiveStatusComponent } from './components/active-status/active-status.component';
 import { UserActionsDownloadCsvComponent } from './components/utils/user-actions-download-csv/user-actions-download-csv.component';
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
+import { UserActionIconActiveServicesComponent } from './components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
+import { HorizontalTimelineComponent } from './components/utils/horizontal-timeline/horizontal-timeline.component';
+
 
 
 @NgModule({
@@ -78,8 +82,11 @@ import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive'
     TopnavComponent,
     FooterComponent,
     D3SpiralStackedBarComponent,
-    UserActionsDownloadCsvComponent,
-    EllipsifyMeDirective
+    ActiveStatusComponent,
+    EllipsifyMeDirective,
+    UserActionIconActiveServicesComponent,
+    HorizontalTimelineComponent,
+    UserActionsDownloadCsvComponent
   ],
   imports: [
     BrowserModule,

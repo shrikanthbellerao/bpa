@@ -25,6 +25,9 @@ export class ModalComponent implements OnInit {
 
   @Input() modalConfig: any;
 
+
+  @Input() timelineElement: any
+  @Input() timelineElements: any
   @Output() closeModal = new EventEmitter();
 
   constructor() { }

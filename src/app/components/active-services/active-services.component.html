@@ -1,0 +1,14 @@
+<div class='row m-3'>
+
+    <ag-grid-angular style='width: 100%; height:520px;' class='ag-theme-balham' [rowData]='rowData'
+        [rowSelection]='single' [pagination]='true' [paginationPageSize]='15' [excelStyles]='excelStyles'
+        [enableFilter]='true' [floatingFilter]='true' [columnDefs]='columnDefs' [floatingFilter]='true'
+        rowSelection='single' [rowMultiSelectWithClick]='true' [domLayout]='domLayout'
+        (firstDataRendered)='onFirstDataRendered($event)' (rowSelected)='onRowSelected($event)'
+        (gridReady)='onGridReady($event)'>
+    </ag-grid-angular>
+</div>
+<app-modal (closeModal)='hideModal()' [timelineElement]='timeline' [modalConfig]='modalConfig'
+    [displayModal]='displayModal'></app-modal>
+<app-dropdown *ngIf='timelines && timelines.length' [timelineElements]='timelines'></app-dropdown>
+<app-timeline *ngIf='timelines && timelines.length' [timelineElements]='timelines'></app-timeline>
