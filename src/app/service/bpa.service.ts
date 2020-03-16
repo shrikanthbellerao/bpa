@@ -13,8 +13,8 @@ export class BpaService {
 
   bac208VmIPAddress = '10.81.59.208:9091';
   bac208NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
-  bac209VmIPAddress = '10.81.59.209:9091';
-  bac209NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
+  bac209VmIPAddress = '10.122.32.86:9091';
+  bac209NsoInstance = 'All';
 
   /*
     Use below approach to display Toastr from any component:
