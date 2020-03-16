@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  userName: string  = '';
-  password: string  = '';
-  accessToken: string;
+  userName  = '';
+  password  = '';
+  accessToken;
   apiError          = false;
   startSpinner      = false;
   count             = 0;

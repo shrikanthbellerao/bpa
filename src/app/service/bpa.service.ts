@@ -172,14 +172,22 @@ export class BpaService {
   // Method to get the list of devices from Device Manager microservice of BPA
   getDeviceList() {
 
-    const bpaHttpHeaders: any = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      })
+    // const bpaHttpHeaders: any = {
+    //   headers: new HttpHeaders({
+    //     Accept: 'application/json',
+    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //   })
+    // };
+    // const urlDevices = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
+    // return this.httpClient.get(urlDevices, bpaHttpHeaders);
+
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress,
+      nsoInstance: this.nsoInstance,
     };
-    const urlDevices = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
-    return this.httpClient.get(urlDevices, bpaHttpHeaders);
+
+    return this.httpClient.post(this.nodeAppUrl + 'device-manager', requestBody, this.nodeJsHttpHeaders);
   }
 
   // Method to read data present in CSV file
@@ -190,17 +198,26 @@ export class BpaService {
 
   // Method to Ping Device from Device Manager
   getPingResult(pingDeviceInfo) {
-    const getToken = localStorage.getItem('accessToken');
-    const httpHeaders = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${getToken}`,
+    // const getToken = localStorage.getItem('accessToken');
+    // const httpHeaders = {
+    //   headers: new HttpHeaders({
+    //     Accept: 'application/json',
+    //     Authorization: `Bearer ${getToken}`,
 
-      })
+    //   })
+    // };
+    // const body = pingDeviceInfo;
+    // const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
+    // return this.httpClient.post(urlPing, body, httpHeaders);
+
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress,
+      nsoInstance: this.nsoInstance,
+      pingDeviceInfo
     };
-    const body = pingDeviceInfo;
-    const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
-    return this.httpClient.post(urlPing, body, httpHeaders);
+
+    return this.httpClient.post(this.nodeAppUrl + 'ping-device', requestBody, this.nodeJsHttpHeaders);
 
   }
 }
