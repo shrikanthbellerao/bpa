@@ -4,7 +4,8 @@ import { BpaService } from 'src/app/service/bpa.service';
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 import { UserActionIconActiveServicesComponent } from 'src/app/components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
 import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.component';
-import { HrTimelineComponent } from 'src/app/components/utils/hr-timeline/hr-timeline.component';
+import { HorizontalTimelineComponent } from 'src/app/components/utils/horizontal-timeline/horizontal-timeline.component';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -93,7 +94,7 @@ export class ActiveServicesComponent implements OnInit {
       })
       this.showSelectedData = event.rowData;
       this.count = (100 / res['data'].length) * this.timeline.length;
-      this.bpaService.setStatus({ timeline: this.timeline, showData: this.showSelectedData, count: this.count });
+      this.bpaService.setServiceOrderStatus({ timeline: this.timeline, showData: this.showSelectedData, count: this.count });
       this.router.navigate(['/activeStatus'])
 
 

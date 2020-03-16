@@ -11,7 +11,7 @@ export class ActiveStatusComponent implements OnInit {
   constructor(private dcService: BpaService) { }
   showSelectedData;
   ngOnInit() {
-    this.showSelectedData = this.dcService.getStatus();
+    this.showSelectedData = this.dcService.getServiceOrderStatus();
   }
 
 }

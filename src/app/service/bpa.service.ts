@@ -70,7 +70,6 @@ export class BpaService {
 
   // Method to get the Active Service info from Service Catalog microservice of BPA
   getActiveServices() {
-
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
       headers: new HttpHeaders({
@@ -78,16 +77,22 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const urlActive: string = 'https://10.81.59.208:9091/bpa/api/v1.0/service-catalog/service-orders'
+    const urlActive: string = 'https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders'
 
     return this.httpClient.get(urlActive, httpHeaders);
   }
-  setStatus(getData) {
+
+  // Method to set the Order status from Active Service info from Service Catalog microservice of BPA
+  setServiceOrderStatus(getData) {
     this.storedata = getData;
   }
-  getStatus() {
+
+  // Method to get the Order status from Active Service and display that information from Service Catalog microservice of BPA
+  getServiceOrderStatus() {
     return this.storedata;
   }
+
+  // Method to get the Timeline from Active Service info from Service Catalog microservice of BPA
   getActions(id) {
     const bpaHttpHeaders: any = {
       headers: new HttpHeaders({
@@ -97,6 +102,7 @@ export class BpaService {
     }; const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
+
   //Method to select the Favourite Items from Service Catalog microservice of BPA
   selectFavourite(id) {
     const getToken = localStorage.getItem('accessToken');
@@ -145,7 +151,6 @@ export class BpaService {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress
     };
-    // const urlActive: string = `https://10.81.59.209:9091/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`
 
     return this.httpClient.post(this.nodeAppUrl + 'service-orders', requestBody, this.nodeJsHttpHeaders);
   }
@@ -194,6 +199,8 @@ export class BpaService {
     console.log('Inside fnReadCSV: ', fileName);
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
+
+  // Method to display the date and time in a proper format 
   fnFormatDate(inputDate) {
     return inputDate.substring(5, 7) + '/' +
       inputDate.substring(8, 10) + '/' +

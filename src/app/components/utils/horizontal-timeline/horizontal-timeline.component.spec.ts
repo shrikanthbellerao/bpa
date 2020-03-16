@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HrTimelineComponent } from './hr-timeline.component';
+import { HorizontalTimelineComponent } from './horizontal-timeline.component';
 
-describe('HrTimelineComponent', () => {
-  let component: HrTimelineComponent;
-  let fixture: ComponentFixture<HrTimelineComponent>;
+describe('HorizontalTimelineComponent', () => {
+  let component: HorizontalTimelineComponent;
+  let fixture: ComponentFixture<HorizontalTimelineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HrTimelineComponent ]
+      declarations: [ HorizontalTimelineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HrTimelineComponent);
+    fixture = TestBed.createComponent(HorizontalTimelineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
