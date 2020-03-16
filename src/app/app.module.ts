@@ -36,14 +36,13 @@ import { ButtonRendererComponent } from './components/utils/button-renderer/butt
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
-import { BroadcastMessageComponent } from './components/broadcast-message/broadcast-message.component';
+import { ApplicationConfigComponent } from './components/app-config/app-config.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
-import { AppConfigComponent } from './components/app-config/app-config.component';
 
 
 @NgModule({
@@ -70,7 +69,7 @@ import { AppConfigComponent } from './components/app-config/app-config.component
     DeviceManagerComponent,
     ButtonRendererComponent,
     ManageRolesComponent,
-    BroadcastMessageComponent,
+    ApplicationConfigComponent,
     UserRegistrationComponent,
     MyProfileComponent,
     FAQComponent,
@@ -78,8 +77,7 @@ import { AppConfigComponent } from './components/app-config/app-config.component
     TopnavComponent,
     FooterComponent,
     D3SpiralStackedBarComponent,
-    EllipsifyMeDirective,
-    AppConfigComponent
+    EllipsifyMeDirective
 
   ],
   imports: [

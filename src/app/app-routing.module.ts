@@ -7,7 +7,7 @@ import { SignupComponent } from "./components/utils/signup/signup.component";
 import { ServiceCatalogComponent } from "./components/service-catalog/service-catalog.component";
 import { DeviceManagerComponent } from "./components/device-manager/device-manager.component";
 import { ManageRolesComponent } from "./components/manage-roles/manage-roles.component";
-import { BroadcastMessageComponent } from "./components/broadcast-message/broadcast-message.component";
+import { ApplicationConfigComponent } from "./components/app-config/app-config.component";
 import { UserRegistrationComponent } from "./components/user-registration/user-registration.component";
 import { MyProfileComponent } from "./components/my-profile/my-profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "services", component: ServiceCatalogComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
   { path: "manageRoles", component: ManageRolesComponent },
-  { path: "broadcastMessage", component: BroadcastMessageComponent },
+  { path: "appConfig", component: ApplicationConfigComponent },
   { path: "reviewRequest", component: UserRegistrationComponent },
   { path: "myProfile", component: MyProfileComponent },
   { path: "FAQ", component: FAQComponent },
