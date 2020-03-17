@@ -70,6 +70,7 @@ export class BpaService {
 
   // Method to get the Active Service info from Service Catalog microservice of BPA
   getActiveServices() {
+
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
       headers: new HttpHeaders({
@@ -146,7 +147,9 @@ export class BpaService {
     return this.httpClient.delete(`https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites/${id}`, httpHeaders);
   }
 
+  // Method to make REST API call to fetch the list of Service Orders from BPA
   getServiceorders() {
+
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress
@@ -211,18 +214,27 @@ export class BpaService {
 
   // Method to Ping Device from Device Manager
   getPingResult(pingDeviceInfo) {
-    const getToken = localStorage.getItem('accessToken');
-    const httpHeaders = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${getToken}`,
 
-      })
+    // const getToken = localStorage.getItem('accessToken');
+    // const httpHeaders = {
+    //   headers: new HttpHeaders({
+    //     Accept: 'application/json',
+    //     Authorization: `Bearer ${getToken}`,
+
+    //   })
+    // };
+    // const body = pingDeviceInfo;
+    // const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
+    // return this.httpClient.post(urlPing, body, httpHeaders);
+
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress
     };
-    const body = pingDeviceInfo;
-    const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
-    return this.httpClient.post(urlPing, body, httpHeaders);
+
+    return this.httpClient.post(this.nodeAppUrl + 'device-ping', requestBody, this.nodeJsHttpHeaders);
   }
+
   BackendUpdate() {
     return this.httpClient.get('http://localhost:8080/name');
   }
