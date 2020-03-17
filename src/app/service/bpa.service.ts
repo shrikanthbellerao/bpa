@@ -223,4 +223,7 @@ export class BpaService {
     const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
     return this.httpClient.post(urlPing, body, httpHeaders);
   }
+  BackendUpdate() {
+    return this.httpClient.get('http://localhost:8080/name');
+  }
 }

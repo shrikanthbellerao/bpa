@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BpaService } from 'src/app/service/bpa.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-app-config',
@@ -7,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationConfigComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bpaService: BpaService) { }
   ngOnInit() {
+    this.bpaService.BackendUpdate().subscribe(response => {
+      console.log(response);
+    });
+    
   }
   cardConfig = {
     header: "Broadcast Message",
     headerColor: "lightblue",
-    body: "Site Under Construction",
+    body: "Site Under Construction!",
     btnArray:[{
       color: "success",
       btext: "Update",
