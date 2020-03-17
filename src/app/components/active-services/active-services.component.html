@@ -8,7 +8,7 @@
         (gridReady)='onGridReady($event)'>
     </ag-grid-angular>
 </div>
-<app-modal (closeModal)='hideModal()' [timelineElement]='timeline' [modalConfig]='modalConfig'
-    [displayModal]='displayModal'></app-modal>
+<!-- <app-modal (closeModal)='hideModal()' [timelineElement]='timeline' [modalConfig]='modalConfig'
+    [displayModal]='displayModal'></app-modal> -->
 <!-- <app-dropdown *ngIf='timelines && timelines.length' [timelineElements]='timelines'></app-dropdown> -->
 <app-timeline *ngIf='timelines && timelines.length' [timelineElements]='timelines'></app-timeline>

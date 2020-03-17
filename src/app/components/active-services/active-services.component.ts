@@ -5,7 +5,7 @@ import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 import { UserActionIconActiveServicesComponent } from 'src/app/components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
 import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.component';
 import { HorizontalTimelineComponent } from 'src/app/components/utils/horizontal-timeline/horizontal-timeline.component';
-
+import { UserActionsDownloadCsvComponent } from 'src/app/components/utils/user-actions-download-csv/user-actions-download-csv.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -68,7 +68,10 @@ export class ActiveServicesComponent implements OnInit {
     {
       headerName: 'User Actions', field: 'useractions', sortable: false, filter: false, cellRendererFramework: UserActionIconActiveServicesComponent, cellRendererParams: {
         onClick: this.onViewBtnClick.bind(this), Ping: this.onPingBtnClick.bind(this)
-      }, width: 120
+      }, width: 120, editable: false, headerComponentFramework: UserActionsDownloadCsvComponent,
+      headerComponentParams: {
+        onDownloadClick: this.onBtnExport.bind(this)
+      }
     }
 
   ];
