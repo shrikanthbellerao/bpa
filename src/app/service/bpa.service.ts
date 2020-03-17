@@ -177,7 +177,7 @@ export class BpaService {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
     };
-    const url = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories/service-items?_page=1&_limit=20&status=Active&order=asc`;
+    const url = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories?_page=1&_limit=200000`;
     return this.httpClient.get(url, bpaHttpHeaders);
   }
 
