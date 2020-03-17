@@ -1,8 +1,0 @@
-interface Ethernet1/10
-description NXC
-shutdown
-switchport access vlan 999
-spanning-tree port type edge
-no snmp trap link=status
-AAA
- 
