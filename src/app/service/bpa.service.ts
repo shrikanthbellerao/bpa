@@ -161,14 +161,20 @@ export class BpaService {
   // Method to get the list of Service Items from Service Catalog microservice of BPA
   getServiceItems() {
 
-    const bpaHttpHeaders: any = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      })
-    };
-    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
-    return this.httpClient.get(urlActive, bpaHttpHeaders);
+       const requestBody = {
+         accessToken: localStorage.getItem('accessToken'),
+         vmIPAddress: this.vmIPAddress
+      };
+
+      return this.httpClient.post(this.nodeAppUrl + 'service-items', requestBody, this.nodeJsHttpHeaders);
+    // const bpaHttpHeaders: any = {
+    //   headers: new HttpHeaders({
+    //     Accept: 'application/json',
+    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //   })
+    // };
+    // const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
+    // return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
   // Method to get the list of Service Categories from Service Catalog microservice of BPA
