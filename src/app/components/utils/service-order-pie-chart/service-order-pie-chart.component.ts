@@ -48,7 +48,7 @@ export class ServiceOrderPieChartComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.chart1Elements);
+    // console.log(this.chart1Elements);
 
     this.chart1Elements.forEach((data) => {
      if(data.status === 'Complete')
