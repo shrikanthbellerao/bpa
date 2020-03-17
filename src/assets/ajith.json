@@ -1,6 +1,6 @@
 interface Ethernet1/10
-switchport access vlan 600
-description Port turn up Channeled scenario
+description configuring VLAN52
+switchport access vlan 52
 spanning-tree port type edge
 no snmp trap link-status
-shutdown
+no shutdown
