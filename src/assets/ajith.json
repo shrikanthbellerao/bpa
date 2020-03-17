@@ -3,3 +3,4 @@ switchport access vlan 999
 description Port turn up Channeled scenario
 spanning-tree port type edge
 no snmp trap link-status
+shutdown
