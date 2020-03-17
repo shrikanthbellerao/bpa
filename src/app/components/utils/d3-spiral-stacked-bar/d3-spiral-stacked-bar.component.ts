@@ -16,6 +16,7 @@ export class D3SpiralStackedBarComponent implements OnInit {
 
     let svg = d3.select('svg');
     let width = window.innerWidth/2.5;
+    let height = width;
     let innerRadius = width * 0.2;
     let outerRadius = width * 0.7;
     let g = svg.append('g').attr('transform', `translate(${width * 0.50},${height * 0.50})`);
