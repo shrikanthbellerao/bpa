@@ -67,7 +67,6 @@ marquee {
     margin-top: 10px;
     color:black;
     font-weight: bold;
-    /* border: 2px solid grey; */
 }
 
 ::-webkit-scrollbar {
