@@ -235,7 +235,19 @@ export class BpaService {
     return this.httpClient.post(this.nodeAppUrl + 'device-ping', requestBody, this.nodeJsHttpHeaders);
   }
 
-  BackendUpdate() {
-    return this.httpClient.get('http://localhost:8080/name');
+  // REST Api to fetch the broadcast message from bpa-backend application
+  fnFetchBroadcastMessage() {
+    return this.httpClient.get(this.nodeAppUrl + 'broadcast-message');
+  }
+
+  // REST Api to update the broadcast message in bpa-backend application
+  fnUpdateBroadcastMessage(broadcastMessage) {
+
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress,
+      broadcastMessage
+    };
+    return this.httpClient.put(this.nodeAppUrl + 'broadcast-message', requestBody, this.nodeJsHttpHeaders);
   }
 }

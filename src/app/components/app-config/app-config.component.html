@@ -1,2 +1,30 @@
-<app-cards [inputToCard]="cardConfig"></app-cards>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-5" id="block1">
+      <div class="card" id="outerBlock">
+        <div class="card-header" [ngStyle]="{'background-color': cardConfig.headerColor}">
+          {{cardConfig.header}}
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="fnSaveBroadcastMessage(broadcastMessageForm)" #broadcastMessageForm="ngForm">
+            <div class="row col-12 form-group" style="margin-bottom: 0px;">
+              <div class="col-12">
+                <textarea required name="broadcastMessage" [value]="broadcastMessage" cols="30" rows="3" ngModel class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="row col-12 form-group">
+              <div class="offset-4 col-4">
+                <button class="btn btn-primary m-2" type="submit">
+                  <strong>Update</strong>
+                </button>
+              </div>
+              <div class="col-3" *ngIf="startSpinner" style="padding-top: 10px;">
+                <app-line-scale-pulse-out></app-line-scale-pulse-out>
+              </div>
+            </div>    
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

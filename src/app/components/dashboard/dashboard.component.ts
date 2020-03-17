@@ -7,11 +7,13 @@ import { BpaService } from 'src/app/service/bpa.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
   filterlist = [];
   statuslist = ['COMPLETE', 'IN-PROCESS','ROLLBACK-IN-PROCESS','ROLLBACK']
   chart1dash:any;
   chartDash:any;
-  timelinedash:any = []
+  timelinedash:any = [];
+  broadcastMessage: string;
 
 constructor(private bpaservice : BpaService) { }
 
@@ -29,6 +31,11 @@ ngOnInit() {
     console.log('response:', res);
     this.chartDash = res['data'];
     console.log(this.chartDash);
+  }, err => console.log('Error:', err));
+
+  this.bpaservice.fnFetchBroadcastMessage().subscribe(res => {
+    console.log('Broadcast message fetched from bpa-backed:', res);
+    this.broadcastMessage = res['broadcastMessage'];
   }, err => console.log('Error:', err));
 }
 
