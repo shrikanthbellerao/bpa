@@ -11,10 +11,10 @@ export class BpaService {
   vmIPAddress: string = localStorage.getItem('vm');
   nsoInstance: string = localStorage.getItem('nso');
 
-  bac208VmIPAddress = '10.81.59.208:9091';
-  bac208NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
-  bac209VmIPAddress = '10.122.32.86:9091';
-  bac209NsoInstance = 'All';
+  vmOneIPAddress = '10.122.32.86:9091';
+  vmOneNsoInstance = 'RTP-Core-1,nso5-lsa3-rd';
+  vmTwoIPAddress = '10.81.59.208:9091';
+  vmTwoNsoInstance = 'RTP-LSA,nso5-lsa4-rd';
 
   /*
     Use below approach to display Toastr from any component:
@@ -49,15 +49,15 @@ export class BpaService {
   fnValidateLogin(base64Credential, flag) {
 
     if (flag) {
-      this.vmIPAddress = this.bac208VmIPAddress;
-      localStorage.setItem('vm', this.bac208VmIPAddress);
-      this.nsoInstance = this.bac208NsoInstance;
-      localStorage.setItem('nso', this.bac208VmIPAddress);
+      this.vmIPAddress = this.vmOneIPAddress;
+      localStorage.setItem('vm', this.vmOneIPAddress);
+      this.nsoInstance = this.vmOneNsoInstance;
+      localStorage.setItem('nso', this.vmOneIPAddress);
     } else {
-      this.vmIPAddress = this.bac209VmIPAddress;
-      localStorage.setItem('vm', this.bac209VmIPAddress);
-      this.nsoInstance = this.bac209NsoInstance;
-      localStorage.setItem('nso', this.bac209NsoInstance);
+      this.vmIPAddress = this.vmTwoIPAddress;
+      localStorage.setItem('vm', this.vmTwoIPAddress);
+      this.nsoInstance = this.vmTwoNsoInstance;
+      localStorage.setItem('nso', this.vmTwoNsoInstance);
     }
 
     const requestBody = {
@@ -161,14 +161,20 @@ export class BpaService {
   // Method to get the list of Service Items from Service Catalog microservice of BPA
   getServiceItems() {
 
-    const bpaHttpHeaders: any = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      })
-    };
-    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
-    return this.httpClient.get(urlActive, bpaHttpHeaders);
+       const requestBody = {
+         accessToken: localStorage.getItem('accessToken'),
+         vmIPAddress: this.vmIPAddress
+      };
+
+      return this.httpClient.post(this.nodeAppUrl + 'service-items', requestBody, this.nodeJsHttpHeaders);
+    // const bpaHttpHeaders: any = {
+    //   headers: new HttpHeaders({
+    //     Accept: 'application/json',
+    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //   })
+    // };
+    // const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
+    // return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
   // Method to get the list of Service Categories from Service Catalog microservice of BPA
@@ -211,28 +217,17 @@ export class BpaService {
       inputDate.substring(11, 16);
   }
 
-
   // Method to Ping Device from Device Manager
   getPingResult(pingDeviceInfo) {
 
-    // const getToken = localStorage.getItem('accessToken');
-    // const httpHeaders = {
-    //   headers: new HttpHeaders({
-    //     Accept: 'application/json',
-    //     Authorization: `Bearer ${getToken}`,
-
-    //   })
-    // };
-    // const body = pingDeviceInfo;
-    // const urlPing = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices/ping?nsoInstance=${this.nsoInstance}`;
-    // return this.httpClient.post(urlPing, body, httpHeaders);
-
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
-      vmIPAddress: this.vmIPAddress
+      vmIPAddress: this.vmIPAddress,
+      nsoInstance: this.nsoInstance,
+      pingDeviceInfo: pingDeviceInfo[0]
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'device-ping', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'ping-device', requestBody, this.nodeJsHttpHeaders);
   }
 
   // REST Api to fetch the broadcast message from bpa-backend application

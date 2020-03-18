@@ -22,10 +22,41 @@
     transition: all .2s;
   }
 
-  .charts{
-      margin-top: 20px;
-      padding:0px 0px 0px 0px; 
-    }
+.charts{
+    margin-top: 20px;
+    padding:0px 0px 0px 0px; 
+}
+
+.nav-fill{
+    margin-left: 0;
+    border-bottom: 1px solid #778;
+    font-weight: bold;
+}
+
+.nav-fill li {
+    list-style: none;
+    margin: 0;
+    display: inline;
+}
+
+.nav-fill li a{
+margin-left: 3px;
+border: 1px solid #778;
+border-bottom: none;
+background: rgb(209, 208, 208);
+text-decoration: none;
+}
+
+.nav-fill li a:hover{
+color: #000;
+background: rgb(139, 198, 238);
+border-color: #227;
+}
+
+.nav-fill li a#current{
+background: white;
+border-bottom: 1px solid white;
+}
   
 .cursor {
     cursor: pointer;
@@ -36,7 +67,6 @@ marquee {
     margin-top: 10px;
     color:black;
     font-weight: bold;
-    /* border: 2px solid grey; */
 }
 
 ::-webkit-scrollbar {
