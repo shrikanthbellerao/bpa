@@ -17,7 +17,7 @@
             aria-haspopup="true" aria-expanded="false" [ngClass]="serviceCatalogFlg ? 'active-link' : ''">
             Service Catalog</a>
           <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
-            <h6 class="dropdown-header  trigger serviceMenu backgroundImage" routerLinkActive="active">Service Catalog</h6>
+            <h6 class="dropdown-header  trigger serviceMenu backgroundImage">Service Catalog</h6>
             <a routerLink="/services" class="dropdown-item trigger" routerLinkActive="active">Services</a>
             <a routerLink="/activeServices" class="dropdown-item trigger" routerLinkActive="active">Orders</a>
           </div>
@@ -26,12 +26,12 @@
           <a routerLink="/deviceManager" class="nav-link py-0 trigger" routerLinkActive="active-link">Device Manager</a>
         </li>
         <!--For admin-->
-        <li class="nav-item dropdown center" *ngIf="user === 'admin'">
+        <li class="nav-item dropdown center" [ngClass]="user!=='admin' ? 'remove-space' : ''">
           <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" [ngClass]="adminFlag ? 'active-link' : ''">
+            aria-haspopup="true" aria-expanded="false"  *ngIf="user === 'admin'" [ngClass]="adminFlag ? 'active-link' : ''">
             Admin</a>
           <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
-            <h6 class="dropdown-header  trigger backgroundImage"> Admin Settings</h6>
+            <h6 class="dropdown-header backgroundImage"> Admin Settings</h6>
             <a routerLink="/manageRoles" class="dropdown-item trigger" routerLinkActive="active">Manage Roles</a>
             <a routerLink="/appConfig" class="dropdown-item trigger" routerLinkActive="active">Application Config</a>
             <a routerLink="/reviewRequest" class="dropdown-item trigger" routerLinkActive="active">Review Request</a>
@@ -39,12 +39,12 @@
           </div>
         </li>
         <!--For non-admin users-->
-        <li class="nav-item dropdown center" *ngIf="user !== 'admin'">For non-admin users
+        <li class="nav-item dropdown center">
           <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" [ngClass]="nonadminFlag ? 'active-link' : ''">
+            aria-haspopup="true" aria-expanded="false" *ngIf="user !== 'admin'" [ngClass]="nonadminFlag ? 'active-link' : ''">
             {{user}}</a>
-          <div class="dropdown-menu align">
-            <h6 class="dropdown-header  trigger backgroundImage"> Admin Settings</h6>
+          <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
+            <h6 class="dropdown-header backgroundImage"> Admin Settings</h6>
             <a routerLink="/myProfile" class="dropdown-item trigger" routerLinkActive="active">My Profile</a>
           </div>
         </li>
@@ -53,13 +53,12 @@
         <li class="nav-item icon center">
           <a class="py-0 nav-link">
             <span>
-              <i class="fa fa-user-circle"></i>
+             <img src="assets/usericon.png" class="user-icon" height="30" width="30" alt="userIcon">
             </span>
           </a>
         </li>
         <li class="account nav-item nav-fill center">
           <span class="d-block profile user">{{user}}</span>
-          <span class="d-block profile role">{{user}}</span>
         </li>
         <li class="nav-item nav-fill center slide-right">
           <div class="dropdown nav-fill">
