@@ -2,36 +2,44 @@
   <app-cards [inputToCard]="cardConfig"></app-cards>
 -->
 <!-- <div class="row">
-    <div class="col-5" id="block1">
-       <div class="card" id="outerBlock">
-          <div class="card-header" [ngStyle]="{'background-color': inputToCard.headerColor}">
-             {{inputToCard.header}}
-          </div>
-          <div class="card-body">
-             <p class="card-text">{{inputToCard.body}}</p>
-          </div>
-          <div class="card-footer text-muted" id="outer">
-             <ng-container *ngFor='let btn of inputToCard.btnArray'>
-                <button (click)="btn.fnName()" id="inner" class="btn btn-{{btn.color}} ml-6">{{btn.btext}}</button>
-             </ng-container>
-          </div>
-       </div>
-    </div>
- </div> -->
-<div class="row my-flex-card">
-  <div class="col-sm-4" *ngFor='let item of inputToCard'>
-    <div class="card border border-dark">
-      <div class="card-header">{{item.name}}
+  <div class="col-5" id="block1">
+    <div class="card" id="outerBlock">
+      <div class="card-header" [ngStyle]="{'background-color': inputToCard.headerColor}">
+        {{inputToCard.header}}
       </div>
       <div class="card-body">
-        <p class="card-text">{{item.description}}</p>
-        <div class="bgcolor">{{item.tags[0]['name']}}</div>
+        <p class="card-text">{{inputToCard.body}}</p>
       </div>
-      <div class="card-footer text-muted">
-        <ng-container>
-          <button (click)="order(item)" class="btn"><i class="fa fa-heart-o"></i></button>
-          <button (click)="order(item)" class="btn btn-primary ml-6 ">Order</button>
+      <div class="card-footer text-muted" id="outer">
+        <ng-container *ngFor='let btn of inputToCard.btnArray'>
+          <button (click)="btn.fnName()" id="inner" class="btn btn-{{btn.color}} ml-6">{{btn.btext}}</button>
         </ng-container>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="row my-flex-card">
+  <div class="col-4" *ngFor='let item of inputToCard'>
+    <div class="card border border-secondary">
+      <div appEllipsifyMe class="card-header py-1 px-3 ">{{item.name}}
+      </div>
+      <div class="card-body p-2">
+        <p appEllipsifyMe class="card-text "><small>{{item.description}}</small></p>
+        <div class="row">
+          <div class="col-6">
+            <span class="bgColor">
+              {{item.tags[0]['name']}}
+            </span></div>
+          <div class="col-6 d-flex justify-content-end">
+            <span *ngIf='item.flag' (click)="deleteFavourite(item)">
+              <i class="fa fa-heart fa-lg mr-2"></i>
+            </span>
+            <span *ngIf='!item.flag' (click)="selectFavourite(item)">
+              <i class="fa fa-heart-o fa-lg mr-2"></i>
+            </span>
+            <button type='button' (click)="order(item)" class="btn btn-sm">Order</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

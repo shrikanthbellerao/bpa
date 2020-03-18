@@ -15,7 +15,7 @@ export class D3SpiralStackedBarComponent implements OnInit {
   ngOnInit() {
 
     let svg = d3.select('svg');
-    let width = window.innerWidth/2.4;
+    let width = window.innerWidth/2.5;
     let height = width;
     let innerRadius = width * 0.2;
     let outerRadius = width * 0.7;

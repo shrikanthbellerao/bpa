@@ -1,0 +1,11 @@
+<div class="timeline">
+  <div class="events">
+    <ol>
+      <ul>
+        <li *ngFor='let item of timelineElement'>
+          <a href="#0" class="selected" *ngIf='item.status === "Complete"'>{{item.header}}</a>
+        </li>
+      </ul>
+    </ol>
+  </div>
+</div>

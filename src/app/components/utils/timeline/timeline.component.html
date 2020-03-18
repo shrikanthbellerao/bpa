@@ -3,24 +3,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
 
-<div class="card-body overflow-auto" style="padding: 0px 10px 10px 10px;">
+<div class="card-body" style="padding: 0px 10px 10px 10px;">
   <div class="tab-content">
     <div class="tab-pane active" id="tab-eg5-0" role="tabpanel">
       <div *ngFor="let timelines of timelineElements">
-        <div class="row col-12">
-          <!-- <div class="col-12"> -->
-            <div class="main-timeline7 col-12">
-              <div class="timeline col-12">
+        <div class="row col-12" style="margin: 0px; padding: 0px;">
+            <div class="main-timeline7 col-12" style="padding: 0px;">
+              <div class="timeline col-12" style="padding: 0px;">
                 <ul class="timeline col-12">
                   <li class="row col-12" style="margin-left: -30px;">
                     <div class="timeline-icon col-2">
                       <i class="fa fa-{{timelines.icontype}}"></i>
                     </div>
-                    <div class="col-10">
-                      <div class="timeline-content row col-12">
-                        <!-- <h5 class="col col-10 title"> -->
+                    <div class="col-10" style="padding: 0px;">
+                      <div class="timeline-content row col-12" style="margin: 0px;padding: 0px;">
                           {{timelines.header}}
-                        <!-- </h5> -->
                       </div>
                       <div class="year row col-12">
                         {{timelines.time | date: 'mediumDate'}}

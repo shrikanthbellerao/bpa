@@ -19,7 +19,7 @@
 
   <div class="row col-12">
     <div class="offset-lg-8 offset-md-4 loginBox divMoveUp50px">
-      <form (ngSubmit)="fnValidateCredential(loginForm)" #loginForm="ngForm">
+      <form (ngSubmit)="fnValidateCredential(loginForm, true)" #loginForm="ngForm">
 
         <div class="row offset-5 col-2" style="padding-bottom: 10px;">
           <img src="../../../assets/user.png" alt="Login" style="width: 40px; height: 40px;">
@@ -101,6 +101,4 @@
   </div>   
 </div>
 
-<!-- <app-modal [modalConfig]="modalConfig"></app-modal> -->
 
-<!-- <app-collapsible [fq]="data"></app-collapsible> -->

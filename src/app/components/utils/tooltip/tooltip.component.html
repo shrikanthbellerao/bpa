@@ -1,5 +1,6 @@
 <!--
-export class AppComponent {
+  To invoke Tooltip Component:
+
   toolResponse = {
     content: 'i am coming for app component...',
     position: 'right',
@@ -8,26 +9,11 @@ export class AppComponent {
   progressResponse={
     value: '90%'
   }
-  constructor(private httpClient: HttpClient) { }
 
-  ngOnInit() {
-    console.log('Inside ngOnInit');
-
-    const httpOptions = {
-      headers : new HttpHeaders({
-        Accept : 'application/json',
-        Authorization: 'Basic YWRtaW46YWRtaW4='
-      })
-    };
-
-    this.httpClient.post('https://10.83.34.65/bpa/api/v1.0/login', {}, httpOptions).subscribe((responseObj) => {
-      console.log('Response: ', responseObj);
-    });
-  }
 }
+<app-tooltip [toolTipResponse]='toolResponse'></app-tooltip>
 -->
-<!--Calling my component
-<app-tooltip [toolTipResponse]='toolResponse'></app-tooltip>-->
+
 <button type="button" class="btn btn-secondary m-5" data-toggle="tooltip" data-placement="toolTipResponse.position"
   [title]=toolTipResponse.content>
   {{toolTipResponse.name}}

@@ -36,7 +36,7 @@ export class ServiceOrderPieChartComponent implements OnInit {
   public pieChartLegend = true;
   public pieChartColors = [
     {
-      backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+      backgroundColor: ['#e83e8c','#ffc107','#20c997','#007bff'],
     },
   ];
 
@@ -47,8 +47,6 @@ export class ServiceOrderPieChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-    console.log(this.chart1Elements);
 
     this.chart1Elements.forEach((data) => {
      if(data.status === 'Complete')
@@ -64,7 +62,6 @@ export class ServiceOrderPieChartComponent implements OnInit {
       this.rollbackCount++;
     })
 
-  console.log('Active items',this.completeCount);
   this.pieChartLabels.push(["Complete"]);
   this.pieChartData.push(this.completeCount);
   this.pieChartLabels.push(["Rollback-In-Process"]);

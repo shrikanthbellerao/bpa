@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -30,19 +30,30 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { SwitchComponent } from './components/utils/switch/switch.component';
 import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
-import { ActiveServicesComponent } from './components/utils/active-services/active-services.component';
+import { ActiveServicesComponent } from './components/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
-import { ButtonRendererComponent } from './components/utils/button-renderer/button-renderer.component';
+import { UserActionsIconDeviceManagerComponent } from './components/utils/user-actions-icon-device-manager/user-actions-icon-device-manager.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RolesComponent } from './components/roles/roles.component';
-import { BroadcastMessageComponent } from './components/broadcast-message/broadcast-message.component';
+import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
+import { ApplicationConfigComponent } from './components/app-config/app-config.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
+<<<<<<< HEAD
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+=======
+import { ActiveStatusComponent } from './components/active-status/active-status.component';
+import { UserActionsDownloadCsvComponent } from './components/utils/user-actions-download-csv/user-actions-download-csv.component';
+import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
+import { UserActionIconActiveServicesComponent } from './components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
+import { HorizontalTimelineComponent } from './components/utils/horizontal-timeline/horizontal-timeline.component';
+
+
+
+>>>>>>> 9f89de9d390c9896ada73ed6c06759e148c970f7
 
 @NgModule({
   declarations: [
@@ -66,18 +77,26 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     SignupComponent,
     ActiveServicesComponent,
     DeviceManagerComponent,
-    ButtonRendererComponent,
-    RolesComponent,
-    BroadcastMessageComponent,
+    UserActionsIconDeviceManagerComponent,
+    ManageRolesComponent,
+    ApplicationConfigComponent,
     UserRegistrationComponent,
-    ProfileComponent,
+    MyProfileComponent,
     FAQComponent,
     ResetPswdComponent,
     TopnavComponent,
     FooterComponent,
     D3SpiralStackedBarComponent,
+<<<<<<< HEAD
     ContactUsComponent
     
+=======
+    ActiveStatusComponent,
+    EllipsifyMeDirective,
+    UserActionIconActiveServicesComponent,
+    HorizontalTimelineComponent,
+    UserActionsDownloadCsvComponent
+>>>>>>> 9f89de9d390c9896ada73ed6c06759e148c970f7
   ],
   imports: [
     BrowserModule,
@@ -100,7 +119,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     AgGridModule.withComponents([])
   ],
   providers: [],
-  entryComponents : [ButtonRendererComponent],
+  entryComponents : [UserActionsIconDeviceManagerComponent, UserActionsDownloadCsvComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

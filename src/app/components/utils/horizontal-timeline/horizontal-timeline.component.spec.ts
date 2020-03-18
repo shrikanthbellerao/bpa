@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonRendererComponent } from './button-renderer.component';
+import { HorizontalTimelineComponent } from './horizontal-timeline.component';
 
-describe('ButtonRendererComponent', () => {
-  let component: ButtonRendererComponent;
-  let fixture: ComponentFixture<ButtonRendererComponent>;
+describe('HorizontalTimelineComponent', () => {
+  let component: HorizontalTimelineComponent;
+  let fixture: ComponentFixture<HorizontalTimelineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonRendererComponent ]
+      declarations: [ HorizontalTimelineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonRendererComponent);
+    fixture = TestBed.createComponent(HorizontalTimelineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
