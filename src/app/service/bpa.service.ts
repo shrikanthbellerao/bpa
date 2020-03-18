@@ -70,6 +70,7 @@ export class BpaService {
 
   // Method to get the Active Service info from Service Catalog microservice of BPA
   getActiveServices() {
+
     const getToken = localStorage.getItem('accessToken');
     const httpHeaders = {
       headers: new HttpHeaders({
@@ -146,7 +147,9 @@ export class BpaService {
     return this.httpClient.delete(`https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites/${id}`, httpHeaders);
   }
 
+  // Method to make REST API call to fetch the list of Service Orders from BPA
   getServiceorders() {
+
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress
@@ -158,14 +161,20 @@ export class BpaService {
   // Method to get the list of Service Items from Service Catalog microservice of BPA
   getServiceItems() {
 
-    const bpaHttpHeaders: any = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      })
-    };
-    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
-    return this.httpClient.get(urlActive, bpaHttpHeaders);
+       const requestBody = {
+         accessToken: localStorage.getItem('accessToken'),
+         vmIPAddress: this.vmIPAddress
+      };
+
+      return this.httpClient.post(this.nodeAppUrl + 'service-items', requestBody, this.nodeJsHttpHeaders);
+    // const bpaHttpHeaders: any = {
+    //   headers: new HttpHeaders({
+    //     Accept: 'application/json',
+    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //   })
+    // };
+    // const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
+    // return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
   // Method to get the list of Service Categories from Service Catalog microservice of BPA
@@ -219,6 +228,7 @@ export class BpaService {
 
   // Method to Ping Device from Device Manager
   getPingResult(pingDeviceInfo) {
+
     // const getToken = localStorage.getItem('accessToken');
     // const httpHeaders = {
     //   headers: new HttpHeaders({
@@ -239,6 +249,22 @@ export class BpaService {
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'ping-device', requestBody, this.nodeJsHttpHeaders);
+  }
+
+  // REST Api to fetch the broadcast message from bpa-backend application
+  fnFetchBroadcastMessage() {
+    return this.httpClient.get(this.nodeAppUrl + 'broadcast-message');
+  }
+
+  // REST Api to update the broadcast message in bpa-backend application
+  fnUpdateBroadcastMessage(broadcastMessage) {
+
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress,
+      broadcastMessage
+    };
+    return this.httpClient.put(this.nodeAppUrl + 'broadcast-message', requestBody, this.nodeJsHttpHeaders);
 
   }
 }
