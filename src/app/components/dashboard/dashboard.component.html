@@ -5,8 +5,8 @@
     </marquee>
   </div>
   <div class="row" style="width:100%;height:auto;">
-    <div class="spiral col-md-5 col-sm">
-      <app-d3-spiral-stacked-bar ></app-d3-spiral-stacked-bar>
+    <div *ngIf = 'finalCount' class="spiral col-md-5 col-sm">
+      <app-d3-spiral-stacked-bar [d3jsondata] = 'finalCount'></app-d3-spiral-stacked-bar>
     </div>
     <div class="col-md col-sm charts">
       <div *ngIf='chartDash' class="d-flex justify-content-center card-body" style="padding:0px 0px 0px 0px;">

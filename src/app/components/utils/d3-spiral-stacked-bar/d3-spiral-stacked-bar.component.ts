@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as d3 from 'd3';
 
 import { BpaService } from 'src/app/service/bpa.service';
@@ -10,152 +10,151 @@ import { BpaService } from 'src/app/service/bpa.service';
 })
 export class D3SpiralStackedBarComponent implements OnInit {
 
+  @Input()
+  d3jsondata 
+
   constructor(private bpaservice: BpaService) {}
 
   ngOnInit() {
 
-    let svg = d3.select('svg');
-    let width = window.innerWidth/2.5;
-    let height = width;
-    let innerRadius = width * 0.2;
-    let outerRadius = width * 0.7;
-    let g = svg.append('g').attr('transform', `translate(${width * 0.50},${height * 0.50})`);
-    // console.log('width: ', width);
-    // console.log('height: ', height);
-    // console.log('outerRadius: ', outerRadius);
-    // console.log('g: ', g);
+    console.log("helllo",this.d3jsondata)
 
-    let xScaleOffset = Math.PI * 75/180;
+    const width = window.innerWidth,
+            height = window.innerHeight,
+            maxRadius = (Math.min(width, height) / 2) - 5;
 
-    let x = d3.scaleBand()
-              .range([xScaleOffset, 2 * Math.PI + xScaleOffset])
-              .align(0);
+        const formatNumber = d3.format(',d');
 
-    let y = d3.scaleLinear()
-              .range([innerRadius, outerRadius]);
+        const x = d3.scaleLinear()
+            .range([0, 2 * Math.PI])
+            .clamp(true);
 
-    let z = d3.scaleOrdinal()
-              .range(['#a1d76a', '#91bfdb']);
+        const y = d3.scaleSqrt()
+            .range([maxRadius*.1, maxRadius]);
 
-    let zClasses = ['внутренняя сторона', 'внешняя сторона'];
+        const color = d3.scaleOrdinal(d3['schemeCategory20']);
 
-    this.bpaservice.fnReadCSV('assets/simple_stat.csv').subscribe(csvTextData => {
+        const partition = d3.partition();
 
-      // console.log('Text Data read from CSV file: ', csvTextData);
-      let data = d3.csvParse(csvTextData);
-      console.log('JSON Data read from CSV file: ', data);
+        const arc = d3.arc()
+            .startAngle(d => x(d['x0']))
+            .endAngle(d => x(d['x1']))
+            .innerRadius(d => Math.max(0, y(d['y0'])))
+            .outerRadius(d => Math.max(0, y(d['y1'])));
 
-      let keys = data.columns.slice(1);
-      let meanAccidents = d3.mean(data, function(d) { return d3.sum(keys, function(key) { return parseInt(d[key]); }); });
+        const middleArcLine = d => {
+            const halfPi = Math.PI/2;
+            const angles = [x(d.x0) - halfPi, x(d.x1) - halfPi];
+            const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
 
-      x.domain(data.map(function(d) { return d.km; }));
-      y.domain([0, parseInt(d3.max(data, function(d) { return (d.left_lane + d.right_lane); }))]);
-      z.domain(keys);
-      // console.log('keys: ', keys);
+            const middleAngle = (angles[1] + angles[0]) / 2;
+            const invertDirection = middleAngle > 0 && middleAngle < Math.PI; // On lower quadrants write text ccw
+            if (invertDirection) { angles.reverse(); }
 
-      g.append('g')
-        .selectAll('g')
-// @ts-ignore
-        .data(d3.stack().keys(keys)(data))
-        .enter().append('g')
-// @ts-ignore
-        .attr('fill', function(d) { return z(d['key']); })
-        .selectAll('path')
-        .data(function(d) { return d; })
-        .enter().append('path')
-        .attr('d', d3.arc()
-          .innerRadius(function(d) { return y(d[0]); })
-          .outerRadius(function(d) { return y(d[1]); })
-          .startAngle(function(d) { return x(d['data']['km']); })
-          .endAngle(function(d) { return x(d['data']['km']) + x.bandwidth(); })
-          .padAngle(0.01)
-          .padRadius(innerRadius)
-        );
+            const path = d3.path();
+            path.arc(0, 0, r, angles[0], angles[1], invertDirection);
+            return path.toString();
+        };
 
-      //yAxis and Mean
-      let yAxis = g.append('g')
-                    .attr('text-anchor', 'middle');
-      let yTicksValues = d3.ticks(0, 40, 4);
-      let yMeanTick = yAxis.append('g')
-                        .datum([meanAccidents]);
-      yMeanTick.append('circle')
-        .attr('fill', 'none')
-        .attr('stroke', '#C0625E')
-        .attr('stroke-dasharray', '5 3')
-// @ts-ignore
-        .attr('r', y);
+        const textFits = d => {
+            const CHAR_SPACE = 6;
 
-      let yTick = yAxis.selectAll('g')
-                    .data(yTicksValues)
-                    .enter().append('g');
+            const deltaAngle = x(d.x1) - x(d.x0);
+            const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+            const perimeter = r * deltaAngle;
 
-      yTick.append('circle')
-        .attr('fill', 'none')
-        .attr('stroke', '#ccdcea')
-        .attr('r', y);
+            return d.data.name.length * CHAR_SPACE < perimeter;
+        };
 
-      yTick.append('text')
-        .attr('y', function(d) { return -y(d); })
-        .attr('dy', '0.35em')
-        .attr('fill', 'none')
-        .attr('stroke', '#fff')
-        .attr('stroke-width', 5)
-        .text(y.tickFormat(5, 's'));
+        const svg = d3.select('body').append('svg')
+            .style('width', '100vw')
+            .style('height', '100vh')
+            .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
+            .on('click', () => focusOn()); // Reset zoom on canvas click
 
-      yTick.append('text')
-        .attr('y', function(d) { return -y(d); })
-        .attr('dy', '0.35em')
-        .text(y.tickFormat(5, 's'));
+        this.d3jsondata, (error, root) => {
+            if (error) throw error;
 
-      yAxis.append('text')
-        .attr('y', function(d) { return -y(yTicksValues.pop()); })
-        .attr('dy', '-2em');
-        // .text('МКАД, аварийность');
+            root = d3.hierarchy(root);
+            root.sum(d => d.size);
 
-      // Labels for xAxis
-      let label = g.append('g')
-                    .selectAll('g')
-                    .data(data)
-                    .enter().append('g')
-                    .attr('text-anchor', 'middle')
-                    .attr('transform', function(d) {
-                      return 'rotate(' + ((x(d.km) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ')translate(' + innerRadius + ',0)';
-                    });
+            const slice = svg.selectAll('g.slice')
+                .data(partition(root).descendants());
 
-      label.append('line')
-            .attr('x2', function(d) {
-              return (((parseInt(d['km']) % 5) === 0) || (d.km === '1')) ? -7 : -4;
-            })
-            .attr('stroke', '#000');
+            slice.exit().remove();
 
-      label.append('text')
-            .attr('transform', function(d) {
-              return (x(d.km) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? 'rotate(90)translate(0,16)' : 'rotate(-90)translate(0,-9)';
-            })
-            .text(function(d) {
-              let xlabel = (((parseInt(d['km']) % 5) === 0) || (d.km === '1')) ? d.km : '';
-              return xlabel;
-            });
+            const newSlice = slice.enter()
+                .append('g').attr('class', 'slice')
+                .on('click', d => {
+                    d3.event.stopPropagation();
+                    focusOn(d);
+                });
 
-      // Legend
-      let legend = g.append('g')
-                    .selectAll('g')
-                    .data(zClasses)
-                    .enter().append('g')
-                    .attr('transform', function(d, i) {
-                      return 'translate(-50,' + (i - (zClasses.length - 1) / 2) * 25+ ')';
-                    });
+            newSlice.append('title')
+                .text(d => d.data['name'] + '\n' + formatNumber(d.value));
 
-      legend.append('circle')
-        .attr('r', 8)
-// @ts-ignore
-        .attr('fill', z);
+        //@ts-ignore
+            // newSlice.append('path')
+            //     .attr('class', 'main-arc')
+            //     .style('fill', d => color((d.children ? d : d.parent).data['name']))
+            //     .attr('d', arc);
 
-      legend.append('text')
-        .attr('x', 15)
-        .attr('y', 0)
-        .attr('dy', '0.35em')
-        .text(function(d) { return d; });
-    });
+            newSlice.append('path')
+                .attr('class', 'hidden-arc')
+                .attr('id', (_, i) => `hiddenArc${i}`)
+                .attr('d', middleArcLine);
+
+            const text = newSlice.append('text')
+                .attr('display', d => textFits(d) ? null : 'none');
+
+            // Add white contour
+            text.append('textPath')
+                .attr('startOffset','50%')
+                .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+                .text(d => d.data['name'])
+                .style('fill', 'none')
+                .style('stroke', '#fff')
+                .style('stroke-width', 5)
+                .style('stroke-linejoin', 'round');
+
+            text.append('textPath')
+                .attr('startOffset','50%')
+                .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+                .text(d => d.data['name']);
+        };
+
+        function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
+            // Reset to top-level if no data point specified
+
+            const transition = svg.transition()
+                .duration(750)
+                .tween('scale', () => {
+                    const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+                        yd = d3.interpolate(y.domain(), [d.y0, 1]);
+                    return t => { x.domain(xd(t)); y.domain(yd(t)); };
+                });
+
+            transition.selectAll('path.main-arc')
+                .attrTween('d', d => () => arc['d']);
+
+            transition.selectAll('path.hidden-arc')
+                .attrTween('d', d => () => middleArcLine(d));
+
+            transition.selectAll('text')
+                .attrTween('display', d => () => textFits(d) ? null : 'none');
+
+            moveStackToFront(d);
+
+            //
+
+            function moveStackToFront(elD) {
+                svg.selectAll('.slice').filter(d => d === elD)
+                    .each(function(d) {
+                        this['parentNode'].appendChild(this);
+                        if (d['parent']) { moveStackToFront(d['parent']); }
+                    })
+            }
+        }
+    
   }
 }
