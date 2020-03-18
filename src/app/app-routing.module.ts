@@ -12,11 +12,8 @@ import { UserRegistrationComponent } from "./components/user-registration/user-r
 import { MyProfileComponent } from "./components/my-profile/my-profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
 import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
-<<<<<<< HEAD
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
-=======
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
->>>>>>> 9f89de9d390c9896ada73ed6c06759e148c970f7
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -32,11 +29,8 @@ const routes: Routes = [
   { path: "resetPassword", component: ResetPswdComponent },
   { path: "activeServices", component: ActiveServicesComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
-<<<<<<< HEAD
-  { path: "contact-us", component: ContactUsComponent}
-=======
+  { path: "contact-us", component: ContactUsComponent},
   { path: "activeStatus", component: ActiveStatusComponent }
->>>>>>> 9f89de9d390c9896ada73ed6c06759e148c970f7
 ];
 
 @NgModule({
