@@ -9,34 +9,43 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApplicationConfigComponent implements OnInit {
 
-  constructor(private bpaService: BpaService) { }
-  ngOnInit() {
-    this.bpaService.BackendUpdate().subscribe(response => {
-      console.log(response);
-    });
-    
-  }
-  cardConfig = {
-    header: "Broadcast Message",
-    headerColor: "lightblue",
-    body: "Site Under Construction!",
-    btnArray:[{
-      color: "success",
-      btext: "Update",
-      // fnName: this.okFun
-    },//{
-    //   color: "danger",
-    //   btext: "cancel",
-    //   fnName: this.cancelfn
-      //}
-    ]
-    };
+  broadcastMessage: string;
 
-  // okFun() {
-  //   alert("ok")
-  // }
-  // cancelfn() {
-  //   alert("cancel")
-  // }
-  
+  constructor(private bpaService: BpaService) { }
+
+  startSpinner: boolean;
+  cardConfig = {
+    header: 'Broadcast Message',
+    headerColor: 'lightblue',
+    body: 'Hi',
+    btnArray: [{
+      color: 'success',
+      btext: 'Update',
+    }]
+  };
+
+  ngOnInit() {
+
+    this.bpaService.fnFetchBroadcastMessage().subscribe(res => {
+      console.log('Broadcast message fetched from bpa-backed:', res);
+      this.broadcastMessage = res['broadcastMessage'];
+      this.cardConfig.body = this.broadcastMessage;
+    }, err => console.log('Error:', err));
+  }
+
+  fnSaveBroadcastMessage(formData) {
+
+    console.log('Inside fnSaveBroadcastMessage: ', formData);
+
+    this.startSpinner = true;
+    this.bpaService.fnUpdateBroadcastMessage(formData.value.broadcastMessage).subscribe(res => {
+      this.startSpinner = false;
+      console.log('Broadcast message Updated in bpa-backed:', res);
+      this.broadcastMessage = res['broadcastMessage'];
+      this.cardConfig.body = this.broadcastMessage;
+    }, err => {
+      this.startSpinner = false;
+      console.log('Error:', err);
+    });
+  }
 }

@@ -48,8 +48,6 @@ export class ServiceOrderPieChartComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.chart1Elements);
-
     this.chart1Elements.forEach((data) => {
      if(data.status === 'Complete')
       this.completeCount++;
@@ -64,7 +62,6 @@ export class ServiceOrderPieChartComponent implements OnInit {
       this.rollbackCount++;
     })
 
-  console.log('Active items',this.completeCount);
   this.pieChartLabels.push(["Complete"]);
   this.pieChartData.push(this.completeCount);
   this.pieChartLabels.push(["Rollback-In-Process"]);
