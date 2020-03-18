@@ -16,16 +16,16 @@ export class ServiceCatalogComponent implements OnInit {
   favourite = false;
   constructor(private bpaservice: BpaService) {
     this.bpaservice.getServiceCategory().subscribe(res => {
-      this.Response = res['data'];
+      this.Response = res['body'];
     }, err => console.log('error..', err))
     this.callApis();
   }
   callApis() {
     forkJoin([this.bpaservice.getServiceItems(), this.bpaservice.getFavItems()]).subscribe((record) => {
-      this.storeResponse = record[0]['data'];
+      this.storeResponse = record[0]['body']['data'];
       this.cardResponse = this.storeResponse;
-      this.favResponse = record[1]['data'];
-      this.favResponseCopy = record[1]['data'];
+      this.favResponse = record[1]['body']['data'];
+      this.favResponseCopy = record[1]['body']['data'];
       this.cardResponse.map((res) => {
         const findFav = this.favResponseCopy.find((fav) => fav['serviceitems'][0]._id === res._id);
         return res['flag'] = findFav ? true : false;
@@ -52,7 +52,7 @@ export class ServiceCatalogComponent implements OnInit {
     } 
     else {
       this.bpaservice.getFavItems().subscribe((record) => {
-        this.favResponse = record['data'];
+        this.favResponse = record['body']['data'];
         this.storeResponse.map((res) => {
           const findFav = this.favResponse.find((fav) => fav['serviceitems'][0]._id === res._id);
           return res['flag'] = findFav ? true : false;
@@ -85,8 +85,8 @@ export class ServiceCatalogComponent implements OnInit {
 
   callFavCheck() {
     this.bpaservice.getFavItems().subscribe((record) => {
-      this.favResponse = record['data'];
-      this.favResponseCopy = record['data'];
+      this.favResponse = record['body']['data'];
+      this.favResponseCopy = record['body']['data'];
       this.cardResponse = this.storeResponse;
       this.cardResponse.map((res) => {
         const findFav = this.favResponseCopy.find((fav) => fav['serviceitems'][0]._id === res._id);
