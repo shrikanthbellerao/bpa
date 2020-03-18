@@ -42,9 +42,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { FAQComponent } from './components/faq/faq.component';
 import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
-<<<<<<< HEAD
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-=======
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
 import { UserActionsDownloadCsvComponent } from './components/utils/user-actions-download-csv/user-actions-download-csv.component';
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
@@ -53,7 +51,6 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
 
 
 
->>>>>>> 9f89de9d390c9896ada73ed6c06759e148c970f7
 
 @NgModule({
   declarations: [
@@ -87,16 +84,13 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
     TopnavComponent,
     FooterComponent,
     D3SpiralStackedBarComponent,
-<<<<<<< HEAD
-    ContactUsComponent
+    ContactUsComponent,
     
-=======
     ActiveStatusComponent,
     EllipsifyMeDirective,
     UserActionIconActiveServicesComponent,
     HorizontalTimelineComponent,
     UserActionsDownloadCsvComponent
->>>>>>> 9f89de9d390c9896ada73ed6c06759e148c970f7
   ],
   imports: [
     BrowserModule,
