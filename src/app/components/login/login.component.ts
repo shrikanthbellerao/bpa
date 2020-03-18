@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
     this.bpaService.fnValidateLogin(base64Credential, flag).subscribe((response) => {
 
       console.log('\nFetched data from Service: ');console.log(JSON.stringify(response));
+      
       this.startSpinner = false;
+      
       localStorage.setItem('userdata', formData.value.userName)
       if (response['status'] === 'success') {
 
