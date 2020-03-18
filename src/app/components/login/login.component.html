@@ -71,7 +71,7 @@
           <div class="col-12">
             <h6 class="text-center">
               New user?
-              <a (click)="newRegister()" class="text-primary cusor">
+              <a (click)="fnRegisterNewUser()" class="text-primary cusor">
                 <i><u>Click here</u></i>
               </a> to register
             </h6>
@@ -92,8 +92,8 @@
 <div class="container-fluid">
   <div class=" fixed-bottom">
     <div class="pull-right">
-      <img src="../../../assets/contact-us.png" alt="Contact Us" class="mr-5" style="width: 80px; height: 60px;">
-      <img src="../../../assets/faq.png" alt="Contact Us" class="mr-3" style="width: 80px; height: 80px;">
+      <img src="../../../assets/contact-us.png" alt="Contact Us" (click)='contactus()' class="mr-5" style="width: 80px; height: 60px;">
+     <img src="../../../assets/faq.png" alt="Contact Us" (click)='questions()' class="mr-3" style="width: 80px; height: 80px;">
     </div>
   </div>
    <div class="row col-12 fixed-bottom">
@@ -101,6 +101,6 @@
   </div>   
 </div>
 
-<app-modal [modalConfig]="modalConfig"></app-modal>
+<!-- <app-modal [modalConfig]="modalConfig"></app-modal> -->
 
-
+<!-- <app-collapsible [fq]="data"></app-collapsible> -->

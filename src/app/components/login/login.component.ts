@@ -15,10 +15,8 @@ export class LoginComponent implements OnInit {
   apiError = false;
   startSpinner = false;
   count=0;
-
-  modalConfig = { 
-  }
-
+modalConfig;
+  
   constructor(private bpaService: BpaService, private router: Router) { }
 
   ngOnInit() {
@@ -59,21 +57,16 @@ export class LoginComponent implements OnInit {
     console.log('forget password....')
   }
       
-  newRegister() {
+  fnRegisterNewUser() {
     this.router.navigate(['/signup']);
   }
-
+//method to display "contact us" page
   contactus() {
-    this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content",
-      show: true
-    }
+    this.router.navigate(['/contact-us'])
   }
+
+  //method to display "questions" page
   questions() {
-    this.modalConfig = {
-      title: "LoginComponent",
-      body: "Login Content"
-    }
+    this.router.navigate(['/FAQ'])
   }
 }
