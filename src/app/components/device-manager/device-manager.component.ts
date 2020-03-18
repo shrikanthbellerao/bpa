@@ -57,8 +57,10 @@ export class DeviceManagerComponent implements OnInit {
     };
 
     this.bpaService.getDeviceList().subscribe(response => {
+      console.log(response);
       this.rowData = [];
-      this.deviceList = response;
+      this.deviceList = response['body'];
+      console.log(response);
       this.deviceList.forEach(item => {
         this.rowData.push({
           name: item.name,
@@ -138,7 +140,7 @@ export class DeviceManagerComponent implements OnInit {
         <tr>
           <td>${this.rowDatafromCell.name}</td>
           <td>${this.rowDatafromCell.controller_id}</td>
-          <td>${this.pingStatus[0].result[0].value}</td>
+          <td>${this.pingStatus.body[0].result[0].value}</td>
         </tr>
         </table>`,
         buttonList: []

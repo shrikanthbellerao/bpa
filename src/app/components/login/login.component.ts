@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  userName  = '';
-  password  = '';
-  accessToken;
-  apiError          = false;
-  startSpinner      = false;
-  count             = 0;
-  modalConfig       = {};
+  userName = '';
+  password = '';
+  accessToken: string;
+  apiError = false;
+  startSpinner = false;
+  count = 0;
+  modalConfig = {};
 
   constructor(private bpaService: BpaService, private router: Router) { }
 
@@ -64,20 +64,19 @@ export class LoginComponent implements OnInit {
     }, err => {
       this.apiError = true;
       this.count++;
-
       if (this.count <= 1) {
         this.fnValidateCredential(formData, false);
       } else {
         alert('The APIs are not working');
       }
     });
+
   }
 
   // Method to register a new user
   fnRegisterNewUser() {
     this.router.navigate(['/signup']);
   }
-
   // Method to display "Contact Us" page
   contactus() {
     this.modalConfig = {
@@ -86,7 +85,6 @@ export class LoginComponent implements OnInit {
       show: true
     };
   }
-
   // Method to display "Questions" page
   questions() {
     this.modalConfig = {

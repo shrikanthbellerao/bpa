@@ -7,9 +7,8 @@
 </div>
 
 -->
-<div class="container" *ngIf="modalConfig">
   <!-- The Modal -->
-  <div class="modal" id="myModal" [style.display]="displayModal ? 'block' : 'none'">
+  <div class="modal" tabindex="-1" id="myModal" [style.display]="displayModal ? 'block' : 'none'" *ngIf="modalConfig">
     <div class="modal-dialog modal-lg">
       <div class="modal-content border border-dark">
 
@@ -25,15 +24,21 @@
         <div class="modal-body">
           <p [innerHTML]="modalConfig.body"></p>
 
+          <app-horizontal-timeline *ngIf='timelineElement && timelineElement.length' [timelineElement]='timelineElement'></app-horizontal-timeline>
+          <app-timeline *ngIf='timelineElements && timelineElements.length' [timelineElements]='timelineElements'></app-timeline>
+          <!-- Modal footer -->
+
 
           <!-- Modal footer -->
-          <div class="modal-footer" *ngIf="modalConfig.buttonList">
+          <div class="modal-footer" *ngIf="modalConfig.buttonList.length">
             <button type="button" class="btn btn-secondary" *ngFor='let btn of modalConfig.buttonList'>
               {{btn.buttonLabel}}
             </button>
           </div>
 
-        </div>
+        
       </div>
     </div>
   </div>
+</div>
+

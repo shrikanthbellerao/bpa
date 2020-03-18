@@ -6,27 +6,27 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class BpaService {
+  storedata;
 
   vmIPAddress: string = localStorage.getItem('vm');
   nsoInstance: string = localStorage.getItem('nso');
 
   bac208VmIPAddress = '10.81.59.208:9091';
   bac208NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
-  bac209VmIPAddress = '10.81.59.209:9091';
-  bac209NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
+  bac209VmIPAddress = '10.122.32.86:9091';
+  bac209NsoInstance = 'All';
 
   /*
-   Use below approach to display Toastr from any component:
-   1. In case of Success message: this.toastr.success(msg, 'Success!');
-   2. In case of Error message: this.toastr.error(msg, 'Error!');
-   3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
-   4. In case of Info message: this.toastr.info(msg, 'Info');
-
-   Toaster code this.bpaService.showSuccess('Login Successful!')
-   Toaster code this.bpaService.showError('Invalid Credentials')
-   this.bpaService.showWarning('Maximum Attempts Allowed is 5')
-   Toaster code this.bpaService.showInfo('Remember Next time')
- */
+    Use below approach to display Toastr from any component:
+    1. In case of Success message: this.toastr.success(msg, 'Success!');
+    2. In case of Error message: this.toastr.error(msg, 'Error!');
+    3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
+    4. In case of Info message: this.toastr.info(msg, 'Info');
+    Toaster code this.bpaService.showSuccess('Login Successful!')
+    Toaster code this.bpaService.showError('Invalid Credentials')
+    this.bpaService.showWarning('Maximum Attempts Allowed is 5')
+    Toaster code this.bpaService.showInfo('Remember Next time')
+  */
 
   constructor(
     private httpClient: HttpClient,
@@ -70,16 +70,39 @@ export class BpaService {
 
   // Method to get the Active Service info from Service Catalog microservice of BPA
   getActiveServices() {
+    const getToken = localStorage.getItem('accessToken');
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: `Bearer ${getToken}`
+      })
+    };
+    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
 
+    return this.httpClient.get(urlActive, httpHeaders);
+  }
+
+  // Method to set the Order status from Active Service info from Service Catalog microservice of BPA
+  setServiceOrderStatus(getData) {
+    this.storedata = getData;
+  }
+
+  // Method to get the Order status from Active Service and display that information from Service Catalog microservice of BPA
+  getServiceOrderStatus() {
+    return this.storedata;
+  }
+
+  // Method to get the Timeline from Active Service info from Service Catalog microservice of BPA
+  getActions(id) {
     const bpaHttpHeaders: any = {
       headers: new HttpHeaders({
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       })
-    };
-    const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
+    }; const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`;
     return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
+
   // Method to select the Favourite Items from Service Catalog microservice of BPA
   selectFavourite(id) {
     const getToken = localStorage.getItem('accessToken');
@@ -123,18 +146,7 @@ export class BpaService {
     return this.httpClient.delete(`https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites/${id}`, httpHeaders);
   }
 
-  // Method to get the list of Service Orders from Service Catalog microservice of BPA
   getServiceorders() {
-
-    // const bpaHttpHeaders: any = {
-    //   headers: new HttpHeaders({
-    //     Accept: 'application/json',
-    //     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //   })
-    // };
-    // const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
-    // return this.httpClient.get(urlActive, bpaHttpHeaders);
-
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress
@@ -196,6 +208,15 @@ export class BpaService {
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
 
+  // Method to display the date and time in a proper format 
+  fnFormatDate(inputDate) {
+    return inputDate.substring(5, 7) + '/' +
+      inputDate.substring(8, 10) + '/' +
+      inputDate.substring(0, 4) + ' ' +
+      inputDate.substring(11, 16);
+  }
+
+
   // Method to Ping Device from Device Manager
   getPingResult(pingDeviceInfo) {
     // const getToken = localStorage.getItem('accessToken');
@@ -221,5 +242,3 @@ export class BpaService {
 
   }
 }
-
-
