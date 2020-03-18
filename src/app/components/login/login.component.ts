@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       console.log('\nFetched data from Service: ');console.log(JSON.stringify(response));
 
       this.startSpinner = false;
-
+      localStorage.setItem('userdata', formData.value.userName)
       if (response['status'] === 'success') {
 
         this.accessToken = response['body']['access_token'];

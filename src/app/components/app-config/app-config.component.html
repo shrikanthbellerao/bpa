@@ -1,20 +1,20 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-5" id="block1">
-      <div class="card" id="outerBlock">
-        <div class="card-header" [ngStyle]="{'background-color': cardConfig.headerColor}">
+  <div class="row  my-flex-card" >
+    <div class="col-4 adjust" id="block1">
+      <div class="card border border-secondary" id="outerBlock">
+        <div class="card-header  py-1 px-3" [ngStyle]="{'background-color': cardConfig.headerColor}">
           {{cardConfig.header}}
         </div>
-        <div class="card-body">
+        <div class="card-body p-2">
           <form (ngSubmit)="fnSaveBroadcastMessage(broadcastMessageForm)" #broadcastMessageForm="ngForm">
             <div class="row col-12 form-group" style="margin-bottom: 0px;">
               <div class="col-12">
-                <textarea required name="broadcastMessage" [value]="broadcastMessage" cols="30" rows="3" ngModel class="form-control"></textarea>
+                <textarea required name="broadcastMessage" [value]="broadcastMessage" cols="10" rows="3" ngModel class="form-control"></textarea>
               </div>
             </div>
             <div class="row col-12 form-group">
               <div class="offset-4 col-4">
-                <button class="btn btn-primary m-2" type="submit">
+                <button class="btn btn-sm m-2" type="submit">
                   <strong>Update</strong>
                 </button>
               </div>
