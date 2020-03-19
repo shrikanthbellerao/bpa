@@ -77,7 +77,10 @@ ngOnInit() {
     })
 
     console.log('count',this.finalCount);
+    JSON.stringify(this.finalCount)
+    console.log('count', this.finalCount)
     }) 
+
 
 }
 
@@ -94,7 +97,5 @@ fnTimelineTabClick(tabName) {
     }
   })
  }
-
-
   
 }

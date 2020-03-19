@@ -21,7 +21,7 @@ export class D3SpiralStackedBarComponent implements OnInit {
 
     const width = window.innerWidth,
             height = window.innerHeight,
-            maxRadius = (Math.min(width, height) / 2) - 5;
+            maxRadius = (Math.min(width, height) / 3) - 5;
 
         const formatNumber = d3.format(',d');
 
@@ -32,7 +32,7 @@ export class D3SpiralStackedBarComponent implements OnInit {
         const y = d3.scaleSqrt()
             .range([maxRadius*.1, maxRadius]);
 
-        const color = d3.scaleOrdinal(d3['schemeCategory20']);
+        const color = d3.scaleOrdinal(d3.schemeCategory10);
 
         const partition = d3.partition();
 
@@ -72,7 +72,7 @@ export class D3SpiralStackedBarComponent implements OnInit {
             .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
             .on('click', () => focusOn()); // Reset zoom on canvas click
 
-        this.d3jsondata, (error, root) => {
+         (this.d3jsondata, (error, root) => {
             if (error) throw error;
 
             root = d3.hierarchy(root);
@@ -93,11 +93,10 @@ export class D3SpiralStackedBarComponent implements OnInit {
             newSlice.append('title')
                 .text(d => d.data['name'] + '\n' + formatNumber(d.value));
 
-        //@ts-ignore
-            // newSlice.append('path')
-            //     .attr('class', 'main-arc')
-            //     .style('fill', d => color((d.children ? d : d.parent).data['name']))
-            //     .attr('d', arc);
+            newSlice.append('path')
+                .attr('class', 'main-arc')
+                .style('fill', d => !!color((d.children ? d : d.parent).data['name']))
+                .attr('d', 'arc');
 
             newSlice.append('path')
                 .attr('class', 'hidden-arc')
@@ -121,7 +120,7 @@ export class D3SpiralStackedBarComponent implements OnInit {
                 .attr('startOffset','50%')
                 .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
                 .text(d => d.data['name']);
-        };
+        });
 
         function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
             // Reset to top-level if no data point specified
