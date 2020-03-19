@@ -113,7 +113,7 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
     AgGridModule.withComponents([])
   ],
   providers: [],
-  entryComponents : [UserActionsIconDeviceManagerComponent, UserActionsDownloadCsvComponent],
+  entryComponents : [UserActionIconActiveServicesComponent , UserActionsDownloadCsvComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

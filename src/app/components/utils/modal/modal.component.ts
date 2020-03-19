@@ -22,17 +22,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ModalComponent implements OnInit {
 
   @Input() displayModal: boolean;
-
   @Input() modalConfig: any;
-
-
   @Input() timelineElement: any
   @Input() timelineElements: any
   @Output() closeModal = new EventEmitter();
 
+  buttonListLength = 0;
+
   constructor() { }
 
   ngOnInit() {
+    if (this.modalConfig) {
+      this.buttonListLength = this.modalConfig.buttonList.length;
+    }
   }
 
   hideModal() {

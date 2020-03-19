@@ -55,11 +55,9 @@
 
           <app-horizontal-timeline *ngIf='timelineElement && timelineElement.length' [timelineElement]='timelineElement'></app-horizontal-timeline>
           <app-timeline *ngIf='timelineElements && timelineElements.length' [timelineElements]='timelineElements'></app-timeline>
-          <!-- Modal footer -->
-          <div class="modal-footer">
 
           <!-- Modal footer -->
-          <div class="modal-footer" *ngIf="modalConfig.buttonList">
+          <div class="modal-footer" *ngIf="buttonListLength > 0">
             <button type="button" class="btn btn-secondary" *ngFor='let btn of modalConfig.buttonList'>
               {{btn.buttonLabel}}
             </button>

@@ -25,7 +25,9 @@ font-family:'Lato';
     line-height: 1;
 }
 .card-header{
-    font-weight: bold;    
+    /* font-weight: bold;     */
+    background-color: rgb(241, 247, 252);
+    border-radius: 25px 0px 0px 0px;
 }
 .card-foot{
     
