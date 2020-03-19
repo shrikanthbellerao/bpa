@@ -1,15 +1,16 @@
 .contact-form{
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.5);
     color: white;
     border-radius: 50px 0px 50px 0px;  
     border: 1px solid #96cca4 !important;
     padding:8px;
     /* font-family: Georgia, 'Times New Roman', Times, serif; */
-    height: 94vh;
+    height: 88vh;
+    width:65% ;
 }
 .background{
      /* background-color: darkseagreen;   */
-      background-image: url('../../../assets/cc7.jpg');  
+      background-image: url('../../../assets/dcBg3.jpg');  
     background-size: cover;
     height:100vh;
     margin-top:-18px;
@@ -20,8 +21,5 @@
     background: white;
 }
 .form-group{
-    
-     /* border-radius: 50px 0px 50px 0px;  */
-   /* border: 1px solid #96cca4 !important;  */
   padding: 0;
 }

@@ -5,10 +5,11 @@ h4 {
     font-style: italic;
     color:black;
     text-transform: initial;
+    
 }
 .accordion-section .panel-default > .panel-heading {
     border: 1px solid #96cca4 !important;
-     background:whitesmoke;
+    background:lightblue;
     border-radius: 40px 0px 40px 0px;
     padding: 0;
 }
@@ -19,7 +20,7 @@ h4 {
     color:black;
 }
 .accordion-section .panel-default .panel-title a:after {
-    font-family: 'fontawesome';
+    font-family: sans-serif;
     font-style: normal;
     font-size: 3rem;
     content: "\f106";
@@ -34,8 +35,8 @@ h4 {
     font-size: 1.2rem;
 }
 .background{
-    height: 100vh;
-      background-color: skyblue ;   
-     margin-top: -18px; 
-     /* background-image: url("../../../assets/cc.jpg");   */
+    height: 100%;
+    background-color:white;     
+    margin-top: -18px; 
+     /* background-image: url("../../../assets/fq1.jpg");     */
 }
