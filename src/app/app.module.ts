@@ -36,7 +36,7 @@ import { UserActionsIconDeviceManagerComponent } from './components/utils/user-a
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
-import { BroadcastMessageComponent } from './components/broadcast-message/broadcast-message.component';
+import { ApplicationConfigComponent } from './components/app-config/app-config.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
@@ -47,6 +47,7 @@ import { UserActionsDownloadCsvComponent } from './components/utils/user-actions
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
 import { UserActionIconActiveServicesComponent } from './components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
 import { HorizontalTimelineComponent } from './components/utils/horizontal-timeline/horizontal-timeline.component';
+
 
 
 
@@ -74,7 +75,7 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
     DeviceManagerComponent,
     UserActionsIconDeviceManagerComponent,
     ManageRolesComponent,
-    BroadcastMessageComponent,
+    ApplicationConfigComponent,
     UserRegistrationComponent,
     MyProfileComponent,
     FAQComponent,

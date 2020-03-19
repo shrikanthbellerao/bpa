@@ -1,5 +1,5 @@
   <nav class="navbar nav-fill w-100 navbar-expand-lg navbar-dark bg-dark ">
-    <a class="navbar-brand" href="https://www.cisco.com/">
+    <a class="navbar-brand"  routerLink="/dashboard">
       <img src="assets/logo.png" class="logo" height="54" width="83" alt="cisco-logo">
     </a>
     <button class="navbar-toggler collapsed btn" type="button" data-toggle="collapse"
@@ -14,27 +14,38 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item dropdown center">
           <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown" id="navbarDropdown" role="button"
-            aria-haspopup="true" aria-expanded="false">
+            aria-haspopup="true" aria-expanded="false" [ngClass]="serviceCatalogFlg ? 'active-link' : ''">
             Service Catalog</a>
           <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
             <h6 class="dropdown-header  trigger serviceMenu backgroundImage">Service Catalog</h6>
-            <a routerLink="/services" class="dropdown-item trigger">Services</a>
-            <a routerLink="/activeServices" class="dropdown-item trigger">Orders</a>
+            <a routerLink="/services" class="dropdown-item trigger" routerLinkActive="active">Services</a>
+            <a routerLink="/activeServices" class="dropdown-item trigger" routerLinkActive="active">Orders</a>
           </div>
         </li>
         <li class="nav-item center">
-          <a routerLink="/deviceManager" class="nav-link py-0 trigger">Device Manager</a>
+          <a routerLink="/deviceManager" class="nav-link py-0 trigger" routerLinkActive="active-link">Device Manager</a>
         </li>
+        <!--For admin-->
+        <li class="nav-item dropdown center" [ngClass]="user!=='admin' ? 'remove-space' : ''">
+          <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"  *ngIf="user === 'admin'" [ngClass]="adminFlag ? 'active-link' : ''">
+            Admin</a>
+          <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
+            <h6 class="dropdown-header backgroundImage"> Admin Settings</h6>
+            <a routerLink="/manageRoles" class="dropdown-item trigger" routerLinkActive="active">Manage Roles</a>
+            <a routerLink="/appConfig" class="dropdown-item trigger" routerLinkActive="active">Application Config</a>
+            <a routerLink="/reviewRequest" class="dropdown-item trigger" routerLinkActive="active">Review Request</a>
+            <a routerLink="/myProfile" class="dropdown-item trigger" routerLinkActive="active">My Profile</a>
+          </div>
+        </li>
+        <!--For non-admin users-->
         <li class="nav-item dropdown center">
           <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Admin</a>
-          <div class="dropdown-menu align">
-            <h6 class="dropdown-header  backgroundImage">Admin Settings</h6>
-            <a routerLink="/manageRoles" class="dropdown-item trigger">Manage Roles</a>
-            <a routerLink="/broadcastMessage" class="dropdown-item trigger">Broadcast Message</a>
-            <a routerLink="/reviewRequest" class="dropdown-item trigger">Review Request</a>
-            <a routerLink="/myProfile" class="dropdown-item active trigger">My Profile</a>
+            aria-haspopup="true" aria-expanded="false" *ngIf="user !== 'admin'" [ngClass]="nonadminFlag ? 'active-link' : ''">
+            {{user}}</a>
+          <div class="dropdown-menu align" aria-labelledby="navbarDropdown">
+            <h6 class="dropdown-header backgroundImage"> Admin Settings</h6>
+            <a routerLink="/myProfile" class="dropdown-item trigger" routerLinkActive="active">My Profile</a>
           </div>
         </li>
       </ul>
@@ -42,13 +53,12 @@
         <li class="nav-item icon center">
           <a class="py-0 nav-link">
             <span>
-              <i class="fa fa-user-circle"></i>
+             <img src="assets/usericon.png" class="user-icon" height="30" width="30" alt="userIcon">
             </span>
           </a>
         </li>
         <li class="account nav-item nav-fill center">
-          <span class="d-block profile">Katherine McGoulin</span>
-          <span class="d-block profile">Analyst</span>
+          <span class="d-block profile user">{{user}}</span>
         </li>
         <li class="nav-item nav-fill center slide-right">
           <div class="dropdown nav-fill">
@@ -57,9 +67,9 @@
               <i class="fa fa-ellipsis-v"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right settings" aria-labelledby="dropdownMenuButton">
-              <h6 class="dropdown-header  backgroundImage">Settings</h6>
-              <a routerLink="/FAQ" class="dropdown-item trigger">FAQ</a>
-              <a routerLink="/resetPassword" class="dropdown-item trigger">Reset Password</a>
+              <h6 class="dropdown-header  backgroundImage" routerLinkActive="active-link">Settings</h6>
+              <a routerLink="/FAQ" class="dropdown-item trigger" routerLinkActive="active">FAQ</a>
+              <a routerLink="/resetPassword" class="dropdown-item trigger" routerLinkActive="active">Reset Password</a>
               <a routerLink="" class="dropdown-item trigger">Logout</a>
             </div>
           </div>

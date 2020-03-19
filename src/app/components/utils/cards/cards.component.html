@@ -2,22 +2,22 @@
   <app-cards [inputToCard]="cardConfig"></app-cards>
 -->
 <!-- <div class="row">
-    <div class="col-5" id="block1">
-       <div class="card" id="outerBlock">
-          <div class="card-header" [ngStyle]="{'background-color': inputToCard.headerColor}">
-             {{inputToCard.header}}
-          </div>
-          <div class="card-body">
-             <p class="card-text">{{inputToCard.body}}</p>
-          </div>
-          <div class="card-footer text-muted" id="outer">
-             <ng-container *ngFor='let btn of inputToCard.btnArray'>
-                <button (click)="btn.fnName()" id="inner" class="btn btn-{{btn.color}} ml-6">{{btn.btext}}</button>
-             </ng-container>
-          </div>
-       </div>
+  <div class="col-5" id="block1">
+    <div class="card" id="outerBlock">
+      <div class="card-header" [ngStyle]="{'background-color': inputToCard.headerColor}">
+        {{inputToCard.header}}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{inputToCard.body}}</p>
+      </div>
+      <div class="card-footer text-muted" id="outer">
+        <ng-container *ngFor='let btn of inputToCard.btnArray'>
+          <button (click)="btn.fnName()" id="inner" class="btn btn-{{btn.color}} ml-6">{{btn.btext}}</button>
+        </ng-container>
+      </div>
     </div>
- </div> -->
+  </div>
+</div> -->
 <div class="row my-flex-card">
   <div class="col-4" *ngFor='let item of inputToCard'>
     <div class="card border border-secondary">
@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-6">
             <span class="bgColor">
-              {{item.tags[0]['name']}}
+              {{ item.tags.length > 0 ? item.tags[0]['name'] : '-'}}
             </span></div>
           <div class="col-6 d-flex justify-content-end">
             <span *ngIf='item.flag' (click)="deleteFavourite(item)">
