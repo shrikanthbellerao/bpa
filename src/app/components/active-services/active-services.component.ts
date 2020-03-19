@@ -35,8 +35,8 @@ export class ActiveServicesComponent implements OnInit {
       this.rowData = response['data'].map((obj) => {
 
         obj.updatedAt = this.bpaService.fnFormatDate(obj.updatedAt);
-
-        obj.formData = JSON.stringify(obj.formData.connectionRow);
+        // obj.formData =JSON.stringify(obj.formData);
+        obj.formData =obj.formData['connectionRow']? JSON.stringify(obj.formData['connectionRow']):JSON.stringify(obj.formData);
         console.log(obj.formData); console.log('\n');
         return obj;
       });
@@ -61,13 +61,14 @@ export class ActiveServicesComponent implements OnInit {
     { headerName: 'Service', field: 'description', sortable: true, filter: true, width: 120 },
     { headerName: 'Action', cellRenderer: (res => 'Create'), sortable: true, filter: true, width: 120 },
     { headerName: 'Order Form', field: 'formData', sortable: true, filter: true, width: 120 },
-    { headerName: 'Start-Time', field: 'createdAt', sortable: true, filter: 'agDateColumnFilter', width: 120 },
-    { headerName: 'Update-Time', field: 'updatedAt', sortable: true, filter: 'agDateColumnFilter', width: 120 },
+    { headerName: 'Start-Time', field: 'createdAt', sortable: true, filter: true, width: 120 },
+    { headerName: 'Update-Time', field: 'updatedAt', sortable: true, filter: true, width: 120 },
     { headerName: 'User', field: 'userName', sortable: true, filter: true, width: 120 },
     { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 120 },
     {
       headerName: 'User Actions', field: 'useractions', sortable: false, filter: false, cellRendererFramework: UserActionIconActiveServicesComponent, cellRendererParams: {
-        onClick: this.onViewBtnClick.bind(this), Ping: this.onPingBtnClick.bind(this)
+        onClick: this.onViewBtnClick.bind(this)
+        // , Ping: this.onPingBtnClick.bind(this)
       }, width: 120, editable: false, headerComponentFramework: UserActionsDownloadCsvComponent,
       headerComponentParams: {
         onDownloadClick: this.onBtnExport.bind(this)
@@ -85,15 +86,21 @@ export class ActiveServicesComponent implements OnInit {
   onViewBtnClick(event) {
     this.timeline = [];
     this.showSelectedData = event.rowData;
+    console.log('aaaa' , this.rowData);
     this.bpaService.getActions(event.rowData._id).subscribe((res) => {
       res['data'].forEach(element => {
-        if (element.status === 'Complete') {
+        console.log('asdffghh', res);
+        if (element.status === 'Complete')
+         {
           this.timeline.push({
             header: element.milestone,
-            status: element.status
+            status: element.status,
+            time: element.updatedAt
           })
 
         };
+        
+      this.count = (100 / res['data'].length) * this.timeline.length;
       })
       this.showSelectedData = event.rowData;
       this.count = (100 / res['data'].length) * this.timeline.length;
@@ -103,22 +110,22 @@ export class ActiveServicesComponent implements OnInit {
 
     })
   }
-  onPingBtnClick(event) {
-    this.timelines = [];
-    this.showSelectedData = event.rowData;
-    this.bpaService.getActions(event.rowData._id).subscribe((res) => {
-      res['data'].forEach(element => {
-        this.timelines.push({
-          icontype: 'eye',
-          header: element.milestone,
-          time: element.updatedAt
-        })
+  // onPingBtnClick(event) {
+  //   this.timelines = [];
+  //   this.showSelectedData = event.rowData;
+  //   this.bpaService.getActions(event.rowData._id).subscribe((res) => {
+  //     res['data'].forEach(element => {
+  //       this.timelines.push({
+  //         icontype: 'eye',
+  //         header: element.milestone,
+  //         time: element.updatedAt
+  //       })
 
 
-      });
-      this.count = (100 / res['data'].length) * this.timelines.length;
-    })
-  }
+  //     });
+
+  //   })
+  // }
 
   onSelectionChanged() {
     const selectedRows = this.gridApi.getSelectedRows();

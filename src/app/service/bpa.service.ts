@@ -13,8 +13,8 @@ export class BpaService {
 
   bac208VmIPAddress = '10.81.59.208:9091';
   bac208NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
-  bac209VmIPAddress = '10.81.59.209:9091';
-  bac209NsoInstance = 'RTP-LSA,nso5-lsa4-rd';
+  bac209VmIPAddress = '10.122.32.86:9091';
+  bac209NsoInstance = 'All';
 
   /*
     Use below approach to display Toastr from any component:
@@ -77,7 +77,7 @@ export class BpaService {
         Authorization: `Bearer ${getToken}`
       })
     };
-    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`
+    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
 
     return this.httpClient.get(urlActive, httpHeaders);
   }

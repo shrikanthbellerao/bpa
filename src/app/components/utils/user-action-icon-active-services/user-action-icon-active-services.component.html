@@ -1,13 +1,14 @@
-<i class="fa fa-bullseye  fa-2x"></i>
+<div class="container">
 <span (click)="onView($event)">
-  <i class="fa fa-slack fa-2x ml-2" data-toggle="tooltip" title="Order Tracking"></i>
+  <i class="fa fa-eye fa-2x ml-2" data-toggle="tooltip" title="Order Tracking"></i>
 </span>
-
-<span (click)="onPing($event)">
+</div>
+<!-- <span (click)="onPing($event)">
   <i class="fa fa-eye fa-2x ml-2" data-toggle="tooltip" title="View Milestones"></i>
-</span>
+</span> -->
 <script>
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
+

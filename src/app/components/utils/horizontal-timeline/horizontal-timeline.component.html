@@ -1,11 +1,21 @@
+<div *ngFor='let item of timelineElement'>
 <div class="timeline">
-  <div class="events">
-    <ol>
-      <ul>
-        <li *ngFor='let item of timelineElement'>
-          <a href="#0" class="selected" *ngIf='item.status === "Complete"'>{{item.header}}</a>
-        </li>
-      </ul>
-    </ol>
+  <div class="container left">
+    <div class="content">
+      <!-- <ul> -->
+          <div href="#0" class="selected" *ngIf='item.status === "Complete"'>
+            <div>{{item.status}}</div>
+            <div class="year row col-12">
+             <h5> {{item.header}}</h5>
+            </div>
+
+          </div>
+        </div>
+      
+      <!-- </ul> -->
+    </div>
+    <div class="year row col-6">
+      {{item.time | date: 'mediumDate'}}
+    </div>
   </div>
-</div>
+  </div>
