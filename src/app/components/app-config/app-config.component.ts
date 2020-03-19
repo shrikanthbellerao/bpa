@@ -16,7 +16,7 @@ export class ApplicationConfigComponent implements OnInit {
   startSpinner: boolean;
   cardConfig = {
     header: 'Broadcast Message',
-    headerColor: 'lightblue',
+    headerColor: '#f1f7fc',
     body: 'Hi',
     btnArray: [{
       color: 'success',

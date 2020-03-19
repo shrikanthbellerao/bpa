@@ -31,7 +31,6 @@ export class DeviceManagerComponent implements OnInit {
   ngOnInit() {
 
     this.columnDefs = [
-
       { headerName: 'Name', field: 'name', sortable: true, filter: true, width: 300 },
       { headerName: 'Address', field: 'address', sortable: true, filter: true, width: 150 },
       { headerName: 'Controller', field: 'controller_id', sortable: true, filter: true, width: 150 },
@@ -57,6 +56,7 @@ export class DeviceManagerComponent implements OnInit {
     };
 
     this.bpaService.getDeviceList().subscribe(response => {
+
       this.rowData = [];
       this.deviceList = response;
       this.deviceList.forEach(item => {
@@ -77,6 +77,7 @@ export class DeviceManagerComponent implements OnInit {
   }
 
   onViewBtnClick(e) {
+
     this.rowDatafromCell = e.rowData;
     this.modalConfig = {
       title: ' Device View',
@@ -103,14 +104,13 @@ export class DeviceManagerComponent implements OnInit {
         </div>
       </div>
       </div>`,
-
       buttonList: []
     };
     this.displayModal = true;
   }
 
-
   onPingBtnClick(e) {
+
     this.rowDatafromCell = e.rowData;
     this.pingDeviceInfo = [
       {
@@ -138,7 +138,7 @@ export class DeviceManagerComponent implements OnInit {
         <tr>
           <td>${this.rowDatafromCell.name}</td>
           <td>${this.rowDatafromCell.controller_id}</td>
-          <td>${this.pingStatus[0].result[0].value}</td>
+          <td>${this.pingStatus.body.pingResponse}</td>
         </tr>
         </table>`,
         buttonList: []

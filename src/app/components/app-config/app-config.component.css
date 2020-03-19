@@ -1,0 +1,21 @@
+.btn{
+    border-radius: 10px;
+    padding: 3px 11px;
+    background-color:#017CAD;
+    color: white;
+}
+.card-header{
+    font-weight: bold;    
+    font-family: 'Lato';
+    border-top-left-radius: 26px;
+    border-top-right-radius: 3px;
+}
+.card{
+    border-radius: 25px 0px 25px 0px;
+} 
+.adjust{
+    margin:20px;
+}
+.border {
+    border: 1.5px solid black!important;
+}
