@@ -71,16 +71,12 @@ export class BpaService {
   // Method to get the Active Service info from Service Catalog microservice of BPA
   getActiveServices() {
 
-    const getToken = localStorage.getItem('accessToken');
-    const httpHeaders = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${getToken}`
-      })
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress
     };
-    const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
 
-    return this.httpClient.get(urlActive, httpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'service-orders', requestBody, this.nodeJsHttpHeaders);
   }
 
   // Method to set the Order status from Active Service info from Service Catalog microservice of BPA
@@ -95,13 +91,21 @@ export class BpaService {
 
   // Method to get the Timeline from Active Service info from Service Catalog microservice of BPA
   getActions(id) {
-    const bpaHttpHeaders: any = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      })
-    }; const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`
-    return this.httpClient.get(urlActive, bpaHttpHeaders);
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress,
+      name: id
+
+    };
+
+    return this.httpClient.post(this.nodeAppUrl + 'milestone', requestBody, this.nodeJsHttpHeaders);
+    //   const bpaHttpHeaders: any = {
+    //     headers: new HttpHeaders({
+    //       Accept: 'application/json',
+    //       Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //     })
+    //   }; const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/milestones/?objectType=service-catalog-order&objectReference=${id}`
+    //   return this.httpClient.get(urlActive, bpaHttpHeaders);
   }
 
   //Method to select the Favourite Items from Service Catalog microservice of BPA
@@ -109,8 +113,8 @@ export class BpaService {
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress,
-      name:id
-    
+      name: id
+
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'select-favourite', requestBody, this.nodeJsHttpHeaders);
@@ -154,7 +158,7 @@ export class BpaService {
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress,
-      id:id
+      id: id
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'delete-favourite', requestBody, this.nodeJsHttpHeaders);
@@ -182,12 +186,12 @@ export class BpaService {
   // Method to get the list of Service Items from Service Catalog microservice of BPA
   getServiceItems() {
 
-       const requestBody = {
-         accessToken: localStorage.getItem('accessToken'),
-         vmIPAddress: this.vmIPAddress
-      };
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress
+    };
 
-      return this.httpClient.post(this.nodeAppUrl + 'service-items', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'service-items', requestBody, this.nodeJsHttpHeaders);
     // const bpaHttpHeaders: any = {
     //   headers: new HttpHeaders({
     //     Accept: 'application/json',
