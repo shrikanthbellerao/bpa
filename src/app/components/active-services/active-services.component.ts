@@ -31,12 +31,12 @@ export class ActiveServicesComponent implements OnInit {
 
   ngOnInit() {
     this.bpaService.getActiveServices().subscribe(response => {
-
-      this.rowData = response['data'].map((obj) => {
+      console.log(response);
+      this.rowData = response['body']['data'].map((obj) => {
 
         obj.updatedAt = this.bpaService.fnFormatDate(obj.updatedAt);
         // obj.formData =JSON.stringify(obj.formData);
-        obj.formData =obj.formData['connectionRow']? JSON.stringify(obj.formData['connectionRow']):JSON.stringify(obj.formData);
+        obj.formData = obj.formData['connectionRow'] ? JSON.stringify(obj.formData['connectionRow']) : JSON.stringify(obj.formData);
         console.log(obj.formData); console.log('\n');
         return obj;
       });
@@ -86,12 +86,12 @@ export class ActiveServicesComponent implements OnInit {
   onViewBtnClick(event) {
     this.timeline = [];
     this.showSelectedData = event.rowData;
-    console.log('aaaa' , this.rowData);
+    // console.log('aaaa' , this.rowData);
     this.bpaService.getActions(event.rowData._id).subscribe((res) => {
-      res['data'].forEach(element => {
-        console.log('asdffghh', res);
-        if (element.status === 'Complete')
-         {
+      console.log("milestone", res);
+      res['body']['data'].forEach(element => {
+        // console.log('asdffghh', res);
+        if (element.status === 'Complete') {
           this.timeline.push({
             header: element.milestone,
             status: element.status,
@@ -99,11 +99,12 @@ export class ActiveServicesComponent implements OnInit {
           })
 
         };
-        
-      this.count = (100 / res['data'].length) * this.timeline.length;
+
+        // this.count = (100 / res['body']['data'].length) * this.timeline.length;
       })
       this.showSelectedData = event.rowData;
-      this.count = (100 / res['data'].length) * this.timeline.length;
+      console.log('length of timeline', res['body']['data'].length, this.timeline.length);
+      this.count = (100 / res['body']['data'].length) * this.timeline.length;
       this.bpaService.setServiceOrderStatus({ timeline: this.timeline, showData: this.showSelectedData, count: this.count });
       this.router.navigate(['/activeStatus'])
 
