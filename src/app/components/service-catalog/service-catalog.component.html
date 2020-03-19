@@ -11,7 +11,7 @@
           <ui-switch class="ml-2" (click)=getFav(enable) [(ngModel)]="enable" color='#017CAD' defaultBgColor="#75A3C1 ">
             <i class="fa fa-heart" *ngIf="enable"></i>
             <i class="fa fa-heart-o" *ngIf="!enable"></i>
-          </ui-switch>Favourites
+          </ui-switch><p class="ml-1 mt-1">Favourites</p>
           <ui-switch class="col-6 d-flex justify-content-end" [(ngModel)]="enable1" checkedLabel="List"
             uncheckedLabel="Grid" defaultBgColor="#FFEFD5" color='#E6E6FA'>
             <i class="fa fa-list" *ngIf="enable1"></i>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-2 ">
               <span class="bgColor">
-                {{item.tags[0]['name']}}
+                {{ item.tags.length > 0 ? item.tags[0]['name'] : '-'}}
               </span>
             </div>
             <div class="col-1 d-flex justify-content-end">
