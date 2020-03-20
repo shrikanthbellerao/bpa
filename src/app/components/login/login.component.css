@@ -153,4 +153,11 @@ a:hover {
 .h100 {
   height : 100vh
 }
- 
+ .text-center .pt-4{
+   font-size: x-large;
+   font-weight: 400;
+   font-family:'lato';
+   font-stretch: ultra-expanded;
+   font-style:italic;
+   text-shadow:2px 2px darkgoldenrod
+ }
