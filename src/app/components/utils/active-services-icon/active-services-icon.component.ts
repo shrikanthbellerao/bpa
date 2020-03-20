@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user-action-icon-active-services',
-  templateUrl: './user-action-icon-active-services.component.html',
-  styleUrls: ['./user-action-icon-active-services.component.css']
+  selector: 'app-active-services-icon',
+  templateUrl: './active-services-icon.component.html',
+  styleUrls: ['./active-services-icon.component.css']
 })
-export class UserActionIconActiveServicesComponent implements OnInit {
+export class ActiveServicesIconComponent implements OnInit {
 
   constructor() { }
   clickedRow:any;
