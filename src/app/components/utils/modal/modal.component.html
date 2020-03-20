@@ -7,32 +7,32 @@
 </div>
 
 -->
-<div class="container">
+<div class="container" *ngIf="modalConfig">
   <!-- The Modal -->
   <div class="modal" id="myModal" [style.display]="modalConfig.show ? 'block' : 'none'">
-  <div class="modal-dialog">
-  <div class="modal-content">
-  
-  <!-- Modal Header -->
-  <div class="modal-header">
-  <h4 class="modal-title">{{ modalConfig.title }}</h4>
-  <button type="button" class="close" data-dismiss="modal" (click) = "hideModal()">&times;</button>
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{ modalConfig.title }}</h4>
+          <button type="button" class="close" data-dismiss="modal" (click)="hideModal()">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          {{ modalConfig.body }}
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hideModal()">Close</button>
+        </div>
+
+      </div>
+    </div>
   </div>
-  
-  <!-- Modal body -->
-  <div class="modal-body">
-  {{ modalConfig.body }}
-  </div>
-  
-  <!-- Modal footer -->
-  <div class="modal-footer">
-  <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hideModal()">Close</button>
-  </div>
-  
-  </div>
-  </div>
-  </div>
-  </div>
+</div>
 <div class="container" *ngIf="modalConfig">
   <!-- The Modal -->
   <div class="modal" id="myModal" [style.display]="displayModal ? 'block' : 'none'">
@@ -51,8 +51,10 @@
         <div class="modal-body">
           <p [innerHTML]="modalConfig.body"></p>
 
-          <app-horizontal-timeline *ngIf='timelineElement && timelineElement.length' [timelineElement]='timelineElement'></app-horizontal-timeline>
-          <app-timeline *ngIf='timelineElements && timelineElements.length' [timelineElements]='timelineElements'></app-timeline>
+          <app-horizontal-timeline *ngIf='timelineElement && timelineElement.length'
+            [timelineElement]='timelineElement'></app-horizontal-timeline>
+          <app-timeline *ngIf='timelineElements && timelineElements.length' [timelineElements]='timelineElements'>
+          </app-timeline>
 
           <!-- Modal footer -->
           <div class="modal-footer" *ngIf="buttonListLength > 0">

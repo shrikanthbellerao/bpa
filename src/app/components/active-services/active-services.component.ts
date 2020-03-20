@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { BpaService } from 'src/app/service/bpa.service';
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
-import { UserActionIconActiveServicesComponent } from 'src/app/components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
+import { ActiveServicesIconComponent } from 'src/app/components/utils/active-services-icon/active-services-icon.component';
 import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.component';
 import { HorizontalTimelineComponent } from 'src/app/components/utils/horizontal-timeline/horizontal-timeline.component';
 import { UserActionsDownloadCsvComponent } from 'src/app/components/utils/user-actions-download-csv/user-actions-download-csv.component';
@@ -66,7 +66,7 @@ export class ActiveServicesComponent implements OnInit {
     { headerName: 'User', field: 'userName', sortable: true, filter: true, width: 120 },
     { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 120 },
     {
-      headerName: 'User Actions', field: 'useractions', sortable: false, filter: false, cellRendererFramework: UserActionIconActiveServicesComponent, cellRendererParams: {
+      headerName: 'User Actions', field: 'useractions', sortable: false, filter: false, cellRendererFramework: ActiveServicesIconComponent, cellRendererParams: {
         onClick: this.onViewBtnClick.bind(this)
         // , Ping: this.onPingBtnClick.bind(this)
       }, width: 120, editable: false, headerComponentFramework: UserActionsDownloadCsvComponent,
