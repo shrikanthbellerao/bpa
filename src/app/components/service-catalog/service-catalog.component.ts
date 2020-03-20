@@ -22,7 +22,7 @@ export class ServiceCatalogComponent implements OnInit {
   }
   callApis() {
     forkJoin([this.bpaservice.getServiceItems(), this.bpaservice.getFavItems()]).subscribe((record) => {
-      this.storeResponse = record[0]['body']['data'];
+      this.storeResponse = record[0]['body'];
       this.cardResponse = this.storeResponse;
       this.favResponse = record[1]['body']['data'];
       this.favResponseCopy = record[1]['body']['data'];
