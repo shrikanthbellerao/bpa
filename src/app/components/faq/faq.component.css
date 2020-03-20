@@ -1,0 +1,41 @@
+h4 {
+    font-family: 'lato';
+    font-weight: 400;
+    font-size: 2.5rem;
+    font-style: italic;
+    color:black;
+    text-transform: initial;
+}
+.accordion-section .panel-default > .panel-heading {
+    border: 1px solid #96cca4 !important;
+    background:lightblue;
+    border-radius: 40px 0px 40px 0px;
+    padding: 0;
+}
+.accordion-section .panel-default .panel-title a {
+    display: block;
+    font-style: italic;
+    font-size: 1.3rem;
+    color:black;
+}
+.accordion-section .panel-default .panel-title a:after {
+    font-family: lato;
+    font-style: normal;
+    font-size: 3rem;
+    content: "\f106";
+    color:black;
+    float: right;
+    margin-top: -12px;
+}
+.accordion-section .panel-default .panel-title a.collapsed:after {
+    content: "\f107";
+}
+.accordion-section .panel-default .panel-body {
+    font-size: 1.2rem;
+}
+.background{
+    height: 100%;
+    background-color:white;     
+    margin-top: -18px; 
+     /* background-image: url("../../../assets/fq1.jpg");     */
+}

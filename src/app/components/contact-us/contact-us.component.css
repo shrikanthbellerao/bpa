@@ -1,0 +1,25 @@
+.contact-form{
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 50px 0px 50px 0px;  
+    border: 1px solid #96cca4 !important;
+    padding:8px;
+    font-family: lato; 
+    height: 88vh;
+    width:65% ;
+}
+.background{
+     /* background-color: darkseagreen;   */
+      background-image: url('../../../assets/dcBg3.jpg');  
+    background-size: cover;
+    height:100vh;
+    margin-top:-18px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 3px grey;
+}
+.hr{
+    background: white;
+}
+.form-group{
+  padding: 0;
+}

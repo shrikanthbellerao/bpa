@@ -12,6 +12,7 @@ import { UserRegistrationComponent } from "./components/user-registration/user-r
 import { MyProfileComponent } from "./components/my-profile/my-profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
 import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
+import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: "resetPassword", component: ResetPswdComponent },
   { path: "activeServices", component: ActiveServicesComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
+  { path: "contact-us", component: ContactUsComponent},
   { path: "activeStatus", component: ActiveStatusComponent }
 ];
 

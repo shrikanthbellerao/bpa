@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { BpaService } from 'src/app/service/bpa.service';
-import { UserActionsIconDeviceManagerComponent } from 'src/app/components/utils/user-actions-icon-device-manager/user-actions-icon-device-manager.component';
+import { DeviceManagerIconComponent } from 'src/app/components/utils/device-manager-icon/device-manager-icon.component';
 import { UserActionsDownloadCsvComponent } from 'src/app/components/utils/user-actions-download-csv/user-actions-download-csv.component';
 
 
@@ -38,7 +38,7 @@ export class DeviceManagerComponent implements OnInit {
       { headerName: 'Protocol', field: 'protocol', sortable: true, filter: true, width: 100 },
       { headerName: 'Auth Group', field: 'authgroup', sortable: true, filter: true, width: 150 },
       { headerName: 'Ned ID', field: 'ned_id', sortable: true, filter: true, width: 300 },
-      { headerName: 'User Actions', field: 'useractions', cellRendererFramework: UserActionsIconDeviceManagerComponent,
+      { headerName: 'User Actions', field: 'useractions', cellRendererFramework: DeviceManagerIconComponent,
         cellRendererParams: {
           onClick: this.onViewBtnClick.bind(this),
           Ping: this.onPingBtnClick.bind(this)
