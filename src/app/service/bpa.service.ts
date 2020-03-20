@@ -52,7 +52,7 @@ export class BpaService {
       this.vmIPAddress = this.vmOneIPAddress;
       localStorage.setItem('vm', this.vmOneIPAddress);
       this.nsoInstance = this.vmOneNsoInstance;
-      localStorage.setItem('nso', this.vmOneIPAddress);
+      localStorage.setItem('nso', this.vmOneNsoInstance);
     } else {
       this.vmIPAddress = this.vmTwoIPAddress;
       localStorage.setItem('vm', this.vmTwoIPAddress);

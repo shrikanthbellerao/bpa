@@ -32,7 +32,7 @@ import { SignupComponent } from './components/utils/signup/signup.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import { ActiveServicesComponent } from './components/active-services/active-services.component';
 import { DeviceManagerComponent } from './components/device-manager/device-manager.component';
-import { UserActionsIconDeviceManagerComponent } from './components/utils/user-actions-icon-device-manager/user-actions-icon-device-manager.component';
+import { DeviceManagerIconComponent } from './components/utils/device-manager-icon/device-manager-icon.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
@@ -40,17 +40,14 @@ import { ApplicationConfigComponent } from './components/app-config/app-config.c
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
-import {ResetPswdComponent} from './components/reset-pswd/reset-pswd.component';
+import { ResetPswdComponent } from './components/reset-pswd/reset-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
 import { UserActionsDownloadCsvComponent } from './components/utils/user-actions-download-csv/user-actions-download-csv.component';
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
-import { UserActionIconActiveServicesComponent } from './components/utils/user-action-icon-active-services/user-action-icon-active-services.component';
+import { ActiveServicesIconComponent } from './components/utils/active-services-icon/active-services-icon.component';
 import { HorizontalTimelineComponent } from './components/utils/horizontal-timeline/horizontal-timeline.component';
-
-
-
 
 @NgModule({
   declarations: [
@@ -74,7 +71,7 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
     SignupComponent,
     ActiveServicesComponent,
     DeviceManagerComponent,
-    UserActionsIconDeviceManagerComponent,
+    DeviceManagerIconComponent,
     ManageRolesComponent,
     ApplicationConfigComponent,
     UserRegistrationComponent,
@@ -88,7 +85,7 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
     
     ActiveStatusComponent,
     EllipsifyMeDirective,
-    UserActionIconActiveServicesComponent,
+    ActiveServicesIconComponent,
     HorizontalTimelineComponent,
     UserActionsDownloadCsvComponent
   ],
@@ -113,7 +110,7 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
     AgGridModule.withComponents([])
   ],
   providers: [],
-  entryComponents : [UserActionIconActiveServicesComponent , UserActionsDownloadCsvComponent],
+  entryComponents : [ActiveServicesIconComponent, DeviceManagerIconComponent, UserActionsDownloadCsvComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
