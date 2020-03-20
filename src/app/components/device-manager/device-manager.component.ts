@@ -58,7 +58,8 @@ export class DeviceManagerComponent implements OnInit {
     this.bpaService.getDeviceList().subscribe(response => {
 
       this.rowData = [];
-      this.deviceList = response;
+      this.deviceList = response['body'];
+      console.log(response['body']);
       this.deviceList.forEach(item => {
         this.rowData.push({
           name: item.name,
