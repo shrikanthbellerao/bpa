@@ -104,8 +104,7 @@ export class DeviceManagerComponent implements OnInit {
           <p><strong class="mr-4">Protocol</strong>${this.rowDatafromCell.protocol}</p>
         </div>
       </div>
-      </div>`,
-      buttonList: []
+      </div>`
     };
     this.displayModal = true;
   }
@@ -124,25 +123,26 @@ export class DeviceManagerComponent implements OnInit {
       this.pingStatus = response;
       this.modalConfig = {
         title: 'Ping Status',
-        body: `<table class="table">
-        <tr>
-          <th scope="col md-2">
-            Device
-          </th>
-          <th scope="col">
-            Controller
-          </th>
-          <th scope="col">
-            Result
-          </th>
-        </tr>
+        body: `<table class="table table-borderless">
+        <thead class='thead-light'>
+          <tr>
+            <th scope="col md-2">
+             Device
+           </th>
+           <th scope="col">
+              Controller
+            </th>
+           <th scope="col">
+              Result
+            </th>
+          </tr>
+        </thead>
         <tr>
           <td>${this.rowDatafromCell.name}</td>
           <td>${this.rowDatafromCell.controller_id}</td>
           <td>${this.pingStatus.body.pingResponse}</td>
         </tr>
-        </table>`,
-        buttonList: []
+        </table>`
       };
       this.displayModal = true;
 
