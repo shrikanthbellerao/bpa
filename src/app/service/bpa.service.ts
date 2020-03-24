@@ -113,7 +113,7 @@ export class BpaService {
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress,
-      name: id
+      id: id
 
     };
 
@@ -191,7 +191,7 @@ export class BpaService {
       vmIPAddress: this.vmIPAddress
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'service-items', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'service-item', requestBody, this.nodeJsHttpHeaders);
     // const bpaHttpHeaders: any = {
     //   headers: new HttpHeaders({
     //     Accept: 'application/json',
@@ -209,7 +209,7 @@ export class BpaService {
       vmIPAddress: this.vmIPAddress
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'service-category', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'category-service', requestBody, this.nodeJsHttpHeaders);
     // const bpaHttpHeaders: any = {
     //   headers: new HttpHeaders({
     //     Accept: 'application/json',
