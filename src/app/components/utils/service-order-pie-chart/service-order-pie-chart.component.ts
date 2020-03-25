@@ -62,13 +62,13 @@ export class ServiceOrderPieChartComponent implements OnInit {
       this.rollbackCount++;
     })
 
-  this.pieChartLabels.push(["Complete"]);
+  this.pieChartLabels.push(["Completed Orders"]);
   this.pieChartData.push(this.completeCount);
-  this.pieChartLabels.push(["Rollback-In-Process"]);
+  this.pieChartLabels.push(["Rollback-In-Process Orders"]);
   this.pieChartData.push(this.ripCount);
-  this.pieChartLabels.push(["In-process"]);
+  this.pieChartLabels.push(["In-process Orders"]);
   this.pieChartData.push(this.inprocessCount);
-  this.pieChartLabels.push(["Rollback"]);
+  this.pieChartLabels.push(["Rollback Orders"]);
   this.pieChartData.push(this.rollbackCount);
   
  }

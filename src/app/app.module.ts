@@ -48,6 +48,7 @@ import { UserActionsDownloadCsvComponent } from './components/utils/user-actions
 import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive';
 import { ActiveServicesIconComponent } from './components/utils/active-services-icon/active-services-icon.component';
 import { HorizontalTimelineComponent } from './components/utils/horizontal-timeline/horizontal-timeline.component';
+import { D3ZoomableSunburstComponent } from './components/utils/d3-zoomable-sunburst/d3-zoomable-sunburst.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { HorizontalTimelineComponent } from './components/utils/horizontal-timel
     FooterComponent,
     D3SpiralStackedBarComponent,
     ContactUsComponent,
-    
+    D3ZoomableSunburstComponent,
     ActiveStatusComponent,
     EllipsifyMeDirective,
     ActiveServicesIconComponent,

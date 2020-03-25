@@ -237,6 +237,11 @@ export class BpaService {
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
 
+  fnReadjson(fileName) {
+    console.log('Inside fnReadCSV: ', fileName);
+    return this.httpClient.get(fileName, { responseType: 'text' });
+  }
+
   // Method to display the date and time in a proper format 
   fnFormatDate(inputDate) {
     return inputDate.substring(5, 7) + '/' +
