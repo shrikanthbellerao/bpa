@@ -45,7 +45,7 @@ export class ServiceCatalogComponent implements OnInit {
           this.cardResponse.push(...getResponse);
         })
       }
-    }
+    } 
     else {
       this.cardResponse = this.storeResponse.filter((res) => res.flag === true);
       if (this.storeIndex.length === 0) {
@@ -58,6 +58,7 @@ export class ServiceCatalogComponent implements OnInit {
         this.cardResponse = this.cardResponse.filter((res) => getResponse.find((fav) => fav._id === res._id));
       }
     }
+
   }
   getFav(fav) {
     this.favourite = fav;
