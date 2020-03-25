@@ -21,21 +21,17 @@ export class ServiceCatalogComponent implements OnInit {
     this.callApis();
   }
   callApis() {
-    forkJoin([this.bpaservice.getServiceItems(), this.bpaservice.getFavItems()]).subscribe((record) => {
-      this.storeResponse = record[0]['body'];
+    this.cardResponse = [];
+    this.bpaservice.getServiceItems().subscribe((record) => {
+      console.log('res', record);
+      this.storeResponse = record['body'];
       this.cardResponse = this.storeResponse;
-      this.favResponse = record[1]['body']['data'];
-      this.favResponseCopy = record[1]['body']['data'];
-      this.cardResponse.map((res) => {
-        const findFav = this.favResponseCopy.find((fav) => fav['serviceitems'][0]._id === res._id);
-        return res['flag'] = findFav ? true : false;
-      });
     })
   }
   ngOnInit() {
   }
   getCheck(index) {
-    if (index>=0) {
+    if (index >= 0) {
       const findIndex = this.storeIndex.findIndex(x => x === index);
       (findIndex >= 0) ? this.storeIndex.splice(findIndex, 1) : this.storeIndex.push(index)
     }
@@ -51,23 +47,16 @@ export class ServiceCatalogComponent implements OnInit {
       }
     } 
     else {
-      this.bpaservice.getFavItems().subscribe((record) => {
-        this.favResponse = record['body']['data'];
-        this.storeResponse.map((res) => {
-          const findFav = this.favResponse.find((fav) => fav['serviceitems'][0]._id === res._id);
-          return res['flag'] = findFav ? true : false;
-        });
-        this.cardResponse = this.storeResponse.filter((res) => res.flag === true);
-        if (this.storeIndex.length === 0) {
-          this.cardResponse = this.cardResponse;
-        } else {
-          let getResponse = []
-          this.storeIndex.forEach((index) => {
-            getResponse.push(...this.storeResponse.filter((check) => check.categoryIds[0]['name'] === this.Response[index].name));
-          })
-          this.cardResponse = this.cardResponse.filter((res) => getResponse.find((fav) => fav._id === res._id));
-        }
-      })
+      this.cardResponse = this.storeResponse.filter((res) => res.flag === true);
+      if (this.storeIndex.length === 0) {
+        this.cardResponse = this.cardResponse;
+      } else {
+        let getResponse = []
+        this.storeIndex.forEach((index) => {
+          getResponse.push(...this.storeResponse.filter((check) => check.categoryIds[0]['name'] === this.Response[index].name));
+        })
+        this.cardResponse = this.cardResponse.filter((res) => getResponse.find((fav) => fav._id === res._id));
+      }
     }
 
   }
@@ -76,22 +65,10 @@ export class ServiceCatalogComponent implements OnInit {
     this.getCheck(-1)
   }
   selectFavourite(id) {
-    this.bpaservice.selectFavourite(id._id).subscribe((res) =>  this.callFavCheck())
+    this.bpaservice.selectFavourite(id._id).subscribe((res) => this.callApis())
   }
   deleteFavourite(id) {
-    const getID = this.favResponseCopy.find((res) => res['serviceitems'][0]._id === id._id);
-    this.bpaservice.deleteFavourite(getID._id).subscribe((res) => this.callFavCheck())
-  }
-
-  callFavCheck() {
-    this.bpaservice.getFavItems().subscribe((record) => {
-      this.favResponse = record['body']['data'];
-      this.favResponseCopy = record['body']['data'];
-      this.cardResponse = this.storeResponse;
-      this.cardResponse.map((res) => {
-        const findFav = this.favResponseCopy.find((fav) => fav['serviceitems'][0]._id === res._id);
-        return res['flag'] = findFav ? true : false;
-      });
-    })
+    // const getID = this.favResponseCopy.find((res) => res['serviceitems'][0]._id === id._id);
+    this.bpaservice.deleteFavourite(id._id).subscribe((res) => this.callApis())
   }
 }
