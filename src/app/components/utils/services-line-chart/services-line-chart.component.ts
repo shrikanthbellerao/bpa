@@ -31,13 +31,13 @@ export class ServicesLineChartComponent implements OnInit {
         labels: Object.keys(counts),
         datasets: [
           { 
-            label: "Admin",
+            label: "Services under Admin",
             data: Object.values(counts),
             borderColor: "#3cba9f",
             fill: false
           },
           { 
-            label: "Non-Admin",
+            label: "Services under Non-Admin",
             data: [1,5,1,2,6,1,2,1,4],
             borderColor: "#ffcc00",
             fill: false
@@ -53,7 +53,7 @@ export class ServicesLineChartComponent implements OnInit {
             display: false
           }],
           yAxes: [{
-            display: false
+            display: true
           }],
         }
       }

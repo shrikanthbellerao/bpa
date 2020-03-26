@@ -33,7 +33,7 @@ export class ActiveServicesComponent implements OnInit {
     this.bpaService.getActiveServices().subscribe(response => {
       console.log(response);
       this.rowData = response['body'].map((obj) => {
-console.log("Date updated",obj)
+        console.log("Date updated", obj)
         obj.updatedAt = this.bpaService.fnFormatDate(obj.updatedAt);
         // obj.formData =JSON.stringify(obj.formData);
         obj.formData = (obj.formData && obj.formData['connectionRow']) ? JSON.stringify(obj.formData['connectionRow']) : '--';

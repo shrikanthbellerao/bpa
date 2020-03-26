@@ -33,6 +33,7 @@
     "chart.js": "^2.9.3",
     "chartjs-plugin-datalabels": "^0.7.0",
     "core-js": "^2.5.4",
+    "cors": "^2.8.5",
     "d3": "^5.15.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
@@ -42,12 +43,13 @@
     "ngx-ui-switch": "^8.3.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.3.3",
+    "sunburst-chart": "^1.9.0",
     "tslib": "^1.9.0",
     "zlib": "^1.0.5",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular-devkit/build-angular": "^0.13.9",
     "@angular/cli": "~7.3.3",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",

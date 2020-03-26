@@ -14,7 +14,7 @@ export class BpaService {
   vmOneIPAddress = '10.122.32.86:9091';
   vmOneNsoInstance = 'RTP-Core-1,nso5-lsa3-rd';
   vmTwoIPAddress = '10.81.59.208:9091';
-  vmTwoNsoInstance = 'RTP-LSA,nso5-lsa4-rd';
+  vmTwoNsoInstance = 'NSO-RTP,nso5-lsa4-rd';
 
   /*
     Use below approach to display Toastr from any component:
@@ -113,7 +113,7 @@ export class BpaService {
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress,
-      name: id
+      id: id
 
     };
 
@@ -191,7 +191,7 @@ export class BpaService {
       vmIPAddress: this.vmIPAddress
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'service-items', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'service-item', requestBody, this.nodeJsHttpHeaders);
     // const bpaHttpHeaders: any = {
     //   headers: new HttpHeaders({
     //     Accept: 'application/json',
@@ -209,7 +209,7 @@ export class BpaService {
       vmIPAddress: this.vmIPAddress
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'service-category', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'category-service', requestBody, this.nodeJsHttpHeaders);
     // const bpaHttpHeaders: any = {
     //   headers: new HttpHeaders({
     //     Accept: 'application/json',
@@ -222,19 +222,22 @@ export class BpaService {
 
   // Method to get the list of devices from Device Manager microservice of BPA
   getDeviceList() {
-
-    const bpaHttpHeaders: any = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      })
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress,
+      nsoInstance: this.nsoInstance,
     };
-    const urlDevices = `https://${this.vmIPAddress}/bpa/api/v1.0/device-manager/devices?limit=5000&page=1&nsoInstance=${this.nsoInstance}`;
-    return this.httpClient.get(urlDevices, bpaHttpHeaders);
+
+    return this.httpClient.post(this.nodeAppUrl + 'device-manager', requestBody, this.nodeJsHttpHeaders);
   }
 
   // Method to read data present in CSV file
   fnReadCSV(fileName) {
+    console.log('Inside fnReadCSV: ', fileName);
+    return this.httpClient.get(fileName, { responseType: 'text' });
+  }
+
+  fnReadjson(fileName) {
     console.log('Inside fnReadCSV: ', fileName);
     return this.httpClient.get(fileName, { responseType: 'text' });
   }
