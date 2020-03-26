@@ -76,7 +76,7 @@ export class BpaService {
       vmIPAddress: this.vmIPAddress
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'service-orders', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'service-order', requestBody, this.nodeJsHttpHeaders);
   }
 
   // Method to set the Order status from Active Service info from Service Catalog microservice of BPA
@@ -94,7 +94,7 @@ export class BpaService {
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress,
-      name: id
+      id: id
 
     };
 

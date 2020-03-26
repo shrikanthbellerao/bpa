@@ -32,11 +32,11 @@ export class ActiveServicesComponent implements OnInit {
   ngOnInit() {
     this.bpaService.getActiveServices().subscribe(response => {
       console.log(response);
-      this.rowData = response['body']['data'].map((obj) => {
-
+      this.rowData = response['body'].map((obj) => {
+console.log("Date updated",obj)
         obj.updatedAt = this.bpaService.fnFormatDate(obj.updatedAt);
         // obj.formData =JSON.stringify(obj.formData);
-        obj.formData = obj.formData['connectionRow'] ? JSON.stringify(obj.formData['connectionRow']) : JSON.stringify(obj.formData);
+        obj.formData = (obj.formData && obj.formData['connectionRow']) ? JSON.stringify(obj.formData['connectionRow']) : '--';
         console.log(obj.formData); console.log('\n');
         return obj;
       });
@@ -87,9 +87,10 @@ export class ActiveServicesComponent implements OnInit {
     this.timeline = [];
     this.showSelectedData = event.rowData;
     // console.log('aaaa' , this.rowData);
+
     this.bpaService.getActions(event.rowData._id).subscribe((res) => {
       console.log("milestone", res);
-      res['body']['data'].forEach(element => {
+      res['body'].forEach(element => {
         // console.log('asdffghh', res);
         if (element.status === 'Complete') {
           this.timeline.push({
@@ -103,8 +104,8 @@ export class ActiveServicesComponent implements OnInit {
         // this.count = (100 / res['body']['data'].length) * this.timeline.length;
       })
       this.showSelectedData = event.rowData;
-      console.log('length of timeline', res['body']['data'].length, this.timeline.length);
-      this.count = (100 / res['body']['data'].length) * this.timeline.length;
+      console.log('length of timeline', res['body'].length, this.timeline.length);
+      this.count = (100 / res['body'].length) * this.timeline.length;
       this.bpaService.setServiceOrderStatus({ timeline: this.timeline, showData: this.showSelectedData, count: this.count });
       this.router.navigate(['/activeStatus'])
 
