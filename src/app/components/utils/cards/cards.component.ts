@@ -39,7 +39,7 @@ export class CardsComponent implements OnInit {
   ngOnInit() {
   }
   order(item) {
-    this.route.navigate(['/dashboard']);
+    this.route.navigate(['/dynamic']);
   }
   selectFavourite(id) {
     this.addFav.emit(id)

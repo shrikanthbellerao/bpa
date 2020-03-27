@@ -14,6 +14,7 @@ import { FAQComponent } from "./components/faq/faq.component";
 import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
+import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dynamic-loading.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: "activeServices", component: ActiveServicesComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
   { path: "contactUs", component: ContactUsComponent},
-  { path: "activeStatus", component: ActiveStatusComponent }
+  { path: "activeStatus", component: ActiveStatusComponent },
+  { path: "dynamic", component: DynamicLoadingComponent},
 ];
 
 @NgModule({
