@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: "resetPassword", component: ResetPswdComponent },
   { path: "activeServices", component: ActiveServicesComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
-  { path: "contact-us", component: ContactUsComponent},
+  { path: "contactUs", component: ContactUsComponent},
   { path: "activeStatus", component: ActiveStatusComponent }
 ];
 

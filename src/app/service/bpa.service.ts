@@ -278,4 +278,13 @@ export class BpaService {
     };
     return this.httpClient.put(this.nodeAppUrl + 'broadcast-message', requestBody, this.nodeJsHttpHeaders);
   }
+  // REST API to fetch the admin details from bpa-backend application
+  fnFetchAdminDetails(){
+    return this.httpClient.get(this.nodeAppUrl + 'admin');
+  }
+
+  // REST API to fetch the demo user details from bpa-backend application
+  fnFetchDemoDetails(){
+    return this.httpClient.get(this.nodeAppUrl + 'demo');
+  }
 }

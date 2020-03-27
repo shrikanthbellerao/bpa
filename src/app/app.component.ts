@@ -11,7 +11,7 @@ export class AppComponent {
   ngOnInit() {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
-        this.loginPageFlg = this.router.url === "/";
+        this.loginPageFlg = (this.router.url === "/"  || this.router.url === "/signup" || this.router.url === "/contactUs"); 
       }
     });
   }

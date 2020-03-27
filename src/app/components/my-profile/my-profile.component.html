@@ -1,3 +1,209 @@
-<p>
-  profile works!
-</p>
+    <div class="tab-content no-border padding-24" *ngIf="user === 'admin' && adminDetails">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 center">
+          <div class="panel rounded shadow">
+            <div class="panel-body">
+              <div class="inner-all">
+                <ul class="list-unstyled">
+                  <li class="text-center">
+                    <img data-no-retina="" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="John Smith">
+                  </li>
+                  <li class="text-center">
+                    <h4>{{adminDetails.FullName}}</h4>
+                    <p class="text-muted">{{adminDetails.Role}}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.col -->
+
+        <div class="col-xs-12 col-sm-9">
+
+          <div class="profile-user-info">
+            <div class="profile-info-row">
+              <div class="profile-info-name">Username</div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.Username}}</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name">Access Type</div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.AccessType}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">Work Type</div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.WorkType}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">Employee ID</div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.EmployeeID}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">Department</div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.Department}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Manager</div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.Manager}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Location <i class="fa fa-map-marker"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.Location}}</span>
+
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Work <i class="fa fa-envelope"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.Email}}</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Work <i class="fa fa-phone"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.WorkPhone}}</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Personal <i class="fa fa-phone"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{adminDetails.PersonalPhone}}</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+
+    </div>
+
+    <div class="tab-content no-border padding-24" *ngIf="user !== 'admin' && demoDetails">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 center">
+          <div class="panel rounded shadow">
+            <div class="panel-body">
+              <div class="inner-all">
+                <ul class="list-unstyled">
+                  <li class="text-center">
+                    <img data-no-retina="" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="John Smith">
+                  </li>
+                  <li class="text-center">
+                    <h4>{{demoDetails.FullName}}</h4>
+                    <p class="text-muted">{{demoDetails.Role}}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.col -->
+
+        <div class="col-xs-12 col-sm-9">
+
+          <div class="profile-user-info">
+            <div class="profile-info-row">
+              <div class="profile-info-name">Username</div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.Username}}</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name">Access Type</div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.AccessType}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">Work Type</div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.WorkType}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">Employee ID</div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.EmployeeID}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">Department</div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.Department}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Manager</div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.Manager}}</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Location <i class="fa fa-map-marker"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.Location}}</span>
+
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Work <i class="fa fa-envelope"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.Email}}</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Work <i class="fa fa-phone"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.WorkPhone}}</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> Personal <i class="fa fa-phone"></i></div>
+
+              <div class="profile-info-value">
+                <span>{{demoDetails.PersonalPhone}}</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+
+    </div>
