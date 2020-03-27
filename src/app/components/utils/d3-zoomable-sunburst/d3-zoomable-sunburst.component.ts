@@ -20,8 +20,8 @@ export class D3ZoomableSunburstComponent implements OnInit {
       
       let data = JSON.parse(jsontextdata);
       Sunburst()
-        .width(580)
-        .height(500)
+        .width(390)
+        .height(400)
         .data(data)
         .label('name')
         .size('value')
