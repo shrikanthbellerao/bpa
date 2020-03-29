@@ -76,8 +76,34 @@ export class BpaService {
       vmIPAddress: this.vmIPAddress
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'service-orders', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'service-order', requestBody, this.nodeJsHttpHeaders);
   }
+
+  //Method to obtain the orderdata that is filled in form
+  getOrderId(form) {
+    const requestBody = {
+      accessToken: localStorage.getItem('accessToken'),
+      vmIPAddress: this.vmIPAddress,
+      id: form['id'],
+      item: form['item'],
+      formData: form['formData']
+
+    };
+    console.log(requestBody);
+    return this.httpClient.post(this.nodeAppUrl + 'orders', requestBody, this.nodeJsHttpHeaders);
+  }
+
+  // const getToken = localStorage.getItem('accessToken');
+  //   const httpHeaders = {
+  //     headers: new HttpHeaders({
+  //       Accept: 'application/json',
+  //       Authorization: `Bearer ${getToken}`
+  //     })
+  //   };
+  //   const urlActive: string = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-orders`;
+
+  //   return this.httpClient.post(urlActive,form,httpHeaders);
+
 
   // Method to set the Order status from Active Service info from Service Catalog microservice of BPA
   setServiceOrderStatus(getData) {
@@ -94,7 +120,7 @@ export class BpaService {
     const requestBody = {
       accessToken: localStorage.getItem('accessToken'),
       vmIPAddress: this.vmIPAddress,
-      name: id
+      id: id
 
     };
 
@@ -277,5 +303,14 @@ export class BpaService {
       broadcastMessage
     };
     return this.httpClient.put(this.nodeAppUrl + 'broadcast-message', requestBody, this.nodeJsHttpHeaders);
+  }
+  // REST API to fetch the admin details from bpa-backend application
+  fnFetchAdminDetails(){
+    return this.httpClient.get(this.nodeAppUrl + 'admin');
+  }
+
+  // REST API to fetch the demo user details from bpa-backend application
+  fnFetchDemoDetails(){
+    return this.httpClient.get(this.nodeAppUrl + 'demo');
   }
 }

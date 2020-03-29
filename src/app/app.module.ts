@@ -49,6 +49,7 @@ import { EllipsifyMeDirective } from './components/utils/ellipsify-me.directive'
 import { ActiveServicesIconComponent } from './components/utils/active-services-icon/active-services-icon.component';
 import { HorizontalTimelineComponent } from './components/utils/horizontal-timeline/horizontal-timeline.component';
 import { D3ZoomableSunburstComponent } from './components/utils/d3-zoomable-sunburst/d3-zoomable-sunburst.component';
+import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dynamic-loading.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { D3ZoomableSunburstComponent } from './components/utils/d3-zoomable-sunb
     EllipsifyMeDirective,
     ActiveServicesIconComponent,
     HorizontalTimelineComponent,
-    UserActionsDownloadCsvComponent
+    UserActionsDownloadCsvComponent,
+    DynamicLoadingComponent,
   ],
   imports: [
     BrowserModule,

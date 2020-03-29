@@ -1,0 +1,29 @@
+.bgcol{
+background: #017cad;
+}
+.b1{
+    font-size: 20px;
+}
+.b2{
+    border: 1px solid black;
+    background-color: white;
+   
+}
+.b3{
+    background-color: rgb(241,247,252);
+    height: 100vh;
+}
+.b4{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 21px;
+}
+.b5{
+    background-color: #017CAD;
+    border-radius: 10px;
+    padding: 3px 11px;
+    color:white;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

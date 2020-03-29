@@ -69,7 +69,7 @@ this.router.navigate(['/signup']);
 }
 //method to display "contact us" page
 contactus() {
-this.router.navigate(['/contact-us'])
+this.router.navigate(['/contactUs'])
 }
 //method to display "questions" page
 questions() {
