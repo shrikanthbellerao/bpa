@@ -16,16 +16,18 @@ export class ServiceCatalogComponent implements OnInit {
   favourite = false;
   constructor(private bpaservice: BpaService) {
     this.bpaservice.getServiceCategory().subscribe(res => {
+      console.log('res', res);
       this.Response = res['body'];
     }, err => console.log('error..', err))
     this.callApis();
   }
   callApis() {
-    this.cardResponse = [];
     this.bpaservice.getServiceItems().subscribe((record) => {
+      this.cardResponse = [];
       console.log('res', record);
       this.storeResponse = record['body'];
       this.cardResponse = this.storeResponse;
+      this.getCheck(-1);
     })
   }
   ngOnInit() {

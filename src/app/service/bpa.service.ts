@@ -118,6 +118,7 @@ export class BpaService {
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'select-favourite', requestBody, this.nodeJsHttpHeaders);
+  }
     // const getToken = localStorage.getItem('accessToken');
     // const httpHeaders = {
     //   headers: new HttpHeaders({
@@ -130,7 +131,6 @@ export class BpaService {
     //   name: id
     // };
     // return this.httpClient.post(urlActive, requestBody, httpHeaders);
-  }
 
   // Method to get the Favourite Items from Service Catalog microservice of BPA
   getFavItems() {
@@ -140,6 +140,7 @@ export class BpaService {
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'get-favourite-items', requestBody, this.nodeJsHttpHeaders);
+  }
     // const getToken = localStorage.getItem('accessToken');
     // const httpHeaders = {
     //   headers: new HttpHeaders({
@@ -151,7 +152,6 @@ export class BpaService {
 
     // return this.httpClient.get(urlActive, httpHeaders);
 
-  }
 
   // Method to delete the Favourite Items from Service Catalog microservice of BPA
   deleteFavourite(id) {
@@ -162,6 +162,7 @@ export class BpaService {
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'delete-favourite', requestBody, this.nodeJsHttpHeaders);
+  }
     // const getToken = localStorage.getItem('accessToken');
     // const httpHeaders = {
     //   headers: new HttpHeaders({
@@ -170,7 +171,6 @@ export class BpaService {
     //   })
     // };
     // return this.httpClient.delete(`https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/user-favorites/${id}`, httpHeaders);
-  }
 
   // Method to make REST API call to fetch the list of Service Orders from BPA
   getServiceorders() {
@@ -192,6 +192,7 @@ export class BpaService {
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'service-item', requestBody, this.nodeJsHttpHeaders);
+  }
     // const bpaHttpHeaders: any = {
     //   headers: new HttpHeaders({
     //     Accept: 'application/json',
@@ -200,7 +201,6 @@ export class BpaService {
     // };
     // const urlActive = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-items?_page=1&_limit=20&status=Active&order=asc`;
     // return this.httpClient.get(urlActive, bpaHttpHeaders);
-  }
 
   // Method to get the list of Service Categories from Service Catalog microservice of BPA
   getServiceCategory() {
@@ -210,6 +210,7 @@ export class BpaService {
     };
 
     return this.httpClient.post(this.nodeAppUrl + 'category-service', requestBody, this.nodeJsHttpHeaders);
+  }
     // const bpaHttpHeaders: any = {
     //   headers: new HttpHeaders({
     //     Accept: 'application/json',
@@ -218,7 +219,6 @@ export class BpaService {
     // };
     // const url = `https://${this.vmIPAddress}/bpa/api/v1.0/service-catalog/service-categories?_page=1&_limit=200000`;
     // return this.httpClient.get(url, bpaHttpHeaders);
-  }
 
   // Method to get the list of devices from Device Manager microservice of BPA
   getDeviceList() {
