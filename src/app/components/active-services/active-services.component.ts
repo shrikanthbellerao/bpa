@@ -33,10 +33,10 @@ export class ActiveServicesComponent implements OnInit {
     this.bpaService.getActiveServices().subscribe(response => {
       console.log(response);
       this.rowData = response['body'].map((obj) => {
-
+        console.log("Date updated", obj)
         obj.updatedAt = this.bpaService.fnFormatDate(obj.updatedAt);
         // obj.formData =JSON.stringify(obj.formData);
-        obj.formData = obj.formData['connectionRow'] ? JSON.stringify(obj.formData['connectionRow']) : JSON.stringify(obj.formData);
+        obj.formData = (obj.formData && obj.formData['connectionRow']) ? JSON.stringify(obj.formData['connectionRow']) : '--';
         console.log(obj.formData); console.log('\n');
         return obj;
       });
@@ -87,6 +87,7 @@ export class ActiveServicesComponent implements OnInit {
     this.timeline = [];
     this.showSelectedData = event.rowData;
     // console.log('aaaa' , this.rowData);
+
     this.bpaService.getActions(event.rowData._id).subscribe((res) => {
       console.log("milestone", res);
       res['body'].forEach(element => {

@@ -1,0 +1,192 @@
+<form class="b3" [formGroup]="orderForm">
+  <div class="form-group">
+    <div class="container">
+      <div class="row">
+        <div class="b1">Data Center Modify Switch Config </div>
+      </div>
+      <br>
+      <div class="btn-group dropdown">
+        <button type="button" class="btn b2 dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          {{selectedDropdown ? selectedDropdown : 'DeviceType'}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <option class="dropdown-item" name="devty" *ngFor="let device of devices" (click)='getSelectedItem(device)'>
+            {{device}}</option>
+          <span *ngIf="!orderForm.get('devty').valid&& orderForm.get('devty').touched" class="help-block b6"
+            style="border : red;"></span>
+        </div>
+      </div>
+      <span></span>
+      <div class="btn-group dropdown">
+        <button type="button" class="btn b2 dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          {{actionDropdown ? actionDropdown : 'Action'}}
+        </button>
+        <div class="dropdown-menu">
+          <option class="dropdown-item" *ngFor="let action of actions" (click)='getActionItem(action)'>{{action}}
+          </option>
+        </div>
+      </div>
+
+      <div class="btn-group dropdown">
+        <button type="button" class="btn b2 dropdown-toggle m-4" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          {{vlanDropdown ? vlanDropdown : 'VLAN Type'}}
+        </button>
+        <div class="dropdown-menu">
+          <option class="dropdown-item" *ngFor="let vltype of vltypes" (click)='getVlanItem(vltype)'>{{vltype}}</option>
+        </div>
+      </div>
+      <br>
+
+      <div class="b4 p-4">
+
+        <div class="row">
+
+          <div class="form-group col col-md-3">
+            <input type="number" name="vlanid" placeholder="VLAN ID" for="vlanid" class="b2 form-control"
+              formControlName="vlanid" id="vlanid" required>
+            <span *ngIf="!orderForm.get('vlanid').valid&& orderForm.get('vlanid').touched" class="help-block b6"
+              style="color: red;">Please enter valid vlanid</span>
+          </div>
+
+          <div class="form-group col col-md-3">
+            <input type="text" name="vlannm" placeholder="VLAN Name" class="b2 form-control" formControlName="vlannm"
+              id="vlannm" required>
+            <span *ngIf="!orderForm.get('vlannm').valid&& orderForm.get('vlannm').touched" class="help-block b6"
+              style="color: red;">Please enter vlan name</span>
+          </div>
+          <div class="form-group col col-md-3">
+            <input type="text" name="vlandes" placeholder="VLAN Description" class="b2 form-control"
+              formControlName="vlandes" id="vlandes" required>
+            <span *ngIf="!orderForm.get('vlannm').valid&& orderForm.get('vlannm').touched" class="help-block b6"
+              style="color : red;">Please enter description</span>
+          </div>
+          <div class="form-group col col-md-3">
+            <input type="number" name="mtu" placeholder="MTU" class="b2 form-control" formControlName="mtu" id="mtu">
+            <span *ngIf="!orderForm.get('mtu').valid&& orderForm.get('mtu').touched" class="help-block b6"
+              style="color: red;">Please enter MTU</span>
+          </div>
+        </div>
+        <div class=row>
+          <div class="form-group col col-md-3">
+            <input type="text" name="ipadd" placeholder="IP Address" class="b2 form-control" formControlName="ipadd"
+              id="ipadd" required>
+            <span *ngIf="!orderForm.get('ipadd').valid&& orderForm.get('ipadd').touched" class="help-block b6"
+              style="color: red;">Please enter valid IP address</span>
+          </div>
+          <div class="form-group col col-md-3">
+            <input type="text" name="pipadd" placeholder="Peer IP Address" class="b2 form-control"
+              formControlName="pipadd" id="pipadd" required>
+            <span *ngIf="!orderForm.get('pipadd').valid&& orderForm.get('pipadd').touched" class="help-block b6"
+              style="color: red;">Please enter valid IP address </span>
+          </div>
+          <div class="form-group col col-md-3">
+            <input type="number" name="hsrpnum" placeholder="HSRP Number" class="b2 form-control"
+              formControlName="hsrpnum" id="hsrpnum" required>
+            <span *ngIf="!orderForm.get('hsrpnum').valid&& orderForm.get('hsrpnum').touched" class="help-block b6"
+              style="color: red;">Please enter HSRP number</span>
+          </div>
+          <div class="form-group col col-md-3">
+            <input type="text" name="hsrpstandip" placeholder="HSRP Stand By IP" class="b2 form-control"
+              formControlName="hsrpstandip" id="hsrpstandip" required>
+            <span *ngIf="!orderForm.get('hsrpstandip').valid&& orderForm.get('hsrpstandip').touched"
+              class="help-block b6" style="color: red;">Please enter valid IP address </span>
+          </div>
+        </div>
+        <div class="btn-group dropdown">
+          <button type="button" class="btn b2 dropdown-toggle mr-5" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{hostDropdown ? hostDropdown : 'Select Hostname'}}
+          </button>
+          <div class="dropdown-menu">
+            <option class="dropdown-item" *ngFor="let host of hosts" (click)='getHostItem(host)'>{{host}}</option>
+
+          </div>
+        </div>
+        <div class="btn-group dropdown">
+          <button type="button" class="btn b2 dropdown-toggle m-1 ml-3" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{peerDropdown ? peerDropdown : 'Select Peer Hostname'}}
+          </button>
+          <div class="dropdown-menu">
+            <option class="dropdown-item" *ngFor="let peer of peers" (click)='getPeerItem(peer)'>{{peer}}</option>
+
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col col-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input " id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Add IP Multicast</label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col col-4" m-1>
+            <div class="custom-control custom-checkbox">
+              <input (click)='showDHCP()' type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2">Add DHCP Server</label>
+            </div>
+          </div>
+          <div *ngIf="show" class="col col-6">
+            <div class="form-group">
+              <input type=text name="dhcpserver" placeholder="DHCP Server IP" class="form-control"
+                formControlName="dhcpserver" id="dhcpserver">
+              <span *ngIf="orderForm.get('dhcpserver').touched && !orderForm.get('dhcpserver').valid"
+                class="help-block b6" style="color: red;">Please enter valid IP address</span>
+            </div>
+          </div>
+        </div>
+        <br>
+        <!-- <div class="form-check" >
+      <input   (click)='show = !show' class="form-check-input" type="checkbox" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        Add DHCP Server
+      </label>
+        <div class="form-group" *ngIf="show">
+          <input type=text name="vlanid" placeholder="DHCP Server IP" class="b2 form-control" required>
+        </div>
+        </div> -->
+        <div class="row">
+          <div class="col col-6">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" (click)='showVLAN()' class="custom-control-input" id="customCheck3">
+              <label class="custom-control-label" for="customCheck3">Configure VLAN on Port</label>
+            </div>
+          </div>
+          <div class="col col-4 btn-group dropdown">
+            <button type="button" *ngIf="show1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              {{interfaceDropdown ? interfaceDropdown : 'Select Interface'}}
+            </button>
+            <div class="dropdown-menu">
+              <option class="dropdown-item" *ngFor="let interfac of interfnums" (click)='getInterfaceItem(interfac)'>
+                {{interfac}}</option>
+
+            </div>
+          </div>
+          <button class="btn b5 float-right m-1 b5" (click)="showGrid()" [disabled]="!orderForm.valid">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="float-right m-2">
+    <button class="btn b5 mr-1 b5" (click)="myClickFunction($event)">Close</button>
+
+    <button class="btn b5" type="submit" (click)="onViewBtnClick($event)" *ngIf="rowData.length>0">Order</button>
+  </div>
+
+</form>
+
+<app-modal (closeModal)='hideModal()' [modalConfig]='modalConfig' [displayModal]="displayModal"></app-modal>
+<div class="container">
+  <ag-grid-angular *ngIf="rowData && rowData.length>0" style="width: 1000px; height: 500px;" class="ag-theme-balham"
+    [rowData]="rowData" [columnDefs]="columnDefs" [floatingFilter]="true" rowSelection="multiple"
+    [rowMultiSelectWithClick]="true">
+  </ag-grid-angular>
+</div>
