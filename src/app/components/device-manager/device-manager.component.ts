@@ -51,8 +51,9 @@ export class DeviceManagerComponent implements OnInit {
     ];
 
     this.defaultColDef = {
-      editable: true,
-      resizable: true,
+      editable: false,
+      resizable: false,
+      
     };
 
     this.bpaService.getDeviceList().subscribe(response => {
