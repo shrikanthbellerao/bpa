@@ -1,31 +1,36 @@
-body{
-  background-color:white;
-  font-family:'Lato';
+body {
+  background-color: white;
+  font-family: 'Lato';
 }
-.listView{
-  background-color:white;
+
+.listView {
+  background-color: white;
 }
+
 .fa-heart-o {
   -webkit-text-stroke-width: 1px;
 }
 
-.box{
+.box {
   border: 2px solid black;
 }
-.btn{
+
+.btn {
   border-radius: 10px;
   padding: 3px 11px;
-  background-color:#017CAD;
+  background-color: #017CAD;
   color: white;
 
 }
-.card-body{
-  padding:0.5rem; 
+
+.card-body {
+  padding: 0.5rem;
 }
-.bgColor{
-  background: #ddd!important;
-  border-radius: 2px!important;
-  letter-spacing: .3px!important;
+
+.bgColor {
+  background: #ddd !important;
+  border-radius: 2px !important;
+  letter-spacing: .3px !important;
   font-weight: bold;
   color: #39393b;
   margin: 0 10px 0 0;
@@ -34,69 +39,77 @@ body{
   display: inline-block;
   line-height: 1;
 }
-.fa-lg{
-  color:#017CAD;  
+
+.fa-lg {
+  color: #017CAD;
   -webkit-text-stroke-width: 1px;
-} 
-.fa-lg:hover{
-  cursor:pointer ;
 }
+
+.fa-lg:hover {
+  cursor: pointer;
+}
+
 hr {
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;
 }
 
-p{
+p {
   margin-bottom: 0rem;
 }
-h6{
+
+h6 {
   margin-bottom: 0rem;
   font-weight: bold;
 }
 
-.search-box{
+.search-box {
   position: relative;
-  border-color:#017CAD  ;
+  border-color: #017CAD;
   border-style: solid;
   box-sizing: border-box;
-  transform:translate(-10%,-10%);
-  background:rgb(241, 247, 252); ;
-  height:30px;
-  border-radius:40px ;
-  padding:2px;
-  width:230px;
+  transform: translate(-10%, -10%);
+  background: rgb(241, 247, 252);
+  ;
+  height: 30px;
+  border-radius: 40px;
+  padding: 2px;
+  width: 230px;
   margin-left: 5%;
   margin-top: 5%;
 }
 
-.search-btn{
-  position:absolute;
-  color:white; 
+.search-btn {
+  position: absolute;
+  color: white;
   float: right;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  background:#017CAD ;
-  display:flex;
-  justify-content:center;
-  align-items:center; 
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #017CAD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
-.search-btn:hover{
-  cursor:pointer ;
+
+.search-btn:hover {
+  cursor: pointer;
 }
-.search-txt{
+
+.search-txt {
   position: relative;
-  border:none;
+  border: none;
   background: none;
   outline: none;
-  float:left;
-  padding:0px 0px 0px 10px ;
-  color:black;
+  float: left;
+  padding: 0px 0px 0px 10px;
+  color: black;
   font: size 14;
   line-height: 10px;
-  width:200px;
+  width: 200px;
 }
-.fa-search{
+
+.fa-search {
   font-size: 12px;
 }

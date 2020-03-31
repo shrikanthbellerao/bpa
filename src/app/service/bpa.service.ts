@@ -126,7 +126,7 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'select-favourite', requestBody, this.nodeJsHttpHeaders);
   }
-    
+
   // Method to get the Favourite Items from Service Catalog microservice of BPA
   getFavItems() {
     const requestBody = {
@@ -136,7 +136,7 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'get-favourite-items', requestBody, this.nodeJsHttpHeaders);
   }
-    
+
   // Method to delete the Favourite Items from Service Catalog microservice of BPA
   deleteFavourite(id) {
     const requestBody = {
@@ -147,7 +147,7 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'delete-favourite', requestBody, this.nodeJsHttpHeaders);
   }
-    
+
   // Method to make REST API call to fetch the list of Service Orders from BPA
   getServiceorders() {
 
@@ -169,7 +169,7 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'service-item', requestBody, this.nodeJsHttpHeaders);
   }
-    
+
   // Method to get the list of Service Categories from Service Catalog microservice of BPA
   getServiceCategory() {
     const requestBody = {
@@ -179,7 +179,7 @@ export class BpaService {
 
     return this.httpClient.post(this.nodeAppUrl + 'category-service', requestBody, this.nodeJsHttpHeaders);
   }
-    
+
   // Method to get the list of devices from Device Manager microservice of BPA
   getDeviceList() {
     const requestBody = {
