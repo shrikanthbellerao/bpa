@@ -27,7 +27,7 @@ ngOnInit() {
     console.log('response of getServiceorders:', res);
     this.chart1dash = res['body'];
     this.timelinedash = res['body'];
-    this.fnTimelineTabClick(this.statuslist[0]);
+    this.fnTimelineTabClick(this.statuslist[1]);
     console.log(this.chart1dash)
   }, err => console.log('Error:', err));
 
@@ -90,7 +90,7 @@ fnTimelineTabClick(tabName) {
     this.timelinedash.filter((res) => {
     if(res.status.toLowerCase() === tabName.toLowerCase()) {
         this.filterlist.push({
-        header: `Order ID: ${res.orderNumber}, ${res.formData.crq}`,
+        header: `Order ID: ${res.orderNumber}, ${(res.formData && res.formData.crq) ? res.formData.crq : 'CRQ123456789000'}`,
         crq: res.formData.crq,
         time: res.createdAt
        })

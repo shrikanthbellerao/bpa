@@ -206,7 +206,7 @@ export class BpaService {
       vmIPAddress: this.vmIPAddress
     };
 
-    return this.httpClient.post(this.nodeAppUrl + 'service-orders', requestBody, this.nodeJsHttpHeaders);
+    return this.httpClient.post(this.nodeAppUrl + 'service-order', requestBody, this.nodeJsHttpHeaders);
   }
 
   // Method to get the list of Service Items from Service Catalog microservice of BPA

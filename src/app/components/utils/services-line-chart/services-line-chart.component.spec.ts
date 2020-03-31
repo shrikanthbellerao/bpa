@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import 'chart.js' ; '../../../../../src/test';
 import { ServicesLineChartComponent } from './services-line-chart.component';
 
 describe('ChartComponent', () => {
-  let component: ServicesLineChartComponent;
+  let component: ServicesLineChartComponent; 
   let fixture: ComponentFixture<ServicesLineChartComponent>;
 
   beforeEach(async(() => {
