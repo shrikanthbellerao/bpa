@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BpaService } from 'src/app/service/bpa.service';
 import { Observable, forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-service-catalog',
   templateUrl: './service-catalog.component.html',
@@ -9,12 +10,13 @@ import { Observable, forkJoin } from 'rxjs';
 export class ServiceCatalogComponent implements OnInit {
   storeResponse;
   cardResponse;
+  storeSearchValue;
   favResponse;
   Response;
   storeIndex = [];
   favResponseCopy;
   favourite = false;
-  constructor(private bpaservice: BpaService) {
+  constructor(private bpaservice: BpaService,private route: Router) {
     this.bpaservice.getServiceCategory().subscribe(res => {
       console.log('res', res);
       this.Response = res['body'];
@@ -31,6 +33,9 @@ export class ServiceCatalogComponent implements OnInit {
     })
   }
   ngOnInit() {
+  }
+  order(item) {
+    this.route.navigate(['/dynamic']);
   }
   getCheck(index) {
     if (index >= 0) {
@@ -64,7 +69,7 @@ export class ServiceCatalogComponent implements OnInit {
   }
   getFav(fav) {
     this.favourite = fav;
-    this.getCheck(-1)
+    this.getsearch(this.storeSearchValue)
   }
   selectFavourite(id) {
     this.bpaservice.selectFavourite(id._id).subscribe((res) => this.callApis())
@@ -73,4 +78,16 @@ export class ServiceCatalogComponent implements OnInit {
     // const getID = this.favResponseCopy.find((res) => res['serviceitems'][0]._id === id._id);
     this.bpaservice.deleteFavourite(id._id).subscribe((res) => this.callApis())
   }
+  getsearch(data) {
+    this.storeSearchValue = data;
+    this.getCheck(-1);
+    if (data) {
+      this.cardResponse = this.cardResponse.filter((res) => {
+        if (res.name.toLowerCase().includes(data.toLowerCase()) || res.tags[0]['name'].includes(data.toLowerCase())) {
+          return res;
+        }
+      });
+    }
+  }
+
 }
