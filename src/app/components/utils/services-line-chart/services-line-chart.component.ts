@@ -8,8 +8,7 @@ import { Chart } from 'chart.js';
 })
 export class ServicesLineChartComponent implements OnInit {
  
-  @Input()
-  chartElements:any;
+  @Input() chartElements:any;
 
   constructor() { }
 

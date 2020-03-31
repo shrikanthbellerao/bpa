@@ -5,8 +5,8 @@
     </marquee>
   </div>
   <div class="row">
-    <div class="spiral col-md-4 col-sm" style="margin-top: 10px;">
-      <app-d3-zoomable-sunburst></app-d3-zoomable-sunburst>
+    <div *ngIf='finalCount && finalCount.length > 0' class="spiral col-md-4 col-sm" style="margin-top: 10px;">
+      <app-d3-zoomable-sunburst [sunburstElement] = 'finalCount' ></app-d3-zoomable-sunburst>
     </div>
     <div class="col-md col-sm charts">
       <div *ngIf='chartDash' class="d-flex justify-content-center card-body" style="padding:0px 0px 0px 0px;">
