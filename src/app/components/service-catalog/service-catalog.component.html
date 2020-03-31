@@ -6,19 +6,19 @@
 <body>
   <div class="container-fluid service_items ">
     <div class="row ">
-      <div class="col-md-3 "> 
+      <div class="col-md-3 ">
         <div class="row mt-4">
           <ui-switch class="ml-2" (click)=getFav(enable) [(ngModel)]="enable"  defaultBgColor="#D4F0FE" color='white' defaultBoColor="#017CAD" switchColor="#017CAD">
             <i class="fa fa-heart" style="color:white" *ngIf="enable"></i>
             <i class="fa fa-heart-o" style="color:white" *ngIf="!enable"></i>
           </ui-switch><p class="ml-1 mt-1">Favourites</p>
-          <ui-switch class="col-6"  [(ngModel)]="enable1" checkedLabel="List" defaultBoColor="#017CAD"
+          <ui-switch class="col-6" [(ngModel)]="enable1" checkedLabel="List" defaultBoColor="#017CAD"
             uncheckedLabel="Grid" defaultBgColor="#D4F0FE" color='#E6E6FA'switchColor="#017CAD" >
             <i class="fa fa-list" style="color:white" *ngIf="enable1"></i>
             <i class="fa fa-th" style="color:white" *ngIf="!enable1"></i>
           </ui-switch>
         </div>
-        
+
         <div class="row search-box">
           <div><input class="search-txt" type="text" name="" placeholder="Search.." #search (keyup)="getsearch(search.value)"></div>
           <div class="">
