@@ -8,8 +8,7 @@ import { Chart } from 'chart.js';
 })
 export class ServicesLineChartComponent implements OnInit {
  
-  @Input()
-  chartElements:any;
+  @Input() chartElements:any;
 
   constructor() { }
 
@@ -20,6 +19,7 @@ export class ServicesLineChartComponent implements OnInit {
   ngOnInit() {
 
     let counts = [];
+    
     this.chartElements.forEach((x) => { counts[x.categoryIds[0].name] = (counts[x.categoryIds[0].name] || 0)+1; });
     
     console.log('counts',Object.keys(counts))

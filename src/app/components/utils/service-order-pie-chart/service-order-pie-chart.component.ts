@@ -10,8 +10,7 @@ import { Label } from 'ng2-charts';
 })
 export class ServiceOrderPieChartComponent implements OnInit {
 
-  @Input()
-  chart1Elements: any;
+  @Input() chart1Elements: any;
 
   // public pieChartData: number[]= [];
   public pieChartOptions: ChartOptions = {
@@ -36,7 +35,7 @@ export class ServiceOrderPieChartComponent implements OnInit {
   public pieChartLegend = true;
   public pieChartColors = [
     {
-      backgroundColor: ['#e83e8c','#ffc107','#20c997','#007bff'],
+      backgroundColor: ['#e83e8c','#ffc107','#20c997','#007bff','#D35400'],
     },
   ];
 
@@ -44,6 +43,7 @@ export class ServiceOrderPieChartComponent implements OnInit {
   ripCount = 0;
   inprocessCount = 0;
   rollbackCount = 0;
+  cancelledCount = 0;
   constructor() { }
 
   ngOnInit() {
@@ -60,6 +60,9 @@ export class ServiceOrderPieChartComponent implements OnInit {
 
      if(data.status === 'Rollback')
       this.rollbackCount++;
+
+    if(data.status === 'Cancelled')
+      this.cancelledCount++;
     })
 
   this.pieChartLabels.push(["Completed Orders"]);
@@ -70,6 +73,8 @@ export class ServiceOrderPieChartComponent implements OnInit {
   this.pieChartData.push(this.inprocessCount);
   this.pieChartLabels.push(["Rollback Orders"]);
   this.pieChartData.push(this.rollbackCount);
+  this.pieChartLabels.push(["Cancelled Orders"]);
+  this.pieChartData.push(this.cancelledCount);
   
  }
   // events
