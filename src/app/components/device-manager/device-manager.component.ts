@@ -40,8 +40,9 @@ export class DeviceManagerComponent implements OnInit {
       { headerName: 'Ned ID', field: 'ned_id', sortable: true, filter: true, width: 300 },
       { headerName: 'User Actions', field: 'useractions', cellRendererFramework: DeviceManagerIconComponent,
         cellRendererParams: {
-          onClick: this.onViewBtnClick.bind(this),
-          Ping: this.onPingBtnClick.bind(this)
+          View: this.onViewBtnClick.bind(this),
+          Ping: this.onPingBtnClick.bind(this),
+          Edit: this.onEditBtnClick.bind(this)
         },
         editable: false, headerComponentFramework: UserActionsDownloadCsvComponent,
         headerComponentParams: {
@@ -60,7 +61,7 @@ export class DeviceManagerComponent implements OnInit {
 
       this.rowData = [];
       this.deviceList = response['body'];
-      console.log(response['body']);
+      console.log(response);
       this.deviceList.forEach(item => {
         this.rowData.push({
           name: item.name,
@@ -149,6 +150,10 @@ export class DeviceManagerComponent implements OnInit {
 
     }), () => console.log('Error');
 
+  }
+
+  onEditBtnClick(e){
+    console.log('Hi');
   }
 
   hideModal() {

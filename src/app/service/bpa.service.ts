@@ -1,6 +1,6 @@
 import { Injectable, Type } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +29,7 @@ export class BpaService {
   */
 
   constructor(
-    private httpClient: HttpClient,
-    private toastr: ToastrService) {
+    private httpClient: HttpClient) {
   }
 
   nodeAppUrl = 'http://localhost:8080/';

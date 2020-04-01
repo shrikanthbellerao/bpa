@@ -23,10 +23,7 @@ export class ModalComponent implements OnInit {
 
   @Input() displayModal: boolean;
   @Input() modalConfig: any;
-  @Input() timelineElement: any
-  @Input() timelineElements: any
   @Output() closeModal = new EventEmitter();
-
   buttonListLength = 0;
 
   constructor() { }
@@ -38,8 +35,6 @@ export class ModalComponent implements OnInit {
   }
 
   hideModal() {
-    this.modalConfig.show=false;
-    this.closeModal.emit()
     this.closeModal.emit();
   }
 }
