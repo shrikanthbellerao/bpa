@@ -27,7 +27,7 @@ ngOnInit() {
     console.log('response of getServiceorders:', res);
     this.chart1dash = res['body'];
     this.timelinedash = res['body'];
-    this.fnTimelineTabClick(this.statuslist[0]);
+    this.fnTimelineTabClick(this.statuslist[1]);
     console.log(this.chart1dash)
   }, err => console.log('Error:', err));
 
@@ -47,9 +47,8 @@ ngOnInit() {
     itemsdata[0]['body'].forEach((res) => {
       counts.push({
         'name': res.categoryIds[0].name,
-        'children': [{name: res.name,
-        value:1
-        }]
+        "color":"#48C9B0",
+        'children': [{name: res.name,"color":"#5DADE2",value:1}]
         })
     itemsdata[1]['body'].forEach((itemname) => {
     if(res.name === itemname.item) {
@@ -58,10 +57,7 @@ ngOnInit() {
     counts[ss].children[0].value = counts[ss].children[0].value + 1;
     } else {
     counts.push({
-    'name': res.categoryIds[0].name,
-    'children': [{name: res.name,
-    value:1
-    }]
+    'name': res.categoryIds[0].name,"color":"#5DADE2",'children': [{name: res.name,"color":"#138D75",value:1}]
     })
     } 
     }
@@ -90,8 +86,7 @@ fnTimelineTabClick(tabName) {
     this.timelinedash.filter((res) => {
     if(res.status.toLowerCase() === tabName.toLowerCase()) {
         this.filterlist.push({
-        header: `Order ID: ${res.orderNumber}, ${res.formData.crq}`,
-        crq: res.formData.crq,
+        header: `Order ID: ${res.orderNumber}, ${(res.formData) ? res.formData.crq : 'CRQ123456789000'}`,
         time: res.createdAt
        })
     }
