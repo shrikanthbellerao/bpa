@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BpaService } from 'src/app/service/bpa.service';
 import { Observable,forkJoin } from 'rxjs';
+import { ChartsModule } from 'ng2-charts';
 
 @Component({
   selector: 'app-dashboard',

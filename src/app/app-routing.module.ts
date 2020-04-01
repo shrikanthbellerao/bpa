@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { ChartsModule } from 'ng2-charts';
 import { Routes, RouterModule } from "@angular/router";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { LoginComponent } from "./components/login/login.component";
@@ -36,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),ChartsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
