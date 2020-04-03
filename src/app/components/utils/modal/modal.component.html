@@ -22,7 +22,7 @@
 
         <!-- Modal body -->
         <div class="modal-body">
-          <p [innerHTML]="modalConfig.body"></p>
+          <div [innerHTML]="modalConfig.body"></div>
           
           <!-- Modal footer -->
           <div class="modal-footer" *ngIf="buttonListLength > 0">
@@ -35,3 +35,4 @@
       </div>
     </div>
   </div>
+  
