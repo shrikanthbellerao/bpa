@@ -12,7 +12,7 @@
     </button>
     <div class="collapse navbar-collapse btn-change" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item dropdown center">
+        <li class="nav-item dropdown center"  data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link dropdown-toggle py-0" data-toggle="dropdown" id="navbarDropdown" role="button"
             aria-haspopup="true" aria-expanded="false" [ngClass]="serviceCatalogFlg ? 'active-link' : ''">
             Service Catalog</a>
@@ -22,11 +22,11 @@
             <a routerLink="/activeServices" class="dropdown-item trigger" routerLinkActive="active">Orders</a>
           </div>
         </li>
-        <li class="nav-item center">
+        <li class="nav-item center"  data-toggle="collapse" data-target=".navbar-collapse.show">
           <a routerLink="/deviceManager" class="nav-link py-0 trigger" routerLinkActive="active-link">Device Manager</a>
         </li>
         <!--For admin-->
-        <li class="nav-item dropdown center" [ngClass]="user!=='admin' ? 'remove-space' : ''">
+        <li class="nav-item dropdown center" [ngClass]="user!=='admin' ? 'remove-space' : ''"  data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false"  *ngIf="user === 'admin'" [ngClass]="adminFlag ? 'active-link' : ''">
             Admin</a>
@@ -37,7 +37,7 @@
           </div>
         </li>
         <!--For non-admin users-->
-        <li class="nav-item dropdown center">
+        <li class="nav-item dropdown center"  data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link dropdown-toggle py-0" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" *ngIf="user !== 'admin'" [ngClass]="nonadminFlag ? 'active-link' : ''">
             {{user}}</a>
@@ -58,7 +58,7 @@
         <li class="account nav-item nav-fill center">
           <span class="d-block profile user">{{user}}</span>
         </li>
-        <li class="nav-item nav-fill center slide-right">
+        <li class="nav-item nav-fill center slide-right"  data-toggle="collapse" data-target=".navbar-collapse.show">
           <div class="dropdown nav-fill">
             <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
