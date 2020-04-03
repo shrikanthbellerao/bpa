@@ -12,7 +12,6 @@ export class TopnavComponent implements OnInit {
   nonadminFlag = false;
   serviceCatalogFlg = false;
   constructor(private router: Router) {}
-  
 ngOnInit() { 
    this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
