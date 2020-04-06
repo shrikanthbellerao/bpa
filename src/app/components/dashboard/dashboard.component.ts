@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BpaService } from 'src/app/service/bpa.service';
-import { Observable,forkJoin } from 'rxjs';
+import { Observable } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { ChartsModule } from 'ng2-charts';
 
 @Component({
@@ -17,8 +18,6 @@ export class DashboardComponent implements OnInit {
   chartDash:any;
   timelinedash:any = [];
   broadcastMessage: string;
-  chartdata:any;
-  chart1data:any;
 
 constructor(private bpaservice : BpaService) { }
 
@@ -39,10 +38,15 @@ ngOnInit() {
   }, err => console.log('Error:', err));
 
   this.bpaservice.fnFetchBroadcastMessage().subscribe(res => {
-    console.log('Broadcast message fetched from bpa-backed:', res);
+    console.log('Broadcast message fetched from bpa-backend:', res);
     this.broadcastMessage = res['broadcastMessage'];
   }, err => console.log('Error:', err));
 
+  this.fnd3chart();
+ 
+}
+
+fnd3chart() {
   const counts=[];
   forkJoin([this.bpaservice.getServiceItems(), this.bpaservice.getServiceorders()]).subscribe((itemsdata) => {
     itemsdata[0]['body'].forEach((res) => {
@@ -73,13 +77,10 @@ ngOnInit() {
     }
     })
 
-    console.log('count',this.finalCount);
     JSON.stringify(this.finalCount)
     console.log('count', this.finalCount)
     }) 
-
-
-}
+  }
 
 fnTimelineTabClick(tabName) {
   console.log('Inside fnTimelineTabClick', tabName);
@@ -87,11 +88,12 @@ fnTimelineTabClick(tabName) {
     this.timelinedash.filter((res) => {
     if(res.status.toLowerCase() === tabName.toLowerCase()) {
         this.filterlist.push({
-        header: `Order ID: ${res.orderNumber}, ${(res.formData) ? res.formData.crq : 'CRQ123456789000'}`,
+        header: `Order ID: ${res.orderNumber}, ${(res.formData && res.formData.crq) ? res.formData.crq : 'CRQ123456789000'}`,
         time: res.createdAt
        })
     }
   })
+  console.log('filterlist:',this.filterlist)
  }
   
 }
