@@ -1,6 +1,6 @@
 import { Injectable, Type } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +29,7 @@ export class BpaService {
   */
 
   constructor(
-    private httpClient: HttpClient,
-    private toastr: ToastrService) {
+    private httpClient: HttpClient) {
   }
 
   nodeAppUrl = 'http://localhost:8080/';
@@ -223,6 +222,15 @@ export class BpaService {
     return this.httpClient.post(this.nodeAppUrl + 'ping-device', requestBody, this.nodeJsHttpHeaders);
   }
 
+  // Method to Edit Device Details from Device Manager
+  editDevice(deviceDetails) {
+
+    const requestBody = {
+      deviceInfo: deviceDetails
+    };
+    return this.httpClient.post(this.nodeAppUrl + 'edit-device', requestBody, this.nodeJsHttpHeaders);
+  }
+
   // REST Api to fetch the broadcast message from bpa-backend application
   fnFetchBroadcastMessage() {
     return this.httpClient.get(this.nodeAppUrl + 'broadcast-message');
@@ -239,12 +247,13 @@ export class BpaService {
     return this.httpClient.put(this.nodeAppUrl + 'broadcast-message', requestBody, this.nodeJsHttpHeaders);
   }
   // REST API to fetch the admin details from bpa-backend application
-  fnFetchAdminDetails(){
+  fnFetchAdminDetails() {
     return this.httpClient.get(this.nodeAppUrl + 'admin');
   }
 
   // REST API to fetch the demo user details from bpa-backend application
-  fnFetchDemoDetails(){
+  fnFetchDemoDetails() {
     return this.httpClient.get(this.nodeAppUrl + 'demo');
   }
 }
+
