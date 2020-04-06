@@ -22,6 +22,7 @@ console.log('Inside ngOnInit of LoginComponent');
 this.bpaService.fnTestNodeApp().subscribe(response => {
 console.log('Message:', response);
 });
+localStorage.clear();
 }
 // Method to invoke a function in Service to validate whether the user is a valid user or not
 fnValidateCredential(formData, flag) {
