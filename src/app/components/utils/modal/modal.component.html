@@ -7,36 +7,31 @@
 </div>
 
 -->
-  <!-- The Modal -->
-  <div class="modal" id="myModal" [style.display]="displayModal ? 'block' : 'none'" *ngIf="modalConfig">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content border border-dark">
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="displayModal ? 'block' : 'none'" *ngIf="modalConfig">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content border border-dark">
 
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h6 class="modal-title"><strong>{{modalConfig.title}}</strong></h6>
-          <button type="button" class="close" data-dismiss="modal" (click)="hideModal()">
-            <span style="color:red;">&times;</span>
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title"><strong>{{modalConfig.title}}</strong></h6>
+        <button type="button" class="close" data-dismiss="modal" (click)="hideModal()">
+          <span style="color:red;">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div [innerHTML]="modalConfig.body"></div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer" *ngIf="buttonListLength > 0">
+          <button type="button" class="btn btn-secondary" *ngFor='let btn of modalConfig.buttonList'>
+            {{btn.buttonLabel}}
           </button>
         </div>
 
-        <!-- Modal body -->
-        <div class="modal-body">
-          <p [innerHTML]="modalConfig.body"></p>
-
-          <app-horizontal-timeline *ngIf='timelineElement && timelineElement.length'
-            [timelineElement]='timelineElement'></app-horizontal-timeline>
-          <app-timeline *ngIf='timelineElements && timelineElements.length' [timelineElements]='timelineElements'>
-          </app-timeline>
-
-          <!-- Modal footer -->
-          <div class="modal-footer" *ngIf="buttonListLength > 0">
-            <button type="button" class="btn btn-secondary" *ngFor='let btn of modalConfig.buttonList'>
-              {{btn.buttonLabel}}
-            </button>
-          </div>
-
-        </div>
       </div>
     </div>
   </div>
+</div>
