@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-reset-pswd',
-  templateUrl: './reset-pswd.component.html',
-  styleUrls: ['./reset-pswd.component.css']
+  selector: 'app-forgot-pswd',
+  templateUrl: './forgot-pswd.component.html',
+  styleUrls: ['./forgot-pswd.component.css']
 })
-export class ResetPswdComponent implements OnInit {
+export class ForgotPswdComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
-
+ 
 }
