@@ -12,7 +12,7 @@ import { ApplicationConfigComponent } from "./components/app-config/app-config.c
 import { UserRegistrationComponent } from "./components/user-registration/user-registration.component";
 import { MyProfileComponent } from "./components/my-profile/my-profile.component";
 import { FAQComponent } from "./components/faq/faq.component";
-import { ResetPswdComponent } from "./components/reset-pswd/reset-pswd.component";
+import { ForgotPswdComponent } from "./components/forgot-pswd/forgot-pswd.component";
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
 import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dynamic-loading.component';
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: "appConfig", component: ApplicationConfigComponent },
   { path: "myProfile", component: MyProfileComponent },
   { path: "FAQ", component: FAQComponent },
-  { path: "resetPassword", component: ResetPswdComponent },
+  { path: "forgotPassword", component: ForgotPswdComponent },
   { path: "activeServices", component: ActiveServicesComponent },
   { path: "deviceManager", component: DeviceManagerComponent },
   { path: "contactUs", component: ContactUsComponent},

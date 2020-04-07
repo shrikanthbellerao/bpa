@@ -40,7 +40,7 @@ import { ApplicationConfigComponent } from './components/app-config/app-config.c
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
-import { ResetPswdComponent } from './components/reset-pswd/reset-pswd.component';
+import { ForgotPswdComponent } from './components/forgot-pswd/forgot-pswd.component';
 import { D3SpiralStackedBarComponent } from './components/utils/d3-spiral-stacked-bar/d3-spiral-stacked-bar.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ActiveStatusComponent } from './components/active-status/active-status.component';
@@ -79,7 +79,7 @@ import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dyna
     UserRegistrationComponent,
     MyProfileComponent,
     FAQComponent,
-    ResetPswdComponent,
+    ForgotPswdComponent,
     TopnavComponent,
     FooterComponent,
     D3SpiralStackedBarComponent,
