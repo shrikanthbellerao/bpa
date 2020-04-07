@@ -1,0 +1,41 @@
+.wrapper .supportcard {
+    padding: 10px;
+}
+
+.card {
+    border: 2px solid;
+    border-color: #034e84;
+}
+
+.wrapper .supportcard .card:hover {
+    border-color: #56bee8;
+    cursor: pointer;
+}
+
+.jumbotron {
+    color: white;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/support.jpg");
+    background-size: cover;
+}
+
+.card-title {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.card-body {
+    font-weight: 400;
+}
+
+.card>.card-body {
+    text-align: center;
+}
+
+.fa {
+    color: #034e84;
+}
+
+.card-text {
+    color: darkslategray;
+}
