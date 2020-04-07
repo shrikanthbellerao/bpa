@@ -15,9 +15,10 @@ a:hover{
 text-decoration: none;
 }
 .card{
-    background: rgb(255, 255, 255);
-    /* background-color: lightgrey; */
+background: rgba(255, 255, 255, 0.89);
 border-radius: 50px 0px 50px 0px;
+font-family: 'lato'; 
+/* font-size: 1.3rem; */
 border: 1px solid #96cca4 !important;
 box-shadow: inset 0px 5px 18px 3px rgba(245, 244, 244, 0.8);
 }

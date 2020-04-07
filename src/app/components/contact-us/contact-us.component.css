@@ -4,7 +4,7 @@
   border-radius: 20px 20px 20px 20px; 
   border: 1px solid #96cca4 !important;
   font-family: lato; 
-  height: 135vh; 
+  height: 150vh; 
   box-shadow: 0px 0px 10px 3px grey;
   /* margin-top: 10px;  */
   width:50% ;
@@ -13,7 +13,7 @@
     /* background-color: rgb(25, 85, 119);   */
    background-image: url('../../../assets/any98.jpg');  
   background-size: cover;
-  height:140vh;
+  height:170vh;
   /* margin-top:-18px; */
   /* padding: 20px;  */
   
@@ -23,4 +23,10 @@
   }
   .form-group{ 
   padding: 0; 
+  }
+  .form-group.col-12{
+    font-size: 1.5rem;
+    margin-left: -70px;
+    font-family: 'lato'; 
+    font-style: oblique;
   }
