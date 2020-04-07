@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BpaService } from 'src/app/service/bpa.service';
 @Component({
-  selector: 'app-faq',
-  templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.css']
+selector: 'app-faq',
+templateUrl: './faq.component.html',
+styleUrls: ['./faq.component.css']
 })
-export class FAQComponent implements OnInit {
+export class FAQComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+faqDetails;
+constructor(
+private bpaservice: BpaService
+) 
+{ 
+this.bpaservice.getFaq().subscribe((res) => {
+this.faqDetails = res;
+})
 }
+}
+
+

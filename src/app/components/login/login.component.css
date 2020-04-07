@@ -142,7 +142,7 @@
   text-align: center;
 }
 
-.cusor {
+.cursor {
   cursor: pointer;
 }
 
@@ -161,3 +161,7 @@ a:hover {
    font-style:italic;
    text-shadow:2px 2px darkgoldenrod
  }
+ .fp{
+    font-size: small;
+    margin-left: 110px; 
+ }  
