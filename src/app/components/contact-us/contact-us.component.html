@@ -1,33 +1,58 @@
-<div class="background">
+<div class="background"> 
+  <!-- <img class="d-block w-100 h-100" src="../../../assets/cc100.jpg" alt="Second image">  -->
   <br>
-<div class="container contact-form">
+  <div class="container contact-form">
   <h1>Contact Form</h1>
   <hr>
   <div class="row">
-  <div class="col-md-6">
-    <address>Cessna Business Park</address>
-    <p>Email:-jas@cisco.com</p>
-    <p>Phone:-4545267289</p>
+  <div class="col-md-6 col-sm-8 "> 
+  <address>Cessna Business Park</address>
+  <p>Email:-jas@cisco.com</p>
+  <p>Phone:-4545267289</p>
   </div>
   <div class="col-md-6">
+    <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+     
     <div class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>Email</label>
-      <input type="text" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>Message</label>
-      <textarea class="form-control" rows="7"></textarea>
-    </div>
-
-    <div class="form-group">
-      <button class="btn btn-primary btn block">Send</button>
-    </div>
+  <label>Name</label>
+  <input type="text"  name="name"  formControlName = "name"  ngmodel class="form-control" >
+  <span class="text-danger"
+  *ngIf="(formdataControl.name.touched || submitted) && formdataControl.name.errors?.required">
+  Name is required
+  </span>
   </div>
+  <div class="form-group">
+  <label>Email</label>
+  <input type="text"  name="emailid"   formControlName = "emailid"  ngmodel class="form-control" >
+  <span class="text-danger"
+  *ngIf="(formdataControl.emailid.touched || submitted) && formdataControl.emailid.errors?.required">
+  Email is required
+</span>
+<span class="text-danger"
+  *ngIf="formdataControl.emailid.touched && formdataControl.emailid.errors?.email">
+  Enter a valid email address
+</span>
+  </div>
+  <div class="form-group">
+  <label>Message</label>
+  <textarea class="form-control"  rows="7" name="message" formControlName = "message" ngmodel ></textarea>
+  <span class="text-danger"
+  *ngIf="(formdataControl.message.touched || submitted) && formdataControl.message.errors?.required">
+  Message is required
+  </span>
+  </div>
+  <div class="form-group"> 
+    
+   <button [disabled]="!formdata.valid" class="btn btn-primary btn-block"> Submit</button>   
+  </div>
+<br> <br> <br> 
+  <div class="form-group col-12">
+    Back to <a routerLink="" class="text-primary cursor">
+      <u>Login</u>
+      </a>
+    </div>
+</form>
 </div>
-</div>
+  </div>
+  </div>
+  </div>

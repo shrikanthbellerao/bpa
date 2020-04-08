@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BpaService } from 'src/app/service/bpa.service';
 import { Router } from '@angular/router';
+
 @Component({
 selector: 'app-login',
 templateUrl: './login.component.html',
-styleUrls: ['./login.component.css']
+styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
 userName: string = '';
@@ -22,6 +23,7 @@ console.log('Inside ngOnInit of LoginComponent');
 this.bpaService.fnTestNodeApp().subscribe(response => {
 console.log('Message:', response);
 });
+localStorage.clear();
 }
 // Method to invoke a function in Service to validate whether the user is a valid user or not
 fnValidateCredential(formData, flag) {
@@ -62,7 +64,8 @@ alert('The APIs are not working');
 });
 }
 forGetPassword() {
-console.log('forget password....')
+// console.log('forget password....')
+this.router.navigate(['/forgotPassword'])
 }
 fnRegisterNewUser() {
 this.router.navigate(['/signup']);

@@ -1,6 +1,6 @@
 import { Injectable, Type } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,22 +16,10 @@ export class BpaService {
   vmTwoIPAddress = '10.81.59.208:9091';
   vmTwoNsoInstance = 'NSO-RTP,nso5-lsa4-rd';
 
-  /*
-    Use below approach to display Toastr from any component:
-    1. In case of Success message: this.toastr.success(msg, 'Success!');
-    2. In case of Error message: this.toastr.error(msg, 'Error!');
-    3. In case of Warning message: this.toastr.warning(msg, 'Alert!');
-    4. In case of Info message: this.toastr.info(msg, 'Info');
-    Toaster code this.bpaService.showSuccess('Login Successful!')
-    Toaster code this.bpaService.showError('Invalid Credentials')
-    this.bpaService.showWarning('Maximum Attempts Allowed is 5')
-    Toaster code this.bpaService.showInfo('Remember Next time')
-  */
 
   constructor(
-    private httpClient: HttpClient,
-    private toastr: ToastrService) {
-  }
+    private httpClient: HttpClient) {}
+   
 
   nodeAppUrl = 'http://localhost:8080/';
   nodeJsHttpHeaders = {
@@ -92,6 +80,20 @@ export class BpaService {
     console.log(requestBody);
     return this.httpClient.post(this.nodeAppUrl + 'orders', requestBody, this.nodeJsHttpHeaders);
   }
+
+ //Method to display questions and answers (FAQ)
+ getFaq() {
+  return this.httpClient.get(this.nodeAppUrl + 'FAQ');
+  }
+
+  //Method to get details entered by the user in contactus form
+  getcontactUs(data) {
+    const requestBody = {
+    accessToken: localStorage.getItem('accessToken'),
+    formData: data
+    };
+    return this.httpClient.post(this.nodeAppUrl + 'contactUs', requestBody, this.nodeJsHttpHeaders);
+    }
 
   // Method to set the Order status from Active Service info from Service Catalog microservice of BPA
   setServiceOrderStatus(getData) {
@@ -223,6 +225,15 @@ export class BpaService {
     return this.httpClient.post(this.nodeAppUrl + 'ping-device', requestBody, this.nodeJsHttpHeaders);
   }
 
+  // Method to Edit Device Details from Device Manager
+  editDevice(deviceDetails) {
+
+    const requestBody = {
+      deviceInfo: deviceDetails
+    };
+    return this.httpClient.post(this.nodeAppUrl + 'edit-device', requestBody, this.nodeJsHttpHeaders);
+  }
+
   // REST Api to fetch the broadcast message from bpa-backend application
   fnFetchBroadcastMessage() {
     return this.httpClient.get(this.nodeAppUrl + 'broadcast-message');
@@ -239,12 +250,19 @@ export class BpaService {
     return this.httpClient.put(this.nodeAppUrl + 'broadcast-message', requestBody, this.nodeJsHttpHeaders);
   }
   // REST API to fetch the admin details from bpa-backend application
-  fnFetchAdminDetails(){
+  fnFetchAdminDetails() {
     return this.httpClient.get(this.nodeAppUrl + 'admin');
   }
 
   // REST API to fetch the demo user details from bpa-backend application
-  fnFetchDemoDetails(){
+  fnFetchDemoDetails() {
     return this.httpClient.get(this.nodeAppUrl + 'demo');
   }
+
+    // REST API to fetch the technical support details from bpa-backend application
+  fnFetchSupportDetails(){
+      return this.httpClient.get(this.nodeAppUrl + 'techSupport');
+    }   
+
 }
+

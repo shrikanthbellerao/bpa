@@ -4,3 +4,45 @@
   background-color:#017CAD;
   color: white;
 }
+.modal-content  {
+
+  border-radius: 25px 0px 25px 0px; 
+  font-family: 'Lato';
+}
+
+.modal-header{
+  background-color: rgb(241, 247, 252);
+  border-radius:25px 0px 0px 0px;
+}
+.modal-dialog {
+  position: absolute;
+  top: 20%;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  overflow-y: auto;
+}
+
+.modal-edit{
+  position: absolute;
+  top: 10%;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  overflow-y: auto;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+.form-control{
+  border-color: black;
+}
+
+.invalid{
+  color:red;
+}
+

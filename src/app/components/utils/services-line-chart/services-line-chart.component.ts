@@ -12,19 +12,15 @@ export class ServicesLineChartComponent implements OnInit {
 
   constructor() { }
 
-  chart:any = [];
-  objservice = [];
-  
+  chart:any = [];  
 
   ngOnInit() {
 
     let counts = [];
+    console.log('linechart',this.chartElements)
     
-    this.chartElements.forEach((x) => { counts[x.categoryIds[0].name] = (counts[x.categoryIds[0].name] || 0)+1; });
-    
-    console.log('counts',Object.keys(counts))
-    console.log('counts',[...Object.values(counts)].map((res) => (res/2 === 0) ? res/2 : res))
-    
+    counts = this.fnlinechart(this.chartElements);
+
     this.chart = new Chart('canvas', {
       type: 'line',
       data: {
@@ -59,6 +55,15 @@ export class ServicesLineChartComponent implements OnInit {
       }
     });
   
+  }
+
+  fnlinechart(chartdata){
+    let counts = [];
+    if(chartdata){
+      chartdata.forEach((x) => { counts[x.categoryIds[0].name] = (counts[x.categoryIds[0].name] || 0)+1 });
+      }
+
+      return counts;
   }
 }
 
