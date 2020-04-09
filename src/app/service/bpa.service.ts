@@ -29,8 +29,7 @@ export class BpaService {
   */
 
   constructor(
-    private httpClient: HttpClient,
-    private toastr: ToastrService) {
+    private httpClient: HttpClient) {
   }
 
   nodeAppUrl = 'http://localhost:8080/';
@@ -128,14 +127,14 @@ export class BpaService {
   }
 
   // Method to get the Favourite Items from Service Catalog microservice of BPA
-  getFavItems() {
-    const requestBody = {
-      accessToken: localStorage.getItem('accessToken'),
-      vmIPAddress: this.vmIPAddress
-    };
+  // getFavItems() {
+  //   const requestBody = {
+  //     accessToken: localStorage.getItem('accessToken'),
+  //     vmIPAddress: this.vmIPAddress
+  //   };
 
-    return this.httpClient.post(this.nodeAppUrl + 'get-favourite-items', requestBody, this.nodeJsHttpHeaders);
-  }
+  //   return this.httpClient.post(this.nodeAppUrl + 'get-favourite-items', requestBody, this.nodeJsHttpHeaders);
+  // }
 
   // Method to delete the Favourite Items from Service Catalog microservice of BPA
   deleteFavourite(id) {
