@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BpaService } from 'src/app/service/bpa.service';
 import { Router } from '@angular/router';
+
 @Component({
 selector: 'app-login',
 templateUrl: './login.component.html',
-styleUrls: ['./login.component.css']
+styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
 userName: string = '';
@@ -63,7 +64,8 @@ alert('The APIs are not working');
 });
 }
 forGetPassword() {
-console.log('forget password....')
+// console.log('forget password....')
+this.router.navigate(['/forgotPassword'])
 }
 fnRegisterNewUser() {
 this.router.navigate(['/signup']);

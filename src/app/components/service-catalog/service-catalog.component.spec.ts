@@ -6,6 +6,9 @@ import { from,throwError} from 'rxjs';
 import { UiSwitchComponent } from 'ngx-ui-switch';
 import { CardsComponent } from '../utils/cards/cards.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from "@angular/router";
+import { Location } from "@angular/common";
+
 
 var service_record = [
   {
@@ -205,33 +208,39 @@ describe('ServiceCatalogComponent', () => {
     });
     it('should order navigate to ', () => {
     component.order(null);
+    //expect(location.path()).toBe('/dynamic');
     });
-    it('should getCheck to get fileter data ', () => {
+    it('should getCheck to get filter data ', () => {
     component.storeIndex = [];
-    component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
-    component.getCheck(0);
+    //component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
+    component.getCheck(1);
+    //expect(component.cardResponse[1].tags[0]['name']).toEqual('core service')
     });
-    it('should getCheck to get fileter data ', () => {
+    it('should getCheck to get filter data ', () => {
     component.storeIndex = [];
     component.favourite = true;
-    component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
-    component.getCheck(0);
+    //component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
+    component.getCheck(1);
+    //expect(component.cardResponse[0].tags[0]['name']).toEqual('core service')
     });
     it('should getCheck to get filter data else condition ', () => {
     component.favourite = true;
     component.storeIndex = [0];
-    component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
-    component.getCheck(0);
+    //component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
+    component.getCheck(1);
+    //expect(component.cardResponse[0].tags[0]['name']).toEqual('core service')
     });
     it('should getsearch', () => { 
     //spyOn(component,'getCheck').and.callThrough();
     component.getsearch('one');
     });
     it('should selectFavourite', () => { 
-    component.selectFavourite({_id:'1232131j3k1'});
+    component.selectFavourite(service_record[0]._id);
+    expect(component.storeResponse[0]._id).toEqual('5e43a666de78ef018a9948c4')
     });
     it('should deleteFavourite', () => { 
-    component.deleteFavourite({_id:'1232131j3k1'});
+    component.deleteFavourite(service_record[0]._id);
+    expect(component.storeResponse[0]._id).toEqual('5e43a666de78ef018a9948c4')
     });
     it('should getFav', () => { 
     component.getFav('catalog');

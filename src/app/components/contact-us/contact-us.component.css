@@ -1,25 +1,32 @@
 .contact-form{
-    background: rgba(0,0,0,0.3);
-    color: white;
-    border-radius: 50px 0px 50px 0px;  
-    border: 1px solid #96cca4 !important;
-    padding:8px;
-    font-family: lato; 
-    height: 88vh;
-    width:65% ;
-}
-.background{
-     /* background-color: darkseagreen;   */
-      background-image: url('../../../assets/dcBg3.jpg');  
-    background-size: cover;
-    height:100vh;
-    margin-top:-18px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px 3px grey;
-}
-.hr{
-    background: white;
-}
-.form-group{
-  padding: 0;
-}
+  background: rgba(0, 0, 0, 0.185);
+  color: white;
+  border-radius: 20px 20px 20px 20px; 
+  border: 1px solid #96cca4 !important;
+  font-family: lato; 
+  height: 150vh; 
+  box-shadow: 0px 0px 10px 3px grey;
+  /* margin-top: 10px;  */
+  width:50% ;
+  }
+  .background{
+    /* background-color: rgb(25, 85, 119);   */
+   background-image: url('../../../assets/any98.jpg');  
+  background-size: cover;
+  height:170vh;
+  /* margin-top:-18px; */
+  /* padding: 20px;  */
+  
+  }
+  .hr{
+  background: white;
+  }
+  .form-group{ 
+  padding: 0; 
+  }
+  .form-group.col-12{
+    font-size: 1.5rem;
+    margin-left: -70px;
+    font-family: 'lato'; 
+    font-style: oblique;
+  }

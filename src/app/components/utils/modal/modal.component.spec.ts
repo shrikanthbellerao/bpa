@@ -10,7 +10,7 @@ describe('modelcomponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalComponent,TimelineComponent,HorizontalTimelineComponent ]
+      declarations: [ ModalComponent, TimelineComponent, HorizontalTimelineComponent ]
     })
     .compileComponents();
   }));
@@ -19,10 +19,9 @@ describe('modelcomponent', () => {
     fixture = TestBed.createComponent(ModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    component['modalConfig'] ={
-        show: true,
-        buttonList: ['primary']
-    }
+    component['modalConfig'] = {
+        buttonList: []
+    };
   });
 
   it('should create', () => {
@@ -31,11 +30,11 @@ describe('modelcomponent', () => {
 
   it('should inilize the onit', () => {
     component.ngOnInit();
-    expect(component.buttonListLength).toEqual(1);
+    expect(component.buttonListLength).toEqual(0);
   });
 
   it('should call hideModal', () => {
     component.hideModal();
-    expect(component['modalConfig'].show).toBeFalsy();
+    expect(component['displayModal']).toBeFalsy();
   });
 });
