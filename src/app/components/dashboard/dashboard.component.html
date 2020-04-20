@@ -19,7 +19,7 @@
     <div class="tab-content col-md col-sm" style="padding: 0px 0px 0px 0px;">
         <ul class="nav nav-fill">
           <li *ngFor='let item of statuslist' class="nav-item" (click)="fnTimelineTabClick(item)">
-            <a [ngStyle]="myStyles" class="nav-link cursor" data-toggle="tab">
+            <a class="nav-link cursor" data-toggle="tab">
               {{item}}
             </a>
           </li>         

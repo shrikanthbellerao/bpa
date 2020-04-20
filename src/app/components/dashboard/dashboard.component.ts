@@ -47,12 +47,6 @@ ngOnInit() {
  
 }
 
-item = false;
-
-get myStyles(): any {
-   return {'background' : this.item? 'blue' : 'orange' }
-}
-
 fnd3chart() {
   const counts=[];
   forkJoin([this.bpaservice.getServiceItems(), this.bpaservice.getServiceorders()]).subscribe((itemsdata) => {
