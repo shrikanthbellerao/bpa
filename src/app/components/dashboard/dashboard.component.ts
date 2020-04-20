@@ -3,6 +3,7 @@ import { BpaService } from 'src/app/service/bpa.service';
 import { Observable } from 'rxjs';
 import { forkJoin } from 'rxjs';
 import { ChartsModule } from 'ng2-charts';
+import { color } from 'd3';
 
 @Component({
   selector: 'app-dashboard',
@@ -46,6 +47,12 @@ ngOnInit() {
  
 }
 
+item = false;
+
+get myStyles(): any {
+   return {'background' : this.item? 'blue' : 'orange' }
+}
+
 fnd3chart() {
   const counts=[];
   forkJoin([this.bpaservice.getServiceItems(), this.bpaservice.getServiceorders()]).subscribe((itemsdata) => {
@@ -84,7 +91,7 @@ fnd3chart() {
 
 fnTimelineTabClick(tabName) {
   console.log('Inside fnTimelineTabClick', tabName);
-     this.filterlist = [];
+    this.filterlist = [];
     this.timelinedash.filter((res) => {
     if(res.status.toLowerCase() === tabName.toLowerCase()) {
         this.filterlist.push({

@@ -42,7 +42,11 @@ export class ServicesLineChartComponent implements OnInit {
       },
       options: {
         legend: {
-          display: true
+          display: true,
+          labels: {
+            boxWidth: 20,
+            fontSize: 15
+          }
         },
         scales: {
           xAxes: [{

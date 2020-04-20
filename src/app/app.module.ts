@@ -15,7 +15,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ServicesLineChartComponent } from './components/utils/services-line-chart/services-line-chart.component';
-import { ServiceOrderPieChartComponent } from './components/utils/service-order-pie-chart/service-order-pie-chart.component';
+import { ServiceOrderBarChartComponent } from './components/utils/service-order-bar-chart/service-order-bar-chart.component';
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
@@ -59,7 +59,7 @@ import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dyna
     CollapsibleComponent,
     TimelineComponent,
     ServicesLineChartComponent,
-    ServiceOrderPieChartComponent,
+    ServiceOrderBarChartComponent,
     TooltipComponent,
     ProgressbarComponent,
     ButtonComponent,

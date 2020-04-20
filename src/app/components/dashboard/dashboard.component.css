@@ -43,24 +43,27 @@
 margin-left: 3px;
 border: 1px solid #778;
 border-bottom: none;
-background: rgb(209, 208, 208);
+background: rgba(54, 54, 56, 0.05);
 text-decoration: none;
 }
 
-.nav-fill li a:hover{
-color: #000;
-background: rgb(139, 198, 238);
-border-color: #227;
+.active-link{
+    background: rgb(139, 198, 238);
+}
+
+.nav-fill li a .active-link{
+    color: #000;
+    background: rgb(139, 198, 238);
+    border-color: #227;
 }
 
 .nav-fill li a#current{
-background: white;
+background: blue;
 border-bottom: 1px solid white;
 }
   
 .cursor {
     cursor: pointer;
-    color: cadetblue;
 }
 marquee {
     height:"40px";
