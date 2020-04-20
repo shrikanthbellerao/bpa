@@ -81,6 +81,20 @@ export class BpaService {
     return this.httpClient.post(this.nodeAppUrl + 'orders', requestBody, this.nodeJsHttpHeaders);
   }
 
+ //Method to display questions and answers (FAQ)
+ getFaq() {
+  return this.httpClient.get(this.nodeAppUrl + 'FAQ');
+  }
+
+  //Method to get details entered by the user in contactus form
+  getcontactUs(data) {
+    const requestBody = {
+    accessToken: localStorage.getItem('accessToken'),
+    formData: data
+    };
+    return this.httpClient.post(this.nodeAppUrl + 'contactUs', requestBody, this.nodeJsHttpHeaders);
+    }
+
   // Method to set the Order status from Active Service info from Service Catalog microservice of BPA
   setServiceOrderStatus(getData) {
     this.storedata = getData;
@@ -244,5 +258,11 @@ export class BpaService {
   fnFetchDemoDetails() {
     return this.httpClient.get(this.nodeAppUrl + 'demo');
   }
+
+    // REST API to fetch the technical support details from bpa-backend application
+  fnFetchSupportDetails(){
+      return this.httpClient.get(this.nodeAppUrl + 'techSupport');
+    }   
+
 }
 
