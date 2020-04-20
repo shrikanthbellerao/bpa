@@ -40,18 +40,14 @@
 }
 
 .nav-fill li a{
+background: rgb(158, 160, 161);
 margin-left: 3px;
 border: 1px solid #778;
 border-bottom: none;
-background: rgba(54, 54, 56, 0.05);
 text-decoration: none;
 }
 
-.active-link{
-    background: rgb(139, 198, 238);
-}
-
-.nav-fill li a .active-link{
+.nav-fill li a:hover{
     color: #000;
     background: rgb(139, 198, 238);
     border-color: #227;
