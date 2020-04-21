@@ -1,0 +1,48 @@
+<div *ngIf=supportDetails>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container ">
+      <h1 class="display-4">{{supportDetails[0].Heading}}</h1>
+      <p class="lead">{{supportDetails[0].Caption}}</p>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row wrapper">
+      <div class="col-md-3 supportcard">
+        <div class="card">
+          <div class="card-body">
+            <span class="fa fa-file-code-o fa-2x"></span>
+            <h4 class="card-title">{{supportDetails[0].SoftwareHeader}}</h4>
+            <p class="card-text">{{supportDetails[0].SoftwareSupport}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 supportcard">
+        <div class="card">
+          <div class="card-body">
+            <i class="fa fa-th-large  fa-2x"></i>
+            <h5 class="card-title">{{supportDetails[0].ProductHeader}}</h5>
+            <p class="card-text">{{supportDetails[0].ProductSupport}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 supportcard">
+        <div class="card">
+          <div class="card-body">
+            <i class="fa fa-globe fa-2x"></i>
+            <h4 class="card-title">{{supportDetails[0].NetworkHeader}}</h4>
+            <p class="card-text">{{supportDetails[0].NetworkSupport}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 supportcard">
+        <div class="card">
+          <div class="card-body">
+            <i class="fa fa-check-circle fa-2x"></i>
+            <h4 class="card-title">{{supportDetails[0].SolutionHeader}}</h4>
+            <p class="card-text">{{supportDetails[0].SolutionSupport}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

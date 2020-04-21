@@ -258,5 +258,11 @@ export class BpaService {
   fnFetchDemoDetails() {
     return this.httpClient.get(this.nodeAppUrl + 'demo');
   }
+
+    // REST API to fetch the technical support details from bpa-backend application
+  fnFetchSupportDetails(){
+      return this.httpClient.get(this.nodeAppUrl + 'techSupport');
+    }   
+
 }
 

@@ -3,6 +3,7 @@ import { BpaService } from 'src/app/service/bpa.service';
 import { Observable } from 'rxjs';
 import { forkJoin } from 'rxjs';
 import { ChartsModule } from 'ng2-charts';
+import { color } from 'd3';
 
 @Component({
   selector: 'app-dashboard',
@@ -84,7 +85,7 @@ fnd3chart() {
 
 fnTimelineTabClick(tabName) {
   console.log('Inside fnTimelineTabClick', tabName);
-     this.filterlist = [];
+    this.filterlist = [];
     this.timelinedash.filter((res) => {
     if(res.status.toLowerCase() === tabName.toLowerCase()) {
         this.filterlist.push({

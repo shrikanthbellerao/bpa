@@ -15,7 +15,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimelineComponent } from './components/utils/timeline/timeline.component';
 import { ServicesLineChartComponent } from './components/utils/services-line-chart/services-line-chart.component';
-import { ServiceOrderPieChartComponent } from './components/utils/service-order-pie-chart/service-order-pie-chart.component';
+import { ServiceOrderBarChartComponent } from './components/utils/service-order-bar-chart/service-order-bar-chart.component';
 import { ButtonComponent } from './components/utils/button/button.component';
 import { DropdownComponent } from './components/utils/dropdown/dropdown.component';
 import { TooltipComponent } from './components/utils/tooltip/tooltip.component';
@@ -35,9 +35,7 @@ import { DeviceManagerComponent } from './components/device-manager/device-manag
 import { DeviceManagerIconComponent } from './components/utils/device-manager-icon/device-manager-icon.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ManageRolesComponent } from './components/manage-roles/manage-roles.component';
 import { ApplicationConfigComponent } from './components/app-config/app-config.component';
-import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { ForgotPswdComponent } from './components/forgot-pswd/forgot-pswd.component';
@@ -50,6 +48,7 @@ import { ActiveServicesIconComponent } from './components/utils/active-services-
 import { HorizontalTimelineComponent } from './components/utils/horizontal-timeline/horizontal-timeline.component';
 import { D3ZoomableSunburstComponent } from './components/utils/d3-zoomable-sunburst/d3-zoomable-sunburst.component';
 import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dynamic-loading.component';
+import { TechSupportComponent } from './components/tech-support/tech-support.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +58,7 @@ import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dyna
     CollapsibleComponent,
     TimelineComponent,
     ServicesLineChartComponent,
-    ServiceOrderPieChartComponent,
+    ServiceOrderBarChartComponent,
     TooltipComponent,
     ProgressbarComponent,
     ButtonComponent,
@@ -74,9 +73,7 @@ import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dyna
     ActiveServicesComponent,
     DeviceManagerComponent,
     DeviceManagerIconComponent,
-    ManageRolesComponent,
     ApplicationConfigComponent,
-    UserRegistrationComponent,
     MyProfileComponent,
     FAQComponent,
     ForgotPswdComponent,
@@ -91,6 +88,7 @@ import { DynamicLoadingComponent } from './components/utils/dynamic-loading/dyna
     HorizontalTimelineComponent,
     UserActionsDownloadCsvComponent,
     DynamicLoadingComponent,
+    TechSupportComponent,
   ],
   imports: [
     BrowserModule,
