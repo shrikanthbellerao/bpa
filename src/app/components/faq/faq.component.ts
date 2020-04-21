@@ -14,6 +14,7 @@ private bpaservice: BpaService
 { 
 this.bpaservice.getFaq().subscribe((res) => {
 this.faqDetails = res;
+console.log('response',res);
 })
 }
 }
