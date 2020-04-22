@@ -208,30 +208,22 @@ describe('ServiceCatalogComponent', () => {
     });
     it('should order navigate to ', () => {
     component.order(null);
-    //expect(location.path()).toBe('/dynamic');
     });
     it('should getCheck to get filter data ', () => {
     component.storeIndex = [];
-    //component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
     component.getCheck(1);
-    //expect(component.cardResponse[1].tags[0]['name']).toEqual('core service')
     });
     it('should getCheck to get filter data ', () => {
     component.storeIndex = [];
     component.favourite = true;
-    //component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
     component.getCheck(1);
-    //expect(component.cardResponse[0].tags[0]['name']).toEqual('core service')
     });
     it('should getCheck to get filter data else condition ', () => {
     component.favourite = true;
     component.storeIndex = [0];
-    //component.Response = [{name: 'one',categoryIds: [ {name: "one" },{name: "two" }]}];
     component.getCheck(1);
-    //expect(component.cardResponse[0].tags[0]['name']).toEqual('core service')
     });
     it('should getsearch', () => { 
-    //spyOn(component,'getCheck').and.callThrough();
     component.getsearch('one');
     });
     it('should selectFavourite', () => { 
