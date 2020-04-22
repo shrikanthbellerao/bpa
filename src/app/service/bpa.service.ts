@@ -128,16 +128,6 @@ export class BpaService {
     return this.httpClient.post(this.nodeAppUrl + 'select-favourite', requestBody, this.nodeJsHttpHeaders);
   }
 
-  // Method to get the Favourite Items from Service Catalog microservice of BPA
-  // getFavItems() {
-  //   const requestBody = {
-  //     accessToken: localStorage.getItem('accessToken'),
-  //     vmIPAddress: this.vmIPAddress
-  //   };
-
-  //   return this.httpClient.post(this.nodeAppUrl + 'get-favourite-items', requestBody, this.nodeJsHttpHeaders);
-  // }
-
   // Method to delete the Favourite Items from Service Catalog microservice of BPA
   deleteFavourite(id) {
     const requestBody = {
