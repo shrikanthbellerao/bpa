@@ -134,8 +134,9 @@
 
 .cis-image {
   background-image: url('../../../assets/cisco-crop.png');
-  width: 10%;
-  height:10%;
+   width: 30px;
+  height:30px; 
+  size: 20rem;
 }
 
 .log {
@@ -158,10 +159,11 @@ a:hover {
    font-weight: 400;
    font-family:'lato';
    font-stretch: ultra-expanded;
-   font-style:italic;
-   text-shadow:2px 2px darkgoldenrod
+   font-style: normal;
+   color: black;
+   /* text-shadow:2px 2px darkgoldenrod */
  }
- .fp{
+ /* .fp{
     font-size: small;
     margin-left: 110px; 
- }  
+ }   */
