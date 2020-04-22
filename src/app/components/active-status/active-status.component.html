@@ -13,18 +13,27 @@
                     <p class='card-order'>Status : {{ showSelectedData.showData.status}}</p>
 
                 </div>
-                <div class='col col-4'>
+                <div class='col col-3'>
                     <p class='card-order'>Update Date :
                         {{ showSelectedData.showData.updatedAt | date:'mediumDate'}},{{ showSelectedData.showData.updatedAt | date:'shortTime'}}
                     </p>
 
                 </div>
-                <div class='col col-2.5'>
+                <div class='col col-2'>
                     <p class='card-order'>Completion : {{showSelectedData.count}}%
 
                     </p>
 
                 </div>
+                <div class='col col-1.5'>
+                    <span (click)="onView($event)">
+                        <i class="fa fa-window-close fa-2x ml-2"
+                            onclick="location.href = 'http://localhost:4200/activeServices';" data-toggle="tooltip"
+                            title="close"></i>
+                    </span>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -32,3 +41,9 @@
 <div style='background-color:lightblue'>
     <app-horizontal-timeline [timelineElement]='showSelectedData.timeline'></app-horizontal-timeline>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
