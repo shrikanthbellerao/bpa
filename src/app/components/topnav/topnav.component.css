@@ -65,7 +65,7 @@ nav {
 }
 
 .backgroundImage {
-    background-image: url("src\assets\dc.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("src\assets\dc.jpg");
     margin-bottom: .05rem;
     border-radius: .1rem .1rem .1rem .1rem;
 }

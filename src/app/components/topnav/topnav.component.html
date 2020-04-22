@@ -56,7 +56,8 @@
           </a>
         </li>
         <li class="account nav-item nav-fill center">
-          <span class="d-block profile user">{{user}}</span>
+          <span class="d-block profile user" *ngIf="user !== 'admin'">Non-Admin</span>
+          <span class="d-block profile user" *ngIf="user == 'admin'">Admin</span>
         </li>
         <li class="nav-item nav-fill center slide-right"  data-toggle="collapse" data-target=".navbar-collapse.show">
           <div class="dropdown nav-fill">
