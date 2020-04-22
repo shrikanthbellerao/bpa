@@ -11,9 +11,10 @@
   }
   .background{
     /* background-color: rgb(25, 85, 119);   */
-   background-image: url('../../../assets/any98.jpg');  
+   background-image: url('../../../assets/cc3.png');  
   background-size: cover;
   height:170vh;
+  
   /* margin-top:-18px; */
   /* padding: 20px;  */
   
@@ -28,5 +29,5 @@
     font-size: 1.5rem;
     margin-left: -70px;
     font-family: 'lato'; 
-    font-style: oblique;
+    /* font-style: oblique; */
   }
