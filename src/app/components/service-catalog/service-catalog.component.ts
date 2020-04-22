@@ -18,7 +18,7 @@ export class ServiceCatalogComponent implements OnInit {
   favourite = false;
   constructor(private bpaservice: BpaService,private route: Router) {
     this.bpaservice.getServiceCategory().subscribe(res => {
-      console.log('res', res);
+      console.log('Category_res', res);
       this.Response = res['body'];
     }, err => console.log('error..', err))
     this.callApis();
@@ -26,7 +26,7 @@ export class ServiceCatalogComponent implements OnInit {
   callApis() {
     this.bpaservice.getServiceItems().subscribe((record) => {
       this.cardResponse = [];
-      console.log('res', record);
+      console.log('service_res', record);
       this.storeResponse = record['body'];
       this.cardResponse = this.storeResponse;
       this.getCheck(-1);
