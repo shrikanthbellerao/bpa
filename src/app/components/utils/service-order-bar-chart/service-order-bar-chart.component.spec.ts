@@ -1,23 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChartsModule } from 'ng2-charts';
-import { ServiceOrderPieChartComponent } from './service-order-pie-chart.component';
+import { ServiceOrderBarChartComponent } from './service-order-bar-chart.component';
 import { BpaService } from 'src/app/service/bpa.service';
 
 describe('ServiceOrderPieChartComponent', () => {
-  let component: ServiceOrderPieChartComponent;
-  let fixture: ComponentFixture<ServiceOrderPieChartComponent>;
+  let component: ServiceOrderBarChartComponent;
+  let fixture: ComponentFixture<ServiceOrderBarChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ChartsModule],
-      declarations: [ ServiceOrderPieChartComponent ],
+      declarations: [ ServiceOrderBarChartComponent ],
       providers: [ { provide: BpaService }]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServiceOrderPieChartComponent);
+    fixture = TestBed.createComponent(ServiceOrderBarChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

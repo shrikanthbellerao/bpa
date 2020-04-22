@@ -40,27 +40,26 @@
 }
 
 .nav-fill li a{
+background: rgb(158, 160, 161);
 margin-left: 3px;
 border: 1px solid #778;
 border-bottom: none;
-background: rgb(209, 208, 208);
 text-decoration: none;
 }
 
 .nav-fill li a:hover{
-color: #000;
-background: rgb(139, 198, 238);
-border-color: #227;
+    color: #000;
+    background: rgb(139, 198, 238);
+    border-color: #227;
 }
 
 .nav-fill li a#current{
-background: white;
+background: blue;
 border-bottom: 1px solid white;
 }
   
 .cursor {
     cursor: pointer;
-    color: cadetblue;
 }
 marquee {
     height:"40px";

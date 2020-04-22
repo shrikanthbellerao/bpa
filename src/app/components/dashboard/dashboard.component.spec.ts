@@ -3,7 +3,7 @@ import { DashboardComponent } from './dashboard.component';
 import { BpaService } from 'src/app/service/bpa.service';
 import { D3ZoomableSunburstComponent } from '../utils/d3-zoomable-sunburst/d3-zoomable-sunburst.component';
 import { ServicesLineChartComponent } from '../utils/services-line-chart/services-line-chart.component';
-import { ServiceOrderPieChartComponent } from '../utils/service-order-pie-chart/service-order-pie-chart.component';
+import { ServiceOrderBarChartComponent } from '../utils/service-order-bar-chart/service-order-bar-chart.component';
 import { TimelineComponent } from '../utils/timeline/timeline.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { of, from } from 'rxjs';
@@ -115,7 +115,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    declarations: [ DashboardComponent,D3ZoomableSunburstComponent,ServiceOrderPieChartComponent,
+    declarations: [ DashboardComponent,D3ZoomableSunburstComponent,ServiceOrderBarChartComponent,
     ServicesLineChartComponent,TimelineComponent ],
     providers: [ { provide: BpaService, useClass: BpaServiceStub}],
     schemas: [NO_ERRORS_SCHEMA]

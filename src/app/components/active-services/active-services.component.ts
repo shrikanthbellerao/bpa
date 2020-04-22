@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
+import { AgGridModule } from 'ag-grid-angular';
 import { BpaService } from 'src/app/service/bpa.service';
-import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 import { ActiveServicesIconComponent } from 'src/app/components/utils/active-services-icon/active-services-icon.component';
-import { TimelineComponent } from 'src/app/components/utils/timeline/timeline.component';
 import { HorizontalTimelineComponent } from 'src/app/components/utils/horizontal-timeline/horizontal-timeline.component';
 import { UserActionsDownloadCsvComponent } from 'src/app/components/utils/user-actions-download-csv/user-actions-download-csv.component';
 import { Router } from '@angular/router';
+import { AgGridAngular } from 'ag-grid-angular';
+
 
 @Component({
   selector: 'app-active-services',
@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
 export class ActiveServicesComponent implements OnInit {
 
   timeline = []
-  timelines = []
   rowData: any = [];
   // filter1;
   serviceItem;
@@ -36,12 +35,12 @@ export class ActiveServicesComponent implements OnInit {
         console.log("Date updated", obj)
         obj.updatedAt = this.bpaService.fnFormatDate(obj.updatedAt);
         // obj.formData =JSON.stringify(obj.formData);
-        obj.formData = (obj.formData && obj.formData['connectionRow']) ? JSON.stringify(obj.formData['connectionRow']) : '--';
+        obj.formData = (obj.formData && obj.formData['connectionRow']) ? JSON.stringify(obj.formData['connectionRow']) : JSON.stringify(obj.formData);
         console.log(obj.formData); console.log('\n');
         return obj;
       });
-    }), err => console.log('error')
-
+    }, err => console.log('error')
+    )
   }
   onGridReady = params => {
     // Following line to make the currently visible columns fit the screen  
@@ -104,8 +103,11 @@ export class ActiveServicesComponent implements OnInit {
         // this.count = (100 / res['body']['data'].length) * this.timeline.length;
       })
       this.showSelectedData = event.rowData;
+      if (this.timeline.length>0){
       console.log('length of timeline', res['body'].length, this.timeline.length);
       this.count = (100 / res['body'].length) * this.timeline.length;
+      }
+      else this.count = 0
       this.bpaService.setServiceOrderStatus({ timeline: this.timeline, showData: this.showSelectedData, count: this.count });
       this.router.navigate(['/activeStatus'])
 

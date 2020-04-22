@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActiveStatusComponent } from './active-status.component';
+import { ForgotPswdComponent } from './forgot-pswd.component';
 
-describe('ActiveStatusComponent', () => {
-  let component: ActiveStatusComponent;
-  let fixture: ComponentFixture<ActiveStatusComponent>;
+describe('ForgotPswdComponent', () => {
+  let component: ForgotPswdComponent;
+  let fixture: ComponentFixture<ForgotPswdComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ActiveStatusComponent ]
+      declarations: [ ForgotPswdComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActiveStatusComponent);
+    fixture = TestBed.createComponent(ForgotPswdComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
