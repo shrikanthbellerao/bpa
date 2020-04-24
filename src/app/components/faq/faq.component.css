@@ -36,13 +36,11 @@ h4 {
     .background{
     height: 100vh;
     background-color:white; 
-    /* background-image: url("../../../assets/datacenter.jpg"); */
     }
     .group{
         margin-left: -70px;
         font-size: 1.3rem;
         text-align: right;
         font-family: 'fontawesome';
-        /* font-style: oblique;    */
      }
 
